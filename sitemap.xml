@@ -41,6 +41,10 @@
          <lastmod>2026-09-19</lastmod>
     </url>
     <url>
+         <loc>https://pspedding.github.io/econ-course-2027/exam-prep/past-exams/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
          <loc>https://pspedding.github.io/econ-course-2027/modules/module-01/M01.L01-descriptive-stats-summation/</loc>
          <lastmod>2026-09-19</lastmod>
     </url>
@@ -102,6 +106,118 @@
     </url>
     <url>
          <loc>https://pspedding.github.io/econ-course-2027/modules/module-03/M03.L05-multicollinearity-variance/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L01-sampling-distributions/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L02-t-tests/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L03-confidence-intervals/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L04-f-tests-joint-hypotheses/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L05-reporting-results/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-05/M05.L01-log-transformations/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-05/M05.L02-quadratic-interaction-terms/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-05/M05.L03-dummy-variables/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-05/M05.L04-dummy-variable-trap/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-05/M05.L05-interactions-dummies/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-06/M06.L01-nature-consequences/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-06/M06.L02-testing-heteroskedasticity/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-06/M06.L03-robust-standard-errors/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-06/M06.L04-weighted-least-squares/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-07/M07.L01-specification-errors/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-07/M07.L02-proxy-measurement-error/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-07/M07.L03-missing-data/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L01-nature-time-series/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L02-static-fdl-models/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L03-serial-correlation-spurious/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L04-stationarity-trends/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-09/M09.L01-ols-serial-correlation/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-09/M09.L02-testing-serial-correlation/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-09/M09.L03-correcting-serial-correlation/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-10/M10.L01-endogeneity-causality/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-10/M10.L02-iv-estimation/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-10/M10.L03-2sls/</loc>
+         <lastmod>2026-09-19</lastmod>
+    </url>
+    <url>
+         <loc>https://pspedding.github.io/econ-course-2027/modules/module-10/M10.L04-weak-instruments/</loc>
          <lastmod>2026-09-19</lastmod>
     </url>
 </urlset>

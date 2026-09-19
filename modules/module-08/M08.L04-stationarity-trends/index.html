@@ -1,0 +1,3014 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Principles of Econometrics — USYD ECMT5001-aligned self-study course (Wooldridge)">
+      
+      
+        <meta name="author" content="Econometrics 2027">
+      
+      
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L04-stationarity-trends/">
+      
+      
+        <link rel="prev" href="../M08.L03-serial-correlation-spurious/">
+      
+      
+        <link rel="next" href="../../module-09/M09.L01-ols-serial-correlation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>M08.L04 — Stationarity & Trends - Econometrics 2027</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-m08l04-stationarity-trends-and-unit-root-tests" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Econometrics 2027
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M08.L04 — Stationarity & Trends
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+          
+  
+  
+  M01 — Probability & Statistics Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M02 — Simple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M03 — Multiple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-04/M04.L01-sampling-distributions/" class="md-tabs__link">
+          
+  
+  
+  M04 — Statistical Inference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-05/M05.L01-log-transformations/" class="md-tabs__link">
+          
+  
+  
+  M05 — Functional Forms & Dummy Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-06/M06.L01-nature-consequences/" class="md-tabs__link">
+          
+  
+  
+  M06 — Heteroskedasticity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-07/M07.L01-specification-errors/" class="md-tabs__link">
+          
+  
+  
+  M07 — Specification & Data Issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../M08.L01-nature-time-series/" class="md-tabs__link">
+          
+  
+  
+  M08 — Time Series Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-tabs__link">
+          
+  
+  
+  M09 — Serial Correlation & Autocorrelation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-tabs__link">
+          
+  
+  
+  M10 — Instrumental Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../exam-prep/formula-sheet/" class="md-tabs__link">
+          
+  
+  
+  🎯 Exam Prep
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Econometrics 2027
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01 — Probability & Statistics Review
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M01 — Probability & Statistics Review
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L01 — Descriptive Statistics & Summation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L02 — Probability Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L03 — Random Variables & Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L04 — Joint Distributions, Covariance & Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L05 — Sampling & Sample Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L06 — Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02 — Simple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M02 — Simple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L01 — The Simple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L02-ols-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L02 — OLS Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L03 — Algebraic Properties of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L04 — Units, Functional Forms & Goodness of Fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L05 — Expected Values & Unbiasedness of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03 — Multiple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M03 — Multiple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L01 — The Multiple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L02 — OLS Estimation in Multiple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L03 — Gauss-Markov Assumptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L04 — Omitted Variable Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L05 — Multicollinearity & Variance of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04 — Statistical Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M04 — Statistical Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L01-sampling-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L01 — Sampling Distributions of OLS Estimators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L02-t-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L02 — t-Tests for Single Coefficients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L03-confidence-intervals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L03 — Confidence Intervals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L04-f-tests-joint-hypotheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L04 — F-Tests & Joint Hypotheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L05-reporting-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L05 — Reporting & Interpreting Regression Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L01-log-transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L01 — Log Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L02-quadratic-interaction-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L02 — Quadratic & Interaction Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L03-dummy-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L03 — Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L04-dummy-variable-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L04 — Dummy Variable Trap & Multiple Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L05-interactions-dummies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L05 — Interactions with Dummies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06 — Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M06 — Heteroskedasticity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L01-nature-consequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L01 — Nature & Consequences of Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L02-testing-heteroskedasticity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L02 — Testing for Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L03-robust-standard-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L03 — Robust Standard Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L04-weighted-least-squares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L04 — Weighted Least Squares (WLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07 — Specification & Data Issues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M07 — Specification & Data Issues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L01-specification-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L01 — Regression Specification Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L02-proxy-measurement-error/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L02 — Proxy Variables & Measurement Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L03-missing-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L03 — Missing Data & Non-Random Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08 — Time Series Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M08 — Time Series Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L01-nature-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L01 — Nature of Time Series Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L02-static-fdl-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L02 — Static & Finite Distributed Lag Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L03-serial-correlation-spurious/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L03 — Serial Correlation & Spurious Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L04 — Stationarity & Trends
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L04 — Stationarity & Trends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-stationarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Stationarity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-deterministic-trend-trend-stationary-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Deterministic Trend (Trend-Stationary Process)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-stochastic-trend-unit-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Stochastic Trend / Unit Root
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-contrast-deterministic-vs-stochastic-trend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Contrast: Deterministic vs Stochastic Trend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-integrated-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Integrated Processes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-augmented-dickey-fuller-adf-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Augmented Dickey-Fuller (ADF) Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-solution-first-differencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Solution: First Differencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Misconception
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L01 — Properties of OLS with Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L02-testing-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L02 — Testing for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L03-correcting-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L03 — Correcting for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10 — Instrumental Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M10 — Instrumental Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L01 — Endogeneity & the Problem of Causality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L02-iv-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L02 — Instrumental Variables (IV) Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L03-2sls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L03 — Two-Stage Least Squares (2SLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L04-weak-instruments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L04 — Weak Instruments & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Exam Prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🎯 Exam Prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/formula-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formula Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/past-exams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Past Exams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/exam-tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam Tips & Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lesson-m08l04-stationarity-trends-and-unit-root-tests">Lesson M08.L04: Stationarity, Trends, and Unit Root Tests</h1>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>08 — Time Series Basics</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Graduate (ECMT5001 S1 2027)</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>30–35 min</td>
+</tr>
+<tr>
+<td><strong>Learning Objective</strong></td>
+<td>Define covariance stationarity; distinguish deterministic from stochastic trends; understand the ADF unit root test; know when to detrend versus first-difference.</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Wooldridge, <em>Introductory Econometrics</em>, Ch 10.4–10.5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="explanation">Explanation</h2>
+<h3 id="1-stationarity">1. Stationarity</h3>
+<p>A time series <span class="arithmatex">\(\{y_t\}\)</span> is <strong>covariance stationary</strong> (weakly stationary) if its first two moments are time-invariant:</p>
+<div class="arithmatex">\[\begin{aligned}
+E(y_t) &amp;= \mu \quad &amp;&amp;\text{(constant mean)} \\
+\text{Var}(y_t) &amp;= \sigma^2 &lt; \infty \quad &amp;&amp;\text{(constant, finite variance)} \\
+\text{Cov}(y_t, y_{t-h}) &amp;= \gamma(h) \quad &amp;&amp;\text{(depends only on lag } h\text{, not on } t\text{)}
+\end{aligned}\]</div>
+<p>Covariance stationarity is also called <strong>weak stationarity</strong> (as opposed to strict stationarity, which requires the entire joint distribution to be time-invariant).</p>
+<p><strong>Why does stationarity matter?</strong>
+- Standard asymptotic theory (LLN, CLT) for time series requires stationarity or near-stationarity.
+- Non-stationary series have moments that change over time, making the past a poor guide to the future and standard inference invalid.
+- Spurious regressions (M08.L03) arise from regressing non-stationary series on each other.</p>
+<p><strong>Examples:</strong>
+- Stationary: stock returns, GDP growth rate (%), CPI inflation (if in a stable policy regime).
+- Non-stationary: GDP level, stock prices, nominal wages — all trend upward over time.</p>
+<hr />
+<h3 id="2-deterministic-trend-trend-stationary-process">2. Deterministic Trend (Trend-Stationary Process)</h3>
+<p>A <strong>deterministic trend</strong> model:</p>
+<div class="arithmatex">\[y_t = \alpha + \beta t + u_t, \quad u_t \sim \text{stationary}\]</div>
+<p>Here the mean changes linearly over time (<span class="arithmatex">\(E(y_t) = \alpha + \beta t\)</span>), but the variance is constant (<span class="arithmatex">\(\text{Var}(y_t) = \sigma_u^2\)</span>). The series "wanders" above and below the trend line but always reverts to it.</p>
+<p><strong>This series is NOT stationary</strong> (non-constant mean), but it is <strong>trend-stationary</strong>: once you remove the linear time trend, the residuals <span class="arithmatex">\(u_t\)</span> are stationary.</p>
+<p><strong>Solution: include <span class="arithmatex">\(t\)</span> as a regressor</strong> (detrending):</p>
+<ol>
+<li>Regress <span class="arithmatex">\(y_t\)</span> on a constant and <span class="arithmatex">\(t\)</span>: <span class="arithmatex">\(y_t = \hat{\alpha} + \hat{\beta} t + \hat{u}_t\)</span>.</li>
+<li>Use the detrended residuals <span class="arithmatex">\(\hat{u}_t\)</span> (or the detrended <span class="arithmatex">\(y\)</span>) in subsequent regressions.</li>
+</ol>
+<p><strong>Alternatively</strong>, simply include <span class="arithmatex">\(t\)</span> as a control variable in the regression of interest. This soaks up the common trend and avoids spurious correlation between <span class="arithmatex">\(y_t\)</span> and other trending series.</p>
+<hr />
+<h3 id="3-stochastic-trend-unit-root">3. Stochastic Trend / Unit Root</h3>
+<p>A <strong>random walk</strong> (the canonical stochastic trend model):</p>
+<div class="arithmatex">\[y_t = y_{t-1} + e_t, \quad e_t \sim \text{i.i.d.}(0, \sigma_e^2)\]</div>
+<p>Starting from <span class="arithmatex">\(y_0\)</span>:</p>
+<div class="arithmatex">\[y_t = y_0 + \sum_{s=1}^t e_s\]</div>
+<p><strong>Key properties:</strong>
+$<span class="arithmatex">\(E(y_t) = y_0 \quad \text{(constant mean)}\)</span>$
+$<span class="arithmatex">\(\text{Var}(y_t) = t \sigma_e^2 \quad \text{(grows without bound)}\)</span>$</p>
+<p>The variance increases linearly with <span class="arithmatex">\(t\)</span> — this series has a <strong>stochastic trend</strong>: it wanders further and further from its starting point over time, with no tendency to revert. The shocks are <strong>permanent</strong>: a shock <span class="arithmatex">\(e_t\)</span> shifts the level of <span class="arithmatex">\(y\)</span> permanently.</p>
+<p><strong>Why "unit root"?</strong> Express the random walk as:</p>
+<div class="arithmatex">\[y_t = \rho y_{t-1} + e_t\]</div>
+<p>with <span class="arithmatex">\(\rho = 1\)</span>. In the AR(1) representation, the autoregressive coefficient equals 1 (the "unit root"). For <span class="arithmatex">\(|\rho| &lt; 1\)</span>, the process is stationary (mean-reverting). For <span class="arithmatex">\(\rho = 1\)</span>, the process is non-stationary.</p>
+<p><strong>Random walk with drift:</strong></p>
+<div class="arithmatex">\[y_t = \mu + y_{t-1} + e_t\]</div>
+<p>Now <span class="arithmatex">\(E(y_t) = y_0 + \mu t\)</span> — trending upward (or downward) on average, with a variance still growing as <span class="arithmatex">\(t\sigma_e^2\)</span>. Most economic levels (GDP, price indices) follow a random walk with positive drift.</p>
+<hr />
+<h3 id="4-contrast-deterministic-vs-stochastic-trend">4. Contrast: Deterministic vs Stochastic Trend</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Deterministic Trend</th>
+<th>Stochastic Trend (Unit Root)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean</td>
+<td><span class="arithmatex">\(\alpha + \beta t\)</span> (non-constant)</td>
+<td><span class="arithmatex">\(y_0\)</span> (random walk) or <span class="arithmatex">\(y_0 + \mu t\)</span> (drift)</td>
+</tr>
+<tr>
+<td>Variance</td>
+<td>Constant <span class="arithmatex">\(\sigma_u^2\)</span></td>
+<td>Grows: <span class="arithmatex">\(t \sigma_e^2\)</span></td>
+</tr>
+<tr>
+<td>Shock persistence</td>
+<td>Temporary (shocks decay)</td>
+<td>Permanent (shocks accumulate)</td>
+</tr>
+<tr>
+<td>Remedy</td>
+<td>Detrend (subtract <span class="arithmatex">\(\hat{\alpha} + \hat{\beta} t\)</span>)</td>
+<td>First-difference (<span class="arithmatex">\(\Delta y_t\)</span>)</td>
+</tr>
+<tr>
+<td>After remedy</td>
+<td>Stationary</td>
+<td>Stationary (if one unit root)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical point:</strong> If a series has a unit root, detrending does <strong>not</strong> make it stationary — you must first-difference. Applying the wrong remedy leaves you with a non-stationary series and invalid inference.</p>
+<hr />
+<h3 id="5-integrated-processes">5. Integrated Processes</h3>
+<p>A process <span class="arithmatex">\(y_t\)</span> that becomes stationary after <span class="arithmatex">\(d\)</span> first-differences is said to be <strong>integrated of order <span class="arithmatex">\(d\)</span></strong>, written <span class="arithmatex">\(y_t \sim I(d)\)</span>:</p>
+<ul>
+<li><span class="arithmatex">\(I(0)\)</span>: already stationary.</li>
+<li><span class="arithmatex">\(I(1)\)</span>: one unit root; <span class="arithmatex">\(\Delta y_t \sim I(0)\)</span>.</li>
+<li><span class="arithmatex">\(I(2)\)</span>: two unit roots; <span class="arithmatex">\(\Delta^2 y_t \sim I(0)\)</span> (rare in economics).</li>
+</ul>
+<p>Most macroeconomic levels (GDP, prices, nominal wages) are <span class="arithmatex">\(I(1)\)</span>. Their growth rates (log differences) are <span class="arithmatex">\(I(0)\)</span>.</p>
+<hr />
+<h3 id="6-augmented-dickey-fuller-adf-test">6. Augmented Dickey-Fuller (ADF) Test</h3>
+<p>The <strong>ADF test</strong> is the standard formal test for a unit root.</p>
+<p><strong>Null hypothesis:</strong> <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(y_t\)</span> has a unit root (is non-stationary, <span class="arithmatex">\(I(1)\)</span>).
+<strong>Alternative:</strong> <span class="arithmatex">\(H_1\)</span>: <span class="arithmatex">\(y_t\)</span> is stationary (<span class="arithmatex">\(I(0)\)</span>).</p>
+<p><strong>Regression form:</strong></p>
+<div class="arithmatex">\[\Delta y_t = \alpha + \theta y_{t-1} + \sum_{j=1}^p \gamma_j \Delta y_{t-j} + \varepsilon_t\]</div>
+<p>The augmentation terms <span class="arithmatex">\(\sum_{j=1}^p \gamma_j \Delta y_{t-j}\)</span> absorb any serial correlation in the errors (the Dickey-Fuller test without augmentation assumes i.i.d. errors; the ADF is more general).</p>
+<p><strong>Test statistic:</strong> <span class="arithmatex">\(t_\theta = \hat{\theta} / SE(\hat{\theta})\)</span></p>
+<p><strong>Decision rule:</strong>
+- Reject <span class="arithmatex">\(H_0\)</span> (conclude stationary) if <span class="arithmatex">\(t_\theta &lt; \text{ADF critical value}\)</span> (e.g. <span class="arithmatex">\(-2.89\)</span> at 5% for no trend; <span class="arithmatex">\(-3.45\)</span> at 5% with trend).
+- The ADF critical values are <strong>not</strong> standard normal — they are more negative (require a larger magnitude to reject) because the distribution shifts under the unit-root null.
+- Fail to reject <span class="arithmatex">\(H_0\)</span> → conclude <span class="arithmatex">\(I(1)\)</span>; take first differences.</p>
+<p><strong>Lag length selection for <span class="arithmatex">\(p\)</span>:</strong> Use AIC/BIC or start with a long lag and drop insignificant ones.</p>
+<p><strong>Specification choices:</strong>
+- No constant, no trend (rarely appropriate in economics).
+- With constant (most common for stationary-around-mean series).
+- With constant and linear trend (for potentially trend-stationary series).</p>
+<hr />
+<h3 id="7-solution-first-differencing">7. Solution: First Differencing</h3>
+<p>If a series is <span class="arithmatex">\(I(1)\)</span>, first-differencing produces a stationary <span class="arithmatex">\(I(0)\)</span> series:</p>
+<div class="arithmatex">\[\Delta y_t = y_t - y_{t-1}\]</div>
+<p><strong>Examples:</strong>
+- <span class="arithmatex">\(\ln(\text{GDP}_t)\)</span> is <span class="arithmatex">\(I(1)\)</span> → <span class="arithmatex">\(\Delta \ln(\text{GDP}_t) \approx g_t\)</span> (GDP growth rate) is <span class="arithmatex">\(I(0)\)</span>.
+- <span class="arithmatex">\(\ln(\text{CPI}_t)\)</span> is <span class="arithmatex">\(I(1)\)</span> → <span class="arithmatex">\(\Delta \ln(\text{CPI}_t) \approx \pi_t\)</span> (inflation rate) is <span class="arithmatex">\(I(0)\)</span>.
+- Nominal interest rate <span class="arithmatex">\(r_t\)</span> is often <span class="arithmatex">\(I(1)\)</span> → <span class="arithmatex">\(\Delta r_t\)</span> is <span class="arithmatex">\(I(0)\)</span>.</p>
+<p><strong>Trade-off of differencing:</strong> You lose information about long-run levels. If you suspect a long-run cointegrating relationship between two <span class="arithmatex">\(I(1)\)</span> series, first-differencing discards that relationship — you should instead use a <strong>vector error correction model (VECM)</strong> (advanced topic).</p>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Is Australian GDP stationary? Levels vs. growth rates.</strong></p>
+<p><strong>Setup.</strong> Consider quarterly Australian real GDP (<span class="arithmatex">\(Y_t\)</span>) and the quarterly GDP growth rate (<span class="arithmatex">\(g_t = 100 \times \Delta \ln Y_t\)</span>), 1960Q1–2023Q4 (<span class="arithmatex">\(T = 256\)</span>).</p>
+<p><strong>Step 1. Visual inspection.</strong></p>
+<ul>
+<li><span class="arithmatex">\(Y_t\)</span> (level): trends steadily upward from ~$100bn to ~$600bn (2015 AUD). Clearly non-constant mean.</li>
+<li><span class="arithmatex">\(g_t\)</span> (growth rate): fluctuates around approximately 0.8% per quarter with no obvious trend. Plausible stationarity.</li>
+</ul>
+<p><strong>Step 2. ADF test — GDP level (<span class="arithmatex">\(Y_t\)</span>).</strong></p>
+<p>Specification: with constant and linear trend (because <span class="arithmatex">\(Y_t\)</span> trends upward).</p>
+<div class="arithmatex">\[\Delta Y_t = \alpha + \beta t + \theta Y_{t-1} + \sum_{j=1}^4 \gamma_j \Delta Y_{t-j} + \varepsilon_t\]</div>
+<p>Suppose <span class="arithmatex">\(t_\theta = -1.85\)</span>. ADF 5% critical value (with trend) = <span class="arithmatex">\(-3.45\)</span>.</p>
+<p>Since <span class="arithmatex">\(-1.85 &gt; -3.45\)</span>: <strong>fail to reject <span class="arithmatex">\(H_0\)</span></strong>. Conclude <span class="arithmatex">\(Y_t\)</span> has a unit root — it is <span class="arithmatex">\(I(1)\)</span>.</p>
+<p><strong>Step 3. ADF test — GDP growth rate (<span class="arithmatex">\(g_t\)</span>).</strong></p>
+<p>Specification: with constant only (growth rate fluctuates around a positive mean).</p>
+<div class="arithmatex">\[\Delta g_t = \alpha + \theta g_{t-1} + \sum_{j=1}^4 \gamma_j \Delta g_{t-j} + \varepsilon_t\]</div>
+<p>Suppose <span class="arithmatex">\(t_\theta = -5.42\)</span>. ADF 5% critical value (with constant) = <span class="arithmatex">\(-2.89\)</span>.</p>
+<p>Since <span class="arithmatex">\(-5.42 &lt; -2.89\)</span>: <strong>reject <span class="arithmatex">\(H_0\)</span></strong>. Conclude <span class="arithmatex">\(g_t\)</span> is stationary — it is <span class="arithmatex">\(I(0)\)</span>.</p>
+<p><strong>Step 4. Conclusion and implication.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Series</th>
+<th>ADF stat</th>
+<th>5% CV</th>
+<th>Decision</th>
+<th>Order</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(Y_t\)</span> (level)</td>
+<td>−1.85</td>
+<td>−3.45</td>
+<td>Fail to reject <span class="arithmatex">\(H_0\)</span></td>
+<td><span class="arithmatex">\(I(1)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(g_t\)</span> (growth)</td>
+<td>−5.42</td>
+<td>−2.89</td>
+<td>Reject <span class="arithmatex">\(H_0\)</span></td>
+<td><span class="arithmatex">\(I(0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Implication:</strong> Regressions using GDP levels are at risk of spurious regression unless the other variable is also <span class="arithmatex">\(I(1)\)</span> and the two series are cointegrated. Regressions using GDP growth rates are valid under standard OLS asymptotics (given stationarity).</p>
+<hr />
+<h2 id="common-misconception">Common Misconception</h2>
+<blockquote>
+<p><strong>"Detrending (removing a linear time trend) removes all non-stationarity."</strong></p>
+</blockquote>
+<p><strong>This is false.</strong> Detrending (subtracting <span class="arithmatex">\(\hat{\alpha} + \hat{\beta} t\)</span>) only works if the series is <strong>trend-stationary</strong> — i.e. non-stationary only because of a deterministic trend, with stationary errors.</p>
+<p>If the series has a <strong>stochastic trend (unit root)</strong>, detrending does not produce a stationary series. The detrended series will still have a variance that grows over time (because the unit-root shocks accumulate even around a linear trend). You must <strong>first-difference</strong>, not detrend.</p>
+<p><strong>How to tell which applies:</strong> Use the ADF test. Include a time trend in the ADF regression. If you reject the unit-root null, the series is trend-stationary (detrend). If you fail to reject, it has a unit root (first-difference).</p>
+<p><strong>Practical cost of the wrong remedy:</strong>
+- First-differencing a trend-stationary series: over-differencing → introduces unnecessary moving-average structure in errors.
+- Detrending a unit-root series: fails to achieve stationarity → spurious regression, invalid inference.</p>
+<hr />
+<h2 id="practice-prompts">Practice Prompts</h2>
+<ol>
+<li><strong>Stationarity check.</strong> Consider three time series:</li>
+<li><span class="arithmatex">\(A_t\)</span>: Australian CPI level (1990–2023, monthly).</li>
+<li><span class="arithmatex">\(B_t\)</span>: Australian CPI inflation rate (monthly change in log CPI).</li>
+<li><span class="arithmatex">\(C_t\)</span>: 10-year government bond yield (%).</li>
+</ol>
+<p>(a) For each series, state whether you would expect it to be stationary or non-stationary, and why.
+   (b) For any non-stationary series, suggest the appropriate transformation to induce stationarity.
+   (c) What specification (no trend, constant only, constant + trend) would you use in the ADF test for each series? Justify.</p>
+<ol>
+<li>
+<p><strong>ADF test interpretation.</strong> A researcher tests whether the monthly Australian unemployment rate (<span class="arithmatex">\(U_t\)</span>) is stationary using an ADF test with constant and no trend. She finds <span class="arithmatex">\(t_\theta = -2.31\)</span> and the 5% ADF critical value is <span class="arithmatex">\(-2.89\)</span>.
+   (a) State the null and alternative hypotheses of the ADF test.
+   (b) What is the conclusion at the 5% level?
+   (c) What should she do before running a regression of <span class="arithmatex">\(U_t\)</span> on other economic variables? Give two specific steps.</p>
+</li>
+<li>
+<p><strong>Random walk properties.</strong> A random walk is defined by <span class="arithmatex">\(y_t = y_{t-1} + e_t\)</span>, <span class="arithmatex">\(e_t \sim \text{i.i.d.}(0, 4)\)</span>, <span class="arithmatex">\(y_0 = 0\)</span>.
+   (a) Compute <span class="arithmatex">\(\text{Var}(y_{25})\)</span>.
+   (b) Explain why this series is not covariance stationary.
+   (c) Show that <span class="arithmatex">\(\Delta y_t = y_t - y_{t-1}\)</span> is stationary. What are its mean and variance?
+   (d) Explain in words what it means for shocks to be "permanent" in a random walk, vs "transitory" in a stationary AR(1).</p>
+</li>
+</ol>
+<hr />
+<h2 id="further-resources">Further Resources</h2>
+<ul>
+<li>Wooldridge, <em>Introductory Econometrics</em> (7e), §10.4–10.5 — Trending Time Series and Stationarity.</li>
+<li>Dickey, D.A. &amp; Fuller, W.A. (1979). "Distribution of the estimators for autoregressive time series with a unit root." <em>Journal of the American Statistical Association</em>, 74(366), 427–431. — Original Dickey-Fuller paper.</li>
+<li>Elliott, G., Rothenberg, T.J. &amp; Stock, J.H. (1996). "Efficient tests for an autoregressive unit root." <em>Econometrica</em>, 64(4), 813–836. — More powerful DF-GLS test.</li>
+<li>ABS (2024). Australian National Accounts: National Income, Expenditure and Product (Cat. 5206.0). — Source for Australian GDP series.</li>
+<li>See also: <strong>M08.L03</strong> (Spurious Regression — motivation for why stationarity matters) and future cointegration module.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

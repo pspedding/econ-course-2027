@@ -1,0 +1,2981 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Principles of Econometrics — USYD ECMT5001-aligned self-study course (Wooldridge)">
+      
+      
+        <meta name="author" content="Econometrics 2027">
+      
+      
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/modules/module-04/M04.L04-f-tests-joint-hypotheses/">
+      
+      
+        <link rel="prev" href="../M04.L03-confidence-intervals/">
+      
+      
+        <link rel="next" href="../M04.L05-reporting-results/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>M04.L04 — F-Tests & Joint Hypotheses - Econometrics 2027</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-m04l04-f-tests-and-joint-hypotheses" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Econometrics 2027
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M04.L04 — F-Tests & Joint Hypotheses
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+          
+  
+  
+  M01 — Probability & Statistics Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M02 — Simple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M03 — Multiple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../M04.L01-sampling-distributions/" class="md-tabs__link">
+          
+  
+  
+  M04 — Statistical Inference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-05/M05.L01-log-transformations/" class="md-tabs__link">
+          
+  
+  
+  M05 — Functional Forms & Dummy Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-06/M06.L01-nature-consequences/" class="md-tabs__link">
+          
+  
+  
+  M06 — Heteroskedasticity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-07/M07.L01-specification-errors/" class="md-tabs__link">
+          
+  
+  
+  M07 — Specification & Data Issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-08/M08.L01-nature-time-series/" class="md-tabs__link">
+          
+  
+  
+  M08 — Time Series Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-tabs__link">
+          
+  
+  
+  M09 — Serial Correlation & Autocorrelation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-tabs__link">
+          
+  
+  
+  M10 — Instrumental Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../exam-prep/formula-sheet/" class="md-tabs__link">
+          
+  
+  
+  🎯 Exam Prep
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Econometrics 2027
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01 — Probability & Statistics Review
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M01 — Probability & Statistics Review
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L01 — Descriptive Statistics & Summation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L02 — Probability Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L03 — Random Variables & Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L04 — Joint Distributions, Covariance & Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L05 — Sampling & Sample Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L06 — Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02 — Simple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M02 — Simple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L01 — The Simple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L02-ols-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L02 — OLS Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L03 — Algebraic Properties of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L04 — Units, Functional Forms & Goodness of Fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L05 — Expected Values & Unbiasedness of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03 — Multiple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M03 — Multiple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L01 — The Multiple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L02 — OLS Estimation in Multiple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L03 — Gauss-Markov Assumptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L04 — Omitted Variable Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L05 — Multicollinearity & Variance of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04 — Statistical Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M04 — Statistical Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M04.L01-sampling-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L01 — Sampling Distributions of OLS Estimators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M04.L02-t-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L02 — t-Tests for Single Coefficients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M04.L03-confidence-intervals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L03 — Confidence Intervals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L04 — F-Tests & Joint Hypotheses
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L04 — F-Tests & Joint Hypotheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-we-need-joint-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why We Need Joint Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-hypotheses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up the Hypotheses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restricted-vs-unrestricted-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restricted vs. Unrestricted Models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-f-statistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The F-Statistic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equivalent-r2-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equivalent \(R^2\) Form
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overall-significance-of-the-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overall Significance of the Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-individual-t-tests-are-not-sufficient-for-joint-hypotheses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Individual t-Tests Are Not Sufficient for Joint Hypotheses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-individual-t-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to Individual t-Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Misconception
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M04.L05-reporting-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L05 — Reporting & Interpreting Regression Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L01-log-transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L01 — Log Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L02-quadratic-interaction-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L02 — Quadratic & Interaction Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L03-dummy-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L03 — Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L04-dummy-variable-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L04 — Dummy Variable Trap & Multiple Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L05-interactions-dummies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L05 — Interactions with Dummies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06 — Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M06 — Heteroskedasticity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L01-nature-consequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L01 — Nature & Consequences of Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L02-testing-heteroskedasticity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L02 — Testing for Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L03-robust-standard-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L03 — Robust Standard Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L04-weighted-least-squares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L04 — Weighted Least Squares (WLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07 — Specification & Data Issues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M07 — Specification & Data Issues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L01-specification-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L01 — Regression Specification Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L02-proxy-measurement-error/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L02 — Proxy Variables & Measurement Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L03-missing-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L03 — Missing Data & Non-Random Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08 — Time Series Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M08 — Time Series Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-08/M08.L01-nature-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L01 — Nature of Time Series Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-08/M08.L02-static-fdl-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L02 — Static & Finite Distributed Lag Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-08/M08.L03-serial-correlation-spurious/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L03 — Serial Correlation & Spurious Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-08/M08.L04-stationarity-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L04 — Stationarity & Trends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L01 — Properties of OLS with Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L02-testing-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L02 — Testing for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L03-correcting-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L03 — Correcting for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10 — Instrumental Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M10 — Instrumental Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L01 — Endogeneity & the Problem of Causality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L02-iv-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L02 — Instrumental Variables (IV) Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L03-2sls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L03 — Two-Stage Least Squares (2SLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L04-weak-instruments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L04 — Weak Instruments & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Exam Prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🎯 Exam Prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/formula-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formula Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/past-exams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Past Exams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/exam-tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam Tips & Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lesson-m04l04-f-tests-and-joint-hypotheses">Lesson M04.L04: F-Tests and Joint Hypotheses</h1>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>Module 04 — Statistical Inference in OLS</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Graduate (ECMT5001, S1 2027)</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>35 min</td>
+</tr>
+<tr>
+<td><strong>Learning Objective</strong></td>
+<td>Formulate and execute F-tests for joint hypotheses; relate the F-statistic to restricted and unrestricted SSR/R²; test the overall significance of a regression; understand why individual t-tests cannot replace joint tests</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Wooldridge, <em>Introductory Econometrics</em>, 7e, Chapter 4.5 (pp. 153–168)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="explanation">Explanation</h2>
+<h3 id="why-we-need-joint-tests">Why We Need Joint Tests</h3>
+<p>Suppose we want to know whether <em>education</em> and <em>experience</em> are <strong>together</strong> relevant predictors of wages. We might think: just check whether both have <span class="arithmatex">\(|t| &gt; 1.96\)</span>. But this is wrong.</p>
+<p>If the t-tests for <span class="arithmatex">\(\hat{\beta}_1\)</span> and <span class="arithmatex">\(\hat{\beta}_2\)</span> are correlated (which they are whenever the regressors are correlated), then:
+- Two individually insignificant variables can be <strong>jointly significant</strong>.
+- Two individually significant variables can (in principle) be jointly redundant.</p>
+<p>The correct tool for testing multiple restrictions simultaneously is the <strong>F-test</strong>.</p>
+<hr />
+<h3 id="setting-up-the-hypotheses">Setting Up the Hypotheses</h3>
+<p>A joint hypothesis imposes <span class="arithmatex">\(q\)</span> linear restrictions on the <span class="arithmatex">\(\beta\)</span> vector. The most common case is testing that <span class="arithmatex">\(q\)</span> specific coefficients are all zero:</p>
+<div class="arithmatex">\[H_0: \beta_1 = 0,\; \beta_2 = 0,\; \ldots,\; \beta_q = 0$$
+$$H_1: \text{at least one of } \beta_1, \ldots, \beta_q \neq 0\]</div>
+<p>For example, in a model with 5 regressors, we might test whether the last two are jointly irrelevant: <span class="arithmatex">\(H_0: \beta_4 = 0, \beta_5 = 0\)</span> (<span class="arithmatex">\(q = 2\)</span> restrictions).</p>
+<hr />
+<h3 id="restricted-vs-unrestricted-models">Restricted vs. Unrestricted Models</h3>
+<p>The F-test compares two regressions:</p>
+<p><strong>Unrestricted model (UR):</strong> includes all regressors (k total); has <span class="arithmatex">\(SSR_{ur}\)</span> and <span class="arithmatex">\(R^2_{ur}\)</span>.</p>
+<p><strong>Restricted model (R):</strong> imposes <span class="arithmatex">\(H_0\)</span> by dropping the <span class="arithmatex">\(q\)</span> restricted regressors; has <span class="arithmatex">\(SSR_r\)</span> and <span class="arithmatex">\(R^2_r\)</span>.</p>
+<p>Imposing restrictions always <strong>increases</strong> SSR (or at best leaves it unchanged). The question is: does the increase in SSR from imposing <span class="arithmatex">\(H_0\)</span> represent more than we'd expect by chance?</p>
+<hr />
+<h3 id="the-f-statistic">The F-Statistic</h3>
+<div class="arithmatex">\[\boxed{F = \frac{(SSR_r - SSR_{ur})\,/\,q}{SSR_{ur}\,/\,(n-k-1)}}\]</div>
+<p>where:
+- <span class="arithmatex">\(SSR_r - SSR_{ur}\)</span> = increase in residual sum of squares from imposing restrictions
+- <span class="arithmatex">\(q\)</span> = number of restrictions (numerator df)
+- <span class="arithmatex">\(n - k - 1\)</span> = degrees of freedom of the unrestricted model (denominator df)</p>
+<p>Under <span class="arithmatex">\(H_0\)</span> (and CLM assumptions MLR.1–MLR.6):</p>
+<div class="arithmatex">\[F \sim F_{q,\; n-k-1}\]</div>
+<p>An F-distribution with <span class="arithmatex">\(q\)</span> and <span class="arithmatex">\(n-k-1\)</span> degrees of freedom. Since larger F means larger deterioration in fit under <span class="arithmatex">\(H_0\)</span>, we always use a <strong>right-tailed</strong> test:</p>
+<div class="arithmatex">\[\text{Reject } H_0 \text{ at level } \alpha \iff F &gt; F_{q,\; n-k-1,\; \alpha}\]</div>
+<hr />
+<h3 id="equivalent-r2-form">Equivalent <span class="arithmatex">\(R^2\)</span> Form</h3>
+<p>Since <span class="arithmatex">\(SSR = SST(1 - R^2)\)</span> and <span class="arithmatex">\(SST\)</span> is the same in restricted and unrestricted models (when the restricted model still includes an intercept):</p>
+<div class="arithmatex">\[\boxed{F = \frac{(R^2_{ur} - R^2_r)\,/\,q}{(1 - R^2_{ur})\,/\,(n-k-1)}}\]</div>
+<p>This form is convenient when software reports <span class="arithmatex">\(R^2\)</span> rather than <span class="arithmatex">\(SSR\)</span>.</p>
+<hr />
+<h3 id="overall-significance-of-the-regression">Overall Significance of the Regression</h3>
+<p>A special case: the null hypothesis that <strong>all</strong> slope coefficients are zero (none of the <span class="arithmatex">\(k\)</span> regressors help explain <span class="arithmatex">\(y\)</span>):</p>
+<div class="arithmatex">\[H_0: \beta_1 = \beta_2 = \cdots = \beta_k = 0 \qquad (q = k \text{ restrictions})\]</div>
+<p>Under <span class="arithmatex">\(H_0\)</span>, the restricted model is just <span class="arithmatex">\(y_i = \beta_0 + u_i\)</span>, so <span class="arithmatex">\(R^2_r = 0\)</span>, and the F-statistic simplifies to:</p>
+<div class="arithmatex">\[F = \frac{R^2_{ur}/k}{(1 - R^2_{ur})/(n-k-1)}\]</div>
+<p>This is the <strong>overall F-statistic</strong> reported by regression software. Rejecting this <span class="arithmatex">\(H_0\)</span> means the regression has some explanatory power beyond just the mean of <span class="arithmatex">\(y\)</span>.</p>
+<hr />
+<h3 id="why-individual-t-tests-are-not-sufficient-for-joint-hypotheses">Why Individual t-Tests Are Not Sufficient for Joint Hypotheses</h3>
+<p>Suppose we test <span class="arithmatex">\(H_0: \beta_1 = 0\)</span> and <span class="arithmatex">\(H_0: \beta_2 = 0\)</span> individually at 5% each. With two independent tests, the probability of making <strong>at least one</strong> Type I error (false rejection) is:</p>
+<div class="arithmatex">\[1 - (1 - 0.05)^2 = 1 - 0.9025 = 9.75\%\]</div>
+<p>For correlated tests (which is typical in regression), the size distortion can be even worse or better depending on the correlation direction. The F-test controls the <strong>joint</strong> size at exactly <span class="arithmatex">\(\alpha\)</span>.</p>
+<p>Moreover, even if both t-statistics are individually below their critical values, the F-statistic can exceed its critical value if both estimators are simultaneously pushed in the same direction by the data.</p>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Setup.</strong> We estimate a log-wage regression with <span class="arithmatex">\(n = 526\)</span> workers and two potential regressors beyond education and gender: <span class="arithmatex">\(\text{exper}\)</span> and <span class="arithmatex">\(\text{exper}^2\)</span>.</p>
+<p><strong>Unrestricted model</strong> (<span class="arithmatex">\(k = 4\)</span> regressors: educ, exper, exper², female):
+$<span class="arithmatex">\(\log(\hat{\text{wage}}) = \beta_0 + \beta_1\,\text{educ} + \beta_2\,\text{exper} + \beta_3\,\text{exper}^2 + \beta_4\,\text{female} + u\)</span>$
+$<span class="arithmatex">\(SSR_{ur} = 97.34, \quad R^2_{ur} = 0.3625, \quad df_{ur} = 526 - 4 - 1 = 521\)</span>$</p>
+<p><strong>Restricted model</strong> (<span class="arithmatex">\(k^* = 2\)</span> regressors: educ, female — drops exper and exper²):
+$<span class="arithmatex">\(\log(\hat{\text{wage}}) = \beta_0 + \beta_1\,\text{educ} + \beta_4\,\text{female} + v\)</span>$
+$<span class="arithmatex">\(SSR_r = 103.79, \quad R^2_r = 0.3201\)</span>$</p>
+<p><strong>Joint hypothesis:</strong> <span class="arithmatex">\(H_0: \beta_2 = 0,\, \beta_3 = 0\)</span> (<span class="arithmatex">\(q = 2\)</span> restrictions).</p>
+<hr />
+<p><strong>Step 1 — State hypotheses:</strong>
+$<span class="arithmatex">\(H_0: \beta_2 = 0 \text{ and } \beta_3 = 0 \qquad H_1: \text{at least one } \neq 0\)</span>$</p>
+<p><strong>Step 2 — Compute F-statistic (SSR form):</strong>
+$<span class="arithmatex">\(F = \frac{(SSR_r - SSR_{ur})\,/\,q}{SSR_{ur}\,/\,(n-k-1)} = \frac{(103.79 - 97.34)\,/\,2}{97.34\,/\,521}\)</span>$</p>
+<div class="arithmatex">\[= \frac{6.45\,/\,2}{97.34\,/\,521} = \frac{3.225}{0.1868} = 17.26\]</div>
+<p><strong>Verification via R² form:</strong>
+$<span class="arithmatex">\(F = \frac{(0.3625 - 0.3201)\,/\,2}{(1 - 0.3625)\,/\,521} = \frac{0.0424\,/\,2}{0.6375\,/\,521} = \frac{0.0212}{0.001224} = 17.32\)</span>$</p>
+<p>(Small rounding difference; both <span class="arithmatex">\(\approx 17.3\)</span>.)</p>
+<p><strong>Step 3 — Distribution under <span class="arithmatex">\(H_0\)</span>:</strong> <span class="arithmatex">\(F \sim F_{2,\, 521}\)</span></p>
+<p><strong>Step 4 — Critical value:</strong> At <span class="arithmatex">\(\alpha = 1\%\)</span>, <span class="arithmatex">\(F_{2,\, 521, 0.01} \approx 4.62\)</span>. At <span class="arithmatex">\(\alpha = 5\%\)</span>, <span class="arithmatex">\(F_{2,\, 521, 0.05} \approx 3.00\)</span>.</p>
+<p><strong>Step 5 — Decision:</strong> <span class="arithmatex">\(17.3 \gg 4.62\)</span>. <strong>Strongly reject <span class="arithmatex">\(H_0\)</span></strong> at any conventional significance level.</p>
+<p><strong>Step 6 — Interpretation:</strong> Experience and experience-squared are jointly highly significant. Despite experience and <span class="arithmatex">\(\text{exper}^2\)</span> being correlated (which can inflate individual SEs), together they explain substantial variation in log wages beyond education and gender.</p>
+<hr />
+<h3 id="connecting-to-individual-t-tests">Connecting to Individual t-Tests</h3>
+<p>For context, individual t-statistics from the unrestricted model might be:
+- <span class="arithmatex">\(t_{\text{exper}} = 0.033 / 0.008 = 4.13\)</span> (significant at 1%)
+- <span class="arithmatex">\(t_{\text{exper}^2} = -0.0005 / 0.0001 = -5.00\)</span> (significant at 1%)</p>
+<p>Here individual t-tests also indicate significance, consistent with the F-test. <strong>But this won't always be the case:</strong> see the misconception section below.</p>
+<hr />
+<h2 id="common-misconception">Common Misconception</h2>
+<blockquote>
+<p><strong>"Two individually insignificant t-tests mean the variables are jointly insignificant."</strong></p>
+</blockquote>
+<p>Consider a model where <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span> are highly positively correlated. The individual standard errors of <span class="arithmatex">\(\hat{\beta}_1\)</span> and <span class="arithmatex">\(\hat{\beta}_2\)</span> are inflated by multicollinearity. Individually, neither may pass the threshold <span class="arithmatex">\(|t| &gt; 1.96\)</span>. Yet the F-test may strongly reject <span class="arithmatex">\(H_0: \beta_1 = 0, \beta_2 = 0\)</span>.</p>
+<p><strong>Numerical illustration.</strong> Suppose:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="arithmatex">\(\hat{\beta}_j\)</span></th>
+<th><span class="arithmatex">\(se\)</span></th>
+<th><span class="arithmatex">\(t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(x_1\)</span></td>
+<td>1.0</td>
+<td>0.8</td>
+<td>1.25</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(x_2\)</span></td>
+<td>0.9</td>
+<td>0.8</td>
+<td>1.13</td>
+</tr>
+</tbody>
+</table>
+<p>Both t-statistics are below 1.96 — individually insignificant at 5%. Yet if <span class="arithmatex">\(\hat{\beta}_1\)</span> and <span class="arithmatex">\(\hat{\beta}_2\)</span> are negatively correlated (induced by positive correlation between <span class="arithmatex">\(x_1\)</span> and <span class="arithmatex">\(x_2\)</span>), the F-statistic for their joint significance may exceed the critical value <span class="arithmatex">\(F_{2, n-k-1, 0.05} \approx 3.0\)</span>.</p>
+<p><strong>Conversely:</strong> two individually significant coefficients could (in principle) be jointly just significant, though in practice this is less common.</p>
+<p><strong>Rule:</strong> Always use the F-test when testing joint hypotheses. Individual t-tests are correct only for single-coefficient tests.</p>
+<hr />
+<h2 id="practice-prompts">Practice Prompts</h2>
+<p><strong>Q1.</strong> A model of house prices has <span class="arithmatex">\(n = 148\)</span> observations and <span class="arithmatex">\(k = 5\)</span> regressors. You want to test whether the three neighbourhood characteristic variables (school quality, crime rate, pollution) are jointly significant. The unrestricted model has <span class="arithmatex">\(SSR_{ur} = 12{,}450\)</span> and the restricted model (dropping those three variables) has <span class="arithmatex">\(SSR_r = 14{,}200\)</span>. Compute the F-statistic, state its null distribution, find the 5% critical value, and give your conclusion.</p>
+<details>
+<summary>Answer</summary>
+
+**Step 1:** $H_0: \beta_{\text{school}} = \beta_{\text{crime}} = \beta_{\text{pollution}} = 0$; $q = 3$ restrictions.
+
+**Step 2:**
+$$F = \frac{(14{,}200 - 12{,}450)\,/\,3}{12{,}450\,/\,(148-5-1)} = \frac{1{,}750\,/\,3}{12{,}450\,/\,142} = \frac{583.33}{87.68} = 6.66$$
+
+**Step 3:** Under $H_0$: $F \sim F_{3,\, 142}$.
+
+**Step 4:** $F_{3,\, 142,\, 0.05} \approx 2.67$.
+
+**Step 5:** $6.66 > 2.67$. **Reject $H_0$** at 5%. The neighbourhood variables are jointly significant.
+</details>
+
+<hr />
+<p><strong>Q2.</strong> In the same house price regression, the individual t-statistics are: <span class="arithmatex">\(t_{\text{school}} = 1.45\)</span>, <span class="arithmatex">\(t_{\text{crime}} = -1.50\)</span>, <span class="arithmatex">\(t_{\text{pollution}} = 1.60\)</span> (all with <span class="arithmatex">\(df = 142\)</span>). The two-sided 5% critical value is <span class="arithmatex">\(t_{142, 0.025} \approx 1.976\)</span>. All three fail individual significance tests. Is this contradictory with the F-test result in Q1? Explain.</p>
+<details>
+<summary>Answer</summary>
+
+No contradiction. This is the classic case where multicollinearity inflates individual standard errors, making each coefficient appear imprecise on its own, while the variables collectively provide substantial explanatory power.
+
+The F-test accounts for the joint distribution of the estimators — including their covariances — and correctly identifies that the three variables together significantly improve fit. Individual t-tests ignore the correlations between $\hat{\beta}_{\text{school}}$, $\hat{\beta}_{\text{crime}}$, and $\hat{\beta}_{\text{pollution}}$, and can fail to detect genuine joint significance.
+
+Conclusion: individual t-tests are not valid substitutes for the F-test when testing joint restrictions.
+</details>
+
+<hr />
+<p><strong>Q3.</strong> A model has <span class="arithmatex">\(R^2_{ur} = 0.48\)</span> with <span class="arithmatex">\(k = 6\)</span> regressors and <span class="arithmatex">\(n = 200\)</span>. The restricted model (dropping the last 3 regressors) has <span class="arithmatex">\(R^2_r = 0.42\)</span>. Compute the F-statistic for the joint significance of those 3 variables at the 5% level.</p>
+<details>
+<summary>Answer</summary>
+
+$q = 3$, $n - k - 1 = 200 - 6 - 1 = 193$.
+
+$$F = \frac{(0.48 - 0.42)\,/\,3}{(1 - 0.48)\,/\,193} = \frac{0.06\,/\,3}{0.52\,/\,193} = \frac{0.020}{0.002694} = 7.42$$
+
+Under $H_0$: $F \sim F_{3,\, 193}$. Critical value $F_{3,\, 193,\, 0.05} \approx 2.65$.
+
+Since $7.42 > 2.65$, **reject $H_0$**: the three variables are jointly significant at 5%.
+</details>
+
+<hr />
+<h2 id="further-resources">Further Resources</h2>
+<ul>
+<li>Wooldridge (2019), §4.5: "Testing Multiple Linear Restrictions: The F Test" (pp. 153–168)</li>
+<li>Wooldridge (2019), §4.4: "Testing Hypotheses about a Single Linear Combination of the Parameters"</li>
+<li>Greene (2018), <em>Econometric Analysis</em>, 8e, §5.4: "Testing Hypotheses Using the F Distribution"</li>
+<li>For general linear restrictions <span class="arithmatex">\(R\beta = r\)</span>, see Wooldridge §4.6 or Greene §5.5</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

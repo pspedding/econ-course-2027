@@ -1,0 +1,2926 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Principles of Econometrics — USYD ECMT5001-aligned self-study course (Wooldridge)">
+      
+      
+        <meta name="author" content="Econometrics 2027">
+      
+      
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/modules/module-08/M08.L03-serial-correlation-spurious/">
+      
+      
+        <link rel="prev" href="../M08.L02-static-fdl-models/">
+      
+      
+        <link rel="next" href="../M08.L04-stationarity-trends/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>M08.L03 — Serial Correlation & Spurious Regression - Econometrics 2027</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-m08l03-serial-correlation-and-spurious-regression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Econometrics 2027
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              M08.L03 — Serial Correlation & Spurious Regression
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+          
+  
+  
+  M01 — Probability & Statistics Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M02 — Simple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M03 — Multiple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-04/M04.L01-sampling-distributions/" class="md-tabs__link">
+          
+  
+  
+  M04 — Statistical Inference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-05/M05.L01-log-transformations/" class="md-tabs__link">
+          
+  
+  
+  M05 — Functional Forms & Dummy Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-06/M06.L01-nature-consequences/" class="md-tabs__link">
+          
+  
+  
+  M06 — Heteroskedasticity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-07/M07.L01-specification-errors/" class="md-tabs__link">
+          
+  
+  
+  M07 — Specification & Data Issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../M08.L01-nature-time-series/" class="md-tabs__link">
+          
+  
+  
+  M08 — Time Series Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-tabs__link">
+          
+  
+  
+  M09 — Serial Correlation & Autocorrelation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-tabs__link">
+          
+  
+  
+  M10 — Instrumental Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../exam-prep/formula-sheet/" class="md-tabs__link">
+          
+  
+  
+  🎯 Exam Prep
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Econometrics 2027
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01 — Probability & Statistics Review
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M01 — Probability & Statistics Review
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L01 — Descriptive Statistics & Summation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L02 — Probability Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L03 — Random Variables & Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L04 — Joint Distributions, Covariance & Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L05 — Sampling & Sample Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L06 — Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02 — Simple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M02 — Simple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L01 — The Simple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L02-ols-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L02 — OLS Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L03 — Algebraic Properties of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L04 — Units, Functional Forms & Goodness of Fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L05 — Expected Values & Unbiasedness of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03 — Multiple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M03 — Multiple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L01 — The Multiple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L02 — OLS Estimation in Multiple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L03 — Gauss-Markov Assumptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L04 — Omitted Variable Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L05 — Multicollinearity & Variance of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04 — Statistical Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M04 — Statistical Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L01-sampling-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L01 — Sampling Distributions of OLS Estimators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L02-t-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L02 — t-Tests for Single Coefficients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L03-confidence-intervals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L03 — Confidence Intervals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L04-f-tests-joint-hypotheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L04 — F-Tests & Joint Hypotheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-04/M04.L05-reporting-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L05 — Reporting & Interpreting Regression Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L01-log-transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L01 — Log Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L02-quadratic-interaction-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L02 — Quadratic & Interaction Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L03-dummy-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L03 — Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L04-dummy-variable-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L04 — Dummy Variable Trap & Multiple Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-05/M05.L05-interactions-dummies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L05 — Interactions with Dummies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06 — Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M06 — Heteroskedasticity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L01-nature-consequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L01 — Nature & Consequences of Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L02-testing-heteroskedasticity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L02 — Testing for Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L03-robust-standard-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L03 — Robust Standard Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-06/M06.L04-weighted-least-squares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L04 — Weighted Least Squares (WLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07 — Specification & Data Issues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M07 — Specification & Data Issues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L01-specification-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L01 — Regression Specification Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L02-proxy-measurement-error/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L02 — Proxy Variables & Measurement Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-07/M07.L03-missing-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L03 — Missing Data & Non-Random Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08 — Time Series Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M08 — Time Series Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L01-nature-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L01 — Nature of Time Series Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L02-static-fdl-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L02 — Static & Finite Distributed Lag Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L03 — Serial Correlation & Spurious Regression
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L03 — Serial Correlation & Spurious Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-serial-correlation-autocorrelation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Serial Correlation (Autocorrelation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-ar1-error-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The AR(1) Error Process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-consequences-of-serial-correlation-for-ols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Consequences of Serial Correlation for OLS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testing-for-serial-correlation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Testing for Serial Correlation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-spurious-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Spurious Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Misconception
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../M08.L04-stationarity-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L04 — Stationarity & Trends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L01-ols-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L01 — Properties of OLS with Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L02-testing-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L02 — Testing for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-09/M09.L03-correcting-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L03 — Correcting for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10 — Instrumental Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M10 — Instrumental Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L01-endogeneity-causality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L01 — Endogeneity & the Problem of Causality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L02-iv-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L02 — Instrumental Variables (IV) Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L03-2sls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L03 — Two-Stage Least Squares (2SLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../module-10/M10.L04-weak-instruments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L04 — Weak Instruments & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Exam Prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🎯 Exam Prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/formula-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formula Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/past-exams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Past Exams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../exam-prep/exam-tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam Tips & Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lesson-m08l03-serial-correlation-and-spurious-regression">Lesson M08.L03: Serial Correlation and Spurious Regression</h1>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>08 — Time Series Basics</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Graduate (ECMT5001 S1 2027)</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>30–35 min</td>
+</tr>
+<tr>
+<td><strong>Learning Objective</strong></td>
+<td>Define serial correlation and its consequences for OLS; derive why spurious regression occurs with non-stationary series; apply diagnostic checks for both problems.</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Wooldridge, <em>Introductory Econometrics</em>, Ch 10.5, 11.1</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="explanation">Explanation</h2>
+<h3 id="1-serial-correlation-autocorrelation">1. Serial Correlation (Autocorrelation)</h3>
+<p><strong>Serial correlation</strong> (autocorrelation) exists when the error terms at different time periods are correlated:</p>
+<div class="arithmatex">\[\text{Corr}(u_t, u_s) \neq 0 \quad \text{for some } t \neq s\]</div>
+<p>This violates Gauss-Markov assumption MLR.5 (no serial correlation in errors), which assumes:</p>
+<div class="arithmatex">\[\text{Cov}(u_t, u_s) = 0 \quad \forall\; t \neq s\]</div>
+<p>Serial correlation is the norm, not the exception, in economic time series — residuals that reflect omitted cyclical forces, adjustment costs, habit formation, or policy persistence will be correlated over time.</p>
+<hr />
+<h3 id="2-the-ar1-error-process">2. The AR(1) Error Process</h3>
+<p>The most common model for serial correlation is the <strong>AR(1)</strong> (first-order autoregressive) process:</p>
+<div class="arithmatex">\[\boxed{u_t = \rho u_{t-1} + e_t}\]</div>
+<p>where:
+- <span class="arithmatex">\(\rho\)</span> is the <strong>autocorrelation coefficient</strong>, <span class="arithmatex">\(|\rho| &lt; 1\)</span> for covariance stationarity.
+- <span class="arithmatex">\(e_t \sim \text{i.i.d.}(0, \sigma_e^2)\)</span> is white noise (serially uncorrelated).
+- When <span class="arithmatex">\(\rho &gt; 0\)</span>: <strong>positive serial correlation</strong> — positive errors tend to follow positive errors (smooth, persistent residuals).
+- When <span class="arithmatex">\(\rho &lt; 0\)</span>: <strong>negative serial correlation</strong> — errors alternate in sign (oscillating residuals, less common in macro).</p>
+<p>Under this AR(1) process, the error variance and autocovariances are:</p>
+<div class="arithmatex">\[\text{Var}(u_t) = \frac{\sigma_e^2}{1 - \rho^2}, \quad \text{Cov}(u_t, u_{t-h}) = \rho^h \cdot \frac{\sigma_e^2}{1 - \rho^2}\]</div>
+<hr />
+<h3 id="3-consequences-of-serial-correlation-for-ols">3. Consequences of Serial Correlation for OLS</h3>
+<p><strong>If the regressors satisfy strict exogeneity</strong>, OLS remains:</p>
+<ul>
+<li><strong>Unbiased</strong>: <span class="arithmatex">\(E(\hat{\beta}) = \beta\)</span> — serial correlation in errors does not bias the coefficient estimates.</li>
+<li><strong>Consistent</strong>: <span class="arithmatex">\(\text{plim}(\hat{\beta}) = \beta\)</span>.</li>
+</ul>
+<p><strong>However</strong>, OLS is:</p>
+<ul>
+<li><strong>Inefficient</strong>: GLS (or FGLS) with the correct error structure is more efficient.</li>
+<li><strong>Invalid standard errors</strong>: The OLS variance formula <span class="arithmatex">\(\hat{V}(\hat{\beta}) = \hat{\sigma}^2(X'X)^{-1}\)</span> is <strong>incorrect</strong> when errors are serially correlated. This means t-statistics, F-statistics, and confidence intervals are all invalid.</li>
+</ul>
+<p>The direction of standard error bias with positive serial correlation (<span class="arithmatex">\(\rho &gt; 0\)</span>):</p>
+<blockquote>
+<p>OLS standard errors are typically <strong>understated</strong> (too small), leading to <strong>over-rejection of <span class="arithmatex">\(H_0\)</span></strong> and spuriously significant t-statistics.</p>
+</blockquote>
+<p><strong>Remedies:</strong>
+1. <strong>HAC standard errors</strong> (Newey-West): correct the variance-covariance matrix to account for serial correlation (and heteroskedasticity) without modelling the specific error structure.
+2. <strong>FGLS / Cochrane-Orcutt</strong>: estimate <span class="arithmatex">\(\rho\)</span> from residuals, transform data to remove AR(1) correlation, run OLS on the transformed model.
+3. <strong>Include lagged regressors / lagged <span class="arithmatex">\(y\)</span></strong> to absorb the serial correlation structurally.</p>
+<hr />
+<h3 id="4-testing-for-serial-correlation">4. Testing for Serial Correlation</h3>
+<p><strong>Visual inspection:</strong> Plot OLS residuals against time. Positive serial correlation: runs of positive residuals followed by runs of negative residuals. Negative: alternating patterns.</p>
+<p><strong>Breusch-Godfrey (BG) LM test:</strong> Regress OLS residuals <span class="arithmatex">\(\hat{u}_t\)</span> on <span class="arithmatex">\(\hat{u}_{t-1}, \ldots, \hat{u}_{t-p}\)</span> and all original regressors. Test <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\rho_1 = \cdots = \rho_p = 0\)</span> using LM statistic <span class="arithmatex">\(\sim \chi^2_p\)</span>.</p>
+<p><strong>Durbin-Watson statistic</strong> (for AR(1) only, no lagged <span class="arithmatex">\(y\)</span> in the model):</p>
+<div class="arithmatex">\[DW = \frac{\sum_{t=2}^T (\hat{u}_t - \hat{u}_{t-1})^2}{\sum_{t=1}^T \hat{u}_t^2} \approx 2(1 - \hat{\rho})\]</div>
+<p>Interpretation: <span class="arithmatex">\(DW \approx 2\)</span> (no AC), <span class="arithmatex">\(DW &lt; 2\)</span> (positive AC), <span class="arithmatex">\(DW &gt; 2\)</span> (negative AC).</p>
+<hr />
+<h3 id="5-spurious-regression">5. Spurious Regression</h3>
+<p><strong>Spurious regression</strong> is one of the most dangerous traps in time series econometrics. It occurs when two <strong>unrelated</strong> time series, each exhibiting a trend or unit root (non-stationarity), are regressed on each other:</p>
+<p><strong>The result:</strong> Very high <span class="arithmatex">\(R^2\)</span>, highly significant t-statistics, and large coefficients — even though the two series have no genuine economic relationship.</p>
+<p><strong>Classic example:</strong></p>
+<p>Regress Australian GDP (in levels, <span class="arithmatex">\(A\)</span>) on US population (in millions, <span class="arithmatex">\(P\)</span>):</p>
+<div class="arithmatex">\[A_t = \beta_0 + \beta_1 P_t + u_t\]</div>
+<p>Both series trend upward over time. OLS may find <span class="arithmatex">\(R^2 &gt; 0.95\)</span> and a highly significant <span class="arithmatex">\(\hat{\beta}_1\)</span> — but this is entirely spurious. Australian GDP is not caused by US population size; both simply trend upward over the 20th century.</p>
+<p><strong>Formal explanation (Granger and Newbold, 1974):</strong></p>
+<p>When <span class="arithmatex">\(y_t\)</span> and <span class="arithmatex">\(x_t\)</span> are independent random walks (unit root processes):</p>
+<div class="arithmatex">\[y_t = y_{t-1} + e_t, \quad x_t = x_{t-1} + v_t \quad (e_t \perp v_t)\]</div>
+<p>The true slope is <span class="arithmatex">\(\beta_1 = 0\)</span>, but the OLS <span class="arithmatex">\(t\)</span>-statistic for <span class="arithmatex">\(\hat{\beta}_1\)</span> does <strong>not</strong> follow a <span class="arithmatex">\(t\)</span>-distribution. It diverges as <span class="arithmatex">\(T \to \infty\)</span>:</p>
+<div class="arithmatex">\[t \to \pm\infty \text{ in distribution as } T \to \infty\]</div>
+<p>In finite samples, you will almost always reject <span class="arithmatex">\(H_0: \beta_1 = 0\)</span> even when the truth is <span class="arithmatex">\(\beta_1 = 0\)</span>. The standard critical values (e.g. ±1.96) are entirely wrong.</p>
+<p><strong>The residuals are highly serially correlated</strong> (DW statistic near 0) — this is in fact the telltale sign of a spurious regression.</p>
+<p><strong>Rule: Always check for spurious regression when working with non-stationary time series:</strong>
+1. Plot the series: do they trend?
+2. Compute DW on the regression residuals: if DW ≪ 2, suspect spurious regression.
+3. Test each series for a unit root (ADF test — see M08.L04).
+4. If both series have unit roots and are not cointegrated, <strong>do not</strong> run OLS in levels. First-difference the series instead.</p>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Identifying a Spurious Regression</strong></p>
+<p><strong>Data:</strong> Australian nominal GDP (<span class="arithmatex">\(A_t\)</span>, billions AUD) and US population (<span class="arithmatex">\(P_t\)</span>, millions), annual 1960–2023.</p>
+<p><strong>Step 1. Estimate OLS in levels:</strong></p>
+<div class="arithmatex">\[\hat{A}_t = -2{,}850 + 72.4\, P_t, \quad R^2 = 0.98, \quad t_{\hat{\beta}} = 54.3, \quad DW = 0.12\]</div>
+<p><strong>Step 2. Red flags:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Value</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(R^2\)</span></td>
+<td>0.98</td>
+<td>Unusually high — both series trend</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(t\)</span>-statistic</td>
+<td>54.3</td>
+<td>Enormous — but invalid</td>
+</tr>
+<tr>
+<td>DW statistic</td>
+<td>0.12</td>
+<td>Extremely low → severe positive serial correlation → spurious regression</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3. Why R² is misleading here.</strong></p>
+<p>The high <span class="arithmatex">\(R^2\)</span> reflects a shared trend, not economic causation. If we fit a common time trend <span class="arithmatex">\(t\)</span> to both series and remove it, the residuals would have near-zero correlation. The regression is capturing "both things went up over time", nothing more.</p>
+<p><strong>Step 4. Solution — use growth rates (first differences).</strong></p>
+<div class="arithmatex">\[\Delta A_t = \beta_0 + \beta_1 \Delta P_t + u_t\]</div>
+<p>After differencing, <span class="arithmatex">\(R^2\)</span> drops dramatically and the t-statistic becomes insignificant (<span class="arithmatex">\(p &gt; 0.5\)</span>), correctly indicating no relationship between Australian GDP growth and US population growth.</p>
+<p><strong>Conclusion:</strong> The original regression was entirely spurious. The DW statistic near zero was the critical warning sign.</p>
+<hr />
+<h2 id="common-misconception">Common Misconception</h2>
+<blockquote>
+<p><strong>"A high R² in a time series regression indicates a strong causal relationship."</strong></p>
+</blockquote>
+<p><strong>This is false</strong>, especially when the series are non-stationary (trending or have a unit root).</p>
+<p>In a spurious regression, <span class="arithmatex">\(R^2\)</span> can approach 1 even when the two series are completely independent random walks. The high <span class="arithmatex">\(R^2\)</span> reflects nothing more than common trending behaviour — both series are moving in the same direction over time, driven by their own dynamics, not by each other.</p>
+<p><strong>The correct interpretation of <span class="arithmatex">\(R^2\)</span> in time series requires:</strong>
+1. Checking that both series are stationary (or cointegrated if non-stationary).
+2. Confirming that regression residuals show no severe serial correlation (DW not near 0).
+3. Economic plausibility — does theory support the relationship?</p>
+<p>High <span class="arithmatex">\(R^2\)</span> is a necessary but far-from-sufficient condition for a valid time series relationship.</p>
+<hr />
+<h2 id="practice-prompts">Practice Prompts</h2>
+<ol>
+<li>
+<p><strong>Consequences of AR(1) errors.</strong> A regression of quarterly consumer spending on disposable income yields an OLS <span class="arithmatex">\(\hat{\rho} = 0.72\)</span> from the residuals.
+   (a) Is OLS biased? Justify your answer (assume strict exogeneity holds).
+   (b) What is the consequence for the reported t-statistics?
+   (c) Describe two approaches to obtain valid inference despite the serial correlation.</p>
+</li>
+<li>
+<p><strong>Spurious regression detection.</strong> You regress monthly Australian house prices on monthly global oil prices over 1990–2023. Results: <span class="arithmatex">\(R^2 = 0.91\)</span>, <span class="arithmatex">\(DW = 0.18\)</span>, <span class="arithmatex">\(t\)</span>-statistic on oil price = 38.7.
+   (a) Is this likely a spurious regression? List the evidence.
+   (b) What would you test next, and what would you do if the test confirms your suspicion?
+   (c) If both series are I(1), under what condition could you still run OLS in levels without it being spurious?</p>
+</li>
+<li>
+<p><strong>DW statistic interpretation.</strong> Three regressions on different time series datasets yield DW statistics of 0.24, 1.95, and 3.61.
+   (a) For each DW value, state whether it suggests positive autocorrelation, no autocorrelation, or negative autocorrelation.
+   (b) For the regression with DW = 0.24, what is the approximate estimated <span class="arithmatex">\(\hat{\rho}\)</span> (using the approximation <span class="arithmatex">\(DW \approx 2(1-\hat{\rho})\)</span>)?
+   (c) What follow-up steps would you take for the regression with DW = 0.24?</p>
+</li>
+</ol>
+<hr />
+<h2 id="further-resources">Further Resources</h2>
+<ul>
+<li>Wooldridge, <em>Introductory Econometrics</em> (7e), §10.5 (Serial Correlation), §11.1 (OLS under Serial Correlation).</li>
+<li>Granger, C.W.J. &amp; Newbold, P. (1974). "Spurious regressions in econometrics." <em>Journal of Econometrics</em>, 2(2), 111–120. — Foundational paper on spurious regression.</li>
+<li>Newey, W.K. &amp; West, K.D. (1987). "A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent covariance matrix." <em>Econometrica</em>, 55(3), 703–708. — HAC standard errors.</li>
+<li>Hamilton, J.D. (1994). <em>Time Series Analysis</em>, Ch 8 — Serial correlation and GLS.</li>
+<li>See also: <strong>M08.L04</strong> (Stationarity and Unit Root Tests — solution to the spurious regression problem).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
