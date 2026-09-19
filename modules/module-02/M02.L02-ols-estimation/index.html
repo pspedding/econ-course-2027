@@ -12,27 +12,31 @@
         <meta name="author" content="Econometrics 2027">
       
       
-        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/exam-prep/ist-practice/">
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/modules/module-02/M02.L02-ols-estimation/">
       
       
+        <link rel="prev" href="../M02.L01-simple-regression-model/">
+      
+      
+        <link rel="next" href="../M02.L03-ols-algebraic-properties/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>🎯 In-Semester Test (IST) Practice - Econometrics 2027</title>
+        <title>M02.L02 — OLS Estimation - Econometrics 2027</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#in-semester-test-ist-practice" class="md-skip">
+        <a href="#lesson-m02l02-ols-estimation-deriving-the-slope-and-intercept" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+    <a href="../../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🎯 In-Semester Test (IST) Practice
+              M02.L02 — OLS Estimation
             
           </span>
         </div>
@@ -213,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -234,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+        <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
           
   
   
@@ -250,11 +254,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../modules/module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../M02.L01-simple-regression-model/" class="md-tabs__link">
           
   
   
@@ -274,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+        <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
           
   
   
@@ -294,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-04/M04.L01-sampling-distributions.md" class="md-tabs__link">
+        <a href="../../module-04/M04.L01-sampling-distributions.md" class="md-tabs__link">
           
   
   
@@ -314,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-05/M05.L01-log-transformations.md" class="md-tabs__link">
+        <a href="../../module-05/M05.L01-log-transformations.md" class="md-tabs__link">
           
   
   
@@ -334,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-06/M06.L01-nature-consequences.md" class="md-tabs__link">
+        <a href="../../module-06/M06.L01-nature-consequences.md" class="md-tabs__link">
           
   
   
@@ -354,7 +360,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-07/M07.L01-specification-errors.md" class="md-tabs__link">
+        <a href="../../module-07/M07.L01-specification-errors.md" class="md-tabs__link">
           
   
   
@@ -374,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-08/M08.L01-nature-time-series.md" class="md-tabs__link">
+        <a href="../../module-08/M08.L01-nature-time-series.md" class="md-tabs__link">
           
   
   
@@ -394,7 +400,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-09/M09.L01-ols-serial-correlation.md" class="md-tabs__link">
+        <a href="../../module-09/M09.L01-ols-serial-correlation.md" class="md-tabs__link">
           
   
   
@@ -414,7 +420,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../modules/module-10/M10.L01-endogeneity-causality.md" class="md-tabs__link">
+        <a href="../../module-10/M10.L01-endogeneity-causality.md" class="md-tabs__link">
           
   
   
@@ -434,7 +440,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../formula-sheet/" class="md-tabs__link">
+        <a href="../../../exam-prep/formula-sheet/" class="md-tabs__link">
           
   
   
@@ -470,7 +476,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+    <a href="../../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -488,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -569,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+      <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
         
   
   
@@ -597,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+      <a href="../../module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
         
   
   
@@ -625,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+      <a href="../../module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
         
   
   
@@ -653,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+      <a href="../../module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
         
   
   
@@ -681,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+      <a href="../../module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
         
   
   
@@ -709,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+      <a href="../../module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
         
   
   
@@ -741,28 +747,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -780,7 +789,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -798,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+      <a href="../M02.L01-simple-regression-model/" class="md-nav__link">
         
   
   
@@ -823,10 +832,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../modules/module-02/M02.L02-ols-estimation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L02 — OLS Estimation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -842,6 +878,198 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-regression-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The Regression Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-the-ols-objective-minimise-squared-residuals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The OLS Objective: Minimise Squared Residuals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-derivation-via-first-order-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Derivation via First-Order Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-algebraic-intuition-slope-as-scaled-covariance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Algebraic Intuition: Slope as Scaled Covariance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataset-education-and-hourly-wages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dataset: Education and Hourly Wages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Misconception
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Prompts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Practice Prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -854,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+      <a href="../M02.L03-ols-algebraic-properties/" class="md-nav__link">
         
   
   
@@ -882,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+      <a href="../M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
         
   
   
@@ -910,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+      <a href="../M02.L05-expected-values-unbiasedness/" class="md-nav__link">
         
   
   
@@ -999,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+      <a href="../../module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
         
   
   
@@ -1027,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+      <a href="../../module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
         
   
   
@@ -1055,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+      <a href="../../module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
         
   
   
@@ -1083,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+      <a href="../../module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
         
   
   
@@ -1111,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+      <a href="../../module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
         
   
   
@@ -1200,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-04/M04.L01-sampling-distributions.md" class="md-nav__link">
+      <a href="../../module-04/M04.L01-sampling-distributions.md" class="md-nav__link">
         
   
   
@@ -1228,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-04/M04.L02-t-tests.md" class="md-nav__link">
+      <a href="../../module-04/M04.L02-t-tests.md" class="md-nav__link">
         
   
   
@@ -1256,7 +1484,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-04/M04.L03-confidence-intervals.md" class="md-nav__link">
+      <a href="../../module-04/M04.L03-confidence-intervals.md" class="md-nav__link">
         
   
   
@@ -1284,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-04/M04.L04-f-tests-joint-hypotheses.md" class="md-nav__link">
+      <a href="../../module-04/M04.L04-f-tests-joint-hypotheses.md" class="md-nav__link">
         
   
   
@@ -1312,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-04/M04.L05-reporting-results.md" class="md-nav__link">
+      <a href="../../module-04/M04.L05-reporting-results.md" class="md-nav__link">
         
   
   
@@ -1401,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-05/M05.L01-log-transformations.md" class="md-nav__link">
+      <a href="../../module-05/M05.L01-log-transformations.md" class="md-nav__link">
         
   
   
@@ -1429,7 +1657,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-05/M05.L02-quadratic-interaction-terms.md" class="md-nav__link">
+      <a href="../../module-05/M05.L02-quadratic-interaction-terms.md" class="md-nav__link">
         
   
   
@@ -1457,7 +1685,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-05/M05.L03-dummy-variables.md" class="md-nav__link">
+      <a href="../../module-05/M05.L03-dummy-variables.md" class="md-nav__link">
         
   
   
@@ -1485,7 +1713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-05/M05.L04-dummy-variable-trap.md" class="md-nav__link">
+      <a href="../../module-05/M05.L04-dummy-variable-trap.md" class="md-nav__link">
         
   
   
@@ -1513,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-05/M05.L05-interactions-dummies.md" class="md-nav__link">
+      <a href="../../module-05/M05.L05-interactions-dummies.md" class="md-nav__link">
         
   
   
@@ -1602,7 +1830,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-06/M06.L01-nature-consequences.md" class="md-nav__link">
+      <a href="../../module-06/M06.L01-nature-consequences.md" class="md-nav__link">
         
   
   
@@ -1630,7 +1858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-06/M06.L02-testing-heteroskedasticity.md" class="md-nav__link">
+      <a href="../../module-06/M06.L02-testing-heteroskedasticity.md" class="md-nav__link">
         
   
   
@@ -1658,7 +1886,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-06/M06.L03-robust-standard-errors.md" class="md-nav__link">
+      <a href="../../module-06/M06.L03-robust-standard-errors.md" class="md-nav__link">
         
   
   
@@ -1686,7 +1914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-06/M06.L04-weighted-least-squares.md" class="md-nav__link">
+      <a href="../../module-06/M06.L04-weighted-least-squares.md" class="md-nav__link">
         
   
   
@@ -1775,7 +2003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-07/M07.L01-specification-errors.md" class="md-nav__link">
+      <a href="../../module-07/M07.L01-specification-errors.md" class="md-nav__link">
         
   
   
@@ -1803,7 +2031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-07/M07.L02-proxy-measurement-error.md" class="md-nav__link">
+      <a href="../../module-07/M07.L02-proxy-measurement-error.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-07/M07.L03-missing-data.md" class="md-nav__link">
+      <a href="../../module-07/M07.L03-missing-data.md" class="md-nav__link">
         
   
   
@@ -1920,7 +2148,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-08/M08.L01-nature-time-series.md" class="md-nav__link">
+      <a href="../../module-08/M08.L01-nature-time-series.md" class="md-nav__link">
         
   
   
@@ -1948,7 +2176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-08/M08.L02-static-fdl-models.md" class="md-nav__link">
+      <a href="../../module-08/M08.L02-static-fdl-models.md" class="md-nav__link">
         
   
   
@@ -1976,7 +2204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-08/M08.L03-serial-correlation-spurious.md" class="md-nav__link">
+      <a href="../../module-08/M08.L03-serial-correlation-spurious.md" class="md-nav__link">
         
   
   
@@ -2004,7 +2232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-08/M08.L04-stationarity-trends.md" class="md-nav__link">
+      <a href="../../module-08/M08.L04-stationarity-trends.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-09/M09.L01-ols-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L01-ols-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2121,7 +2349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-09/M09.L02-testing-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L02-testing-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2149,7 +2377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-09/M09.L03-correcting-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L03-correcting-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2238,7 +2466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-10/M10.L01-endogeneity-causality.md" class="md-nav__link">
+      <a href="../../module-10/M10.L01-endogeneity-causality.md" class="md-nav__link">
         
   
   
@@ -2266,7 +2494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-10/M10.L02-iv-estimation.md" class="md-nav__link">
+      <a href="../../module-10/M10.L02-iv-estimation.md" class="md-nav__link">
         
   
   
@@ -2294,7 +2522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-10/M10.L03-2sls.md" class="md-nav__link">
+      <a href="../../module-10/M10.L03-2sls.md" class="md-nav__link">
         
   
   
@@ -2322,7 +2550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modules/module-10/M10.L04-weak-instruments.md" class="md-nav__link">
+      <a href="../../module-10/M10.L04-weak-instruments.md" class="md-nav__link">
         
   
   
@@ -2411,7 +2639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../formula-sheet/" class="md-nav__link">
+      <a href="../../../exam-prep/formula-sheet/" class="md-nav__link">
         
   
   
@@ -2439,7 +2667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../past-exams.md" class="md-nav__link">
+      <a href="../../../exam-prep/past-exams.md" class="md-nav__link">
         
   
   
@@ -2467,7 +2695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exam-tips/" class="md-nav__link">
+      <a href="../../../exam-prep/exam-tips/" class="md-nav__link">
         
   
   
@@ -2512,423 +2740,387 @@
 
 
 
-<h1 id="in-semester-test-ist-practice">🎯 In-Semester Test (IST) Practice</h1>
-<p><em>ECON1001 Introductory Microeconomics — USYD Semester 1 2026</em></p>
-<div class="admonition info">
-<p class="admonition-title">About the IST</p>
-<p>The In-Semester Test is a 20-question multiple-choice exam covering Weeks 1–8 (Modules 1–8). You have approximately 45 minutes. Questions test both conceptual understanding and numerical problem-solving.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">How to use this page</p>
-<ul>
-<li>Complete the 2026 IST Version A under timed conditions (45 min) before checking answers</li>
-<li>Use the answer key at the bottom to mark your work</li>
-<li>For any incorrect answers, revisit the relevant module lessons and quizzes</li>
-</ul>
-</div>
-<hr />
-<h2 id="2026-ist-version-a">2026 IST — Version A</h2>
-<p><strong>Instructions:</strong> Choose the best answer for each question.</p>
-<hr />
-<p><strong>Q1.</strong> A country produces only two goods: food and clothing. If the economy is operating <strong>inside</strong> its production possibilities frontier, this implies that:</p>
-<ul>
-<li>A. Resources are fully and efficiently used</li>
-<li>B. It is impossible to produce more of both goods</li>
-<li>C. Some resources are unemployed or misallocated</li>
-<li>D. The opportunity cost of both goods is zero</li>
-</ul>
-<hr />
-<p><strong>Q2.</strong> Indonesia can produce either 10 motorcycles or 20 cars per day. Sweden can produce either 6 motorcycles or 6 cars per day. Which country has a comparative advantage in producing motorcycles, and which in cars?</p>
-<ul>
-<li>A. Indonesia in both cars and motorcycles</li>
-<li>B. Sweden in both cars and motorcycles</li>
-<li>C. Indonesia in cars and Sweden in motorcycles</li>
-<li>D. Sweden in cars and Indonesia in motorcycles</li>
-</ul>
-<hr />
-<p><strong>Q3.</strong> 8 identical firms have individual supply curves: q_s = 5P − 10. Market demand: Q_d = 120 − 10P. What is the total quantity supplied at equilibrium?</p>
-<ul>
-<li>A. 0</li>
-<li>B. 4</li>
-<li>C. 33.33</li>
-<li>D. 60</li>
-<li>E. 80</li>
-</ul>
-<hr />
-<p><strong>Q4.</strong> If a firm experiences diminishing marginal product of labour and labour is the only variable input, then it must be that:</p>
-<ul>
-<li>A. Total output falls as more labour is hired</li>
-<li>B. Average total cost is rising</li>
-<li>C. Marginal cost is rising</li>
-<li>D. Average variable cost is falling</li>
-</ul>
-<hr />
-<p><strong>Q5.</strong> The new Sydney Metro reduces commute time from 1.5 hours to 0.5 hours, and increases trips per year from 2 million to 3 million. If the value of time is $20/hour, the increase in consumer surplus for <strong>new</strong> commuters is:</p>
-<ul>
-<li>A. $60 million</li>
-<li>B. $50 million</li>
-<li>C. $40 million</li>
-<li>D. $20 million</li>
-<li>E. $10 million</li>
-</ul>
-<hr />
-<p><strong>Q6.</strong> Which graph shows a price elasticity of demand equal to infinity?</p>
-<ul>
-<li>A. Vertical line</li>
-<li>B. Horizontal line</li>
-<li>C. Upward-sloping line</li>
-<li>D. Downward-sloping line</li>
-</ul>
-<hr />
-<p><strong>Q7.</strong> Which section of the MC curve best represents the short-run supply curve of a perfectly competitive firm? <em>(Select the option showing the MC curve above the minimum of AVC)</em></p>
-<ul>
-<li>A. The entire MC curve</li>
-<li>B. The section of MC above minimum AVC</li>
-<li>C. The section of MC above minimum ATC</li>
-<li>D. The downward-sloping section of MC</li>
-</ul>
-<hr />
-<p><strong>Q8.</strong> Market price decreases and quantity decreases. Which is the most likely cause?</p>
-<ul>
-<li>A. An increase in demand</li>
-<li>B. A decrease in demand</li>
-<li>C. An increase in supply</li>
-<li>D. A decrease in supply</li>
-</ul>
-<hr />
-<p><strong>Q9.</strong> Income rises. For an <strong>inferior good</strong>, what happens to demand?</p>
-<ul>
-<li>A. Demand increases (shifts right)</li>
-<li>B. Demand decreases (shifts left)</li>
-<li>C. Demand is unaffected</li>
-<li>D. A movement up along the demand curve</li>
-</ul>
-<hr />
-<p><strong>Q10.</strong> Individual 1: Q = −3P + 6. Individual 2: Q = −4P + 4. At what price is there a kink in the market demand curve?</p>
-<ul>
-<li>A. 1</li>
-<li>B. 2</li>
-<li>C. 3</li>
-<li>D. 4</li>
-<li>E. 5</li>
-</ul>
-<hr />
-<p><strong>Q11.</strong> A perfectly competitive firm faces a market price above its ATC minimum. What happens next in the long run?</p>
-<ul>
-<li>A. Existing firms raise their price</li>
-<li>B. Existing firms lower their price</li>
-<li>C. Consumers demand fewer units</li>
-<li>D. Existing firms exit the market</li>
-<li>E. New firms enter the market</li>
-</ul>
-<hr />
-<p><strong>Q12.</strong> Market demand: Q = 100 − 2P. The elasticity of demand is −0.25. What is the quantity demanded?</p>
-<ul>
-<li>A. 10</li>
-<li>B. 50</li>
-<li>C. 80</li>
-<li>D. 100</li>
-<li>E. 120</li>
-</ul>
-<hr />
-<p><strong>Q13.</strong> Which of the following would cause a <strong>rightward shift</strong> in the demand curve for coffee?</p>
-<ul>
-<li>A. An increase in the price of coffee</li>
-<li>B. An increase in the price of tea (a substitute)</li>
-<li>C. A decrease in consumers' income, if coffee is a normal good</li>
-<li>D. An improvement in coffee-making technology</li>
-</ul>
-<hr />
-<p><strong>Q14.</strong> In trade based on comparative advantage, both parties gain because:</p>
-<ul>
-<li>A. Working together makes each person more productive</li>
-<li>B. Trading allows each person to access the other's product</li>
-<li>C. One person is more productive, raising average productivity</li>
-<li>D. Exchange allows people to specialise in what they produce more cheaply</li>
-</ul>
-<hr />
-<p><strong>Q15.</strong> A subsidy for children's sports results in a very small increase in participation. This suggests:</p>
-<ul>
-<li>A. Highly inelastic demand for children's sports</li>
-<li>B. Highly elastic demand for children's sports</li>
-<li>C. Children's sports is a normal good</li>
-<li>D. Children's sports is an inferior good</li>
-</ul>
-<hr />
-<p><strong>Q16.</strong> Market demand: Q_d = 10 − 2P. Supply defined by MC = 4 (perfectly elastic). What is the producer surplus?</p>
-<ul>
-<li>A. 0</li>
-<li>B. 1</li>
-<li>C. 5.56</li>
-<li>D. 8</li>
-<li>E. 9</li>
-</ul>
-<hr />
-<p><strong>Q17.</strong> A firm faces demand Q = 10 − 2P. If price rises from P = 1 to P = 2, what is the change in total revenue?</p>
-<ul>
-<li>A. 0</li>
-<li>B. 2</li>
-<li>C. 4</li>
-<li>D. 6</li>
-<li>E. 8</li>
-</ul>
-<hr />
-<p><strong>Q18.</strong> Short-run cost: TC(q) = 5 + q + q². What is average variable cost when q = 5?</p>
-<ul>
-<li>A. 7.8</li>
-<li>B. 7</li>
-<li>C. 4/5</li>
-<li>D. 5</li>
-<li>E. 6</li>
-</ul>
-<hr />
-<p><strong>Q19.</strong> TC(q) = 6 + 2q + q²; MC = 2 + 2q. Market price = 6. What is profit at the profit-maximising output?</p>
-<ul>
-<li>A. −2</li>
-<li>B. 0</li>
-<li>C. 1</li>
-<li>D. 2</li>
-<li>E. 4</li>
-</ul>
-<hr />
-<p><strong>Q20.</strong> If the market price is <strong>above</strong> the equilibrium price, then:</p>
-<ul>
-<li>A. Quantity demanded exceeds quantity supplied</li>
-<li>B. There is excess demand</li>
-<li>C. There is excess supply</li>
-<li>D. Price will tend to rise further</li>
-</ul>
-<hr />
-<h2 id="answer-key-2026-ist">✅ Answer Key — 2026 IST</h2>
+<h1 id="lesson-m02l02-ols-estimation-deriving-the-slope-and-intercept">Lesson M02.L02: OLS Estimation — Deriving the Slope and Intercept</h1>
 <table>
 <thead>
 <tr>
-<th>Q</th>
-<th>Version A</th>
-<th>Version B</th>
-<th>Version C</th>
-<th>Version D</th>
+<th>Field</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Module</strong></td>
+<td>M02 — Simple Linear Regression (Wooldridge Chapter 2)</td>
+</tr>
+<tr>
+<td><strong>Level</strong></td>
+<td>Graduate</td>
+</tr>
+<tr>
+<td><strong>Duration</strong></td>
+<td>35 minutes</td>
+</tr>
+<tr>
+<td><strong>Learning Objective</strong></td>
+<td>Derive the OLS estimators <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span> from first principles, interpret them in context, and calculate them by hand from a small dataset.</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Wooldridge, <em>Introductory Econometrics</em>, 7th ed., Chapter 2, Sections 2.2–2.3</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="explanation">Explanation</h2>
+<h3 id="1-the-regression-model">1. The Regression Model</h3>
+<p>We postulate a <strong>population linear regression model</strong>:</p>
+<div class="arithmatex">\[y = \beta_0 + \beta_1 x + u\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(y\)</span> is the <strong>dependent variable</strong> (outcome we want to explain)</li>
+<li><span class="arithmatex">\(x\)</span> is the <strong>independent variable</strong> (regressor, explanatory variable)</li>
+<li><span class="arithmatex">\(\beta_0\)</span> is the <strong>population intercept</strong></li>
+<li><span class="arithmatex">\(\beta_1\)</span> is the <strong>population slope</strong> (the causal or associational effect of interest)</li>
+<li><span class="arithmatex">\(u\)</span> is the <strong>error term</strong> (everything else that affects <span class="arithmatex">\(y\)</span>, unobserved)</li>
+</ul>
+<p>We observe <span class="arithmatex">\(n\)</span> data points <span class="arithmatex">\(\{(x_i, y_i)\}_{i=1}^n\)</span>. The goal of <strong>Ordinary Least Squares (OLS)</strong> is to find estimates <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span> such that the fitted line:</p>
+<div class="arithmatex">\[\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\]</div>
+<p>is "as close as possible" to the observed data.</p>
+<hr />
+<h3 id="2-the-ols-objective-minimise-squared-residuals">2. The OLS Objective: Minimise Squared Residuals</h3>
+<p>For any candidate line <span class="arithmatex">\((\hat{\beta}_0, \hat{\beta}_1)\)</span>, define the <strong>residual</strong> for observation <span class="arithmatex">\(i\)</span> as:</p>
+<div class="arithmatex">\[\hat{u}_i = y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i\]</div>
+<p>This is the vertical distance between the observed <span class="arithmatex">\(y_i\)</span> and the fitted value <span class="arithmatex">\(\hat{y}_i\)</span>.</p>
+<p>OLS chooses <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span> to minimise the <strong>sum of squared residuals (SSR)</strong>:</p>
+<div class="arithmatex">\[\min_{\hat{\beta}_0,\, \hat{\beta}_1} \sum_{i=1}^n \hat{u}_i^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2\]</div>
+<blockquote>
+<p><strong>Why squared residuals?</strong><br />
+Squaring penalises large deviations heavily and treats positive/negative deviations symmetrically. Critically, squaring yields a smooth, convex objective function — this means the minimum is unique and can be found analytically by taking derivatives.</p>
+</blockquote>
+<hr />
+<h3 id="3-derivation-via-first-order-conditions">3. Derivation via First-Order Conditions</h3>
+<p>Let <span class="arithmatex">\(Q(\hat{\beta}_0, \hat{\beta}_1) = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2\)</span>.</p>
+<p><strong>Step 1 — Differentiate with respect to <span class="arithmatex">\(\hat{\beta}_0\)</span> and set to zero:</strong></p>
+<div class="arithmatex">\[\frac{\partial Q}{\partial \hat{\beta}_0} = -2 \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0\]</div>
+<p>Dividing by <span class="arithmatex">\(-2\)</span>:</p>
+<div class="arithmatex">\[\sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0 \tag{FOC1}\]</div>
+<p>Expanding and dividing by <span class="arithmatex">\(n\)</span>:</p>
+<div class="arithmatex">\[\bar{y} = \hat{\beta}_0 + \hat{\beta}_1 \bar{x} \quad \Longrightarrow \quad \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} \tag{Intercept}\]</div>
+<p><strong>Step 2 — Differentiate with respect to <span class="arithmatex">\(\hat{\beta}_1\)</span> and set to zero:</strong></p>
+<div class="arithmatex">\[\frac{\partial Q}{\partial \hat{\beta}_1} = -2 \sum_{i=1}^n x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0\]</div>
+<p>Dividing by <span class="arithmatex">\(-2\)</span>:</p>
+<div class="arithmatex">\[\sum_{i=1}^n x_i(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i) = 0 \tag{FOC2}\]</div>
+<p><strong>Step 3 — Substitute the expression for <span class="arithmatex">\(\hat{\beta}_0\)</span> into FOC2.</strong></p>
+<p>Substituting <span class="arithmatex">\(\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\)</span>:</p>
+<div class="arithmatex">\[\sum_{i=1}^n x_i \bigl(y_i - \bar{y} - \hat{\beta}_1(x_i - \bar{x})\bigr) = 0\]</div>
+<p>Expanding:</p>
+<div class="arithmatex">\[\sum_{i=1}^n x_i(y_i - \bar{y}) = \hat{\beta}_1 \sum_{i=1}^n x_i(x_i - \bar{x})\]</div>
+<p>Using the identity <span class="arithmatex">\(\sum x_i(x_i - \bar{x}) = \sum (x_i - \bar{x})^2\)</span> and <span class="arithmatex">\(\sum x_i(y_i - \bar{y}) = \sum (x_i - \bar{x})(y_i - \bar{y})\)</span>:</p>
+<div class="arithmatex">\[\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}) = \hat{\beta}_1 \sum_{i=1}^n (x_i - \bar{x})^2\]</div>
+<p>Solving for <span class="arithmatex">\(\hat{\beta}_1\)</span> (provided <span class="arithmatex">\(\sum(x_i-\bar{x})^2 \neq 0\)</span>, i.e. <span class="arithmatex">\(x\)</span> is not constant):</p>
+<div class="arithmatex">\[\boxed{\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}}\]</div>
+<p>And the intercept:</p>
+<div class="arithmatex">\[\boxed{\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}}\]</div>
+<hr />
+<h3 id="4-algebraic-intuition-slope-as-scaled-covariance">4. Algebraic Intuition: Slope as Scaled Covariance</h3>
+<p>The OLS slope can be written compactly in population-moment notation:</p>
+<div class="arithmatex">\[\hat{\beta}_1 = \frac{\widehat{\text{Cov}}(x, y)}{\widehat{\text{Var}}(x)}\]</div>
+<p>where <span class="arithmatex">\(\widehat{\text{Cov}}(x,y) = \frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})(y_i-\bar{y})\)</span> and <span class="arithmatex">\(\widehat{\text{Var}}(x) = \frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2\)</span> (the <span class="arithmatex">\(n\)</span>-denominator versions cancel).</p>
+<p><strong>Intuition:</strong></p>
+<ul>
+<li>If <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> move together (positive covariance), the slope is positive.</li>
+<li>The denominator <span class="arithmatex">\(\text{Var}(x)\)</span> <em>normalises</em> the slope — it answers: "how much does <span class="arithmatex">\(y\)</span> move for each unit of <span class="arithmatex">\(x\)</span>, accounting for how spread out <span class="arithmatex">\(x\)</span> itself is?"</li>
+<li>If you multiply <span class="arithmatex">\(x\)</span> by 2, both numerator and denominator scale up, but denominator scales by 4 while numerator only by 2, so <span class="arithmatex">\(\hat{\beta}_1\)</span> halves. (We'll revisit this in M02.L04.)</li>
+</ul>
+<hr />
+<h3 id="5-interpretation">5. Interpretation</h3>
+<p>Given the estimated equation <span class="arithmatex">\(\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\)</span>:</p>
+<ul>
+<li><strong><span class="arithmatex">\(\hat{\beta}_1\)</span></strong>: A one-unit increase in <span class="arithmatex">\(x\)</span> is <em>associated with</em> a <span class="arithmatex">\(\hat{\beta}_1\)</span>-unit change in <span class="arithmatex">\(y\)</span>, on average (holding the rest of the model constant — though in simple regression there is nothing else to hold constant).</li>
+<li><strong><span class="arithmatex">\(\hat{\beta}_0\)</span></strong>: The predicted value of <span class="arithmatex">\(y\)</span> when <span class="arithmatex">\(x = 0\)</span>. Often not economically meaningful; interpret cautiously if <span class="arithmatex">\(x = 0\)</span> is outside the data range.</li>
+</ul>
+<blockquote>
+<p><strong>Caution on "causal" language:</strong> OLS gives the best linear <em>predictor</em> of <span class="arithmatex">\(y\)</span> given <span class="arithmatex">\(x\)</span>. Whether <span class="arithmatex">\(\hat{\beta}_1\)</span> has a causal interpretation depends on additional assumptions (SLR.4: zero conditional mean error), not on the OLS algebra itself.</p>
+</blockquote>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<h3 id="dataset-education-and-hourly-wages">Dataset: Education and Hourly Wages</h3>
+<p>Suppose we observe <span class="arithmatex">\(n = 5\)</span> workers:</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(i\)</span></th>
+<th>Years of Education (<span class="arithmatex">\(x_i\)</span>)</th>
+<th>Hourly Wage, $ (<span class="arithmatex">\(y_i\)</span>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>C</td>
-<td>C</td>
-<td>A</td>
-<td>A</td>
+<td>8</td>
+<td>7.25</td>
 </tr>
 <tr>
 <td>2</td>
-<td>C</td>
-<td>D</td>
-<td>B</td>
-<td>C</td>
+<td>10</td>
+<td>9.00</td>
 </tr>
 <tr>
 <td>3</td>
-<td>E</td>
-<td>B</td>
-<td>A</td>
-<td>D</td>
+<td>12</td>
+<td>11.50</td>
 </tr>
 <tr>
 <td>4</td>
-<td>C</td>
-<td>B</td>
-<td>E</td>
-<td>A</td>
+<td>14</td>
+<td>14.00</td>
 </tr>
 <tr>
 <td>5</td>
-<td>E</td>
-<td>B</td>
-<td>A</td>
-<td>B</td>
-</tr>
-<tr>
-<td>6</td>
-<td>B</td>
-<td>B</td>
-<td>B</td>
-<td>A</td>
-</tr>
-<tr>
-<td>7</td>
-<td>B</td>
-<td>C</td>
-<td>B</td>
-<td>D</td>
-</tr>
-<tr>
-<td>8</td>
-<td>B</td>
-<td>A</td>
-<td>C</td>
-<td>C</td>
-</tr>
-<tr>
-<td>9</td>
-<td>D</td>
-<td>E</td>
-<td>D</td>
-<td>B</td>
-</tr>
-<tr>
-<td>10</td>
-<td>A</td>
-<td>B</td>
-<td>C</td>
-<td>A</td>
-</tr>
-<tr>
-<td>11</td>
-<td>E</td>
-<td>E</td>
-<td>C</td>
-<td>E</td>
-</tr>
-<tr>
-<td>12</td>
-<td>C</td>
-<td>A</td>
-<td>D</td>
-<td>A</td>
-</tr>
-<tr>
-<td>13</td>
-<td>B</td>
-<td>A</td>
-<td>E</td>
-<td>B</td>
-</tr>
-<tr>
-<td>14</td>
-<td>D</td>
-<td>C</td>
-<td>C</td>
-<td>B</td>
-</tr>
-<tr>
-<td>15</td>
-<td>A</td>
-<td>E</td>
-<td>E</td>
-<td>C</td>
-</tr>
-<tr>
 <td>16</td>
-<td>A</td>
-<td>C</td>
-<td>D</td>
-<td>E</td>
-</tr>
-<tr>
-<td>17</td>
-<td>C</td>
-<td>E</td>
-<td>B</td>
-<td>B</td>
-</tr>
-<tr>
-<td>18</td>
-<td>E</td>
-<td>D</td>
-<td>D</td>
-<td>C</td>
-</tr>
-<tr>
-<td>19</td>
-<td>A</td>
-<td>C</td>
-<td>A</td>
-<td>B</td>
-</tr>
-<tr>
-<td>20</td>
-<td>C</td>
-<td>C</td>
-<td>E</td>
-<td>C</td>
+<td>18.25</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Version differences</p>
-<p>Versions B, C, and D contain the same questions but in different order, with answer choices also shuffled. Study by topic rather than memorising answer patterns. Use the Version A questions above to practise, then verify with the key above.</p>
-</div>
+<p><strong>Goal:</strong> Estimate <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span> for <span class="arithmatex">\(\text{Wage}_i = \beta_0 + \beta_1 \text{Educ}_i + u_i\)</span>.</p>
 <hr />
-<h2 id="topic-coverage-guide">📘 Topic Coverage Guide</h2>
+<p><strong>Step 1: Compute means.</strong></p>
+<div class="arithmatex">\[\bar{x} = \frac{8 + 10 + 12 + 14 + 16}{5} = \frac{60}{5} = 12\]</div>
+<div class="arithmatex">\[\bar{y} = \frac{7.25 + 9.00 + 11.50 + 14.00 + 18.25}{5} = \frac{60.00}{5} = 12.00\]</div>
+<hr />
+<p><strong>Step 2: Compute deviations and cross-products.</strong></p>
 <table>
 <thead>
 <tr>
-<th>Topic</th>
-<th>IST Weighting</th>
-<th>Relevant Modules</th>
+<th><span class="arithmatex">\(i\)</span></th>
+<th><span class="arithmatex">\(x_i - \bar{x}\)</span></th>
+<th><span class="arithmatex">\(y_i - \bar{y}\)</span></th>
+<th><span class="arithmatex">\((x_i-\bar{x})(y_i-\bar{y})\)</span></th>
+<th><span class="arithmatex">\((x_i-\bar{x})^2\)</span></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>PPF, Opportunity Cost, Comparative Advantage</td>
-<td>~15%</td>
-<td>M01</td>
+<td>1</td>
+<td><span class="arithmatex">\(8 - 12 = -4\)</span></td>
+<td><span class="arithmatex">\(7.25 - 12 = -4.75\)</span></td>
+<td><span class="arithmatex">\((-4)(-4.75) = 19.00\)</span></td>
+<td>16</td>
 </tr>
 <tr>
-<td>Supply &amp; Demand, Equilibrium</td>
-<td>~20%</td>
-<td>M02, M04</td>
+<td>2</td>
+<td><span class="arithmatex">\(10 - 12 = -2\)</span></td>
+<td><span class="arithmatex">\(9.00 - 12 = -3.00\)</span></td>
+<td><span class="arithmatex">\((-2)(-3.00) = 6.00\)</span></td>
+<td>4</td>
 </tr>
 <tr>
-<td>Elasticity</td>
-<td>~15%</td>
-<td>M02, M05</td>
+<td>3</td>
+<td><span class="arithmatex">\(12 - 12 = 0\)</span></td>
+<td><span class="arithmatex">\(11.50 - 12 = -0.50\)</span></td>
+<td><span class="arithmatex">\((0)(-0.50) = 0.00\)</span></td>
+<td>0</td>
 </tr>
 <tr>
-<td>Consumer &amp; Producer Surplus</td>
-<td>~10%</td>
-<td>M02, M05</td>
+<td>4</td>
+<td><span class="arithmatex">\(14 - 12 = 2\)</span></td>
+<td><span class="arithmatex">\(14.00 - 12 = 2.00\)</span></td>
+<td><span class="arithmatex">\((2)(2.00) = 4.00\)</span></td>
+<td>4</td>
 </tr>
 <tr>
-<td>Production &amp; Costs</td>
-<td>~15%</td>
-<td>M03</td>
+<td>5</td>
+<td><span class="arithmatex">\(16 - 12 = 4\)</span></td>
+<td><span class="arithmatex">\(18.25 - 12 = 6.25\)</span></td>
+<td><span class="arithmatex">\((4)(6.25) = 25.00\)</span></td>
+<td>16</td>
 </tr>
 <tr>
-<td>Perfect Competition</td>
-<td>~10%</td>
-<td>M06</td>
-</tr>
-<tr>
-<td>Monopoly &amp; Market Power</td>
-<td>~5% (may appear)</td>
-<td>M07</td>
-</tr>
-<tr>
-<td>Game Theory (may appear)</td>
-<td>~5%</td>
-<td>M08</td>
+<td><strong>Sum</strong></td>
+<td>0</td>
+<td>0</td>
+<td><strong>54.00</strong></td>
+<td><strong>40</strong></td>
 </tr>
 </tbody>
 </table>
+<p><em>(Deviations always sum to zero — a useful check.)</em></p>
 <hr />
-<h2 id="key-worked-examples">💡 Key Worked Examples</h2>
-<h3 id="q5-new-commuter-surplus-half-rule">Q5 — New Commuter Surplus (Half-Rule)</h3>
-<p>New commuters travel 1 million extra trips. Their surplus = ½ × (time saving per trip) × (new trips):
-- Time saving = 1.5 − 0.5 = 1 hour/trip at <span class="arithmatex">\(20/hr = **\)</span>20 value/trip<strong>
-- New trips = 3m − 2m = </strong>1 million<strong>
-- New commuter CS = ½ × <span class="arithmatex">\(20 × 1,000,000 = **\)</span>10 million</strong> → Answer: <strong>E</strong></p>
-<h3 id="q12-elasticity-calculation">Q12 — Elasticity Calculation</h3>
-<p>ε = (dQ/dP) × (P/Q) = −2 × (P/Q) = −0.25
-→ −2P/Q = −0.25 → P/Q = 0.125 → P = 0.125Q
-Substitute into demand: Q = 100 − 2(0.125Q) = 100 − 0.25Q
-1.25Q = 100 → <strong>Q = 80</strong> → Answer: <strong>C</strong></p>
-<h3 id="q18-avc-calculation">Q18 — AVC Calculation</h3>
-<p>TC = 5 + q + q²; Variable cost = TC − Fixed cost = q + q²
-At q=5: VC = 5 + 25 = 30; <strong>AVC = 30/5 = 6</strong> → Answer: <strong>E</strong></p>
-<h3 id="q19-profit-maximisation">Q19 — Profit Maximisation</h3>
-<p>P = MC: 6 = 2 + 2q → q = 2
-TR = 6 × 2 = 12; TC = 6 + 2(2) + 2² = 6 + 4 + 4 = 14
-<strong>Profit = 12 − 14 = −2</strong> → Answer: <strong>A</strong></p>
+<p><strong>Step 3: Calculate <span class="arithmatex">\(\hat{\beta}_1\)</span>.</strong></p>
+<div class="arithmatex">\[\hat{\beta}_1 = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sum(x_i - \bar{x})^2} = \frac{54.00}{40} = 1.35\]</div>
+<hr />
+<p><strong>Step 4: Calculate <span class="arithmatex">\(\hat{\beta}_0\)</span>.</strong></p>
+<div class="arithmatex">\[\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} = 12.00 - 1.35 \times 12 = 12.00 - 16.20 = -4.20\]</div>
+<hr />
+<p><strong>Step 5: Write the estimated equation.</strong></p>
+<div class="arithmatex">\[\widehat{\text{Wage}} = -4.20 + 1.35 \times \text{Educ}\]</div>
+<hr />
+<p><strong>Step 6: Interpretation.</strong></p>
+<ul>
+<li><strong>Slope (<span class="arithmatex">\(\hat{\beta}_1 = 1.35\)</span>):</strong> Each additional year of education is associated with, on average, <strong>$1.35 more per hour</strong> in wages.</li>
+<li><strong>Intercept (<span class="arithmatex">\(\hat{\beta}_0 = -4.20\)</span>):</strong> A worker with zero years of education is predicted to earn <span class="arithmatex">\(-\$4.20\)</span>/hour — this is outside the data range (minimum <span class="arithmatex">\(x = 8\)</span>) and is economically meaningless. Do not over-interpret.</li>
+<li><strong>Predicted value check:</strong> For <span class="arithmatex">\(x = 12\)</span> (the mean): <span class="arithmatex">\(\hat{y} = -4.20 + 1.35 \times 12 = -4.20 + 16.20 = 12.00 = \bar{y}\)</span>. ✓ The line passes through <span class="arithmatex">\((\bar{x}, \bar{y})\)</span>.</li>
+</ul>
+<hr />
+<h2 id="common-misconception">Common Misconception</h2>
+<blockquote>
+<p><strong>"OLS minimises the sum of absolute residuals."</strong></p>
+</blockquote>
+<p>This is false. OLS minimises <span class="arithmatex">\(\sum \hat{u}_i^2\)</span> — the <strong>sum of <em>squared</em> residuals</strong>. The method that minimises <span class="arithmatex">\(\sum |\hat{u}_i|\)</span> is called <strong>Least Absolute Deviations (LAD)</strong> regression, and it does not yield closed-form analytical formulas like OLS does.</p>
+<p>Squaring matters for three reasons:</p>
+<ol>
+<li><strong>Unique solution:</strong> The squared objective is strictly convex, guaranteeing a unique minimum found by setting derivatives to zero. The absolute-value objective is piecewise linear and may have multiple solutions.</li>
+<li><strong>Analytical tractability:</strong> The closed-form formulas <span class="arithmatex">\(\hat{\beta}_1 = \sum(x_i-\bar{x})(y_i-\bar{y}) / \sum(x_i-\bar{x})^2\)</span> arise directly from the quadratic FOCs.</li>
+<li><strong>Statistical theory:</strong> The squared-residual criterion links naturally to the normal distribution and the Gauss-Markov theorem (covered in M02.L05).</li>
+</ol>
+<p>The tradeoff is that squaring makes OLS <strong>sensitive to outliers</strong> (a single large <span class="arithmatex">\(\hat{u}_i\)</span> contributes <span class="arithmatex">\(\hat{u}_i^2\)</span> to the objective). LAD is more robust to outliers but lacks clean analytical properties.</p>
+<hr />
+<h2 id="practice-prompts">Practice Prompts</h2>
+<h3 id="problem-1">Problem 1</h3>
+<p>A researcher collects data on 5 cities: population (in thousands) and average commute time (minutes):</p>
+<table>
+<thead>
+<tr>
+<th>City</th>
+<th>Population <span class="arithmatex">\(x_i\)</span></th>
+<th>Commute <span class="arithmatex">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>100</td>
+<td>22</td>
+</tr>
+<tr>
+<td>B</td>
+<td>200</td>
+<td>28</td>
+</tr>
+<tr>
+<td>C</td>
+<td>300</td>
+<td>35</td>
+</tr>
+<tr>
+<td>D</td>
+<td>400</td>
+<td>40</td>
+</tr>
+<tr>
+<td>E</td>
+<td>500</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<p><strong>(a)</strong> Compute <span class="arithmatex">\(\bar{x}\)</span> and <span class="arithmatex">\(\bar{y}\)</span>.<br />
+<strong>(b)</strong> Compute <span class="arithmatex">\(\hat{\beta}_1\)</span> and <span class="arithmatex">\(\hat{\beta}_0\)</span>.<br />
+<strong>(c)</strong> Interpret <span class="arithmatex">\(\hat{\beta}_1\)</span> in context.<br />
+<strong>(d)</strong> What is the predicted commute time for a city of 350,000 people?</p>
+<details class="answer">
+<summary>Show Answer</summary>
+<p><strong>(a)</strong>  <span class="arithmatex">\(\bar{x} = (100+200+300+400+500)/5 = 300\)</span>; <span class="arithmatex">\(\bar{y} = (22+28+35+40+45)/5 = 34\)</span>.</p>
+<p><strong>(b)</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>City</th>
+<th><span class="arithmatex">\(x_i - 300\)</span></th>
+<th><span class="arithmatex">\(y_i - 34\)</span></th>
+<th>Product</th>
+<th><span class="arithmatex">\((x_i-300)^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>-200</td>
+<td>-12</td>
+<td>2400</td>
+<td>40000</td>
+</tr>
+<tr>
+<td>B</td>
+<td>-100</td>
+<td>-6</td>
+<td>600</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>D</td>
+<td>100</td>
+<td>6</td>
+<td>600</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>E</td>
+<td>200</td>
+<td>11</td>
+<td>2200</td>
+<td>40000</td>
+</tr>
+<tr>
+<td><strong>Sum</strong></td>
+<td></td>
+<td></td>
+<td><strong>5800</strong></td>
+<td><strong>100000</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(\hat{\beta}_1 = 5800/100000 = 0.058\)</span></p>
+<p><span class="arithmatex">\(\hat{\beta}_0 = 34 - 0.058 \times 300 = 34 - 17.4 = 16.6\)</span></p>
+<p><strong>(c)</strong> Each additional thousand residents in a city is associated with, on average, 0.058 additional minutes of commute time.</p>
+<p><strong>(d)</strong> <span class="arithmatex">\(\hat{y} = 16.6 + 0.058 \times 350 = 16.6 + 20.3 = 36.9\)</span> minutes.</p>
+</details>
+<hr />
+<h3 id="problem-2">Problem 2</h3>
+<p>You are given the following summary statistics for a sample of <span class="arithmatex">\(n = 20\)</span> students:</p>
+<div class="arithmatex">\[\bar{x} = 5.0 \text{ (hours studied)}, \quad \bar{y} = 70.0 \text{ (exam score)}$$
+$$\sum_{i=1}^{20}(x_i - \bar{x})(y_i - \bar{y}) = 180, \quad \sum_{i=1}^{20}(x_i - \bar{x})^2 = 60\]</div>
+<p><strong>(a)</strong> Compute <span class="arithmatex">\(\hat{\beta}_1\)</span> and <span class="arithmatex">\(\hat{\beta}_0\)</span>.<br />
+<strong>(b)</strong> Predict the score for a student who studies 8 hours.<br />
+<strong>(c)</strong> If the score variable is changed to a percentage of a 150-point scale (i.e. <span class="arithmatex">\(y^* = y/150 \times 100\)</span>), how do <span class="arithmatex">\(\hat{\beta}_0\)</span>, <span class="arithmatex">\(\hat{\beta}_1\)</span>, and the fitted line change?</p>
+<details class="answer">
+<summary>Show Answer</summary>
+<p><strong>(a)</strong> <span class="arithmatex">\(\hat{\beta}_1 = 180/60 = 3.0\)</span>; <span class="arithmatex">\(\hat{\beta}_0 = 70.0 - 3.0 \times 5.0 = 55.0\)</span>.<br />
+Estimated equation: <span class="arithmatex">\(\widehat{\text{Score}} = 55.0 + 3.0 \times \text{Hours}\)</span>.</p>
+<p><strong>(b)</strong> <span class="arithmatex">\(\hat{y} = 55.0 + 3.0 \times 8 = 55.0 + 24.0 = 79.0\)</span> points.</p>
+<p><strong>(c)</strong> <span class="arithmatex">\(y^* = (100/150) \cdot y\)</span>. Multiplying <span class="arithmatex">\(y\)</span> by the constant <span class="arithmatex">\(c = 100/150 \approx 0.6\overline{6}\)</span> scales both <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span> by <span class="arithmatex">\(c\)</span>:<br />
+<span class="arithmatex">\(\hat{\beta}_0^* = 55.0 \times (100/150) \approx 36.67\)</span>; <span class="arithmatex">\(\hat{\beta}_1^* = 3.0 \times (100/150) = 2.0\)</span>.<br />
+The fitted values simply rescale; <span class="arithmatex">\(R^2\)</span> is unchanged (covered in M02.L04).</p>
+</details>
+<hr />
+<h3 id="problem-3">Problem 3</h3>
+<p>True or False — explain your reasoning for each:</p>
+<p><strong>(a)</strong> If <span class="arithmatex">\(\hat{\beta}_1 = 0\)</span>, the OLS regression line is horizontal and <span class="arithmatex">\(\hat{y}_i = \bar{y}\)</span> for all <span class="arithmatex">\(i\)</span>.<br />
+<strong>(b)</strong> The OLS line always passes through the point <span class="arithmatex">\((0, 0)\)</span>.<br />
+<strong>(c)</strong> You can have <span class="arithmatex">\(\hat{\beta}_1 = 0\)</span> even when <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are strongly correlated.</p>
+<details class="answer">
+<summary>Show Answer</summary>
+<p><strong>(a)</strong> <strong>True.</strong> If <span class="arithmatex">\(\hat{\beta}_1 = 0\)</span>, then <span class="arithmatex">\(\hat{\beta}_0 = \bar{y} - 0 \cdot \bar{x} = \bar{y}\)</span>, so <span class="arithmatex">\(\hat{y}_i = \bar{y}\)</span> for all <span class="arithmatex">\(i\)</span>. The regression line is flat at the sample mean of <span class="arithmatex">\(y\)</span>.</p>
+<p><strong>(b)</strong> <strong>False.</strong> The OLS line passes through <span class="arithmatex">\((\bar{x}, \bar{y})\)</span>, not <span class="arithmatex">\((0, 0)\)</span> — unless it happens that <span class="arithmatex">\(\bar{x} = 0\)</span> and <span class="arithmatex">\(\bar{y} = 0\)</span>. The intercept <span class="arithmatex">\(\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\)</span> is specifically designed to enforce the <span class="arithmatex">\((\bar{x}, \bar{y})\)</span> constraint.</p>
+<p><strong>(c)</strong> <strong>False.</strong> <span class="arithmatex">\(\hat{\beta}_1 = \widehat{\text{Cov}}(x,y)/\widehat{\text{Var}}(x) = 0\)</span> requires <span class="arithmatex">\(\widehat{\text{Cov}}(x,y) = 0\)</span>, which means <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are sample-uncorrelated. If <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are strongly correlated, <span class="arithmatex">\(\widehat{\text{Cov}}(x,y) \neq 0\)</span>, so <span class="arithmatex">\(\hat{\beta}_1 \neq 0\)</span>.</p>
+</details>
+<hr />
+<h2 id="further-resources">Further Resources</h2>
+<ul>
+<li><strong>Wooldridge:</strong> Chapter 2, Sections 2.2 (Definition of OLS) and 2.3 (Properties of OLS on any sample)</li>
+<li><strong>R:</strong> <code>lm(y ~ x, data = df)</code> fits the OLS line; <code>coef()</code> extracts <span class="arithmatex">\(\hat{\beta}_0\)</span> and <span class="arithmatex">\(\hat{\beta}_1\)</span>; <code>summary(lm(...))</code> shows everything</li>
+<li><strong>Python:</strong> <code>statsmodels.formula.api.ols('y ~ x', data=df).fit()</code> — or <code>sklearn.linear_model.LinearRegression()</code> (note: sklearn doesn't include intercept SE/t-stats)</li>
+<li><strong>Manual check:</strong> Verify your hand calculations with <code>np.cov(x, y)[0,1] / np.var(x)</code> for the slope</li>
+<li><strong>Video:</strong> <a href="https://www.youtube.com/watch?v=Hi5EJnBHFSk">Ben Lambert's OLS Derivation (YouTube)</a> — clear walkthrough of the FOC approach</li>
+</ul>
 
 
 
@@ -2978,12 +3170,12 @@ TR = 6 × 2 = 12; TC = 6 + 2(2) + 2² = 6 + 4 + 4 = 14
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

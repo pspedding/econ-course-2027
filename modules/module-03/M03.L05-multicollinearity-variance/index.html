@@ -12,27 +12,31 @@
         <meta name="author" content="Econometrics 2027">
       
       
-        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/diagrams/">
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/modules/module-03/M03.L05-multicollinearity-variance/">
       
       
+        <link rel="prev" href="../M03.L04-omitted-variable-bias/">
+      
+      
+        <link rel="next" href="../../../exam-prep/formula-sheet/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>📊 Key Diagrams - Econometrics 2027</title>
+        <title>M03.L05 — Multicollinearity & Variance of OLS - Econometrics 2027</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#key-diagrams" class="md-skip">
+        <a href="#lesson-m03l05-multicollinearity-and-variance-of-ols" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+    <a href="../../.." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              📊 Key Diagrams
+              M03.L05 — Multicollinearity & Variance of OLS
             
           </span>
         </div>
@@ -213,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -234,7 +238,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+        <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
           
   
   
@@ -254,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+        <a href="../../module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
           
   
   
@@ -270,11 +274,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../modules/module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../M03.L01-multiple-regression-model/" class="md-tabs__link">
           
   
   
@@ -294,7 +300,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-04/M04.L01-sampling-distributions.md" class="md-tabs__link">
+        <a href="../../module-04/M04.L01-sampling-distributions.md" class="md-tabs__link">
           
   
   
@@ -314,7 +320,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-05/M05.L01-log-transformations.md" class="md-tabs__link">
+        <a href="../../module-05/M05.L01-log-transformations.md" class="md-tabs__link">
           
   
   
@@ -334,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-06/M06.L01-nature-consequences.md" class="md-tabs__link">
+        <a href="../../module-06/M06.L01-nature-consequences.md" class="md-tabs__link">
           
   
   
@@ -354,7 +360,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-07/M07.L01-specification-errors.md" class="md-tabs__link">
+        <a href="../../module-07/M07.L01-specification-errors.md" class="md-tabs__link">
           
   
   
@@ -374,7 +380,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-08/M08.L01-nature-time-series.md" class="md-tabs__link">
+        <a href="../../module-08/M08.L01-nature-time-series.md" class="md-tabs__link">
           
   
   
@@ -394,7 +400,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-09/M09.L01-ols-serial-correlation.md" class="md-tabs__link">
+        <a href="../../module-09/M09.L01-ols-serial-correlation.md" class="md-tabs__link">
           
   
   
@@ -414,7 +420,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../modules/module-10/M10.L01-endogeneity-causality.md" class="md-tabs__link">
+        <a href="../../module-10/M10.L01-endogeneity-causality.md" class="md-tabs__link">
           
   
   
@@ -434,7 +440,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../exam-prep/formula-sheet/" class="md-tabs__link">
+        <a href="../../../exam-prep/formula-sheet/" class="md-tabs__link">
           
   
   
@@ -470,7 +476,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+    <a href="../../.." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -488,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -569,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+      <a href="../../module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
         
   
   
@@ -597,7 +603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+      <a href="../../module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
         
   
   
@@ -625,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+      <a href="../../module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
         
   
   
@@ -653,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+      <a href="../../module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
         
   
   
@@ -681,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+      <a href="../../module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
         
   
   
@@ -709,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+      <a href="../../module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
         
   
   
@@ -798,7 +804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+      <a href="../../module-02/M02.L01-simple-regression-model/" class="md-nav__link">
         
   
   
@@ -826,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-02/M02.L02-ols-estimation/" class="md-nav__link">
+      <a href="../../module-02/M02.L02-ols-estimation/" class="md-nav__link">
         
   
   
@@ -854,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+      <a href="../../module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
         
   
   
@@ -882,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+      <a href="../../module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
         
   
   
@@ -910,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+      <a href="../../module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
         
   
   
@@ -942,28 +948,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -981,7 +990,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -999,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+      <a href="../M03.L01-multiple-regression-model/" class="md-nav__link">
         
   
   
@@ -1027,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+      <a href="../M03.L02-ols-multiple-regression/" class="md-nav__link">
         
   
   
@@ -1055,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+      <a href="../M03.L03-gauss-markov-assumptions/" class="md-nav__link">
         
   
   
@@ -1083,7 +1092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+      <a href="../M03.L04-omitted-variable-bias/" class="md-nav__link">
         
   
   
@@ -1108,10 +1117,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../modules/module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L05 — Multicollinearity & Variance of OLS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1127,6 +1163,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explanation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variance-of-hatbeta_j-in-multiple-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance of \(\hat{\beta}_j\) in Multiple Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-ways-to-get-small-variance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three Ways to Get Small Variance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variance-inflation-factor-vif" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance Inflation Factor (VIF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perfect-multicollinearity-mlr3-violated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perfect Multicollinearity (MLR.3 Violated)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#imperfect-multicollinearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Imperfect Multicollinearity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#economic-causes-of-multicollinearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Economic Causes of Multicollinearity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remedies-for-multicollinearity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remedies for Multicollinearity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-misconception" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Misconception
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#practice-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Prompts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further Resources
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1200,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-04/M04.L01-sampling-distributions.md" class="md-nav__link">
+      <a href="../../module-04/M04.L01-sampling-distributions.md" class="md-nav__link">
         
   
   
@@ -1228,7 +1422,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-04/M04.L02-t-tests.md" class="md-nav__link">
+      <a href="../../module-04/M04.L02-t-tests.md" class="md-nav__link">
         
   
   
@@ -1256,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-04/M04.L03-confidence-intervals.md" class="md-nav__link">
+      <a href="../../module-04/M04.L03-confidence-intervals.md" class="md-nav__link">
         
   
   
@@ -1284,7 +1478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-04/M04.L04-f-tests-joint-hypotheses.md" class="md-nav__link">
+      <a href="../../module-04/M04.L04-f-tests-joint-hypotheses.md" class="md-nav__link">
         
   
   
@@ -1312,7 +1506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-04/M04.L05-reporting-results.md" class="md-nav__link">
+      <a href="../../module-04/M04.L05-reporting-results.md" class="md-nav__link">
         
   
   
@@ -1401,7 +1595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-05/M05.L01-log-transformations.md" class="md-nav__link">
+      <a href="../../module-05/M05.L01-log-transformations.md" class="md-nav__link">
         
   
   
@@ -1429,7 +1623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-05/M05.L02-quadratic-interaction-terms.md" class="md-nav__link">
+      <a href="../../module-05/M05.L02-quadratic-interaction-terms.md" class="md-nav__link">
         
   
   
@@ -1457,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-05/M05.L03-dummy-variables.md" class="md-nav__link">
+      <a href="../../module-05/M05.L03-dummy-variables.md" class="md-nav__link">
         
   
   
@@ -1485,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-05/M05.L04-dummy-variable-trap.md" class="md-nav__link">
+      <a href="../../module-05/M05.L04-dummy-variable-trap.md" class="md-nav__link">
         
   
   
@@ -1513,7 +1707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-05/M05.L05-interactions-dummies.md" class="md-nav__link">
+      <a href="../../module-05/M05.L05-interactions-dummies.md" class="md-nav__link">
         
   
   
@@ -1602,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-06/M06.L01-nature-consequences.md" class="md-nav__link">
+      <a href="../../module-06/M06.L01-nature-consequences.md" class="md-nav__link">
         
   
   
@@ -1630,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-06/M06.L02-testing-heteroskedasticity.md" class="md-nav__link">
+      <a href="../../module-06/M06.L02-testing-heteroskedasticity.md" class="md-nav__link">
         
   
   
@@ -1658,7 +1852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-06/M06.L03-robust-standard-errors.md" class="md-nav__link">
+      <a href="../../module-06/M06.L03-robust-standard-errors.md" class="md-nav__link">
         
   
   
@@ -1686,7 +1880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-06/M06.L04-weighted-least-squares.md" class="md-nav__link">
+      <a href="../../module-06/M06.L04-weighted-least-squares.md" class="md-nav__link">
         
   
   
@@ -1775,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-07/M07.L01-specification-errors.md" class="md-nav__link">
+      <a href="../../module-07/M07.L01-specification-errors.md" class="md-nav__link">
         
   
   
@@ -1803,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-07/M07.L02-proxy-measurement-error.md" class="md-nav__link">
+      <a href="../../module-07/M07.L02-proxy-measurement-error.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-07/M07.L03-missing-data.md" class="md-nav__link">
+      <a href="../../module-07/M07.L03-missing-data.md" class="md-nav__link">
         
   
   
@@ -1920,7 +2114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-08/M08.L01-nature-time-series.md" class="md-nav__link">
+      <a href="../../module-08/M08.L01-nature-time-series.md" class="md-nav__link">
         
   
   
@@ -1948,7 +2142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-08/M08.L02-static-fdl-models.md" class="md-nav__link">
+      <a href="../../module-08/M08.L02-static-fdl-models.md" class="md-nav__link">
         
   
   
@@ -1976,7 +2170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-08/M08.L03-serial-correlation-spurious.md" class="md-nav__link">
+      <a href="../../module-08/M08.L03-serial-correlation-spurious.md" class="md-nav__link">
         
   
   
@@ -2004,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-08/M08.L04-stationarity-trends.md" class="md-nav__link">
+      <a href="../../module-08/M08.L04-stationarity-trends.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-09/M09.L01-ols-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L01-ols-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2121,7 +2315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-09/M09.L02-testing-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L02-testing-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2149,7 +2343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-09/M09.L03-correcting-serial-correlation.md" class="md-nav__link">
+      <a href="../../module-09/M09.L03-correcting-serial-correlation.md" class="md-nav__link">
         
   
   
@@ -2238,7 +2432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-10/M10.L01-endogeneity-causality.md" class="md-nav__link">
+      <a href="../../module-10/M10.L01-endogeneity-causality.md" class="md-nav__link">
         
   
   
@@ -2266,7 +2460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-10/M10.L02-iv-estimation.md" class="md-nav__link">
+      <a href="../../module-10/M10.L02-iv-estimation.md" class="md-nav__link">
         
   
   
@@ -2294,7 +2488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-10/M10.L03-2sls.md" class="md-nav__link">
+      <a href="../../module-10/M10.L03-2sls.md" class="md-nav__link">
         
   
   
@@ -2322,7 +2516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../modules/module-10/M10.L04-weak-instruments.md" class="md-nav__link">
+      <a href="../../module-10/M10.L04-weak-instruments.md" class="md-nav__link">
         
   
   
@@ -2411,7 +2605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exam-prep/formula-sheet/" class="md-nav__link">
+      <a href="../../../exam-prep/formula-sheet/" class="md-nav__link">
         
   
   
@@ -2439,7 +2633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exam-prep/past-exams.md" class="md-nav__link">
+      <a href="../../../exam-prep/past-exams.md" class="md-nav__link">
         
   
   
@@ -2467,7 +2661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exam-prep/exam-tips/" class="md-nav__link">
+      <a href="../../../exam-prep/exam-tips/" class="md-nav__link">
         
   
   
@@ -2512,169 +2706,241 @@
 
 
 
-<h1 id="key-diagrams">📊 Key Diagrams</h1>
-<p><em>Core microeconomics diagrams for quick reference and revision</em></p>
+<h1 id="lesson-m03l05-multicollinearity-and-variance-of-ols">Lesson M03.L05: Multicollinearity and Variance of OLS</h1>
+<p><strong>Module:</strong> M03 — Multiple Regression Analysis<br />
+<strong>Level:</strong> Graduate (ECMT5001, USYD S1 2027)<br />
+<strong>Duration:</strong> 35 min<br />
+<strong>Learning Objective:</strong> Derive the variance formula for OLS in multiple regression; define the Variance Inflation Factor (VIF); distinguish perfect from imperfect multicollinearity; explain consequences for inference without confusing multicollinearity with bias.<br />
+<strong>Provenance:</strong> Wooldridge, <em>Introductory Econometrics</em>, Chapter 3 (Section 3.4)</p>
 <hr />
-<h2 id="1-production-possibilities-frontier-ppf">1. Production Possibilities Frontier (PPF)</h2>
-<p><img alt="Production Possibilities Frontier" src="../assets/diagrams/01-ppf.png" /></p>
-<p>The PPF shows the maximum combinations of two goods an economy can produce with given resources and technology.</p>
-<ul>
-<li><strong>On the curve</strong> — efficient (all resources fully employed)</li>
-<li><strong>Inside the curve</strong> — inefficient (idle resources)</li>
-<li><strong>Outside the curve</strong> — currently unattainable</li>
-<li><strong>Bowed-out shape</strong> — increasing opportunity costs (resources not equally suited to all uses)</li>
-<li><strong>Outward shift</strong> — economic growth (more resources or better technology)</li>
-</ul>
-<p><em>Relevant lessons: M01.L02</em></p>
+<h2 id="explanation">Explanation</h2>
+<h3 id="variance-of-hatbeta_j-in-multiple-regression">Variance of <span class="arithmatex">\(\hat{\beta}_j\)</span> in Multiple Regression</h3>
+<p>Under <strong>MLR.1–MLR.5</strong>, the sampling variance of the OLS estimator for <span class="arithmatex">\(\beta_j\)</span> is:</p>
+<div class="arithmatex">\[\text{Var}(\hat{\beta}_j) = \frac{\sigma^2}{SST_j \cdot (1 - R_j^2)}\]</div>
+<p>where:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma^2\)</span></td>
+<td>Population error variance (<span class="arithmatex">\(\text{Var}(u \mid \mathbf{x})\)</span>)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(SST_j\)</span></td>
+<td><span class="arithmatex">\(\displaystyle\sum_{i=1}^n (x_{ij} - \bar{x}_j)^2\)</span> — total sample variation in <span class="arithmatex">\(x_j\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(R_j^2\)</span></td>
+<td><span class="arithmatex">\(R^2\)</span> from regressing <span class="arithmatex">\(x_j\)</span> on <strong>all other</strong> regressors <span class="arithmatex">\(x_1,\ldots,x_{j-1},x_{j+1},\ldots,x_k\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The standard error (square root of estimated variance) is:</p>
+<div class="arithmatex">\[\widehat{SE}(\hat{\beta}_j) = \frac{\hat{\sigma}}{\sqrt{SST_j \cdot (1 - R_j^2)}}\]</div>
+<p>where <span class="arithmatex">\(\hat{\sigma}^2 = SSR/(n-k-1)\)</span>.</p>
 <hr />
-<h2 id="2-supply-and-demand-market-equilibrium">2. Supply and Demand: Market Equilibrium</h2>
-<p><img alt="Supply and Demand" src="../assets/diagrams/02-supply-demand.png" /></p>
-<p>The market equilibrium is where the quantity demanded equals quantity supplied, determining price P<em> and quantity Q</em>.</p>
-<ul>
-<li><strong>Demand slopes down</strong> — law of demand (higher price → lower quantity demanded)</li>
-<li><strong>Supply slopes up</strong> — law of supply (higher price → higher quantity supplied)</li>
-<li><strong>Shortage</strong> (P &lt; P*): excess demand drives price up</li>
-<li><strong>Surplus</strong> (P &gt; P*): excess supply drives price down</li>
-</ul>
-<p><em>Relevant lessons: M04.L03, M04.L04, M04.L05</em></p>
+<h3 id="three-ways-to-get-small-variance">Three Ways to Get Small Variance</h3>
+<p>From the formula, <span class="arithmatex">\(\text{Var}(\hat{\beta}_j)\)</span> is small when:</p>
+<ol>
+<li><strong><span class="arithmatex">\(\sigma^2\)</span> is small</strong> — the regression model fits well; not much unexplained variation in <span class="arithmatex">\(y\)</span></li>
+<li><strong><span class="arithmatex">\(SST_j\)</span> is large</strong> — plenty of variation in <span class="arithmatex">\(x_j\)</span> in the sample; more signal</li>
+<li><strong><span class="arithmatex">\(R_j^2\)</span> is small</strong> — <span class="arithmatex">\(x_j\)</span> is not well explained by the other regressors; no multicollinearity</li>
+</ol>
+<p>The third factor is what makes multicollinearity costly.</p>
 <hr />
-<h2 id="3-consumer-and-producer-surplus">3. Consumer and Producer Surplus</h2>
-<p><img alt="Consumer and Producer Surplus" src="../assets/diagrams/03-surplus.png" /></p>
-<p>Economic surplus measures the gains from trade.</p>
-<ul>
-<li><strong>Consumer surplus (blue)</strong> — area under demand curve, above market price (WTP − price paid)</li>
-<li><strong>Producer surplus (red)</strong> — area above supply curve, below market price (price received − minimum acceptable)</li>
-<li><strong>Total surplus</strong> = CS + PS = net gain to society from voluntary exchange</li>
-<li><strong>Competitive equilibrium maximises total surplus</strong> — key efficiency result</li>
-</ul>
-<p><em>Relevant lessons: M05.L01, M05.L02</em></p>
+<h3 id="variance-inflation-factor-vif">Variance Inflation Factor (VIF)</h3>
+<p>Define the <strong>Variance Inflation Factor</strong> for <span class="arithmatex">\(\hat{\beta}_j\)</span>:</p>
+<div class="arithmatex">\[VIF_j = \frac{1}{1 - R_j^2}\]</div>
+<p>So:</p>
+<div class="arithmatex">\[\text{Var}(\hat{\beta}_j) = \frac{\sigma^2}{SST_j} \cdot VIF_j\]</div>
+<p>The factor <span class="arithmatex">\(\sigma^2/SST_j\)</span> is what the variance would be if <span class="arithmatex">\(x_j\)</span> were <strong>orthogonal</strong> to all other regressors (<span class="arithmatex">\(R_j^2 = 0\)</span>, so <span class="arithmatex">\(VIF_j = 1\)</span>). Multicollinearity inflates this baseline by the factor <span class="arithmatex">\(VIF_j \geq 1\)</span>.</p>
+<p><strong>Rule of thumb:</strong></p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(VIF_j\)</span></th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(1\)</span></td>
+<td>No collinearity; baseline variance</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(1\)</span>–<span class="arithmatex">\(5\)</span></td>
+<td>Mild; generally acceptable</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(5\)</span>–<span class="arithmatex">\(10\)</span></td>
+<td>Moderate; monitor closely</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(&gt; 10\)</span></td>
+<td>Severe; consider remedies</td>
+</tr>
+</tbody>
+</table>
+<p>Some textbooks use VIF <span class="arithmatex">\(&gt; 10\)</span> as the threshold; others use VIF <span class="arithmatex">\(&gt; 5\)</span>. Judgement and context matter.</p>
 <hr />
-<h2 id="4-short-run-cost-curves">4. Short-Run Cost Curves</h2>
-<p><img alt="Short-Run Cost Curves" src="../assets/diagrams/04-cost-curves.png" /></p>
-<p>The U-shaped cost curves are central to understanding firm behaviour.</p>
+<h3 id="perfect-multicollinearity-mlr3-violated">Perfect Multicollinearity (MLR.3 Violated)</h3>
+<p><strong>Perfect multicollinearity:</strong> <span class="arithmatex">\(R_j^2 = 1\)</span> — one regressor is an <em>exact</em> linear combination of others.</p>
+<div class="arithmatex">\[\text{Var}(\hat{\beta}_j) = \frac{\sigma^2}{SST_j \cdot (1 - 1)} = \frac{\sigma^2}{0} = \infty\]</div>
+<p>OLS <strong>breaks down completely</strong> — the matrix <span class="arithmatex">\(\mathbf{X}'\mathbf{X}\)</span> is singular and <span class="arithmatex">\((\mathbf{X}'\mathbf{X})^{-1}\)</span> does not exist. Software will drop one of the collinear columns or throw an error.</p>
+<p><strong>Common causes:</strong></p>
 <ul>
-<li><strong>MC (red)</strong> — marginal cost; intersects AVC and ATC at their minimums</li>
-<li><strong>ATC (navy)</strong> — average total cost; U-shaped due to falling AFC then rising AVC</li>
-<li><strong>AVC (blue dashed)</strong> — average variable cost</li>
-<li><strong>AFC (grey dotted)</strong> — always declining (fixed costs spread over more units)</li>
-<li><strong>Shutdown rule</strong>: produce if P ≥ AVC; shut down if P &lt; AVC</li>
+<li><strong>Dummy variable trap:</strong> Including <span class="arithmatex">\(d_{\text{male}}\)</span> and <span class="arithmatex">\(d_{\text{female}}\)</span> with an intercept (they sum to 1)</li>
+<li><strong>Exact definitional relationship:</strong> Including both <code>total_tax</code> and <code>income_tax + GST + other_tax</code> when the latter three sum exactly to the former</li>
+<li><strong>Redundant transformation:</strong> Including <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(2x\)</span> simultaneously</li>
 </ul>
-<p><em>Relevant lessons: M03.L03, M06.L04</em></p>
 <hr />
-<h2 id="5-perfect-competition-market-and-firm">5. Perfect Competition: Market and Firm</h2>
-<p><img alt="Perfect Competition" src="../assets/diagrams/05-perfect-competition.png" /></p>
-<p>The market determines price; the individual firm takes price as given.</p>
+<h3 id="imperfect-multicollinearity">Imperfect Multicollinearity</h3>
+<p><strong>Imperfect multicollinearity:</strong> <span class="arithmatex">\(R_j^2\)</span> close to (but not equal to) 1.</p>
+<p>OLS is still <strong>computable, unbiased, and BLUE</strong> — MLR.3 is not violated. However:</p>
 <ul>
-<li><strong>Left panel</strong>: market supply and demand determine P*</li>
-<li><strong>Right panel</strong>: firm faces horizontal demand at P* (P = AR = MR)</li>
-<li><strong>Profit-maximising Q</strong>: where MC = MR (= P*)</li>
-<li><strong>Green shaded area</strong>: economic profit (P &gt; ATC at Q*)</li>
-<li><strong>Long-run</strong>: entry eliminates profit until P = min ATC</li>
+<li><span class="arithmatex">\(VIF_j\)</span> is large → <span class="arithmatex">\(\text{Var}(\hat{\beta}_j)\)</span> is large</li>
+<li>Standard errors are large</li>
+<li><span class="arithmatex">\(t\)</span>-statistics are small → it is hard to detect that <span class="arithmatex">\(\beta_j \neq 0\)</span> even when it truly is (Type II error)</li>
+<li>Coefficient estimates are sensitive to small changes in the sample (overfitting)</li>
 </ul>
-<p><em>Relevant lessons: M06.L02, M06.L03, M06.L04, M06.L05</em></p>
+<p>The core problem: with highly correlated regressors, the data contain <strong>insufficient independent information</strong> to precisely estimate the separate effects.</p>
 <hr />
-<h2 id="6-monopoly-profit-maximisation-and-deadweight-loss">6. Monopoly: Profit Maximisation and Deadweight Loss</h2>
-<p><img alt="Monopoly" src="../assets/diagrams/06-monopoly.png" /></p>
-<p>A monopolist restricts output to raise price, creating deadweight loss.</p>
-<ul>
-<li><strong>MR lies below demand</strong> (monopolist must cut price on all units to sell more)</li>
-<li><strong>Profit-max</strong>: MR = MC → Q<em> = 40, P</em> = $60</li>
-<li><strong>Under perfect competition</strong>: P = MC → Q = 80, P = $20</li>
-<li><strong>Deadweight loss (red triangle)</strong>: units not produced that would create surplus</li>
-<li><strong>ACCC</strong> regulates monopoly in Australia to reduce this welfare loss</li>
-</ul>
-<p><em>Relevant lessons: M07.L03, M07.L04</em></p>
+<h3 id="economic-causes-of-multicollinearity">Economic Causes of Multicollinearity</h3>
+<ol>
+<li>
+<p><strong>Aggregate macroeconomic variables:</strong> GDP, consumption, and investment all trend together — high pairwise correlations in time series.</p>
+</li>
+<li>
+<p><strong>Overlapping demographic controls:</strong> Age, years of experience, and years since leaving school are all highly correlated life-stage variables.</p>
+</li>
+<li>
+<p><strong>Physical characteristics:</strong> Height and weight are highly correlated for human subjects.</p>
+</li>
+<li>
+<p><strong>Lagged variables:</strong> Including <span class="arithmatex">\(x_t\)</span>, <span class="arithmatex">\(x_{t-1}\)</span>, <span class="arithmatex">\(x_{t-2}\)</span> in a time-series model creates near-perfect collinearity if <span class="arithmatex">\(x\)</span> is a smooth series.</p>
+</li>
+</ol>
 <hr />
-<h2 id="7-externalities-negative-and-positive">7. Externalities: Negative and Positive</h2>
-<p><img alt="Externalities" src="../assets/diagrams/07-externalities.png" /></p>
-<p>Externalities cause markets to produce too much or too little.</p>
-<ul>
-<li><strong>Negative (left)</strong>: MSC &gt; MPC → overproduction; Pigouvian tax corrects this</li>
-<li><strong>Positive (right)</strong>: MSB &gt; MPB → underproduction; subsidy corrects this</li>
-<li><strong>Australian examples</strong>: pollution from mining (negative), vaccination and education (positive)</li>
-<li><strong>Carbon price</strong> is a Pigouvian tax on CO₂ emissions</li>
-</ul>
-<p><em>Relevant lessons: M10.L01, M10.L03</em></p>
+<h3 id="remedies-for-multicollinearity">Remedies for Multicollinearity</h3>
+<table>
+<thead>
+<tr>
+<th>Remedy</th>
+<th>How</th>
+<th>Caution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Collect more data</strong></td>
+<td>Larger <span class="arithmatex">\(n\)</span> reduces <span class="arithmatex">\(\text{Var}(\hat{\beta}_j)\)</span> directly</td>
+<td>Not always feasible; may not solve collinearity if correlation is structural</td>
+</tr>
+<tr>
+<td><strong>Drop a variable</strong></td>
+<td>Remove one collinear regressor</td>
+<td>Only valid if the dropped variable <em>doesn't belong</em> — otherwise introduces OVB</td>
+</tr>
+<tr>
+<td><strong>Principal components</strong></td>
+<td>Replace correlated <span class="arithmatex">\(x\)</span>'s with uncorrelated linear combinations</td>
+<td>Components lose economic interpretability</td>
+</tr>
+<tr>
+<td><strong>Ridge regression</strong></td>
+<td>Add penalty <span class="arithmatex">\(\lambda\|\boldsymbol{\beta}\|^2\)</span> to SSR</td>
+<td>Introduces bias; requires choice of tuning parameter <span class="arithmatex">\(\lambda\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> If the collinear variable <em>belongs</em> in the model (non-zero <span class="arithmatex">\(\beta_j\)</span>), dropping it trades multicollinearity for OVB — often a worse problem. The preferred solution is more data.</p>
+</blockquote>
 <hr />
-<h2 id="8-effects-of-a-tariff-on-imports">8. Effects of a Tariff on Imports</h2>
-<p><img alt="Tariff" src="../assets/diagrams/08-tariff.png" /></p>
-<p>A tariff raises the domestic price, reduces imports, and creates deadweight loss.</p>
-<ul>
-<li><strong>Area A (blue)</strong>: producer surplus gain (domestic producers benefit)</li>
-<li><strong>Area C (orange)</strong>: government tariff revenue</li>
-<li><strong>Areas B and D</strong>: deadweight loss (efficiency loss from distorted production and consumption)</li>
-<li>Consumers lose A + B + C + D; net welfare loss = B + D</li>
-<li><strong>Australia</strong> reduced most tariffs from 25-35% (1970s) to 0-5% (today)</li>
-</ul>
-<p><em>Relevant lessons: M12.L03</em></p>
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Setup:</strong> A researcher regresses log-housing prices on three regressors: <span class="arithmatex">\(x_1\)</span> = floor area (m²), <span class="arithmatex">\(x_2\)</span> = number of bedrooms, <span class="arithmatex">\(x_3\)</span> = number of bathrooms. All are likely correlated.</p>
+<p><strong>Auxiliary regressions</strong> (to compute <span class="arithmatex">\(R_j^2\)</span>):</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(j\)</span></th>
+<th>Regress <span class="arithmatex">\(x_j\)</span> on others</th>
+<th><span class="arithmatex">\(R_j^2\)</span></th>
+<th><span class="arithmatex">\(VIF_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 (floor area)</td>
+<td><span class="arithmatex">\(x_2, x_3\)</span></td>
+<td>0.82</td>
+<td><span class="arithmatex">\(1/(1-0.82) = 5.56\)</span></td>
+</tr>
+<tr>
+<td>2 (bedrooms)</td>
+<td><span class="arithmatex">\(x_1, x_3\)</span></td>
+<td>0.75</td>
+<td><span class="arithmatex">\(1/(1-0.75) = 4.00\)</span></td>
+</tr>
+<tr>
+<td>3 (bathrooms)</td>
+<td><span class="arithmatex">\(x_1, x_2\)</span></td>
+<td>0.88</td>
+<td><span class="arithmatex">\(1/(1-0.88) = 8.33\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Baseline variance</strong> (if <span class="arithmatex">\(R_j^2 = 0\)</span>):</p>
+<p>Suppose <span class="arithmatex">\(\hat{\sigma}^2 = 0.04\)</span> and <span class="arithmatex">\(SST_3 = 200\)</span> (variation in bathrooms). Then:</p>
+<div class="arithmatex">\[\text{Var}(\hat{\beta}_3)_{\text{baseline}} = \frac{0.04}{200} = 0.0002\]</div>
+<div class="arithmatex">\[\text{Var}(\hat{\beta}_3) = 0.0002 \times VIF_3 = 0.0002 \times 8.33 = 0.001666\]</div>
+<div class="arithmatex">\[SE(\hat{\beta}_3) = \sqrt{0.001666} \approx 0.0408 \quad \text{vs baseline } \sqrt{0.0002} \approx 0.0141\]</div>
+<p>The standard error for <span class="arithmatex">\(\hat{\beta}_3\)</span> is <strong>2.89 times larger</strong> than it would be with no multicollinearity (since <span class="arithmatex">\(\sqrt{VIF_3} = \sqrt{8.33} \approx 2.89\)</span>). This makes the <span class="arithmatex">\(t\)</span>-statistic for <span class="arithmatex">\(\beta_3\)</span> roughly 2.89 times smaller — harder to achieve statistical significance even if bathrooms genuinely affect price.</p>
+<p><strong>Diagnosis:</strong> <span class="arithmatex">\(VIF_3 = 8.33\)</span> is in the "moderate to severe" range. The researcher should check whether floor area and bathrooms are nearly perfectly collinear, possibly because large homes always have many bathrooms. Adding the number of floors or age of building as an alternative dimension of heterogeneity may help.</p>
 <hr />
-<h2 id="9-indifference-curves-and-consumer-optimum">9. Indifference Curves and Consumer Optimum</h2>
-<p><img alt="Indifference Curves and Budget Line" src="../assets/diagrams/09-indifference-curves.png" /></p>
-<p>The consumer maximises utility at the tangency of the budget line and the highest attainable indifference curve.</p>
-<ul>
-<li><strong>MRS = P₁/P₂</strong> at the optimum (slope of IC equals slope of budget line)</li>
-<li><strong>Budget line</strong>: P₁x₁ + P₂x₂ = m — all affordable bundles</li>
-<li><strong>Higher ICs</strong> represent higher utility — consumer wants to reach as high as possible</li>
-<li><strong>Corner solution</strong>: occurs when MRS ≠ P₁/P₂ at any interior point (perfect substitutes)</li>
-</ul>
-<p><em>Relevant lessons: M13.L01, M14.L01</em></p>
+<h2 id="common-misconception">Common Misconception</h2>
+<div class="admonition warning">
+<p class="admonition-title">Multicollinearity biases OLS estimates</p>
+<p><strong>False.</strong> Under MLR.1–MLR.4, OLS is <strong>unbiased regardless of multicollinearity</strong> (as long as MLR.3 holds, i.e., no <em>perfect</em> collinearity). High <span class="arithmatex">\(R_j^2\)</span> inflates <span class="arithmatex">\(\text{Var}(\hat{\beta}_j)\)</span> and standard errors — affecting <em>efficiency</em> and <em>inference</em> — but <strong>does not bias</strong> <span class="arithmatex">\(E(\hat{\beta}_j)\)</span>. Confusing multicollinearity with OVB is one of the most common errors in applied econometrics.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Dropping a correlated variable fixes multicollinearity without cost</p>
+<p>Dropping a variable reduces multicollinearity but only "fixes" the problem costlessly if the dropped variable has <span class="arithmatex">\(\beta_j = 0\)</span> in the true model. If <span class="arithmatex">\(\beta_j \neq 0\)</span>, you have traded a precision problem (large SE) for a bias problem (OVB) — and bias is generally worse because it cannot be fixed by collecting more data.</p>
+</div>
 <hr />
-<h2 id="10-slutsky-decomposition">10. Slutsky Decomposition</h2>
-<p><img alt="Slutsky Decomposition" src="../assets/diagrams/10-slutsky-decomposition.png" /></p>
-<p>A price rise decomposes into substitution effect (A→C) and income effect (C→B).</p>
-<ul>
-<li><strong>Substitution effect</strong> (A→C): always negative for own price — consumer substitutes away from the more expensive good</li>
-<li><strong>Income effect</strong> (C→B): negative for normal goods, positive for inferior goods</li>
-<li><strong>Giffen good</strong>: income effect dominates and is positive — demand rises when price rises</li>
-<li>Slutsky equation: ∂x₁/∂p₁ = ∂h₁/∂p₁ − x₁ × ∂x₁/∂m</li>
-</ul>
-<p><em>Relevant lessons: M15.L01, M15.L02</em></p>
+<h2 id="practice-prompts">Practice Prompts</h2>
+<ol>
+<li><strong>VIF calculation.</strong> You have three regressors: income (<span class="arithmatex">\(x_1\)</span>), consumption (<span class="arithmatex">\(x_2\)</span>), savings (<span class="arithmatex">\(x_3\)</span>), where by definition <span class="arithmatex">\(\text{savings} = \text{income} - \text{consumption}\)</span>.</li>
+<li>(a) What is <span class="arithmatex">\(R_3^2\)</span> from regressing savings on income and consumption?</li>
+<li>(b) What is <span class="arithmatex">\(VIF_3\)</span>?</li>
+<li>(c) What does this imply for <span class="arithmatex">\(\text{Var}(\hat{\beta}_3)\)</span>?</li>
+<li>
+<p>(d) How would you fix this problem?</p>
+</li>
+<li>
+<p><strong>Variance formula.</strong> In a regression of test scores on class size (<span class="arithmatex">\(x_1\)</span>) and school funding (<span class="arithmatex">\(x_2\)</span>) with <span class="arithmatex">\(n = 200\)</span> Australian schools: <span class="arithmatex">\(\hat{\sigma}^2 = 100\)</span>, <span class="arithmatex">\(SST_1 = 400\)</span>, <span class="arithmatex">\(R_1^2 = 0.65\)</span>.</p>
+</li>
+<li>(a) Calculate <span class="arithmatex">\(\text{Var}(\hat{\beta}_1)\)</span> and <span class="arithmatex">\(SE(\hat{\beta}_1)\)</span>.</li>
+<li>
+<p>(b) If the sample grew to <span class="arithmatex">\(n = 800\)</span> (quadrupling), roughly how would <span class="arithmatex">\(SE(\hat{\beta}_1)\)</span> change? (<em>Hint:</em> <span class="arithmatex">\(SST_1\)</span> scales approximately with <span class="arithmatex">\(n\)</span>.)</p>
+</li>
+<li>
+<p><strong>Remedies trade-off.</strong> A researcher finds VIF = 12 for one regressor. List two remedies and, for each, state the condition under which it is valid without introducing new bias. Then explain which remedy is theoretically preferable if the researcher has access to a much larger dataset.</p>
+</li>
+</ol>
 <hr />
-<h2 id="11-edgeworth-box">11. Edgeworth Box</h2>
-<p><img alt="Edgeworth Box" src="../assets/diagrams/11-edgeworth-box.png" /></p>
-<p>The Edgeworth box shows all feasible allocations of two goods between two consumers.</p>
+<h2 id="further-resources">Further Resources</h2>
 <ul>
-<li><strong>Consumer A</strong> reads from the bottom-left corner</li>
-<li><strong>Consumer B</strong> reads from the top-right corner</li>
-<li><strong>Endowment point ω</strong>: initial allocation before trade</li>
-<li><strong>Contract curve</strong> (green dashed): locus of Pareto-efficient allocations where MRS_A = MRS_B</li>
-<li>Trade moves both consumers to a point inside the "lens" — making both better off</li>
+<li>Wooldridge, Ch 3.4 (pp. 96–105)</li>
+<li>Belsley, Kuh &amp; Welsch, <em>Regression Diagnostics</em> (1980) — definitive reference on collinearity diagnostics</li>
+<li>R: <code>car::vif()</code> computes VIF automatically after <code>lm()</code></li>
+<li>Python: <code>statsmodels.stats.outliers_influence.variance_inflation_factor()</code></li>
 </ul>
-<p><em>Relevant lessons: M17.L01, M17.L02</em></p>
-<hr />
-<h2 id="12-isoquants-and-isocost-lines">12. Isoquants and Isocost Lines</h2>
-<p><img alt="Isoquants and Isocost Lines" src="../assets/diagrams/12-isoquants-isocost.png" /></p>
-<p>The cost-minimising input combination occurs where the isocost is tangent to the isoquant.</p>
-<ul>
-<li><strong>Isoquant</strong>: combinations of L and K producing the same output Q</li>
-<li><strong>Isocost</strong>: combinations of L and K costing the same amount C</li>
-<li><strong>Cost-min condition</strong>: MRTS = w/r (slope of isoquant equals slope of isocost)</li>
-<li><strong>Shephard's Lemma</strong>: ∂c/∂w = L<em>, ∂c/∂r = K</em> — factor demands from the cost function</li>
-</ul>
-<p><em>Relevant lessons: M18.L03</em></p>
-<hr />
-<h2 id="13-adverse-selection-akerlofs-lemons">13. Adverse Selection (Akerlof's Lemons)</h2>
-<p><img alt="Adverse Selection" src="../assets/diagrams/13-adverse-selection.png" /></p>
-<p>Information asymmetry causes adverse selection — bad types drive out good types.</p>
-<ul>
-<li>Sellers know quality; buyers can only infer average quality at the offered price</li>
-<li>At any price p, only sellers with quality ≤ p sell → average quality = p/2</li>
-<li>Buyers' WTP for average quality = 0.75p &lt; p → no trade is possible</li>
-<li><strong>Solutions</strong>: signalling (sellers signal quality), screening, warranties, reputation</li>
-</ul>
-<p><em>Relevant lessons: M21.L01</em></p>
-<hr />
-<h2 id="14-cournot-duopoly">14. Cournot Duopoly</h2>
-<p><img alt="Cournot Duopoly" src="../assets/diagrams/14-cournot-duopoly.png" /></p>
-<p>Cournot competition yields an outcome between monopoly and perfect competition.</p>
-<ul>
-<li><strong>Reaction function</strong> Firm 1: q₁ = 40 − q₂/2 (best response to rival's output)</li>
-<li><strong>Cournot-Nash equilibrium</strong>: q₁<em> = q₂</em> = 80/3 ≈ 26.7; Q = 53.3; P ≈ 46.7</li>
-<li><strong>Monopoly</strong>: Q = 40, P = 60 (less output, higher price)</li>
-<li><strong>Competitive</strong>: Q = 80, P = 20 (more output, lower price)</li>
-<li><strong>Bertrand paradox</strong>: price competition → P = MC even with 2 firms</li>
-</ul>
-<p><em>Relevant lessons: M20.L06</em></p>
 
 
 
@@ -2724,12 +2990,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
