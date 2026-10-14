@@ -6,14 +6,15 @@ Supplementary materials to use alongside this course. Everything here is freely 
 
 ## Textbook
 
-**Wooldridge, J.M. — Introductory Econometrics: A Modern Approach (5th–7th ed.)**
+**Wooldridge, J.M. — Introductory Econometrics: A Modern Approach**
 
-The primary reference for all modules. The 5th, 6th, and 7th editions are closely aligned; page numbers differ slightly but content is equivalent. Your copy is in the shared Dropbox folder under `ECMT5001 - Principles of Econometrics/`.
+The primary reference for the modules. Chapter and page references may vary across editions; check examples against your copy. If you have access, look in the shared Dropbox folder under `ECMT5001 - Principles of Econometrics/`.
 
 | Edition | Notes |
 |---|---|
-| 7th ed. | Latest; used for ECMT5001 2027 |
-| 5th–6th ed. | All datasets and examples identical; fine for self-study |
+| 8th ed. | Current publisher edition; do not assume it is the unit’s prescribed text |
+| 7th ed. | Reference edition used in these self-study notes; check your unit outline for prescribed texts |
+| 5th–6th ed. | Useful for self-study, but chapter, example and page details can differ |
 
 ---
 
@@ -82,10 +83,11 @@ Key datasets by module:
 
 ---
 
-## Official Course Materials
+## Publisher and package links
 
 | Resource | Link |
 |---|---|
+| USYD ECMT5001 unit page | <https://www.sydney.edu.au/units/ECMT5001> |
 | Cengage Book Companion Site | <https://www.cengage.com/cgi-wadsworth/course_products_wp.pl?fid=M20b&product_isbn_issn=9781111531041> |
 | CRAN wooldridge package | <https://cran.r-project.org/web/packages/wooldridge/> |
 | Package source (GitHub) | <https://github.com/JustinMShea/wooldridge> |
@@ -97,7 +99,7 @@ Key datasets by module:
 
 ## USYD ECMT5001
 
-This course is aligned to the USYD **ECMT5001 Principles of Econometrics** unit. Module–lecture mapping:
+This self-study course is intended to support USYD **ECMT5001 Principles of Econometrics**. The week-by-week mapping below is an indicative study plan, not a verified Semester 1 2027 unit outline; check the official outline when available.
 
 | Course Module | ECMT5001 Lectures | Wooldridge Chapters |
 |---|---|---|

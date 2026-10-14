@@ -3220,7 +3220,7 @@
 
   <section class="db-card">
     <div class="db-label">4. Exam trap</div>
-    <p id="db-trap">Answer first, then explain the economic mechanism. In exams, marks often sit in the "why", not just the final number or letter.</p>
+    <p id="db-trap">Answer first, then explain the econometric reasoning. In exams, marks often sit in the assumptions and interpretation, not just the final number or letter.</p>
   </section>
 
   <section class="db-card db-mastery-card">
@@ -3269,37 +3269,13 @@
 
 <script>
 (function() {
-  const STORAGE_KEY = 'micro-daily-bite-v1';
+  const STORAGE_KEY = 'econometrics-daily-bite-v1';
   const todayKey = () => new Date().toISOString().slice(0, 10);
   const moduleNames = {
-    M01:'Scarcity & choice', M02:'Demand & WTP', M03:'Production & costs', M04:'Supply & equilibrium',
-    M05:'Surplus & elasticity', M06:'Perfect competition', M07:'Monopoly', M08:'Game theory & oligopoly',
-    M09:'Price regulation & taxes', M10:'Externalities', M11:'Public goods & commons', M12:'Trade & synthesis',
-    M13:'Budget constraints & preferences', M14:'Consumer choice & demand', M15:'Comparative statics',
-    M16:'Consumer theory applications', M17:'Exchange & general equilibrium', M18:'Technology & profit max',
-    M19:'Costs & industry equilibrium', M20:'Monopoly & game theory (advanced)', M21:'Information asymmetry'
-  };
-  const diagramMap = {
-    M01:['Production Possibilities Frontier','assets/diagrams/01-ppf.png'],
-    M02:['Supply and Demand','assets/diagrams/02-supply-demand.png'],
-    M03:['Cost Curves','assets/diagrams/04-cost-curves.png'],
-    M04:['Supply and Demand','assets/diagrams/02-supply-demand.png'],
-    M05:['Economic Surplus','assets/diagrams/03-surplus.png'],
-    M06:['Perfect Competition','assets/diagrams/05-perfect-competition.png'],
-    M07:['Monopoly','assets/diagrams/06-monopoly.png'],
-    M08:['Cournot Duopoly','assets/diagrams/14-cournot-duopoly.png'],
-    M09:['Supply and Demand','assets/diagrams/02-supply-demand.png'],
-    M10:['Externalities','assets/diagrams/07-externalities.png'],
-    M11:['Economic Surplus','assets/diagrams/03-surplus.png'],
-    M12:['Tariff Analysis','assets/diagrams/08-tariff.png'],
-    M13:['Indifference Curves','assets/diagrams/09-indifference-curves.png'],
-    M14:['Indifference Curves','assets/diagrams/09-indifference-curves.png'],
-    M15:['Slutsky Decomposition','assets/diagrams/10-slutsky-decomposition.png'],
-    M17:['Edgeworth Box','assets/diagrams/11-edgeworth-box.png'],
-    M18:['Isoquants and Isocost','assets/diagrams/12-isoquants-isocost.png'],
-    M19:['Cost Curves','assets/diagrams/04-cost-curves.png'],
-    M20:['Monopoly','assets/diagrams/06-monopoly.png'],
-    M21:['Adverse Selection','assets/diagrams/13-adverse-selection.png']
+    M01:'Probability & statistics review', M02:'Simple linear regression', M03:'Multiple linear regression',
+    M04:'Statistical inference', M05:'Functional forms & dummy variables', M06:'Heteroskedasticity',
+    M07:'Specification & data issues', M08:'Time series basics', M09:'Serial correlation',
+    M10:'Instrumental variables & DiD'
   };
 
   let allCards = [];
@@ -3316,7 +3292,7 @@
   function rng(seed) { let x = seed || 123456789; return function() { x ^= x << 13; x ^= x >>> 17; x ^= x << 5; return ((x >>> 0) / 4294967296); }; }
   function shuffle(arr, rand) { for (let i=arr.length-1;i>0;i--) { const j=Math.floor(rand()*(i+1)); [arr[i],arr[j]]=[arr[j],arr[i]]; } return arr; }
   function strip(html) { const d=document.createElement('div'); d.innerHTML=html || ''; return d.textContent || d.innerText || ''; }
-  function cleanTopic(t) { return (t || 'micro concept').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim().replace(/^./, c => c.toUpperCase()).slice(0, 64); }
+  function cleanTopic(t) { return (t || 'econometrics concept').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim().replace(/^./, c => c.toUpperCase()).slice(0, 64); }
   function parseAnswerLetter(card) { const m = (card.back || '').match(/<strong>\s*([A-D])\)/i); return m ? m[1].toUpperCase() : null; }
   function parseMCQ(card) {
     const text = (card.front || '').replace(/<br\s*\/?>/gi, '\n');
@@ -3339,7 +3315,7 @@
     const res = await fetch('../flashcards/');
     if (!res.ok) throw new Error('Could not load flashcard page');
     const html = await res.text();
-    const m = html.match(/const ALL_CARDS = ([\s\S]*?);\s*\n\s*let deck/);
+    const m = html.match(/const ALL_CARDS = ([\s\S]*?);?\s*\n\s*let deck/);
     if (!m) throw new Error('Could not find flashcard data');
     return usableCards(JSON.parse(m[1]));
   }
@@ -3374,38 +3350,27 @@
   }
   function renderBite(module) {
     const anchor = currentBite[0];
-    document.getElementById('db-title').textContent = `${module}: ${moduleNames[module] || 'Micro practice'}`;
-    document.getElementById('db-subtitle').textContent = 'A bite-sized set from the existing micro flashcard bank.';
+    document.getElementById('db-title').textContent = `${module}: ${moduleNames[module] || 'Econometrics practice'}`;
+    document.getElementById('db-subtitle').textContent = 'A bite-sized set from the econometrics flashcard bank.';
     document.getElementById('db-concept').innerHTML = `
       <div class="db-concept-title">${cleanTopic(anchor.topic)}</div>
       <span class="db-chip">${anchor.module}</span><span class="db-chip">${anchor.lesson || 'lesson'}</span><span class="db-chip">${anchor.type}</span>
       <p>${anchor.question}</p>
       <p style="color:#667085;margin-bottom:0;">Goal: answer the questions, then rate whether each answer was guessed, shaky, or confident.</p>`;
-    const diag = diagramMap[module];
-    const visualCard = document.getElementById('db-visual-card');
-    if (diag) {
-      visualCard.style.display = '';
-      document.getElementById('db-visual').innerHTML = `<p><strong>${diag[0]}</strong></p><img class="db-visual-img" src="../${diag[1]}" alt="${diag[0]}">`;
-    } else {
-      visualCard.style.display = 'none';
-    }
+    // Legacy microeconomics diagrams do not depict these econometrics modules.
+    document.getElementById('db-visual-card').style.display = 'none';
     document.getElementById('db-trap').textContent = makeTrap(anchor);
     renderQuestions();
     renderStats();
   }
   function makeTrap(card) {
     const topic = cleanTopic(card.topic).toLowerCase();
-    if (/supply|demand|equilibrium/.test(topic)) return 'Exam trap: distinguish a shift of the curve from a movement along the curve. A price change causes movement; everything else causes a shift.';
-    if (/elasticity/.test(topic)) return 'Exam trap: elasticity is unit-free. Don\'t confuse the slope of a demand curve with its elasticity — they are not the same.';
-    if (/consumer|utility|indifference|budget/.test(topic)) return 'Exam trap: utility is ordinal, not cardinal. Doubling the utility number means nothing — only the ranking of bundles matters.';
-    if (/cost|production|marginal/.test(topic)) return 'Exam trap: distinguish average cost from marginal cost. Firms maximise profit where MR=MC — not where average cost is minimised.';
-    if (/externality|pollution|pigouvian/.test(topic)) return 'Exam trap: a Pigouvian tax corrects the externality only when set equal to the marginal external cost at the efficient quantity, not the market quantity.';
-    if (/game|nash|prisoner|strategy/.test(topic)) return 'Exam trap: a Nash Equilibrium need not be socially optimal. In a Prisoners\' Dilemma both players play dominant strategies that produce a collectively inferior outcome.';
-    if (/monopoly|market.power|lerner/.test(topic)) return 'Exam trap: a monopolist maximises profit at MR=MC, not at the point of highest revenue. Equate marginal revenue with marginal cost, not zero.';
-    if (/trade|tariff|comparative/.test(topic)) return 'Exam trap: comparative advantage depends on opportunity cost, not absolute cost. A country can have a comparative advantage even if it is less efficient at producing everything.';
-    if (/information|adverse|moral|signal/.test(topic)) return 'Exam trap: distinguish adverse selection (pre-contractual hidden information) from moral hazard (post-contractual hidden action). The policy remedies differ.';
-    if (/public.good|free.rider/.test(topic)) return 'Exam trap: a good provided by government is not automatically a public good. Public goods are non-rival AND non-excludable — test both conditions.';
-    return 'Exam trap: do not stop at the answer letter. State the economic mechanism — that is usually where the marks are.';
+    if (/instrument|endogen|exclusion|2sls/.test(topic)) return 'Exam trap: instrument relevance alone is not enough; justify the exclusion restriction and the instrument’s independence from the error.';
+    if (/heteroskedastic|robust|standard.error/.test(topic)) return 'Exam trap: heteroskedasticity-robust standard errors adjust inference, not the OLS coefficient estimates.';
+    if (/serial.correlation|autocorrelation/.test(topic)) return 'Exam trap: serial correlation can invalidate usual standard errors even when coefficient consistency is preserved under the other assumptions.';
+    if (/omitted.variable|exogen|bias/.test(topic)) return 'Exam trap: state which regressor-error correlation causes bias; a larger sample does not cure endogeneity.';
+    if (/confidence|p.value|hypothesis|t.test/.test(topic)) return 'Exam trap: a p-value is not the probability that the null hypothesis is true.';
+    return 'Exam trap: explain the assumptions and interpret the estimated effect, not only the answer letter.';
   }
   function renderQuestions() {
     const container = document.getElementById('db-questions');
