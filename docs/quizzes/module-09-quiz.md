@@ -1,509 +1,265 @@
-# Module M09 Quiz: Price Regulation, Taxes, and Subsidies
+# Module M09 Quiz: Serial Correlation
 
-*25 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*12 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. Many serial correlation questions ask you to state H₀, compute a test statistic, and reach a conclusion.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Supply Demand*
+*Lesson L01 · Definition*
 
-
-A price ceiling set BELOW the market equilibrium price will cause:
-
+Serial correlation (autocorrelation) in time-series errors means:
 
 **Type:** Multiple Choice
 
-- **A)** A surplus
-- **B)** A shortage
-- **C)** No change in quantity
-- **D)** An increase in supply
+- **A)** $\text{Var}(u_t \mid x_t) \neq \sigma^2$ (heteroskedasticity)
+- **B)** $\text{Cov}(u_t, u_{t-s}) \neq 0$ for some lag $s \neq 0$
+- **C)** $E(u_t \mid x_t) \neq 0$ (endogeneity)
+- **D)** Errors are not normally distributed
 
 ??? success "Show Answer"
-    **Answer: B) A shortage**
+    **Answer: B**
 
-    A binding price ceiling prevents the price from rising to equilibrium — quantity demanded exceeds quantity supplied, creating a persistent shortage.
+    Serial correlation means past errors predict current errors — shocks persist over time. The most common pattern is **positive AR(1)**: $u_t = \rho u_{t-1} + e_t$ with $\rho > 0$. This means:
+    - A positive shock this period → likely positive error next period
+    - The error process has "memory"
+
+    Common causes: omitted slowly-changing variables (e.g. technology, preferences), misspecified dynamics (lagged effects of regressors not modelled), or sluggish adjustment in economic processes.
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Supply Demand*
+*Lesson L01 · Consequences*
 
+With AR(1) serial correlation $u_t = \rho u_{t-1} + e_t$ ($0 < \rho < 1$), OLS is:
 
-Sydney rent control sets maximum rent at $400/wk when equilibrium is $600/wk. If demand is QD=1000-Q×(1/2) and supply QS=Q×(1/2), calculate the shortage at $400.
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** Biased and inconsistent — OLS cannot be used
+- **B)** Unbiased and consistent (under strict exogeneity), but not BLUE; OLS standard errors are biased — typically understated with positive $\rho$
+- **C)** Still BLUE — serial correlation only affects efficiency when $\rho > 0.5$
+- **D)** Only a problem when $\rho > 0.9$
 
 ??? success "Show Answer"
-    **Answer:** 400 units
+    **Answer: B**
 
-    QD at $400: 1000-(400/2)=800. QS at $400: 400/2=200. Shortage=800-200=600. (Exact answer depends on parameterisation; key insight is QD>QS.)
+    Under strict exogeneity (which holds for most static time-series models), OLS is **unbiased** — serial correlation in $u$ doesn't mean $E(u_t \mid x_t) \neq 0$.
+
+    However: Gauss-Markov requires $\text{Var}(\mathbf{u}) = \sigma^2 I$ (spherical errors). With serial correlation, $\text{Var}(\mathbf{u}) \neq \sigma^2 I$ → OLS is **not BLUE** (GLS is more efficient). The OLS variance formula $\hat{\text{Var}}(\hat{\beta}) = \hat{\sigma}^2 (X'X)^{-1}$ is **wrong** — it typically understates the true variance with positive $\rho$, making $t$-statistics too large and inference too liberal.
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Supply Demand*
+*Lesson L02 · Durbin-Watson*
 
+The Durbin-Watson statistic is $DW \approx 2(1 - \hat{\rho})$ where $\hat{\rho}$ is the first-order autocorrelation of residuals. If $DW = 0.6$, what does this imply?
 
-Who benefits from rent control and who is harmed?
-
-
-**Type:** Short Answer
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** Existing tenants who keep their rent-controlled apartments benefit from lower rents. New entrants (e.g. young workers, migrants) are harmed because fewer units are available and landlords may allocate by non-price means (connections, discrimination).
+    $$\hat{\rho} \approx 1 - DW/2 = 1 - 0.6/2 = 1 - 0.3 = \mathbf{0.7}$$
 
-    Rent control redistributes from landlords and would-be tenants to existing tenants.
+    $\hat{\rho} = 0.7$ indicates **strong positive serial correlation** — each error predicts 70% of the next error. $DW = 0.6 \ll 2$ is well below the "no autocorrelation" value of 2.
+
+    DW ranges:
+    - $DW \approx 2$: no serial correlation ($\hat{\rho} \approx 0$) ✓
+    - $DW \approx 0$: strong positive serial correlation ($\hat{\rho} \approx 1$) ✗
+    - $DW \approx 4$: strong negative serial correlation ($\hat{\rho} \approx -1$) ✗
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Supply Demand*
+*Lesson L02 · DW Limitations*
 
-
-A price ceiling causes a persistent shortage. What non-price allocation mechanisms might emerge?
-
+The Durbin-Watson test is invalid when:
 
 **Type:** Multiple Choice
 
-- **A)** The price rises to equilibrium
-- **B)** Queuing, rationing, black markets, and allocation by seller preference
-- **C)** Supply increases to meet demand
-- **D)** The good disappears from the market entirely
+- **A)** The sample size exceeds 100
+- **B)** A lagged dependent variable $y_{t-1}$ appears as a regressor
+- **C)** The regressors are trending
+- **D)** The errors are heteroskedastic
 
 ??? success "Show Answer"
-    **Answer: B) Queuing, rationing, black markets, and allocation by seller preference**
+    **Answer: B**
 
-    When prices can't ration, other mechanisms emerge: queues, waiting lists, black markets, or allocating to preferred customers.
+    The DW test assumes that regressors are strictly exogenous. When $y_{t-1}$ is a regressor, it is correlated with $u_{t-1}$ by construction (since $y_{t-1}$ depends on $u_{t-1}$). This violates strict exogeneity and biases the DW test — it tends to be biased toward 2 (appearing to find no autocorrelation even when it exists).
+
+    **Alternative:** Use the **Breusch-Godfrey (BG) LM test**, which is valid with lagged dependent variables and can test for higher-order serial correlation ($p$ lags).
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Supply Demand*
+*Lesson L02 · Breusch-Godfrey Test*
 
+**[Short Answer]** Describe the Breusch-Godfrey test procedure for AR($p$) serial correlation.
 
-In the long run a price ceiling is likely to cause even greater housing shortages than in the short run because:
-
-
-**Type:** Multiple Choice
-
-- **A)** More people move to the city
-- **B)** Supply is more elastic in the long run — landlords convert properties to other uses or reduce maintenance reducing housing stock
-- **C)** Demand falls over time
-- **D)** The ceiling is adjusted for inflation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Supply is more elastic in the long run — landlords convert properties to other uses or reduce maintenance reducing housing stock**
+    **Steps:**
 
-    Long-run supply is more elastic: landlords exit the market, convert to commercial use, or let quality deteriorate — shrinking supply further.
+    1. Estimate the original regression by OLS; obtain residuals $\hat{u}_t$
+    2. Regress $\hat{u}_t$ on the original regressors $\mathbf{x}_t$ **and** $p$ lagged residuals $\hat{u}_{t-1}, \hat{u}_{t-2}, \ldots, \hat{u}_{t-p}$
+    3. Compute LM statistic: $LM = (n-p) \cdot R^2_{\text{aux}} \sim \chi^2_p$ under $H_0$
+    4. Reject $H_0$: $\rho_1 = \rho_2 = \cdots = \rho_p = 0$ if $LM > \chi^2_{p,\alpha}$
+
+    **Advantages over DW:**
+    - Valid when lagged $y$ appears as a regressor
+    - Tests for any order $p$ of serial correlation
+    - Based on standard asymptotic chi-squared distribution (no special tables needed)
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Supply Demand*
+*Lesson L02 · BG Test — Calculation*
 
+**[Calculation]** You run the BG test with $p = 2$ lags. The auxiliary regression of $\hat{u}_t$ on $x_t$, $\hat{u}_{t-1}$, $\hat{u}_{t-2}$ gives $R^2 = 0.12$ with $n = 100$ observations. Test at the 5% level. $\chi^2_{2, 0.05} = 5.99$.
 
-Australia's minimum wage is set by:
-
-
-**Type:** Multiple Choice
-
-- **A)** The RBA
-- **B)** The Fair Work Commission
-- **C)** Individual enterprise agreements only
-- **D)** The ACCC
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) The Fair Work Commission**
+    $$LM = (n - p) \cdot R^2 = (100 - 2) \times 0.12 = 98 \times 0.12 = \mathbf{11.76}$$
 
-    Australia's National Minimum Wage is set annually by the Fair Work Commission through a wage review process.
+    Since $LM = 11.76 > \chi^2_{2, 0.05} = 5.99$, **reject $H_0$** at the 5% level. There is significant evidence of serial correlation up to order 2. OLS standard errors are unreliable — use Newey-West (HAC) standard errors or GLS.
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Supply Demand*
+*Lesson L03 · Newey-West Standard Errors*
 
-
-A minimum wage of $25/hr is set above the competitive equilibrium of $20/hr. Using a labour demand/supply diagram, what is the effect on employment?
-
+Newey-West (HAC) standard errors are valid in the presence of serial correlation. They:
 
 **Type:** Multiple Choice
 
-- **A)** Employment rises
-- **B)** Employment falls — labour demand decreases and labour supply increases creating a surplus of labour (unemployment)
-- **C)** Employment is unchanged
-- **D)** Wages rise further
+- **A)** Change the OLS coefficient estimates to remove the serial correlation bias
+- **B)** Correct the reported standard errors to be valid asymptotically under serial correlation (and heteroskedasticity), without changing $\hat{\beta}$
+- **C)** Are only valid for AR(1) processes
+- **D)** Require knowing the order of serial correlation
 
 ??? success "Show Answer"
-    **Answer: B) Employment falls — labour demand decreases and labour supply increases creating a surplus of labour (unemployment)**
+    **Answer: B**
 
-    A binding wage floor creates excess supply of labour (unemployment): firms demand less labour at the higher wage while more workers seek employment.
+    Newey-West SEs use a **heteroskedasticity and autocorrelation consistent (HAC)** variance estimator that accounts for both serial correlation and heteroskedasticity in the OLS residuals. Like robust SEs for cross-sectional data, they correct the uncertainty estimate but not the point estimates themselves — OLS is still used for $\hat{\beta}$.
+
+    The "bandwidth" parameter determines how many lags of autocovariance are included in the estimator. A common rule of thumb: use $\lfloor 4(n/100)^{2/9} \rfloor$ lags. Valid under weak dependence (not with unit roots).
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Supply Demand*
+*Lesson L03 · GLS / Quasi-Differencing*
 
+Under AR(1) errors $u_t = \rho u_{t-1} + e_t$, the GLS transformation produces a model with uncorrelated errors. Describe the quasi-differenced model.
 
-If labour demand is LD=1000-20W and supply is LS=200+10W, calculate the competitive equilibrium wage and employment.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** W*=$26.67, L*=467
+    For the model $y_t = \beta_0 + \beta_1 x_t + u_t$ with $u_t = \rho u_{t-1} + e_t$:
 
-    LD=LS: 1000-20W=200+10W → 800=30W → W=$26.67; L=1000-20(26.67)≈467
+    **Step 1:** Multiply the lagged equation by $\rho$: $\rho y_{t-1} = \rho\beta_0 + \rho\beta_1 x_{t-1} + \rho u_{t-1}$
+
+    **Step 2:** Subtract from the original:
+    $$\underbrace{y_t - \rho y_{t-1}}_{\tilde{y}_t} = \beta_0(1-\rho) + \beta_1 \underbrace{(x_t - \rho x_{t-1})}_{\tilde{x}_t} + \underbrace{u_t - \rho u_{t-1}}_{e_t}$$
+
+    The transformed model $\tilde{y}_t = \beta_0(1-\rho) + \beta_1 \tilde{x}_t + e_t$ has i.i.d. errors $e_t$ — OLS on this model is BLUE (GLS estimator).
+
+    **Feasible GLS (FGLS):** Since $\rho$ is unknown, estimate $\hat{\rho}$ from the OLS residuals: $\hat{\rho} = \sum_{t=2}^T \hat{u}_t \hat{u}_{t-1} / \sum_{t=2}^T \hat{u}_{t-1}^2$. Substitute $\hat{\rho}$ and apply the quasi-differencing transformation.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Supply Demand*
+*Lesson L03 · Prais-Winsten vs Cochrane-Orcutt*
 
+Prais-Winsten estimation is preferred over Cochrane-Orcutt when:
 
-Why might a minimum wage cause less unemployment than standard supply-demand analysis predicts when employers have monopsony power?
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** The sample size is large
+- **B)** Efficiency matters for small $n$ — Prais-Winsten retains the first observation (in transformed form) while Cochrane-Orcutt discards it
+- **C)** $\rho$ is close to 1 (near unit root)
+- **D)** There are multiple lags of serial correlation
 
 ??? success "Show Answer"
-    **Answer:** A monopsonist pays below the competitive wage and hires fewer workers. A minimum wage up to the competitive level can actually increase both wages and employment by counteracting monopsony power.
+    **Answer: B**
 
-    With monopsony, the competitive wage floor raises wages without necessarily reducing employment.
+    Cochrane-Orcutt drops the first observation after quasi-differencing (the transformed $\tilde{y}_1$ requires $y_0$ which is unavailable). Prais-Winsten keeps it using the transformation: $\tilde{y}_1 = \sqrt{1-\rho^2} \cdot y_1$, which is valid under stationarity.
+
+    For large $n$, losing one observation is negligible. For small $n$, Prais-Winsten is more efficient. When $\rho$ is close to 1, both methods struggle — the transformation becomes near-differencing and loses information.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Supply Demand*
+*Lesson L01 · Detecting Serial Correlation*
 
-
-Agricultural price support in Australia historically set a floor price for wheat above equilibrium. What problem did this create?
-
+A residual plot of $\hat{u}_t$ against time shows long runs of positive residuals followed by long runs of negative residuals. This pattern suggests:
 
 **Type:** Multiple Choice
 
-- **A)** Wheat shortages
-- **B)** Wheat surpluses requiring government stockpiling or export subsidies
-- **C)** Lower wheat prices
-- **D)** Increased competition from imports
+- **A)** Heteroskedasticity
+- **B)** Positive serial correlation — the sign of errors persists over time
+- **C)** Omitted variable bias
+- **D)** Negative serial correlation
 
 ??? success "Show Answer"
-    **Answer: B) Wheat surpluses requiring government stockpiling or export subsidies**
+    **Answer: B — Positive serial correlation**
 
-    A price floor above equilibrium creates a surplus — producers supply more than consumers demand at the supported price.
+    Long "runs" (many consecutive residuals of the same sign) are the visual signature of positive autocorrelation — each error tends to be followed by an error of the same sign. This is consistent with $\hat{\rho} > 0$ and $DW < 2$.
+
+    **Negative** serial correlation would appear as alternating positive/negative residuals (fast oscillation), corresponding to $\hat{\rho} < 0$ and $DW > 2$.
+
+    **Heteroskedasticity** appears as changing spread (fan pattern), not persistent runs of same-sign residuals.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Supply Demand*
+*Lesson L03 · When to Use Each Remedy*
 
+Match each situation to the appropriate remedy for serial correlation.
 
-If demand is perfectly inelastic and supply is elastic, who bears the entire burden of a tax?
-
-
-**Type:** Multiple Choice
-
-- **A)** Producers
-- **B)** Consumers
-- **C)** Split equally
-- **D)** Government
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Consumers**
-
-    When demand is perfectly inelastic, consumers pay the same quantity regardless of price — the entire tax is passed on to consumers.
+    | Situation | Recommended remedy |
+    |---|---|
+    | Serial correlation present, want valid inference with minimal assumptions | **Newey-West (HAC) standard errors** — valid asymptotically; simple to implement |
+    | Serial correlation present, want efficient estimates (BLUE) | **FGLS / Cochrane-Orcutt / Prais-Winsten** — transforms the model for efficiency |
+    | Lagged dependent variable in model, suspecting serial correlation | **Breusch-Godfrey test** to detect; then **Newey-West SEs** (GLS won't work cleanly with LDV) |
+    | Serial correlation due to stochastic trend (unit root) | **First-difference** the series — removes the integrated component, leaving a stationary model |
+    | Serial correlation may be due to omitted lagged variables | **Add FDL terms** ($x_{t-1}$, $x_{t-2}$) — correct the dynamic misspecification |
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Supply Demand*
+*Lesson L01 · Australian Context*
 
-
-Australia's fuel excise is approximately 49.6 cents per litre. If petrol demand elasticity is -0.25 and supply is elastic, roughly what share of the excise do consumers pay?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** ~80%
-
-    With inelastic demand (|PED|=0.25) consumers bear the larger share. Share borne by consumers ≈ Es/(Es+|Ed|) ≈ large/large+0.25 ≈ ~80% (with elastic supply).
-
----
-
-## Question 13
-
-*Lesson L03 · Supply Demand*
-
-
-A per-unit tax of $T causes deadweight loss because:
-
+**[Short Answer]** A researcher regresses Australia's quarterly inflation on the RBA cash rate and gets significant positive serial correlation ($\hat{\rho} = 0.72$, $DW = 0.56$). What are two economic explanations for this serial correlation and what should the researcher do?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** The tax creates a wedge between the price consumers pay and producers receive, reducing quantity below the efficient level. Units that would have created positive surplus (WTP>MC) are not traded.
+    **Economic explanations:**
 
-    The tax distorts the quantity decision away from the efficient level where supply meets demand.
+    1. **Omitted slowly-changing variables:** Supply-side factors (oil prices, productivity growth, global inflation) change gradually and affect Australian inflation persistently but are not included as regressors. Their effects show up as correlated errors.
 
----
+    2. **Misspecified dynamics / adaptive expectations:** Inflation expectations are formed adaptively from past inflation, creating persistence. The static model ignores that current inflation depends on past inflation ($\pi_t = f(\pi_{t-1}, \ldots)$), leaving this persistence in the error.
 
-## Question 14
+    **What to do:**
 
-*Lesson L03 · Supply Demand*
-
-
-A tax on cigarettes in Australia raises $12bn/year. If quantity sold falls 15% after the tax, is this consistent with the goal of reducing smoking or maximising revenue?
-
-
-**Type:** Multiple Choice
-
-- **A)** Only maximising revenue
-- **B)** Only reducing smoking
-- **C)** Consistent with both — significant revenue is raised while consumption falls
-- **D)** Neither goal is met
-
-??? success "Show Answer"
-    **Answer: C) Consistent with both — significant revenue is raised while consumption falls**
-
-    A well-designed tobacco tax achieves both: raises revenue and reduces smoking. Australia's tobacco tax is explicitly designed for health and revenue objectives.
-
----
-
-## Question 15
-
-*Lesson L03 · Supply Demand*
-
-
-Who bears more of a tax burden: the side with more elastic demand/supply or the side with less elastic demand/supply?
-
-
-**Type:** Multiple Choice
-
-- **A)** More elastic side
-- **B)** Less elastic side — tax burden falls on whichever side can less easily adjust quantity
-- **C)** Equally on both sides
-- **D)** Always the consumer
-
-??? success "Show Answer"
-    **Answer: B) Less elastic side — tax burden falls on whichever side can less easily adjust quantity**
-
-    The less elastic side has fewer alternatives and cannot easily reduce quantity — they absorb more of the price change from the tax.
-
----
-
-## Question 16
-
-*Lesson L04 · Supply Demand*
-
-
-A per-unit subsidy shifts the supply curve:
-
-
-**Type:** Multiple Choice
-
-- **A)** Upward by the subsidy amount
-- **B)** Downward by the subsidy amount (rightward shift)
-- **C)** Has no effect on supply
-- **D)** Increases consumer price
-
-??? success "Show Answer"
-    **Answer: B) Downward by the subsidy amount (rightward shift)**
-
-    A subsidy reduces the effective cost of production by the subsidy amount, shifting supply right (down) — producers supply more at each price.
-
----
-
-## Question 17
-
-*Lesson L04 · Supply Demand*
-
-
-Australia's childcare subsidy reduces the price parents pay. A subsidy of $50/day is introduced. If market price was $120/day and demand elasticity is -0.8, estimate the consumer price reduction.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** ~$28
-
-    With elastic demand, consumers capture more of the subsidy. Consumer price falls by roughly subsidy × (Es/(Es+|Ed|)). Assuming Es=1.5: $50×(1.5/2.3)≈$33. Approximate answer in range $25-$35.
-
----
-
-## Question 18
-
-*Lesson L04 · Supply Demand*
-
-
-Why does a subsidy create a deadweight loss even though it benefits both buyers and sellers?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** A subsidy encourages overproduction — units are produced where the social cost (supply price) exceeds the social benefit (demand price). The government pays for units that create less value than they cost.
-
-    Subsidies push output beyond the efficient level, wasting resources on low-value production.
-
----
-
-## Question 19
-
-*Lesson L04 · Supply Demand*
-
-
-Australia's Renewable Energy Target subsidised solar power. From an economic efficiency perspective this is justified if:
-
-
-**Type:** Multiple Choice
-
-- **A)** Solar firms are profitable
-- **B)** Solar power has positive externalities (reduced emissions) so the social benefit exceeds the private benefit — a subsidy corrects the externality
-- **C)** The government wants to support manufacturing
-- **D)** Energy prices are too high
-
-??? success "Show Answer"
-    **Answer: B) Solar power has positive externalities (reduced emissions) so the social benefit exceeds the private benefit — a subsidy corrects the externality**
-
-    Subsidising positive externalities (clean energy) corrects market underproduction — the private market undersupplies because it ignores the social benefit of lower emissions.
-
----
-
-## Question 20
-
-*Lesson L04 · Supply Demand*
-
-
-The cost to government of a per-unit subsidy equals:
-
-
-**Type:** Multiple Choice
-
-- **A)** The change in consumer surplus
-- **B)** Subsidy amount × quantity sold after subsidy
-- **C)** The deadweight loss only
-- **D)** Producer surplus gain only
-
-??? success "Show Answer"
-    **Answer: B) Subsidy amount × quantity sold after subsidy**
-
-    Government cost = subsidy per unit × equilibrium quantity after subsidy. This is greater than the net welfare gain because some goes to DWL.
-
----
-
-## Question 21
-
-*Lesson L05 · Externalities*
-
-
-Australia's carbon price (2012-14) was set at $23/tonne of CO2. This is an example of:
-
-
-**Type:** Multiple Choice
-
-- **A)** A price floor
-- **B)** A Pigouvian tax
-- **C)** A production quota
-- **D)** A subsidy
-
-??? success "Show Answer"
-    **Answer: B) A Pigouvian tax**
-
-    A carbon price is a Pigouvian tax designed to make emitters pay the social cost of carbon, internalising the negative externality.
-
----
-
-## Question 22
-
-*Lesson L05 · Externalities*
-
-
-The Safeguard Mechanism (2023) requires large emitters to reduce emissions intensity or purchase offsets. This is closer to:
-
-
-**Type:** Multiple Choice
-
-- **A)** A Pigouvian tax
-- **B)** A tradeable permit scheme
-- **C)** A command-and-control regulation with trading
-- **D)** A price subsidy
-
-??? success "Show Answer"
-    **Answer: C) A command-and-control regulation with trading**
-
-    The Safeguard Mechanism sets limits (command) but allows trading of offsets (permit-like flexibility) — a hybrid instrument.
-
----
-
-## Question 23
-
-*Lesson L05 · Supply Demand*
-
-
-Australia's fuel excise is 49.6c/L. If a car uses 8L/100km and drives 15,000km/year, calculate annual fuel excise paid.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $595.20
-
-    Fuel used = 0.08×15,000=1,200L. Excise = 1,200×$0.496=$595.20
-
----
-
-## Question 24
-
-*Lesson L05 · Externalities*
-
-
-Compare the efficiency of a carbon tax vs a command-and-control emissions standard.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** A carbon tax lets firms reduce emissions where it is cheapest, achieving a given emissions reduction at minimum cost (cost-effective). A uniform standard forces all firms to meet the same target regardless of their abatement costs, which is usually more expensive in aggregate.
-
-    Taxes achieve environmental goals cost-effectively; standards may not equate marginal abatement costs across firms.
-
----
-
-## Question 25
-
-*Lesson L05 · Supply Demand*
-
-
-Rent Assistance is a Commonwealth payment to low-income renters. How does this differ from rent control?
-
-
-**Type:** Multiple Choice
-
-- **A)** Both are price ceilings
-- **B)** Rent Assistance is a demand-side subsidy that raises renters' effective purchasing power without distorting the rental market price; rent control is a supply-side price ceiling that creates shortages
-- **C)** Rent Assistance reduces supply of rental housing
-- **D)** They are identical in economic effect
-
-??? success "Show Answer"
-    **Answer: B) Rent Assistance is a demand-side subsidy that raises renters' effective purchasing power without distorting the rental market price; rent control is a supply-side price ceiling that creates shortages**
-
-    Rent Assistance increases demand-side affordability while leaving market prices intact. Rent control caps prices and creates shortages — very different economic effects.
-
----
+    1. **Short-run fix:** Report **Newey-West HAC standard errors** to get valid inference without changing the model
+    2. **Better model:** Add lagged inflation $\pi_{t-1}$ as a regressor (or lagged cash rate) to absorb the dynamic effects — if the serial correlation disappears, the dynamic misspecification was the cause
+    3. **Test formally:** Run Breusch-Godfrey with $p = 4$ lags (quarterly data, seasonal consideration) before deciding on the remedy
+    4. **Check stationarity:** If inflation has a unit root (unusual but possible in high-inflation periods), first-differencing may be needed

@@ -1,594 +1,257 @@
-# Module M07 Quiz: Monopoly
+# Module M07 Quiz: Misspecification, Proxy Variables & Measurement Error
 
-*30 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*12 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. Write out reasoning for short-answer questions.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · Omitted Variables*
 
-
-Which is a natural barrier to entry for a monopolist?
-
+Omitting a relevant variable $x_2$ from the regression of $y$ on $x_1$ causes OLS to be:
 
 **Type:** Multiple Choice
 
-- **A)** Government price controls
-- **B)** Economies of scale so large that one firm can supply the market at lower cost than two
-- **C)** Patents on all consumer goods
-- **D)** Advertising expenditure
+- **A)** Inefficient but unbiased, regardless of correlation between $x_1$ and $x_2$
+- **B)** Biased and inconsistent if $\text{Cov}(x_1, x_2) \neq 0$; unbiased if $\text{Cov}(x_1, x_2) = 0$
+- **C)** Always biased, even if $x_1$ and $x_2$ are uncorrelated
+- **D)** Only biased in small samples
 
 ??? success "Show Answer"
-    **Answer: B) Economies of scale so large that one firm can supply the market at lower cost than two**
+    **Answer: B**
 
-    Natural monopolies arise when LRATC is still falling at the quantity demanded — one firm is most efficient.
+    OVB formula: $\text{plim}(\tilde{\beta}_1) = \beta_1 + \beta_2 \cdot \delta_{12}$ where $\delta_{12} = \text{Cov}(x_2,x_1)/\text{Var}(x_1)$.
+
+    - If $\text{Cov}(x_1, x_2) = 0$: $\delta_{12} = 0$ → no bias (though efficiency is lost and $R^2$ is lower)
+    - If $\text{Cov}(x_1, x_2) \neq 0$: $\delta_{12} \neq 0$ → OLS is **biased AND inconsistent** (the bias persists as $n \to \infty$)
+
+    This is why more data cannot fix omitted variable bias — it is an identification problem, not a sample size problem.
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · Irrelevant Variables*
 
-
-Australia Post holds a legal monopoly on which service?
-
+Including an irrelevant variable $x_3$ (truly $\beta_3 = 0$) in a regression causes:
 
 **Type:** Multiple Choice
 
-- **A)** Parcel delivery
-- **B)** Standard letter delivery under 250g
-- **C)** Express post
-- **D)** International mail
+- **A)** Upward bias in all other coefficients
+- **B)** No bias but increased variance of $\hat{\beta}_1$ (inefficiency); adjusted $R^2$ may fall
+- **C)** Inconsistency of all OLS estimates
+- **D)** The model becomes unidentified
 
 ??? success "Show Answer"
-    **Answer: B) Standard letter delivery under 250g**
+    **Answer: B**
 
-    Australia Post holds a legislated monopoly on ordinary letter delivery — a statutory barrier to entry.
+    Since $\beta_3 = 0$ truly, there is no OVB from including it — $E(\hat{\beta}_1) = \beta_1$ still holds. However:
+
+    1. One degree of freedom is wasted → $\hat{\sigma}^2$ uses $(n-k-2)$ instead of $(n-k-1)$
+    2. If $x_3$ is correlated with $x_1$, $\text{VIF}_1$ increases → larger $\text{Var}(\hat{\beta}_1)$
+
+    The trade-off: omitting a relevant variable causes bias; including an irrelevant one causes inefficiency. The bias from omission is typically worse — but large models with many weak controls also suffer.
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · RESET Test*
 
+The Ramsey RESET test adds $\hat{y}^2, \hat{y}^3$ to the regression and tests if their coefficients are jointly zero. What does rejection imply?
 
-A firm has 100% market share in widgets. Its monopoly profit is $2m/yr. If barriers fall and a competitor enters with 40% market share, estimate the original firm's new profit assuming linear demand and equal costs.
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** The dependent variable is not normally distributed
+- **B)** Functional form misspecification — the linear model may be missing nonlinear terms or interactions
+- **C)** Heteroskedasticity is present
+- **D)** Serial correlation is present
 
 ??? success "Show Answer"
-    **Answer:** $720,000
+    **Answer: B**
 
-    With 60% market share, revenue roughly halves relative to full monopoly. Rough estimate: 60%^2 × $2m ≈ $720k (Cournot-style intuition).
+    Powered fitted values ($\hat{y}^2, \hat{y}^3$) proxy for the nonlinear combinations of regressors that might be missing from the model. If they are jointly significant ($F$-test rejects), the linear specification is inadequate — possibly missing quadratic terms, interactions, or the wrong functional form (e.g. should use logs).
+
+    RESET does **not** detect heteroskedasticity (use BP/White) or serial correlation (use DW/BG). It is a general functional form test, not a targeted diagnostic.
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Market Structure*
+*Lesson L02 · Proxy Variables*
 
-
-Explain why network effects create a barrier to entry in technology markets.
-
+A researcher wants to control for "ability" in a wage regression, but ability is unobserved. They include an IQ test score as a proxy. For this to be valid, the proxy must satisfy:
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Network effects mean a product's value rises with users. An entrant with few users offers less value than the incumbent, making it very hard to attract customers away even with a superior product.
+    A valid proxy $x_2$ for unobservable $x_2^*$ requires:
 
-    The incumbent's large user base is itself a barrier — switching costs and reduced network value deter defection.
+    1. **Correlation with the omitted variable:** $\text{Cov}(x_2, x_2^*) \neq 0$ — the proxy must actually measure the latent variable (IQ score must be correlated with true ability)
+    2. **Conditional independence:** Once $x_2$ is included, the true omitted variable $x_2^*$ is uncorrelated with the error — i.e. $\text{Cov}(x_2^*, u | x_2) = 0$. The proxy "soaks up" all the variation in $x_2^*$ that is relevant for $y$.
+
+    If the proxy is imperfect (noisy), it only partially reduces OVB — better than nothing, but doesn't fully solve the problem. The IQ score is a commonly used but imperfect proxy for ability; part of ability is captured, part is not.
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Market Structure*
+*Lesson L02 · Measurement Error*
 
-
-Which of the following is NOT a barrier to entry?
-
+Classical errors-in-variables: the true regressor is $x^*$, but you observe $x = x^* + e$ where $e$ is pure measurement noise uncorrelated with $x^*$ and $u$. OLS on the mismeasured $x$ produces:
 
 **Type:** Multiple Choice
 
-- **A)** Patent protection
-- **B)** High sunk costs
-- **C)** Lower costs than rivals due to scale
-- **D)** A new firm entering the market
+- **A)** An unbiased estimator of $\beta_1$
+- **B)** An upward-biased estimator
+- **C)** Attenuation bias — $\hat{\beta}_1$ is biased toward zero: $|\hat{\beta}_1| < |\beta_1|$
+- **D)** Inconsistency only in small samples
 
 ??? success "Show Answer"
-    **Answer: D) A new firm entering the market**
+    **Answer: C — Attenuation bias**
 
-    A new firm entering is the result of barriers being overcome, not a barrier itself.
+    $$\text{plim}(\hat{\beta}_1) = \beta_1 \cdot \frac{\text{Var}(x^*)}{\text{Var}(x^*) + \text{Var}(e)} = \beta_1 \cdot \lambda$$
+
+    where $\lambda = \text{Var}(x^*)/\text{Var}(x) \in (0,1)$ is the signal-to-total variance ratio. Since $\lambda < 1$, $|\hat{\beta}_1| < |\beta_1|$ — the coefficient is **attenuated toward zero**.
+
+    Intuition: measurement noise in $x$ looks like extra random variation unrelated to $y$, making the slope appear flatter. The more noisy the measurement (larger $\text{Var}(e)$), the worse the attenuation.
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Market Structure*
+*Lesson L02 · Attenuation — Calculation*
 
+**[Calculation]** True $\beta_1 = 0.5$. The true variable $x^*$ has $\text{Var}(x^*) = 4$. Measurement error has $\text{Var}(e) = 1$ (so $\text{Var}(x) = 5$). What is $\text{plim}(\hat{\beta}_1)$?
 
-For a monopolist with linear demand P=100-Q, what is the marginal revenue function?
-
-
-**Type:** Multiple Choice
-
-- **A)** MR=100-Q
-- **B)** MR=100-2Q
-- **C)** MR=50-Q
-- **D)** MR=100+Q
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) MR=100-2Q**
+    $$\lambda = \frac{\text{Var}(x^*)}{\text{Var}(x^*) + \text{Var}(e)} = \frac{4}{4 + 1} = \frac{4}{5} = 0.8$$
 
-    For linear demand P=a-bQ, MR=a-2bQ — twice the slope. Here MR=100-2Q.
+    $$\text{plim}(\hat{\beta}_1) = \beta_1 \cdot \lambda = 0.5 \times 0.8 = \mathbf{0.4}$$
+
+    OLS attenuates the true effect by 20%. To recover $\beta_1 = 0.5$, you need an instrument for $x$ — a variable correlated with $x^*$ but not with the measurement error $e$ (e.g. a second noisy measure of the same concept).
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Market Structure*
+*Lesson L03 · Missing Data*
 
-
-Why is marginal revenue less than price for a monopolist?
-
+Data are **Missing Completely At Random (MCAR)**. OLS on the complete cases is:
 
 **Type:** Multiple Choice
 
-- **A)** The monopolist has lower costs
-- **B)** To sell one more unit the monopolist must lower price on ALL units sold not just the marginal one
-- **C)** Monopolists face elastic demand
-- **D)** Government regulation forces lower MR
+- **A)** Biased — any missing data causes bias
+- **B)** Unbiased and consistent — MCAR means the complete cases are a random subsample
+- **C)** Consistent but biased in finite samples
+- **D)** Only valid if less than 10% of data is missing
 
 ??? success "Show Answer"
-    **Answer: B) To sell one more unit the monopolist must lower price on ALL units sold not just the marginal one**
+    **Answer: B**
 
-    The price reduction to sell one more unit applies to all existing units — the revenue gain on the new unit is offset by revenue lost on inframarginal units.
+    MCAR means the probability of missingness is unrelated to both observed and unobserved variables. The complete cases are then a random subset of the full sample — OLS on this subset has the same properties as OLS on the full sample.
+
+    - **MAR (Missing At Random):** Missingness depends on observed $x$, not unobserved $u$ — OLS is still consistent if $x$ is included in the model
+    - **MNAR (Missing Not At Random):** Missingness depends on $y$ or $u$ — **selection bias**; OLS is inconsistent. Example: only employed workers report wages → wages are MNAR (low earners with zero wages are selectively excluded)
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Market Structure*
+*Lesson L03 · Selection Bias*
 
+A study of wages only surveys employed workers. Why is this a selection problem?
 
-Demand: P=80-2Q. Calculate MR when Q=10.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** $40
+    This is a **non-random sample** — workers who choose to work may be systematically different from non-workers on unobservables (higher motivation, better health, higher ability) that also affect wages. The sample of workers is thus selected on characteristics correlated with the error term in the wage equation.
 
-    MR=80-4Q; at Q=10: MR=80-40=$40.
+    Formally: $E(u \mid \text{employed}) \neq 0$ even if $E(u) = 0$ in the full population. OLS on the employed-only sample is biased.
+
+    The classic fix is the **Heckman two-step**: model the selection equation (who works), compute the inverse Mills ratio (IMR), and add it to the wage regression as an additional control. The IMR corrects for the selection bias under distributional assumptions.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Market Structure*
+*Lesson L01 · Functional Form Misspecification*
 
+The true model is $y = \beta_0 + \beta_1 x + \beta_2 x^2 + u$ but you estimate $y = \beta_0 + \beta_1 x + u$. This causes:
 
-Why does the MR curve lie below the demand curve for a monopolist but coincide with it for a perfectly competitive firm?
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** No problem if the quadratic term is small
+- **B)** OVB: $x^2$ is omitted; since $x^2$ is a function of $x$, $\text{Cov}(x, x^2) \neq 0$ → $\hat{\beta}_1$ is biased and inconsistent
+- **C)** Only heteroskedasticity
+- **D)** Only inflated standard errors
 
 ??? success "Show Answer"
-    **Answer:** A price-taking firm can sell any quantity at the market price without affecting it — each unit adds exactly P to revenue. A monopolist must lower price to sell more, so each additional unit adds less than P to total revenue.
+    **Answer: B**
 
-    Market power means the firm faces a downward-sloping demand, creating a wedge between P and MR.
+    The omitted variable here is $x^2$. Since $x^2$ is a deterministic function of $x$, they are correlated — $\text{Cov}(x, x^2) \neq 0$ for most $x$ distributions. The OVB formula applies: $\tilde{\beta}_1 = \beta_1 + \beta_2 \cdot \delta_{12}$ where $\delta_{12} = \text{Cov}(x, x^2)/\text{Var}(x) \neq 0$.
+
+    The RESET test would detect this: powered fitted values $\hat{y}^2$ (which include $x^2$ terms) would be significant. Remedy: add $x^2$ to the model.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Market Structure*
+*Lesson L02 · Measurement Error in y*
 
+Classical measurement error is in the **dependent variable** $y$: you observe $\tilde{y} = y + v$ where $v$ is noise uncorrelated with $x$ and $u$. What is the effect on OLS?
 
-At what output does a monopolist maximise revenue (not profit)?
-
-
-**Type:** Multiple Choice
-
-- **A)** Where MR=MC
-- **B)** Where MR=0 (unit elastic point on demand)
-- **C)** Where P=ATC
-- **D)** Where demand is inelastic
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Where MR=0 (unit elastic point on demand)**
+    **No bias or inconsistency** — measurement error in $y$ (when uncorrelated with regressors) simply adds to the error term:
 
-    Total revenue is maximised where MR=0 (|PED|=1). Profit maximisation requires MR=MC which is typically at lower output.
+    $$\tilde{y} = \beta_0 + \beta_1 x + (u + v)$$
+
+    The composite error $(u + v)$ still satisfies $E(u + v \mid x) = 0$ since both $u$ and $v$ are uncorrelated with $x$. OLS is unbiased and consistent.
+
+    The only consequence: $\text{Var}(u + v) = \sigma_u^2 + \sigma_v^2 > \sigma_u^2$ — the error variance is larger, making OLS **less precise** (larger standard errors, lower $R^2$). Contrast with measurement error in $x$: that causes attenuation bias; error in $y$ does not.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Market Structure*
+*Lesson L01 · Model Selection*
 
+A researcher is choosing between two models: Model A (3 regressors, $R^2 = 0.72$) and Model B (8 regressors, $R^2 = 0.75$). Which should they prefer and why?
 
-A monopolist faces P=120-Q and MC=20. What is profit-maximising output?
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Q*=50
+    **Cannot simply compare $R^2$** — it always rises (or stays flat) when more regressors are added.
 
-    MR=120-2Q=MC=20 → 2Q=100 → Q*=50
+    Better criteria:
+
+    1. **Adjusted $R^2$**: penalises added regressors. If Model B's adjusted $R^2 >$ Model A's, the extra variables add genuine explanatory power.
+    2. **$F$-test**: test whether the 5 additional regressors in B are jointly significant. If $F < F_\text{critical}$, they are not jointly useful and Model A is preferred.
+    3. **AIC/BIC**: information criteria that penalise complexity; BIC penalises more strongly.
+    4. **Theory**: do the extra 5 regressors in B have theoretical justification? Are they causing multicollinearity?
+
+    In practice: if the $F$-test for the 5 extra regressors fails to reject $H_0$ (jointly insignificant), prefer the parsimonious Model A. Occam's razor applies — complexity without payoff increases standard errors and reduces interpretability.
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Market Structure*
+*Lesson L02 · IV Fix for Measurement Error*
 
-
-Using P=120-Q and MC=20 from Q1, what price does the monopolist charge?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** P*=$70
-
-    P=120-Q*=120-50=$70
-
----
-
-## Question 13
-
-*Lesson L03 · Market Structure*
-
-
-A monopolist charges $70, ATC at profit-max output is $45. Output is 50 units. What is total profit?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $1,250
-
-    Profit=(P-ATC)×Q=(70-45)×50=$1,250
-
----
-
-## Question 14
-
-*Lesson L03 · Market Structure*
-
-
-Why do monopolists always produce in the elastic portion of their demand curve?
-
+**[Short Answer]** Measurement error in education (people mis-report years of schooling) attenuates the OLS wage-education slope. How would IV help?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** In the inelastic region MR is negative — producing more would reduce total revenue and increase costs, reducing profit. Profit maximisation (MR=MC≥0) requires operating where MR≥0, which is the elastic region.
+    Use an **instrument $z$ correlated with true education $x^*$ but uncorrelated with the measurement error $e$**. A good candidate: parental education or proximity to a college — these affect true years of schooling through family background or opportunity, not through reporting bias.
 
-    Where |PED|<1, MR<0 — no profit-maximising firm would produce there.
+    **Why it works:** The IV estimator $\hat{\beta}_{IV} = \text{Cov}(z,y)/\text{Cov}(z,x)$ uses only the variation in $x$ that is driven by $z$. Since $z$ is uncorrelated with measurement error $e$, the $z$-driven variation in $x$ is "clean" — reflecting variation in $x^*$ only. The IV therefore estimates $\beta_1$ consistently despite the mismeasured $x$.
 
----
-
-## Question 15
-
-*Lesson L03 · Market Structure*
-
-
-A monopolist faces MC=ATC=$30 at all outputs. If demand is P=100-Q, what is economic profit?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $1,225
-
-    MR=100-2Q=30→Q*=35; P*=65; Profit=(65-30)×35=$1,225
-
----
-
-## Question 16
-
-*Lesson L04 · Market Structure*
-
-
-Compared to perfect competition, a monopolist produces:
-
-
-**Type:** Multiple Choice
-
-- **A)** More output at a lower price
-- **B)** Less output at a higher price
-- **C)** The same output at a higher price
-- **D)** Less output at a lower price
-
-??? success "Show Answer"
-    **Answer: B) Less output at a higher price**
-
-    Monopolist restricts Q below competitive level to raise P above MC, creating deadweight loss.
-
----
-
-## Question 17
-
-*Lesson L04 · Market Structure*
-
-
-Deadweight loss from monopoly arises because:
-
-
-**Type:** Multiple Choice
-
-- **A)** The monopolist earns excess profit
-- **B)** Units that would create positive surplus are not produced because P>MC
-- **C)** The government taxes monopoly profit
-- **D)** Consumers have less income
-
-??? success "Show Answer"
-    **Answer: B) Units that would create positive surplus are not produced because P>MC**
-
-    DWL = units not produced where WTP > MC. The monopolist restricts output to Q* < Q_competitive.
-
----
-
-## Question 18
-
-*Lesson L04 · Market Structure*
-
-
-With P=100-Q and MC=20, calculate the deadweight loss from monopoly vs perfect competition.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $1,250
-
-    PC: Q=80,P=20. Monopoly: Q=50,P=70. DWL=0.5×(70-20)×(80-50)=0.5×50×30=$750. (Note: exact value depends on method; triangle area = 0.5×base×height=$750)
-
----
-
-## Question 19
-
-*Lesson L04 · Market Structure*
-
-
-Why is natural monopoly difficult to regulate efficiently?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Setting P=MC (efficient) may force the firm to price below ATC causing losses and exit. Setting P=ATC (break-even) eliminates losses but still creates some DWL. The regulator faces a trade-off between efficiency and financial viability.
-
-    There is no pricing rule that achieves both allocative efficiency and financial sustainability without a subsidy.
-
----
-
-## Question 20
-
-*Lesson L04 · Market Structure*
-
-
-Which best describes the welfare transfer in a monopoly compared to competitive equilibrium?
-
-
-**Type:** Multiple Choice
-
-- **A)** Society gains welfare from monopoly pricing
-- **B)** Consumer surplus is transferred to producer surplus plus there is an irreversible DWL
-- **C)** Producer surplus is transferred to consumers
-- **D)** There is no welfare change
-
-??? success "Show Answer"
-    **Answer: B) Consumer surplus is transferred to producer surplus plus there is an irreversible DWL**
-
-    The monopoly profit rectangle represents a transfer from consumers to the monopolist; the DWL triangle is lost to everyone.
-
----
-
-## Question 21
-
-*Lesson L05 · Market Structure*
-
-
-Which condition is NOT required for price discrimination to work?
-
-
-**Type:** Multiple Choice
-
-- **A)** Market power
-- **B)** Ability to identify and separate consumer groups
-- **C)** No arbitrage (resale) between groups
-- **D)** Government permission to discriminate
-
-??? success "Show Answer"
-    **Answer: D) Government permission to discriminate**
-
-    Price discrimination requires market power, identifiable groups, and prevention of resale — no government permission is needed.
-
----
-
-## Question 22
-
-*Lesson L05 · Market Structure*
-
-
-Student discounts at cinemas are an example of:
-
-
-**Type:** Multiple Choice
-
-- **A)** First-degree price discrimination
-- **B)** Second-degree price discrimination
-- **C)** Third-degree price discrimination
-- **D)** Predatory pricing
-
-??? success "Show Answer"
-    **Answer: C) Third-degree price discrimination**
-
-    Third-degree PD charges different prices to identifiable groups (students vs adults) based on different demand elasticities.
-
----
-
-## Question 23
-
-*Lesson L05 · Market Structure*
-
-
-A monopolist can perfectly price discriminate. Demand: P=100-Q, MC=20. What is total output and profit?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Q=80; Profit=$3,200
-
-    With perfect PD, firm sets P=MC at margin → Q=80 (same as PC). Profit = entire consumer surplus = area of triangle = 0.5×80×80=$3,200
-
----
-
-## Question 24
-
-*Lesson L05 · Market Structure*
-
-
-Why does first-degree price discrimination eliminate deadweight loss?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** The firm charges each consumer exactly their WTP, so every unit where WTP≥MC is sold. No mutually beneficial transactions are foregone — the efficient quantity is produced.
-
-    With perfect PD, the firm captures all surplus but produces the efficient quantity.
-
----
-
-## Question 25
-
-*Lesson L05 · Market Structure*
-
-
-Airlines charge different prices to business and leisure travellers for the same route. This is:
-
-
-**Type:** Multiple Choice
-
-- **A)** First-degree PD
-- **B)** Second-degree PD
-- **C)** Third-degree PD
-- **D)** Not price discrimination because the seats are identical
-
-??? success "Show Answer"
-    **Answer: C) Third-degree PD**
-
-    Airlines identify business/leisure travellers (via booking timing, flexibility) and exploit their different elasticities — classic third-degree PD.
-
----
-
-## Question 26
-
-*Lesson L06 · Market Structure*
-
-
-The ACCC can authorise a merger if it finds the merger will not:
-
-
-**Type:** Multiple Choice
-
-- **A)** Increase profits for the merging firms
-- **B)** Substantially lessen competition in a market
-- **C)** Create a firm larger than $1bn
-- **D)** Reduce employment
-
-??? success "Show Answer"
-    **Answer: B) Substantially lessen competition in a market**
-
-    The ACCC assesses mergers under the substantial lessening of competition (SLC) test under the Competition and Consumer Act 2010.
-
----
-
-## Question 27
-
-*Lesson L06 · Market Structure*
-
-
-A natural monopoly has LRATC=$30 at all outputs and demand P=80-Q. The regulator sets P=LRATC=$30. What is output?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Q=50
-
-    P=80-Q=30 → Q=50. At this price the firm breaks even (zero economic profit) but does not achieve allocative efficiency (P>MC only if MC<LRATC).
-
----
-
-## Question 28
-
-*Lesson L06 · Market Structure*
-
-
-Which regulatory approach gives the NBN operator a guaranteed return on capital but weakest incentive for cost efficiency?
-
-
-**Type:** Multiple Choice
-
-- **A)** Price cap regulation
-- **B)** Rate-of-return regulation
-- **C)** Public ownership
-- **D)** Deregulation
-
-??? success "Show Answer"
-    **Answer: B) Rate-of-return regulation**
-
-    Rate-of-return regulation allows the firm to earn a set return — it has no incentive to cut costs since higher costs are passed through.
-
----
-
-## Question 29
-
-*Lesson L06 · Market Structure*
-
-
-Describe one way the ACCC has used access regulation to promote competition.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** The ACCC can declare infrastructure (e.g. NBN network, gas pipelines, airports) as regulated access services, requiring the owner to provide access to competitors on non-discriminatory terms at regulated prices.
-
-    Access regulation prevents infrastructure owners from using their bottleneck position to foreclose downstream competition.
-
----
-
-## Question 30
-
-*Lesson L06 · Market Structure*
-
-
-Why might the Supermarket Code of Conduct be preferred over a forced divestiture of Coles or Woolworths?
-
-
-**Type:** Multiple Choice
-
-- **A)** Divestiture is illegal in Australia
-- **B)** Breaking up firms is irreversible and may sacrifice scale economies; a code addresses conduct without restructuring the industry
-- **C)** A code generates more ACCC revenue
-- **D)** Divestiture reduces competition
-
-??? success "Show Answer"
-    **Answer: B) Breaking up firms is irreversible and may sacrifice scale economies; a code addresses conduct without restructuring the industry**
-
-    Structural remedies (divestiture) are blunt and permanent. Conduct remedies address specific harmful behaviours while preserving efficiency gains from scale.
-
----
+    Formally: $\text{plim}(\hat{\beta}_{IV}) = \text{Cov}(z,y)/\text{Cov}(z,x) = \beta_1 \cdot \text{Cov}(z,x^*)/\text{Cov}(z,x) = \beta_1$ when $\text{Cov}(z,e) = 0$.

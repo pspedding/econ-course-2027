@@ -1,6 +1,7 @@
-site_name: Microeconomics 2026
-site_description: Introductory + Intermediate Microeconomics — USYD-aligned self-study course
-site_author: Microeconomics 2026
+site_name: Econometrics 2027
+site_description: Principles of Econometrics — USYD ECMT5001-aligned self-study course (Wooldridge)
+site_author: Econometrics 2027
+site_url: https://pspedding.github.io/econ-course-2027
 
 theme:
   name: material
@@ -13,12 +14,14 @@ theme:
     - search.highlight
   palette:
     - scheme: default
-      primary: teal
+      primary: deep purple
+      accent: amber
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
+      primary: deep purple
+      accent: amber
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -30,175 +33,95 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.emoji
-  - attr_list
-  - md_in_html
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.arithmatex:
       generic: true
+  - tables
+  - attr_list
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - assets/extra.css
 
 nav:
   - Home: index.md
+  - "M01 — Probability & Statistics Review":
+      - "M01.L01 — Descriptive Statistics & Summation": modules/module-01/M01.L01-descriptive-stats-summation.md
+      - "M01.L02 — Probability Fundamentals": modules/module-01/M01.L02-probability-fundamentals.md
+      - "M01.L03 — Random Variables & Distributions": modules/module-01/M01.L03-random-variables-distributions.md
+      - "M01.L04 — Joint Distributions, Covariance & Correlation": modules/module-01/M01.L04-joint-distributions-covariance.md
+      - "M01.L05 — Sampling & Sample Statistics": modules/module-01/M01.L05-sampling-sample-statistics.md
+      - "M01.L06 — Hypothesis Testing": modules/module-01/M01.L06-hypothesis-testing.md
+  - "M02 — Simple Linear Regression":
+      - "M02.L01 — The Simple Regression Model": modules/module-02/M02.L01-simple-regression-model.md
+      - "M02.L02 — OLS Estimation": modules/module-02/M02.L02-ols-estimation.md
+      - "M02.L03 — Algebraic Properties of OLS": modules/module-02/M02.L03-ols-algebraic-properties.md
+      - "M02.L04 — Units, Functional Forms & Goodness of Fit": modules/module-02/M02.L04-units-functional-forms-r-squared.md
+      - "M02.L05 — Expected Values & Unbiasedness of OLS": modules/module-02/M02.L05-expected-values-unbiasedness.md
+  - "M03 — Multiple Linear Regression":
+      - "M03.L01 — The Multiple Regression Model": modules/module-03/M03.L01-multiple-regression-model.md
+      - "M03.L02 — OLS Estimation in Multiple Regression": modules/module-03/M03.L02-ols-multiple-regression.md
+      - "M03.L03 — Gauss-Markov Assumptions": modules/module-03/M03.L03-gauss-markov-assumptions.md
+      - "M03.L04 — Omitted Variable Bias": modules/module-03/M03.L04-omitted-variable-bias.md
+      - "M03.L05 — Multicollinearity & Variance of OLS": modules/module-03/M03.L05-multicollinearity-variance.md
+  - "M04 — Statistical Inference":
+      - "M04.L01 — Sampling Distributions of OLS Estimators": modules/module-04/M04.L01-sampling-distributions.md
+      - "M04.L02 — t-Tests for Single Coefficients": modules/module-04/M04.L02-t-tests.md
+      - "M04.L03 — Confidence Intervals": modules/module-04/M04.L03-confidence-intervals.md
+      - "M04.L04 — F-Tests & Joint Hypotheses": modules/module-04/M04.L04-f-tests-joint-hypotheses.md
+      - "M04.L05 — Reporting & Interpreting Regression Results": modules/module-04/M04.L05-reporting-results.md
+  - "M05 — Functional Forms & Dummy Variables":
+      - "M05.L01 — Log Transformations": modules/module-05/M05.L01-log-transformations.md
+      - "M05.L02 — Quadratic & Interaction Terms": modules/module-05/M05.L02-quadratic-interaction-terms.md
+      - "M05.L03 — Dummy Variables": modules/module-05/M05.L03-dummy-variables.md
+      - "M05.L04 — Dummy Variable Trap & Multiple Categories": modules/module-05/M05.L04-dummy-variable-trap.md
+      - "M05.L05 — Interactions with Dummies": modules/module-05/M05.L05-interactions-dummies.md
+  - "M06 — Heteroskedasticity":
+      - "M06.L01 — Nature & Consequences of Heteroskedasticity": modules/module-06/M06.L01-nature-consequences.md
+      - "M06.L02 — Testing for Heteroskedasticity": modules/module-06/M06.L02-testing-heteroskedasticity.md
+      - "M06.L03 — Robust Standard Errors": modules/module-06/M06.L03-robust-standard-errors.md
+      - "M06.L04 — Weighted Least Squares (WLS)": modules/module-06/M06.L04-weighted-least-squares.md
+  - "M07 — Specification & Data Issues":
+      - "M07.L01 — Regression Specification Errors": modules/module-07/M07.L01-specification-errors.md
+      - "M07.L02 — Proxy Variables & Measurement Error": modules/module-07/M07.L02-proxy-measurement-error.md
+      - "M07.L03 — Missing Data & Non-Random Samples": modules/module-07/M07.L03-missing-data.md
+  - "M08 — Time Series Basics":
+      - "M08.L01 — Nature of Time Series Data": modules/module-08/M08.L01-nature-time-series.md
+      - "M08.L02 — Static & Finite Distributed Lag Models": modules/module-08/M08.L02-static-fdl-models.md
+      - "M08.L03 — Serial Correlation & Spurious Regression": modules/module-08/M08.L03-serial-correlation-spurious.md
+      - "M08.L04 — Stationarity & Trends": modules/module-08/M08.L04-stationarity-trends.md
+  - "M09 — Serial Correlation & Autocorrelation":
+      - "M09.L01 — Properties of OLS with Serial Correlation": modules/module-09/M09.L01-ols-serial-correlation.md
+      - "M09.L02 — Testing for Serial Correlation": modules/module-09/M09.L02-testing-serial-correlation.md
+      - "M09.L03 — Correcting for Serial Correlation": modules/module-09/M09.L03-correcting-serial-correlation.md
+  - "M10 — Instrumental Variables":
+      - "M10.L01 — Endogeneity & the Problem of Causality": modules/module-10/M10.L01-endogeneity-causality.md
+      - "M10.L02 — Instrumental Variables (IV) Estimation": modules/module-10/M10.L02-iv-estimation.md
+      - "M10.L03 — Two-Stage Least Squares (2SLS)": modules/module-10/M10.L03-2sls.md
+      - "M10.L04 — Weak Instruments & Testing": modules/module-10/M10.L04-weak-instruments.md
+      - "M10.L05 — Differences-in-Differences": modules/module-10/M10.L05-differences-in-differences.md
   - "🎯 Exam Prep":
-    - "Formula Sheet": exam-prep/formula-sheet.md
-    - "Mock IST": exam-prep/mock-ist.md
-    - "Exam Tips & Traps": exam-prep/exam-tips.md
-  - "📊 Key Diagrams": diagrams.md
-  - "🔀 Revision Quizzes": revision-quiz.md
-  - "Module 01 — Introduction: Scarcity, Choice, and the Economic Method":
-    - "What is Economics? Scarcity, Choice, and Opportunity Cost": modules/module-01/M01.L01-what-is-economics-scarcity-choice.md
-    - "The Production Possibilities Frontier: Trade-offs and Economic Growth": modules/module-01/M01.L02-production-possibilities-frontier.md
-    - "Comparative Advantage and Gains from Trade": modules/module-01/M01.L03-comparative-advantage-gains-from-trade.md
-    - "Economic Reasoning: Positive vs Normative, Models, and Fallacies": modules/module-01/M01.L04-economic-reasoning-models-fallacies.md
-    - "The Market Economy: Prices, Incentives, and the Invisible Hand": modules/module-01/M01.L05-market-economy-prices-incentives.md
-  - "Module 02 — Demand and Willingness to Pay":
-    - "The Demand Curve: Law of Demand and Individual Demand": modules/module-02/M02.L01-demand-curve-law-of-demand.md
-    - "Willingness to Pay and Consumer Surplus": modules/module-02/M02.L02-willingness-to-pay-consumer-surplus.md
-    - "Shifts in Demand: Determinants and Comparative Statics": modules/module-02/M02.L03-shifts-in-demand-determinants.md
-    - "Market Demand: Horizontal Summation of Individual Demands": modules/module-02/M02.L04-market-demand-horizontal-summation.md
-    - "Demand in Australian Markets: Case Studies": modules/module-02/M02.L05-demand-australian-markets.md
-  - "Module 03 — Production and Costs":
-    - "The Production Function: Total, Average, and Marginal Product": modules/module-03/M03.L01-production-function-total-average-marginal-product.md
-    - "The Law of Diminishing Marginal Returns": modules/module-03/M03.L02-law-of-diminishing-marginal-returns.md
-    - "Short-Run Costs: Fixed, Variable, Average, and Marginal": modules/module-03/M03.L03-short-run-costs-fixed-variable-average-marginal.md
-    - "Long-Run Costs: Economies and Diseconomies of Scale": modules/module-03/M03.L04-long-run-costs-economies-diseconomies-scale.md
-    - "Cost Curves in Practice: Australian Firm Examples": modules/module-03/M03.L05-cost-curves-australian-firm-examples.md
-  - "Module 04 — Supply and Market Equilibrium":
-    - "The Supply Curve: Law of Supply and Firm Supply": modules/module-04/M04.L01-supply-curve-law-of-supply.md
-    - "Shifts in Supply: Determinants and Comparative Statics": modules/module-04/M04.L02-shifts-in-supply-determinants.md
-    - "Market Equilibrium: Supply, Demand, and Price": modules/module-04/M04.L03-market-equilibrium-supply-demand-price.md
-    - "Comparative Statics: Analysing Shifts in Supply and Demand": modules/module-04/M04.L04-comparative-statics-shifts-supply-demand.md
-    - "Markets in Disequilibrium: Shortages and Surpluses": modules/module-04/M04.L05-markets-in-disequilibrium-shortages-surpluses.md
-    - "Market Adjustment: The Role of Prices as Signals": modules/module-04/M04.L06-market-adjustment-prices-as-signals.md
-  - "Module 05 — Economic Surplus and Elasticity":
-    - "Consumer Surplus: Concept and Calculation": modules/module-05/M05.L01-consumer-surplus-concept-calculation.md
-    - "Producer Surplus and Total Economic Surplus": modules/module-05/M05.L02-producer-surplus-total-economic-surplus.md
-    - "Price Elasticity of Demand: Definition and Calculation": modules/module-05/M05.L03-price-elasticity-of-demand-definition-calculation.md
-    - "Elasticity Along the Demand Curve and Revenue Effects": modules/module-05/M05.L04-elasticity-along-demand-curve-revenue-effects.md
-    - "Price Elasticity of Supply; Income and Cross-Price Elasticity": modules/module-05/M05.L05-price-elasticity-supply-income-cross-price-elasticity.md
-    - "Elasticity Applications: Taxes, Housing, and Australian Markets": modules/module-05/M05.L06-elasticity-applications-taxes-housing-australia.md
-  - "Module 06 — Market Equilibrium and Perfect Competition":
-    - "Market Structures Overview: The Four Models": modules/module-06/M06.L01-market-structures-overview-four-models.md
-    - "Perfect Competition: Characteristics and the Price-Taking Firm": modules/module-06/M06.L02-perfect-competition-characteristics-price-taking-firm.md
-    - "Profit Maximisation: The MR = MC Rule": modules/module-06/M06.L03-profit-maximisation-mr-equals-mc-rule.md
-    - "Short-Run Supply and the Shutdown Decision": modules/module-06/M06.L04-short-run-supply-shutdown-decision.md
-    - "Long-Run Equilibrium in Perfect Competition: Entry, Exit, and Normal Profit": modules/module-06/M06.L05-long-run-equilibrium-perfect-competition-entry-exit.md
-  - "Module 07 — Monopoly":
-    - "Monopoly: Sources of Market Power and Barriers to Entry": modules/module-07/M07.L01-monopoly-sources-market-power-barriers-entry.md
-    - "The Monopolist's Demand and Marginal Revenue": modules/module-07/M07.L02-monopolist-demand-marginal-revenue.md
-    - "Profit Maximisation for a Monopolist": modules/module-07/M07.L03-profit-maximisation-monopolist.md
-    - "Monopoly vs Perfect Competition: Deadweight Loss": modules/module-07/M07.L04-monopoly-vs-perfect-competition-deadweight-loss.md
-    - "Price Discrimination: First, Second, and Third Degree": modules/module-07/M07.L05-price-discrimination-first-second-third-degree.md
-    - "Monopoly Regulation in Australia: ACCC and Competition Policy": modules/module-07/M07.L06-monopoly-regulation-australia-accc.md
-  - "Module 08 — Game Theory and Oligopoly":
-    - "Strategic Interaction and Game Theory Basics": modules/module-08/M08.L01-strategic-interaction-game-theory-basics.md
-    - "The Prisoners' Dilemma and Nash Equilibrium": modules/module-08/M08.L02-prisoners-dilemma-nash-equilibrium.md
-    - "Oligopoly: Characteristics and the Interdependence Problem": modules/module-08/M08.L03-oligopoly-characteristics-interdependence.md
-    - "Collusion, Cartels, and the ACCC": modules/module-08/M08.L04-collusion-cartels-accc.md
-    - "First-Mover Advantage and Sequential Games": modules/module-08/M08.L05-first-mover-advantage-sequential-games.md
-  - "Module 09 — Price Regulation, Taxes, and Subsidies":
-    - "Price Ceilings: Rent Control and Shortages": modules/module-09/M09.L01-price-ceilings-rent-control-shortages.md
-    - "Price Floors: Minimum Wages and Surpluses": modules/module-09/M09.L02-price-floors-minimum-wages-surpluses.md
-    - "Taxes: Incidence, Deadweight Loss, and the Role of Elasticity": modules/module-09/M09.L03-taxes-incidence-deadweight-loss-elasticity.md
-    - "Subsidies: Effects on Price, Quantity, and Welfare": modules/module-09/M09.L04-subsidies-effects-price-quantity-welfare.md
-    - "Australian Policy Applications: Carbon Price, Fuel Excise, Rent Assistance": modules/module-09/M09.L05-australian-policy-carbon-fuel-excise-rent.md
-  - "Module 10 — Externalities and Market Failure":
-    - "Externalities: Negative and Positive": modules/module-10/M10.L01-externalities-negative-positive.md
-    - "The Coase Theorem and Private Solutions": modules/module-10/M10.L02-coase-theorem-private-solutions.md
-    - "Government Solutions: Pigouvian Taxes and Subsidies": modules/module-10/M10.L03-government-solutions-pigouvian-taxes-subsidies.md
-    - "Environmental Policy in Australia: Carbon, Emissions, and Efficiency": modules/module-10/M10.L04-environmental-policy-australia-carbon-emissions.md
-    - "Network Externalities and Technology Markets": modules/module-10/M10.L05-network-externalities-technology-markets.md
-  - "Module 11 — Public Goods and Common Resources":
-    - "Rivalry and Excludability: The Four Types of Goods": modules/module-11/M11.L01-rivalry-excludability-four-types-goods.md
-    - "Public Goods and the Free-Rider Problem": modules/module-11/M11.L02-public-goods-free-rider-problem.md
-    - "Common Resources and the Tragedy of the Commons": modules/module-11/M11.L03-common-resources-tragedy-of-commons.md
-    - "Government Provision of Public Goods: Cost-Benefit Analysis": modules/module-11/M11.L04-government-provision-public-goods-cost-benefit.md
-    - "Australian Examples: National Parks, Roads, and Broadband": modules/module-11/M11.L05-australian-examples-parks-roads-broadband.md
-  - "Module 12 — International Trade and Synthesis":
-    - "Comparative Advantage Revisited: The Case for Free Trade": modules/module-12/M12.L01-comparative-advantage-revisited-free-trade.md
-    - "Winners and Losers from Trade: Gains and Distributional Effects": modules/module-12/M12.L02-winners-losers-from-trade-gains-distributional.md
-    - "Trade Barriers: Tariffs, Quotas, and Their Effects": modules/module-12/M12.L03-trade-barriers-tariffs-quotas-effects.md
-    - "Australia and International Trade: Agreements and Policy": modules/module-12/M12.L04-australia-international-trade-agreements-policy.md
-    - "Synthesis: What Have We Learnt? Key Micro Debates": modules/module-12/M12.L05-synthesis-key-micro-debates.md
+      - "Formula Sheet": exam-prep/formula-sheet.md
+      - "Past Exams": exam-prep/past-exams.md
+      - "Exam Tips & Traps": exam-prep/exam-tips.md
   - "📝 Quizzes":
-    - "Quiz Overview": quizzes/index.md
-    - "M01 — Introduction: Scarcity and Choice": quizzes/module-01-quiz.md
-    - "M02 — Demand and Willingness to Pay": quizzes/module-02-quiz.md
-    - "M03 — Production and Costs": quizzes/module-03-quiz.md
-    - "M04 — Supply and Market Equilibrium": quizzes/module-04-quiz.md
-    - "M05 — Economic Surplus and Elasticity": quizzes/module-05-quiz.md
-    - "M06 — Market Equilibrium and Perfect Competition": quizzes/module-06-quiz.md
-    - "M07 — Monopoly": quizzes/module-07-quiz.md
-    - "M08 — Game Theory and Oligopoly": quizzes/module-08-quiz.md
-    - "M09 — Price Regulation, Taxes, and Subsidies": quizzes/module-09-quiz.md
-    - "M10 — Externalities and Market Failure": quizzes/module-10-quiz.md
-    - "M11 — Public Goods and Common Resources": quizzes/module-11-quiz.md
-    - "M12 — International Trade and Synthesis": quizzes/module-12-quiz.md
+      - "Quiz Index": quizzes/index.md
+      - "M01 — Statistics Review": quizzes/module-01-quiz.md
+      - "M02 — Simple Regression": quizzes/module-02-quiz.md
+      - "M03 — Multiple Regression": quizzes/module-03-quiz.md
+      - "M04 — Inference": quizzes/module-04-quiz.md
+      - "M05 — Functional Forms": quizzes/module-05-quiz.md
+      - "M06 — Heteroskedasticity": quizzes/module-06-quiz.md
+      - "M07 — Misspecification & Measurement Error": quizzes/module-07-quiz.md
+      - "M08 — Time Series": quizzes/module-08-quiz.md
+      - "M09 — Serial Correlation": quizzes/module-09-quiz.md
+      - "M10 — IV, 2SLS & DiD": quizzes/module-10-quiz.md
+  - "📊 Key Diagrams": diagrams.md
+  - "🎮 Daily Bite": daily-bite.md
+  - "🔀 Revision Quizzes": revision-quiz.md
   - "🃏 Flashcards": flashcards.md
-  - "Module 13 — Budget Constraints, Preferences, and Utility":
-    - "Budget Constraints: The Consumer's Choice Set": modules/module-13/M13.L01-budget-constraints.md
-    - "Preferences and Indifference Curves": modules/module-13/M13.L02-preferences-indifference-curves.md
-    - "Properties of Preferences: Convexity, Monotonicity, and More": modules/module-13/M13.L03-properties-of-preferences.md
-    - "Utility Functions: Ordinal Representation of Preferences": modules/module-13/M13.L04-utility-functions.md
-    - "Special Preferences: Perfect Substitutes, Complements, and Cobb-Douglas": modules/module-13/M13.L05-special-preferences-cobb-douglas.md
-  - "Module 14 — Consumer Choice and Demand":
-    - "Optimal Consumer Choice: Utility Maximisation": modules/module-14/M14.L01-optimal-consumer-choice.md
-    - "Interior and Corner Solutions": modules/module-14/M14.L02-interior-corner-solutions.md
-    - "Deriving the Demand Curve from Utility Maximisation": modules/module-14/M14.L03-deriving-demand-from-utility.md
-    - "Income and Substitution Effects: Normal and Inferior Goods": modules/module-14/M14.L04-income-substitution-effects.md
-    - "Revealed Preference and the Weak Axiom": modules/module-14/M14.L05-revealed-preference.md
-  - "Module 15 — Comparative Statics and Demand Theory":
-    - "The Slutsky Equation: Decomposing Price Effects": modules/module-15/M15.L01-slutsky-equation.md
-    - "Hicksian (Compensated) vs Marshallian (Ordinary) Demand": modules/module-15/M15.L02-hicksian-vs-marshallian-demand.md
-    - "Income Consumption Curves and Engel Curves": modules/module-15/M15.L03-income-consumption-engel-curves.md
-    - "Price Consumption Curves and the Demand Function": modules/module-15/M15.L04-price-consumption-curves.md
-    - "Compensating and Equivalent Variation: Welfare Measurement": modules/module-15/M15.L05-compensating-equivalent-variation.md
-  - "Module 16 — Applications of Consumer Theory":
-    - "Intertemporal Choice: Saving and Borrowing": modules/module-16/M16.L01-intertemporal-choice.md
-    - "Labour-Leisure Choice and Labour Supply": modules/module-16/M16.L02-labour-leisure-choice.md
-    - "Taxes and Subsidies in Consumer Theory": modules/module-16/M16.L03-taxes-subsidies-consumer-theory.md
-    - "Uncertainty and Expected Utility": modules/module-16/M16.L04-uncertainty-expected-utility.md
-    - "Risk Aversion and Insurance": modules/module-16/M16.L05-risk-aversion-insurance.md
-  - "Module 17 — Exchange Economy and General Equilibrium":
-    - "The Edgeworth Box and Endowments": modules/module-17/M17.L01-edgeworth-box-endowments.md
-    - "Pareto Efficiency and the Contract Curve": modules/module-17/M17.L02-pareto-efficiency-contract-curve.md
-    - "Competitive Equilibrium in an Exchange Economy": modules/module-17/M17.L03-competitive-equilibrium-exchange.md
-    - "The First and Second Welfare Theorems": modules/module-17/M17.L04-welfare-theorems.md
-    - "Market Failure and the Limits of the First Welfare Theorem": modules/module-17/M17.L05-market-failure-limits-welfare.md
-  - "Module 18 — Technology, Production, and Profit Maximisation":
-    - "Technology and Production Sets": modules/module-18/M18.L01-technology-production-sets.md
-    - "Isoquants, Returns to Scale, and Technical Efficiency": modules/module-18/M18.L02-isoquants-returns-to-scale.md
-    - "Cost Minimisation: The Isocost-Isoquant Approach": modules/module-18/M18.L03-cost-minimisation-isocost-isoquant.md
-    - "Profit Maximisation and the Competitive Firm": modules/module-18/M18.L04-profit-maximisation-competitive-firm.md
-    - "Short-Run and Long-Run Firm Behaviour": modules/module-18/M18.L05-short-run-long-run-firm-behaviour.md
-  - "Module 19 — Costs, Competitive Supply, and Industry Equilibrium":
-    - "Cost Functions: Short-Run and Long-Run": modules/module-19/M19.L01-cost-functions-short-long-run.md
-    - "The Competitive Firm's Supply Decision": modules/module-19/M19.L02-competitive-firm-supply.md
-    - "Industry Supply and Partial Equilibrium": modules/module-19/M19.L03-industry-supply-partial-equilibrium.md
-    - "Producer Surplus and Profit in Competitive Markets": modules/module-19/M19.L04-producer-surplus-competitive-markets.md
-    - "Long-Run Industry Equilibrium and Zero Profit": modules/module-19/M19.L05-long-run-industry-equilibrium.md
-  - "Module 20 — Monopoly and Game Theory (Advanced)":
-    - "Monopoly: Formal Treatment and Welfare Loss": modules/module-20/M20.L01-monopoly-formal-welfare-loss.md
-    - "Price Discrimination: Formal Analysis": modules/module-20/M20.L02-price-discrimination-formal.md
-    - "Static Games: Nash Equilibrium and Dominant Strategies": modules/module-20/M20.L03-static-games-nash-equilibrium.md
-    - "Mixed Strategies and Existence of Nash Equilibrium": modules/module-20/M20.L04-mixed-strategies-nash.md
-    - "Sequential Games: Backward Induction and Stackelberg": modules/module-20/M20.L05-sequential-games-stackelberg.md
-    - "Oligopoly Models: Cournot and Bertrand Competition": modules/module-20/M20.L06-cournot-bertrand-oligopoly.md
-  - "Module 21 — Information Asymmetry and Synthesis":
-    - "Adverse Selection: The Market for Lemons": modules/module-21/M21.L01-adverse-selection-lemons.md
-    - "Moral Hazard and Principal-Agent Problems": modules/module-21/M21.L02-moral-hazard-principal-agent.md
-    - "Signalling and Screening": modules/module-21/M21.L03-signalling-screening.md
-    - "Market Design: Auctions and Matching": modules/module-21/M21.L04-market-design-auctions-matching.md
-    - "Synthesis: Key Themes in Intermediate Microeconomics": modules/module-21/M21.L05-synthesis-intermediate-microeconomics.md
-    - "M13 — Budget Constraints, Preferences, Utility": quizzes/module-13-quiz.md
-    - "M14 — Consumer Choice and Demand": quizzes/module-14-quiz.md
-    - "M15 — Comparative Statics and Demand Theory": quizzes/module-15-quiz.md
-    - "M16 — Applications of Consumer Theory": quizzes/module-16-quiz.md
-    - "M17 — Exchange Economy and General Equilibrium": quizzes/module-17-quiz.md
-    - "M18 — Technology, Production, and Profit Maximisation": quizzes/module-18-quiz.md
-    - "M19 — Costs, Competitive Supply, and Industry Equilibrium": quizzes/module-19-quiz.md
-    - "M20 — Monopoly and Game Theory (Advanced)": quizzes/module-20-quiz.md
-    - "M21 — Information Asymmetry and Synthesis": quizzes/module-21-quiz.md
+  - "📚 Resources": resources.md

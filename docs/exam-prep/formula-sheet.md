@@ -1,133 +1,201 @@
-# 📐 Micro Formula Sheet
+# Formula Sheet
 
-*All key formulas for ECON1001 / ECOS2001 — print-friendly revision reference*
-
----
-
-## Supply and Demand
-
-| Formula | Description |
-|---|---|
-| **Q_D = a − bP** | Demand function (linear) |
-| **Q_S = c + dP** | Supply function (linear) |
-| **Equilibrium: Q_D = Q_S** | Solve for P* and Q* |
-| **Excess demand = Q_D − Q_S** (negative = surplus) | At a given price |
-| **Excess supply = Q_S − Q_D** (positive = surplus) | At a given price |
+!!! tip "Exam Reference"
+    Key formulas for ECMT5001 (USYD S1 2027). Organised by module. All notation follows Wooldridge *Introductory Econometrics* unless stated.
 
 ---
 
-## Elasticity
+## M01 — Statistics Review
 
-| Formula | Description |
-|---|---|
-| **PED = %ΔQ_D / %ΔP** | Price elasticity of demand (negative) |
-| **PES = %ΔQ_S / %ΔP** | Price elasticity of supply (positive) |
-| **YED = %ΔQ_D / %ΔIncome** | Income elasticity (+ve = normal, −ve = inferior) |
-| **XED = %ΔQ_Dx / %ΔP_y** | Cross-price elasticity (+ve = substitutes, −ve = complements) |
-| **Point elasticity: PED = (dQ/dP) × (P/Q)** | For demand function Q = f(P) |
-| **Midpoint method: PED = [(Q₂−Q₁)/avg Q] / [(P₂−P₁)/avg P]** | Avoids direction bias |
+### Expectation and Variance
 
----
+$$E(aX + bY) = aE(X) + bE(Y)$$
 
-## Consumer & Producer Surplus
+$$\text{Var}(X) = E(X^2) - [E(X)]^2$$
 
-| Formula | Description |
-|---|---|
-| **CS = ½ × base × height** (triangle) | Area under demand, above price |
-| **CS = WTP − Price** (per unit) | Marginal benefit minus price paid |
-| **MB for unit n: substitute q = n into MB equation** | e.g. MB = 150 − 2q → at q=10: MB = $130 |
-| **PS = ½ × base × height** (triangle) | Area above supply, below price |
-| **Total surplus = CS + PS** | Social gains from trade |
-| **DWL = ½ × (P_distortion − MC) × ΔQ** | Deadweight loss triangle |
-| **Rule of Half: ΔCS = ΔCost × Q₀ + ½ × ΔCost × ΔQ** | Infrastructure CBA |
+$$\text{Var}(aX + bY) = a^2\text{Var}(X) + b^2\text{Var}(Y) + 2ab\,\text{Cov}(X,Y)$$
 
----
+$$\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$$
 
-## Horizontal Demand Summation
+$$\text{Corr}(X,Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\,\text{Var}(Y)}} \in [-1, 1]$$
 
-| Step | Description |
-|---|---|
-| **1. Rewrite each demand as Q = f(P)** | Invert the inverse demand |
-| **2. Add: Q_market = Q_A + Q_B** | Sum at each price |
-| **3. Invert back to P = f(Q)** | Get market inverse demand |
-| **Note: kink at price where one consumer drops out** | Curve steepens above that price |
+If $X$ and $Y$ are **independent**: $\text{Cov}(X,Y) = 0$ (but **not** the converse in general).
 
----
+### Conditional Expectation
 
-## Production & Costs
+$$E(Y) = E[E(Y \mid X)] \quad \text{(Law of Iterated Expectations)}$$
 
-| Formula | Description |
-|---|---|
-| **MPL = ΔTP / ΔL** | Marginal product of labour |
-| **APL = TP / L** | Average product of labour |
-| **MC = ΔTC / ΔQ = ΔVC / ΔQ** | Marginal cost |
-| **ATC = TC / Q = AFC + AVC** | Average total cost |
-| **AFC = TFC / Q** | Always declining |
-| **AVC = TVC / Q** | U-shaped |
-| **MC = P_L / MPL** | Cost from labour productivity |
-| **Profit = TR − TC = (P − ATC) × Q** | |
-| **Profit max: MR = MC** | Universal rule |
+$$\text{Var}(Y) = E[\text{Var}(Y \mid X)] + \text{Var}[E(Y \mid X)] \quad \text{(LTE variance decomposition)}$$
+
+### Standard Distributions
+
+| Distribution | PMF/PDF | $E(X)$ | $\text{Var}(X)$ |
+|---|---|---|---|
+| $\text{Bernoulli}(p)$ | $p^x(1-p)^{1-x}$ | $p$ | $p(1-p)$ |
+| $\text{Binomial}(n,p)$ | $\binom{n}{x}p^x(1-p)^{n-x}$ | $np$ | $np(1-p)$ |
+| $\mathcal{N}(\mu,\sigma^2)$ | $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ | $\mu$ | $\sigma^2$ |
+| $\chi^2_k$ | — | $k$ | $2k$ |
+| $t_k$ | — | $0$ ($k>1$) | $k/(k-2)$ ($k>2$) |
+| $F_{k_1,k_2}$ | — | $k_2/(k_2-2)$ | — |
+
+### Hypothesis Testing
+
+**$z$-test for proportion $p$:**
+
+$$z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}} \sim \mathcal{N}(0,1) \text{ under } H_0$$
+
+**One-sample $t$-test for $\mu$:**
+
+$$t = \frac{\bar{X} - \mu_0}{s/\sqrt{n}} \sim t_{n-1} \text{ under } H_0$$
+
+**$95\%$ confidence interval for $\mu$:**
+
+$$\bar{X} \pm t_{n-1, 0.025} \cdot \frac{s}{\sqrt{n}}$$
 
 ---
 
-## Perfect Competition
+## M02 — Simple Regression
 
-| Formula | Description |
-|---|---|
-| **P = MR = AR** | Price-taking firm |
-| **Short-run supply: MC above AVC** | Shutdown if P < AVC |
-| **Long-run: P = min ATC, π = 0** | Free entry eliminates profit |
-| **Productive efficiency: P = min ATC** | |
-| **Allocative efficiency: P = MC** | |
+### The Simple Regression Model
 
----
+$$y = \beta_0 + \beta_1 x + u, \quad E(u \mid x) = 0$$
 
-## Monopoly
+### OLS Estimators
 
-| Formula | Description |
-|---|---|
-| **P = a − bQ → MR = a − 2bQ** | MR has twice the slope |
-| **Profit max: MR = MC** | Find Q*, then P* from demand |
-| **Lerner index: L = (P − MC)/P = 1/\|PED\|** | Market power measure |
-| **DWL = ½ × (P_m − MC) × (Q_c − Q_m)** | Efficiency loss |
-| **3rd degree PD: MR₁ = MR₂ = MC** | Equate MR across markets |
-| **P(1 − 1/\|ε\|) = MC** | Optimal price with elasticity |
+$$\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2} = \frac{S_{xy}}{S_{xx}}$$
 
----
+$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}$$
 
-## Taxes & Subsidies
+### Sums of Squares
 
-| Formula | Description |
-|---|---|
-| **Tax incidence: consumer share ≈ PES / (PES + \|PED\|)** | Less elastic side bears more |
-| **Tax revenue = tax × Q_taxed** | |
-| **Subsidy: ΔCS + ΔPS = subsidy cost − DWL** | Overproduction creates DWL |
+$$SST = \sum_{i=1}^n (y_i - \bar{y})^2 \quad \text{(total)}$$
 
----
+$$SSE = \sum_{i=1}^n (\hat{y}_i - \bar{y})^2 \quad \text{(explained)}$$
 
-## Game Theory
+$$SSR = \sum_{i=1}^n \hat{u}_i^2 \quad \text{(residual)}$$
 
-| Concept | Description |
-|---|---|
-| **Nash Equilibrium: no unilateral deviation is profitable** | Check all best responses |
-| **Dominant strategy: best regardless of opponent's choice** | |
-| **Cournot: q* = (a − c) / [b(n+1)] each firm** | n symmetric firms |
-| **Stackelberg leader: q₁ = (a−c) / 2b** | Double the Cournot quantity |
-| **Bertrand: P = MC** | Price competition with identical goods |
+$$SST = SSE + SSR$$
 
----
+### Goodness of Fit
 
-## Consumer Theory (ECOS2001)
+$$R^2 = 1 - \frac{SSR}{SST} = \frac{SSE}{SST} \in [0,1]$$
 
-| Formula | Description |
-|---|---|
-| **Budget constraint: P₁x₁ + P₂x₂ = m** | |
-| **Optimal: MRS = P₁/P₂** | Tangency condition |
-| **MRS = −MU₁/MU₂ = −(∂U/∂x₁)/(∂U/∂x₂)** | |
-| **Cobb-Douglas U = x₁^a x₂^b: x₁* = am/(P₁(a+b))** | Marshallian demand |
-| **Slutsky: ∂x/∂P = substitution effect + income effect** | |
-| **CV = e(P⁰,u⁰) − e(P¹,u⁰)** | Compensating variation |
+For simple regression: $R^2 = \hat{\text{Corr}}(x,y)^2$
+
+### Variance and Standard Error of OLS
+
+$$\text{Var}(\hat{\beta}_1) = \frac{\sigma^2}{SST_x}, \quad \text{Var}(\hat{\beta}_0) = \frac{\sigma^2 \sum x_i^2}{n \cdot SST_x}$$
+
+$$\hat{\sigma}^2 = \frac{SSR}{n-2} \quad \text{(unbiased estimator of } \sigma^2\text{)}$$
+
+$$SE(\hat{\beta}_1) = \frac{\hat{\sigma}}{\sqrt{SST_x}}$$
+
+### Inference in Simple Regression
+
+$$t = \frac{\hat{\beta}_1 - \beta_1^0}{SE(\hat{\beta}_1)} \sim t_{n-2} \quad \text{(under MLR.1–MLR.6)}$$
+
+**$95\%$ CI for $\beta_1$:** $\hat{\beta}_1 \pm t_{n-2,0.025} \cdot SE(\hat{\beta}_1)$
+
+### Algebraic Properties of OLS
+
+$$\sum_{i=1}^n \hat{u}_i = 0, \quad \sum_{i=1}^n x_i \hat{u}_i = 0, \quad \bar{y} = \hat{\beta}_0 + \hat{\beta}_1\bar{x}$$
 
 ---
 
-*See also: [📝 Quizzes](../quizzes/) · [🃏 Flashcards](../flashcards.md) · [📊 Key Diagrams](../diagrams.md)*
+## M03 — Multiple Regression
+
+### The Multiple Regression Model
+
+$$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k + u$$
+
+**Matrix form:** $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \mathbf{u}$
+
+**OLS estimator:** $\hat{\boldsymbol{\beta}} = (\mathbf{X}'\mathbf{X})^{-1}\mathbf{X}'\mathbf{y}$ (requires $\mathbf{X}'\mathbf{X}$ invertible)
+
+### Adjusted R-Squared
+
+$$\bar{R}^2 = 1 - \frac{SSR/(n-k-1)}{SST/(n-1)} = 1 - \frac{n-1}{n-k-1}(1-R^2)$$
+
+- $\bar{R}^2 \leq R^2$ always
+- $\bar{R}^2$ can be **negative**
+- $\bar{R}^2$ rises when adding a regressor iff its $|t\text{-stat}| > 1$ (approx.)
+
+### MLR Assumptions Summary
+
+| Assumption | Statement | Consequence if Violated |
+|------------|-----------|------------------------|
+| MLR.1 | Linear in parameters | Model misspecified |
+| MLR.2 | Random sampling | Generalisation invalid |
+| MLR.3 | No perfect collinearity | OLS cannot be computed |
+| MLR.4 | $E(u\mid\mathbf{x})=0$ | OLS **biased and inconsistent** |
+| MLR.5 | $\text{Var}(u\mid\mathbf{x})=\sigma^2$ | OLS **inefficient**; SEs wrong |
+| MLR.6 | $u\mid\mathbf{x}\sim\mathcal{N}(0,\sigma^2)$ | Finite-sample $t$/$F$ invalid |
+
+**Gauss–Markov Theorem:** Under MLR.1–MLR.5, OLS is **BLUE** (Best Linear Unbiased Estimator).
+
+### Omitted Variable Bias (OVB)
+
+True model: $y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + u$  
+Estimated (omitting $x_2$): $y = \tilde{\beta}_0 + \tilde{\beta}_1 x_1 + v$
+
+$$\boxed{E(\tilde{\beta}_1) = \beta_1 + \beta_2\,\tilde{\delta}_1}$$
+
+where $\tilde{\delta}_1 = \dfrac{\sum(x_{i1}-\bar{x}_1)(x_{i2}-\bar{x}_2)}{\sum(x_{i1}-\bar{x}_1)^2}$ is the coefficient from regressing $x_2$ on $x_1$.
+
+**Bias direction:**
+
+| | $\tilde{\delta}_1 > 0$ | $\tilde{\delta}_1 < 0$ |
+|---|---|---|
+| $\beta_2 > 0$ | Upward bias | Downward bias |
+| $\beta_2 < 0$ | Downward bias | Upward bias |
+
+### Variance of OLS in Multiple Regression
+
+$$\text{Var}(\hat{\beta}_j) = \frac{\sigma^2}{SST_j(1 - R_j^2)}$$
+
+where $SST_j = \sum(x_{ij}-\bar{x}_j)^2$ and $R_j^2$ is the $R^2$ from regressing $x_j$ on all other regressors.
+
+### Variance Inflation Factor
+
+$$VIF_j = \frac{1}{1 - R_j^2}$$
+
+$$\text{Var}(\hat{\beta}_j) = \frac{\sigma^2}{SST_j} \cdot VIF_j$$
+
+Rule of thumb: $VIF_j > 10$ indicates severe multicollinearity.
+
+$$SE(\hat{\beta}_j) = \frac{\hat{\sigma}}{\sqrt{SST_j(1-R_j^2)}} = \frac{\hat{\sigma}\sqrt{VIF_j}}{\sqrt{SST_j}}$$
+
+### Inference in Multiple Regression
+
+**$t$-statistic for $\beta_j$:**
+
+$$t_j = \frac{\hat{\beta}_j}{SE(\hat{\beta}_j)} \sim t_{n-k-1} \quad \text{under } H_0: \beta_j = 0 \text{ and MLR.1–MLR.6}$$
+
+**$F$-statistic (joint test of $q$ restrictions):**
+
+$$F = \frac{(SSR_r - SSR_{ur})/q}{SSR_{ur}/(n-k-1)} \sim F_{q,\,n-k-1}$$
+
+where $r$ = restricted model, $ur$ = unrestricted model, $q$ = number of restrictions.
+
+**Equivalently using $R^2$:**
+
+$$F = \frac{(R^2_{ur} - R^2_r)/q}{(1 - R^2_{ur})/(n-k-1)}$$
+
+---
+
+## Quick Reference: Notation
+
+| Symbol | Definition |
+|--------|-----------|
+| $n$ | Sample size |
+| $k$ | Number of regressors (excluding intercept) |
+| $\hat{u}_i$ | OLS residual: $y_i - \hat{y}_i$ |
+| $\sigma^2$ | Population error variance |
+| $\hat{\sigma}^2$ | $SSR/(n-k-1)$ — estimated error variance |
+| $\hat{\sigma}$ | $\sqrt{\hat{\sigma}^2}$ — root mean squared error (RMSE) |
+| $SST$ | $\sum(y_i-\bar{y})^2$ |
+| $SSE$ | $\sum(\hat{y}_i-\bar{y})^2$ |
+| $SSR$ | $\sum\hat{u}_i^2$ |
+| $R^2$ | $1 - SSR/SST$ |
+| $\bar{R}^2$ | Adjusted $R^2$ |
+| $VIF_j$ | $1/(1-R_j^2)$ |

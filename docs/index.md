@@ -1,54 +1,53 @@
-# Microeconomics 2026
+# Econometrics 2027
 
-*Introductory + Intermediate Microeconomics — USYD-aligned self-study course*
+**ECMT5001 Principles of Econometrics — USYD-aligned self-study course**
 
-## About This Course
+This course follows the structure of USYD's ECMT5001 unit, using **Wooldridge's *Introductory Econometrics*** (5th–7th editions) as the primary textbook. It is designed for students starting the Graduate Certificate of Economics (Semester 1, 2027).
 
-This course covers introductory and intermediate microeconomics following the structure of USYD's ECON1001 and ECOS2001. Designed for two learners: one applying microeconomics to professional work, and one undergraduate student currently attending ECON1001 at USYD.
-
-**Duration:** 180 days × 30 minutes per day (~90 hours total)  
-**Level:** Introductory (Modules 01–12, 63 lessons) + Intermediate (Modules 13–21, 48 lessons) — **111 lessons total**
-
-## How to Use This Course
-
-1. Work through modules in order — each lesson takes approximately 30 minutes
-2. Complete the practice prompts at the end of each lesson before moving on
-3. Use the search bar (top right) to find any topic quickly
+---
 
 ## Course Structure
 
-| Module | Topic | Lessons |
-|--------|-------|---------|
-| [M01](modules/module-01/M01.L01-what-is-economics-scarcity-choice.md) | Introduction: Scarcity, Choice, and the Economic Method | 5 |
-| [M02](modules/module-02/M02.L01-demand-curve-law-of-demand.md) | Demand and Willingness to Pay | 5 |
-| [M03](modules/module-03/M03.L01-production-function-total-average-marginal-product.md) | Production and Costs | 5 |
-| [M04](modules/module-04/M04.L01-supply-curve-law-of-supply.md) | Supply and Market Equilibrium | 6 |
-| [M05](modules/module-05/M05.L01-consumer-surplus-concept-calculation.md) | Economic Surplus and Elasticity | 6 |
-| [M06](modules/module-06/M06.L01-market-structures-overview-four-models.md) | Market Equilibrium and Perfect Competition | 5 |
-| [M07](modules/module-07/M07.L01-monopoly-sources-market-power-barriers-entry.md) | Monopoly | 6 |
-| [M08](modules/module-08/M08.L01-strategic-interaction-game-theory-basics.md) | Game Theory and Oligopoly | 5 |
-| [M09](modules/module-09/M09.L01-price-ceilings-rent-control-shortages.md) | Price Regulation, Taxes, and Subsidies | 5 |
-| [M10](modules/module-10/M10.L01-externalities-negative-positive.md) | Externalities and Market Failure | 5 |
-| [M11](modules/module-11/M11.L01-rivalry-excludability-four-types-goods.md) | Public Goods and Common Resources | 5 |
-| [M12](modules/module-12/M12.L01-comparative-advantage-revisited-free-trade.md) | International Trade and Synthesis | 5 |
-| [M13](modules/module-13/M13.L01-budget-constraints.md) | Budget Constraints, Preferences, and Utility | 5 |
-| [M14](modules/module-14/M14.L01-optimal-consumer-choice.md) | Consumer Choice and Demand | 5 |
-| [M15](modules/module-15/M15.L01-slutsky-equation.md) | Comparative Statics and Demand Theory | 5 |
-| [M16](modules/module-16/M16.L01-intertemporal-choice.md) | Applications of Consumer Theory | 5 |
-| [M17](modules/module-17/M17.L01-edgeworth-box-endowments.md) | Exchange Economy and General Equilibrium | 5 |
-| [M18](modules/module-18/M18.L01-technology-production-sets.md) | Technology, Production, and Profit Maximisation | 5 |
-| [M19](modules/module-19/M19.L01-cost-functions-short-long-run.md) | Costs, Competitive Supply, and Industry Equilibrium | 5 |
-| [M20](modules/module-20/M20.L01-monopoly-formal-welfare-loss.md) | Monopoly and Game Theory (Advanced) | 6 |
-| [M21](modules/module-21/M21.L01-adverse-selection-lemons.md) | Information Asymmetry and Synthesis | 5 |
-| [📝 Quizzes](quizzes/) | 315 practice questions across all 12 introductory modules — multiple choice, calculation, and short answer | 12 modules |
-| [🃏 Flashcards](flashcards.md) | 315 interactive flashcards — tap to flip, filter by module or question type, works on any device | All modules |
+| Module | Topic | Wooldridge Chapters |
+|--------|-------|-------------------|
+| [M01](modules/module-01/M01.L01-descriptive-stats-summation.md) | Probability & Statistics Review | Appendix A–C |
+| [M02](modules/module-02/M02.L01-simple-regression-model.md) | Simple Linear Regression | Chapter 2 |
+| [M03](modules/module-03/M03.L01-multiple-regression-model.md) | Multiple Linear Regression | Chapter 3 |
+| [M04](modules/module-04/M04.L01-sampling-distributions.md) | Statistical Inference | Chapters 4–5 |
+| [M05](modules/module-05/M05.L01-log-transformations.md) | Functional Forms & Dummy Variables | Chapters 6–7 |
+| [M06](modules/module-06/M06.L01-nature-consequences.md) | Heteroskedasticity | Chapter 8 |
+| [M07](modules/module-07/M07.L01-specification-errors.md) | Specification & Data Issues | Chapter 9 |
+| [M08](modules/module-08/M08.L01-nature-time-series.md) | Time Series Basics | Chapter 10 |
+| [M09](modules/module-09/M09.L01-ols-serial-correlation.md) | Serial Correlation & Autocorrelation | Chapter 12 |
+| [M10](modules/module-10/M10.L01-endogeneity-causality.md) | Instrumental Variables | Chapters 15–16 |
 
+---
+
+## Assessment (ECMT5001 structure)
+
+| Assessment | Weight | Coverage |
+|-----------|--------|---------|
+| Mid-semester exam | 40% | M01–M04 (Lectures 1–6) |
+| Final exam | 50% | Full course |
+| Online quizzes (×2) | 10% | In-class |
+
+---
+
+## How to Use This Course
+
+1. Work through each module in order — later modules build on earlier ones
+2. Complete the **practice prompts** at the end of each lesson before checking answers
+3. Use the **Formula Sheet** in Exam Prep as a running reference
+4. Attempt **Past Exams** under timed conditions once you've finished each module cluster
+
+!!! tip "Maths prerequisite"
+    This course assumes comfort with basic algebra and summation notation (Σ). If you need a refresher, start with M01.L01 which covers summation notation from scratch.
 
 ---
 
 ## 🎓 Ask a Question
 
-<!-- Economics AI Chat Widget -->
+<!-- Econometrics AI Chat Widget -->
 <div id="econ-chat-widget" style="
   margin: 2rem 0;
   background: white;
@@ -58,10 +57,10 @@ This course covers introductory and intermediate microeconomics following the st
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 ">
   <h3 style="margin:0 0 0.5rem 0; font-size:1rem; color:#2d3748;">🎓 Ask a Question</h3>
-  <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#718096;">Ask anything about the course content — concepts, calculations, Australian examples.</p>
+  <p style="margin:0 0 1rem 0; font-size:0.85rem; color:#718096;">Ask anything about the course content — OLS, hypothesis testing, heteroskedasticity, time series, IV, and more.</p>
   <div style="display:flex; gap:0.5rem;">
     <input id="econ-chat-input" type="text"
-      placeholder="e.g. What is the IS-LM model used for?"
+      placeholder="e.g. What is the difference between OLS and WLS?"
       style="flex:1; padding:0.6rem 0.9rem; border:1px solid #cbd5e0; border-radius:8px; font-size:0.9rem; outline:none;"
       onkeydown="if(event.key==='Enter') econAsk()"
     />

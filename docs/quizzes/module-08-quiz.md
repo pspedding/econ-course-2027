@@ -1,509 +1,260 @@
-# Module M08 Quiz: Game Theory and Oligopoly
+# Module M08 Quiz: Time Series — Stationarity, Trends & Distributed Lags
 
-*25 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*12 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. Time-series questions often require careful thought about the direction of causality and stationarity.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Game Theory*
+*Lesson L01 · Data Types*
 
-
-In game theory a 'dominant strategy' is:
-
+Which feature distinguishes time series data from cross-sectional data?
 
 **Type:** Multiple Choice
 
-- **A)** The strategy that always beats every other strategy regardless of what rivals do
-- **B)** The strategy chosen by the largest firm
-- **C)** The strategy that maximises industry profit
-- **D)** Any strategy chosen in equilibrium
+- **A)** Time series data always has more observations
+- **B)** In time series, observations are ordered by time and serial correlation in errors is a realistic concern; randomness of sampling cannot be assumed
+- **C)** Time series data cannot be used for regression
+- **D)** Cross-sectional data has more variables
 
 ??? success "Show Answer"
-    **Answer: A) The strategy that always beats every other strategy regardless of what rivals do**
+    **Answer: B**
 
-    A dominant strategy is optimal regardless of what opponents choose — it doesn't depend on their actions.
+    In cross-sectional data, observations are assumed to be independently drawn from a population (random sampling). In time series, each observation follows the previous one chronologically — errors are likely correlated across time (serial correlation), and the random sampling assumption (MLR.2) is replaced by a stationarity/weak dependence assumption. The ordering also means we must be careful about temporal causality (past causes present, not vice versa).
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Game Theory*
+*Lesson L01 · Strict vs Weak Exogeneity*
 
-
-Coles and Woolworths each choose between High price and Low price. If Low price is a dominant strategy for both, what is the Nash equilibrium?
-
+Strict exogeneity requires $E(u_t \mid x_1, x_2, \ldots, x_T) = 0$ for all $t$. This is violated when:
 
 **Type:** Multiple Choice
 
-- **A)** Both choose High
-- **B)** Both choose Low
-- **C)** Coles chooses High, Woolworths chooses Low
-- **D)** No equilibrium exists
+- **A)** The error has a non-normal distribution
+- **B)** A lagged dependent variable $y_{t-1}$ appears as a regressor, or when there is feedback from $y_t$ to future $x_{t+1}$
+- **C)** The regressors are correlated with each other
+- **D)** The sample size is small
 
 ??? success "Show Answer"
-    **Answer: B) Both choose Low**
+    **Answer: B**
 
-    When both firms have Low as dominant strategy, (Low, Low) is the Nash equilibrium — neither wants to deviate unilaterally.
+    If $y_{t-1}$ is a regressor: $y_{t-1} = \beta_0 + \beta_1 x_{t-1} + u_{t-1}$, so $y_{t-1}$ depends on $u_{t-1}$. But the strict exogeneity condition requires $\text{Cov}(u_{t-1}, x_t) = 0$ for ALL lags/leads — which fails if $x_t$ depends on $y_{t-1}$ through feedback. Similarly, if government policy ($x$) responds to last period's GDP (which contains $u_{t-1}$), strict exogeneity fails. **Contemporaneous exogeneity** $E(u_t \mid x_t) = 0$ is weaker and more plausible.
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Game Theory*
+*Lesson L04 · Stationarity*
 
+A weakly stationary time series requires:
 
-In a 2-player simultaneous game Firm A earns $4m if both advertise, $6m if only A advertises, $1m if only B advertises, $3m if neither advertises. What is Firm A's dominant strategy?
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** $E(y_t) = \mu$ (constant mean), $\text{Var}(y_t) = \sigma^2$ (constant variance), and $\text{Cov}(y_t, y_{t-s})$ depends only on the lag $s$ (not on $t$)
+- **B)** All observations are normally distributed
+- **C)** No serial correlation: $\text{Cov}(y_t, y_{t-s}) = 0$ for all $s > 0$
+- **D)** Constant mean only
 
 ??? success "Show Answer"
-    **Answer:** Advertise
+    **Answer: A**
 
-    If B advertises: A earns $4m (advertise) vs $1m (don't) → advertise. If B doesn't: A earns $6m (advertise) vs $3m (don't) → advertise. Advertise dominates.
+    Weak (covariance) stationarity requires three conditions:
+    1. Constant mean: $E(y_t) = \mu$ for all $t$
+    2. Constant variance: $\text{Var}(y_t) = \sigma^2 < \infty$ for all $t$
+    3. Autocovariance depends only on lag: $\text{Cov}(y_t, y_{t-s}) = \gamma(s)$ — not on when you are in the series, only on how far apart
+
+    Option C (no serial correlation) is much stronger — white noise has zero autocovariance, but stationary series can have nonzero autocovariance (they just need it to depend only on $s$, not $t$).
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Game Theory*
+*Lesson L04 · AR(1) Stationarity*
 
+**[Calculation]** For an AR(1) process $y_t = \rho y_{t-1} + e_t$ with $e_t$ i.i.d., stationarity requires $|\rho| < 1$. If $\rho = 1$ (random walk), what happens to $\text{Var}(y_t)$ as $t \to \infty$?
 
-Explain the concept of a Nash Equilibrium in plain language.
-
-
-**Type:** Short Answer
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** A Nash Equilibrium is a set of strategies where no player can improve their outcome by changing their own strategy, given what all other players are doing. Everyone is playing their best response to everyone else.
+    For a random walk ($\rho = 1$): $y_t = y_0 + \sum_{s=1}^t e_s$
 
-    At Nash Equilibrium, each player's strategy is optimal given the strategies of all other players.
+    $$\text{Var}(y_t) = \sum_{s=1}^t \text{Var}(e_s) = t \cdot \sigma_e^2 \to \infty$$
+
+    The variance grows linearly with time — the series **wanders** without bound and never returns to a fixed mean. This is the defining feature of non-stationarity for a random walk.
+
+    Contrast: for $|\rho| < 1$ (stationary AR(1)):
+    $$\text{Var}(y_t) = \frac{\sigma_e^2}{1 - \rho^2} \quad \text{(finite and constant)}$$
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Game Theory*
+*Lesson L03 · Spurious Regression*
 
+A researcher regresses non-stationary GDP on non-stationary CO₂ emissions and gets $R^2 = 0.91$, $t = 24.3$ (highly significant). What is the most likely explanation?
 
-Which real-world situation is best modelled as a simultaneous game?
-
-
-**Type:** Multiple Choice
-
-- **A)** A firm deciding its price after observing a rival's price
-- **B)** Two firms simultaneously setting prices without knowing each other's choice
-- **C)** A firm deciding whether to enter a market after an incumbent has already invested
-- **D)** A worker negotiating a wage with their employer
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Two firms simultaneously setting prices without knowing each other's choice**
+    **Spurious regression.** Both GDP and CO₂ emissions have upward trends (they are non-stationary, likely $I(1)$ — integrated of order 1). When two trending series are regressed on each other, OLS will find a strong statistical relationship even if they are **completely unrelated** (driven by independent random walks with drift).
 
-    Simultaneous games model decisions made without knowledge of rivals' choices — common in pricing, advertising, and R&D races.
+    The high $R^2$ and large $t$-statistic are artefacts of the shared trend, not a causal link. Standard OLS inference is completely invalid here — $t$-statistics don't follow $t$ distributions with non-stationary variables.
+
+    **Remedies:**
+    - Test for a unit root (ADF test)
+    - If both are $I(1)$, first-difference both series and re-estimate
+    - Or test for cointegration (if they share a common stochastic trend, the error-correction model is appropriate)
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Game Theory*
+*Lesson L02 · Static vs FDL Models*
 
-
-In the classic Prisoners' Dilemma both prisoners confess even though both would be better off staying silent. This happens because:
-
+A Finite Distributed Lag (FDL) model $y_t = \alpha + \delta_0 x_t + \delta_1 x_{t-1} + \delta_2 x_{t-2} + u_t$ is preferred over a static model $y_t = \alpha + \delta_0 x_t + u_t$ when:
 
 **Type:** Multiple Choice
 
-- **A)** They are irrational
-- **B)** Confess is a dominant strategy for each prisoner individually even though mutual silence gives a better collective outcome
-- **C)** The police force them to confess
-- **D)** They don't know the payoffs
+- **A)** The sample size is small
+- **B)** The effect of $x$ on $y$ takes time to materialise — there are delayed or persistent effects
+- **C)** $x$ and $y$ are both stationary
+- **D)** Heteroskedasticity is suspected
 
 ??? success "Show Answer"
-    **Answer: B) Confess is a dominant strategy for each prisoner individually even though mutual silence gives a better collective outcome**
+    **Answer: B**
 
-    Confess dominates silence for each prisoner individually — the individually rational outcome is collectively suboptimal.
+    The FDL captures **dynamic effects**: the impact of a change in $x$ at time $t$ on $y$ at times $t$, $t+1$, $t+2$, etc. Classic examples:
+    - Monetary policy: interest rate change affects output with a 12–18 month lag
+    - Advertising: spending in one month affects sales across multiple future months
+
+    $\delta_0$ = **impact multiplier** (immediate effect)
+    $\delta_0 + \delta_1 + \delta_2$ = **long-run multiplier** (total cumulative effect after 2 periods)
+
+    The static model ($\delta_1 = \delta_2 = 0$) is misspecified if lagged effects exist — OVB results from omitting $x_{t-1}$ and $x_{t-2}$.
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Game Theory*
+*Lesson L02 · Long-Run Multiplier*
 
-
-Two firms in a Prisoners' Dilemma each earn $5m if they collude, $2m each if both defect, $8m for the defector/$1m for the cooperator. What is the Nash equilibrium payoff for each firm?
-
+**[Calculation]** FDL(2) model: $y_t = 1 + 0.4x_t + 0.3x_{t-1} + 0.1x_{t-2} + u_t$. Calculate the impact multiplier, the 1-period dynamic multiplier, and the long-run multiplier.
 
 **Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** $2m each
+    - **Impact multiplier** $\delta_0 = \mathbf{0.4}$: a one-unit increase in $x_t$ immediately raises $y_t$ by 0.4, holding all else fixed
 
-    Both firms defect (dominant strategy) → each earns $2m — the Nash equilibrium despite the fact that mutual cooperation ($5m each) is better.
+    - **1-period dynamic multiplier** $\delta_0 + \delta_1 = 0.4 + 0.3 = \mathbf{0.7}$: the cumulative effect after one additional period
+
+    - **Long-run multiplier** $= \sum_{j=0}^{2} \delta_j = 0.4 + 0.3 + 0.1 = \mathbf{0.8}$: total cumulative effect of a permanent one-unit increase in $x$ on $y$ after 2 periods
+
+    Interpretation: a permanent \$1 increase in advertising spending raises sales by \$0.40 immediately, \$0.70 within one period, and \$0.80 in the long run.
 
 ---
 
 ## Question 8
 
-*Lesson L03 · Game Theory*
+*Lesson L04 · Detrending*
 
+A time-series regression of $y_t$ on $x_t$ produces spuriously high $R^2$ because both series trend upward. What are two remedies?
 
-Which feature of oligopoly markets makes game theory essential?
-
-
-**Type:** Multiple Choice
-
-- **A)** Many small firms
-- **B)** Strategic interdependence — each firm's profit depends on rivals' decisions
-- **C)** Perfect information
-- **D)** Free entry and exit
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Strategic interdependence — each firm's profit depends on rivals' decisions**
+    **Remedy 1 — Include a time trend $t$:**
 
-    Oligopolists must consider how rivals will react to their decisions — classic strategic interdependence modelled by game theory.
+    Add $t$ (a linear time index) as a regressor: $y_t = \beta_0 + \beta_1 x_t + \beta_2 t + u_t$. This "detrends" both $y$ and $x$ within the regression — $\hat{\beta}_1$ now measures the relationship after removing common linear trend effects. Works when trends are deterministic (constant slope).
+
+    **Remedy 2 — First-difference:**
+
+    Estimate $\Delta y_t = \beta_1 \Delta x_t + \Delta u_t$ where $\Delta y_t = y_t - y_{t-1}$. Differencing removes a stochastic (random-walk) trend. More appropriate than detrending when the trend is stochastic (unit root present). If $y$ and $x$ are both $I(1)$, $\Delta y$ and $\Delta x$ are $I(0)$ (stationary) and OLS on the differenced model is valid.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Game Theory*
+*Lesson L04 · Unit Root Intuition*
 
+An AR(1) with $\rho = 0.95$ is stationary. An AR(1) with $\rho = 1.00$ is a random walk (non-stationary). In practice, these are hard to distinguish. What test is used?
 
-Why does repetition of the Prisoners' Dilemma make cooperation more likely?
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** Breusch-Pagan test
+- **B)** Augmented Dickey-Fuller (ADF) test
+- **C)** Durbin-Watson test
+- **D)** White test
 
 ??? success "Show Answer"
-    **Answer:** In a repeated game players can use tit-for-tat strategies — cooperate if the other cooperated last period, defect if they defected. The threat of future punishment makes defection less attractive when both parties value the ongoing relationship.
+    **Answer: B — Augmented Dickey-Fuller (ADF) test**
 
-    Cooperation can be sustained if the future payoff from cooperation exceeds the one-time gain from defecting.
+    The ADF tests $H_0: \rho = 1$ (unit root, non-stationary) vs $H_1: |\rho| < 1$ (stationary). The test statistic does not follow a standard $t$-distribution under $H_0$ — special critical values (Dickey-Fuller critical values) are needed.
+
+    "Augmented" means the regression includes lagged differences $\Delta y_{t-1}, \ldots$ to absorb serial correlation in errors. The ADF is known for **low power** — it often fails to reject $H_0$ even when $\rho$ is close to but below 1. This is why non-stationarity tests should be interpreted carefully alongside graphical inspection.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Game Theory*
+*Lesson L03 · Spurious Regression Detection*
 
-
-ACCC leniency policy encourages cartel members to report the cartel by offering immunity from prosecution. How does this affect cartel stability?
-
+After estimating a time-series regression, which diagnostic would most directly reveal if the results are spurious (due to both variables trending)?
 
 **Type:** Multiple Choice
 
-- **A)** It strengthens cartels by clarifying rules
-- **B)** It destabilises cartels by making defection (reporting) more attractive — turning the cartel into a Prisoners' Dilemma
-- **C)** It has no effect on cartel stability
-- **D)** It makes cartels more profitable
+- **A)** High $R^2$ and significant $t$-statistics (these are signs of spurious regression, not diagnostics for it)
+- **B)** Plot residuals over time: if the residuals show strong persistence (slow mean reversion), this suggests the regression is spurious — the residuals themselves look like a random walk
+- **C)** Breusch-Pagan test for heteroskedasticity
+- **D)** RESET test for functional form
 
 ??? success "Show Answer"
-    **Answer: B) It destabilises cartels by making defection (reporting) more attractive — turning the cartel into a Prisoners' Dilemma**
+    **Answer: B**
 
-    Leniency creates a race to report: each member fears a rival will report first, so the dominant strategy shifts toward defecting (reporting), destabilising the cartel.
+    In a valid cointegrating regression, residuals are stationary (mean-reverting). In a spurious regression, the residuals look like a random walk — they drift far from zero and take a long time to return. Visual inspection of the residual plot, together with a unit root test on the residuals (Engle-Granger cointegration test), is the standard diagnostic.
+
+    High $R^2$ and significant $t$-statistics are actually warning signs of spurious regression, not confirmations of a genuine relationship — the counterintuitive opposite of cross-sectional data.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Game Theory*
+*Lesson L01 · Weak Dependence*
 
+OLS is consistent in time series under weak exogeneity and **weak dependence** (rather than the i.i.d. assumption). What does weak dependence require?
 
-Australia's banking sector is dominated by the Big Four (CBA, NAB, ANZ, Westpac). This is an example of:
-
-
-**Type:** Multiple Choice
-
-- **A)** Perfect competition
-- **B)** Monopoly
-- **C)** Oligopoly
-- **D)** Monopolistic competition
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: C) Oligopoly**
+    **Weak dependence** requires that the correlation between $y_t$ and $y_{t-s}$ decays to zero as the lag $s \to \infty$: $\gamma(s) \to 0$ as $s \to \infty$.
 
-    A market with a small number of large firms with strategic interdependence is an oligopoly.
+    This ensures that distant observations are "nearly independent," allowing a Law of Large Numbers and Central Limit Theorem to apply to time-series data. It is satisfied by:
+    - Stationary ARMA processes with $|\rho| < 1$
+    - Most stable economic time series with short-lived shocks
+
+    It is **violated** by random walks ($\rho = 1$) — shocks never die out, so observations arbitrarily far apart remain strongly correlated. This is why non-stationary processes require special treatment (differencing, cointegration).
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Game Theory*
+*Lesson L02 · FDL Application*
 
-
-The kinked demand curve model predicts price rigidity in oligopoly because:
-
-
-**Type:** Multiple Choice
-
-- **A)** Firms always collude on price
-- **B)** If a firm raises price rivals don't follow (so it loses customers) but if it cuts price rivals match (so it gains little) — demand is elastic above and inelastic below the current price
-- **C)** Government regulations prevent price changes
-- **D)** Oligopolists always charge MC
-
-??? success "Show Answer"
-    **Answer: B) If a firm raises price rivals don't follow (so it loses customers) but if it cuts price rivals match (so it gains little) — demand is elastic above and inelastic below the current price**
-
-    The asymmetric response creates a kink at the current price — the firm has little incentive to change price in either direction.
-
----
-
-## Question 13
-
-*Lesson L03 · Game Theory*
-
-
-If an oligopolist in a kinked demand market has MC=$20 and the kink is at P=$50, what happens to price if MC rises to $35?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Price stays at $50
-
-    The MR curve has a gap at the kink. If MC stays within this gap price is unchanged. MC rising from $20 to $35 (still within the gap) leaves price rigid at $50.
-
----
-
-## Question 14
-
-*Lesson L03 · Game Theory*
-
-
-Why might tacit collusion be more stable in a market with few, transparent firms?
-
+**[Short Answer]** A government spending shock of $\$1$ billion occurs at time $t$. Using the FDL model $\Delta\text{GDP}_t = 0.6\Delta G_t + 0.3\Delta G_{t-1} + 0.1\Delta G_{t-2}$, what is the total multiplier effect on GDP over 3 periods?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** With few firms it is easier to detect cheating on an implicit agreement. Price transparency means deviations are quickly observed and can be punished (e.g. price war), making the expected cost of defection high.
+    The Keynesian fiscal multiplier through a distributed-lag model:
 
-    Monitoring and punishment are easier with fewer players and observable prices.
+    - Period $t$: $\Delta\text{GDP}_t = 0.6 \times 1 = \mathbf{\$0.6B}$
+    - Period $t+1$: $\Delta\text{GDP}_{t+1} = 0.3 \times 1 = \mathbf{\$0.3B}$
+    - Period $t+2$: $\Delta\text{GDP}_{t+2} = 0.1 \times 1 = \mathbf{\$0.1B}$
 
----
+    **Total (long-run multiplier) = 0.6 + 0.3 + 0.1 = \$1.0B**
 
-## Question 15
-
-*Lesson L03 · Game Theory*
-
-
-Which Australian industry has been found by the ACCC to have engaged in price-fixing cartel conduct?
-
-
-**Type:** Multiple Choice
-
-- **A)** Wool farming
-- **B)** Visy/Amcor in the cardboard packaging industry
-- **C)** The NBN
-- **D)** Small supermarkets
-
-??? success "Show Answer"
-    **Answer: B) Visy/Amcor in the cardboard packaging industry**
-
-    The ACCC prosecuted Visy and Amcor for a decade-long cardboard packaging cartel — one of Australia's most significant cartel cases.
-
----
-
-## Question 16
-
-*Lesson L04 · Game Theory*
-
-
-Price-fixing between competitors is:
-
-
-**Type:** Multiple Choice
-
-- **A)** Legal if prices stay below the CPI
-- **B)** Illegal in Australia under the Competition and Consumer Act 2010
-- **C)** Only illegal for public companies
-- **D)** Legal if approved by the ACCC
-
-??? success "Show Answer"
-    **Answer: B) Illegal in Australia under the Competition and Consumer Act 2010**
-
-    Cartel conduct including price-fixing is a criminal offence in Australia under the CCA 2010 with penalties up to 10 years imprisonment and $50m fines.
-
----
-
-## Question 17
-
-*Lesson L04 · Game Theory*
-
-
-Two airlines secretly agree to charge $400 for Sydney-Melbourne. Without the agreement each would charge $300. If market demand at $400 is 500 passengers per flight, estimate combined cartel profit premium vs competitive baseline.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $50,000 per flight
-
-    Extra revenue per flight = ($400-$300)×500=$50,000. This is the transfer from consumers to the cartel (before cost considerations).
-
----
-
-## Question 18
-
-*Lesson L04 · Game Theory*
-
-
-Why is a cartel inherently unstable even without regulatory intervention?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Each cartel member has an individual incentive to cheat by cutting price slightly below the agreed level to steal customers. Since all members face this incentive, the cartel tends to collapse — a classic Prisoners' Dilemma.
-
-    The cooperative outcome is not a Nash equilibrium: each member prefers to defect given others' cooperation.
-
----
-
-## Question 19
-
-*Lesson L04 · Game Theory*
-
-
-Which ACCC policy makes it easier to prosecute cartels by incentivising members to provide evidence?
-
-
-**Type:** Multiple Choice
-
-- **A)** Merger authorisation
-- **B)** Leniency policy (immunity for the first member to report the cartel)
-- **C)** Access regulation
-- **D)** Market study powers
-
-??? success "Show Answer"
-    **Answer: B) Leniency policy (immunity for the first member to report the cartel)**
-
-    The ACCC's immunity/leniency policy offers the first cartel member to self-report full immunity from prosecution, destabilising cartels.
-
----
-
-## Question 20
-
-*Lesson L04 · Game Theory*
-
-
-Tacit collusion is harder to prosecute than explicit collusion because:
-
-
-**Type:** Multiple Choice
-
-- **A)** It is legal under Australian law
-- **B)** There is no direct communication or agreement to prove — firms independently arrive at similar strategies
-- **C)** It only occurs in competitive markets
-- **D)** The ACCC lacks jurisdiction over tacit collusion
-
-??? success "Show Answer"
-    **Answer: B) There is no direct communication or agreement to prove — firms independently arrive at similar strategies**
-
-    Tacit collusion involves parallel pricing without explicit agreement — no smoking gun communication exists, making legal proof very difficult.
-
----
-
-## Question 21
-
-*Lesson L05 · Game Theory*
-
-
-In a sequential entry game the incumbent invests in large capacity before the potential entrant decides. This is an example of:
-
-
-**Type:** Multiple Choice
-
-- **A)** Nash equilibrium in simultaneous games
-- **B)** First-mover advantage via credible commitment
-- **C)** Tacit collusion
-- **D)** Predatory pricing
-
-??? success "Show Answer"
-    **Answer: B) First-mover advantage via credible commitment**
-
-    By committing to high capacity first the incumbent credibly signals it will produce a lot if entry occurs, making entry unprofitable — a first-mover advantage.
-
----
-
-## Question 22
-
-*Lesson L05 · Game Theory*
-
-
-In backward induction what do we solve first?
-
-
-**Type:** Multiple Choice
-
-- **A)** The first decision in the game
-- **B)** The last decision in the game
-- **C)** All decisions simultaneously
-- **D)** The dominant strategy
-
-??? success "Show Answer"
-    **Answer: B) The last decision in the game**
-
-    Backward induction starts at the end of the game tree and works backwards, finding optimal decisions at each node given what will happen next.
-
----
-
-## Question 23
-
-*Lesson L05 · Game Theory*
-
-
-Incumbent earns $10m (monopoly) or $4m (duopoly). Entrant earns $3m (enter) or $0 (stay out). If incumbent can commit to 'fight entry' earning only $2m as duopolist, does entry occur?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** No entry
-
-    Entrant compares $3m (enter, face fight → duopoly $3m) vs $0. But if incumbent credibly commits to fight, duopoly profit for entrant may be negative. Assuming fight makes entry unprofitable → no entry.
-
----
-
-## Question 24
-
-*Lesson L05 · Game Theory*
-
-
-Why must a commitment device be credible to deter entry?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** An incredible threat (one the firm would not actually carry out after entry) will be ignored by the entrant. The commitment must change the incumbent's payoff so that fighting entry actually becomes rational ex post, not just a bluff.
-
-    Credibility requires the threat to be a best response after entry has occurred, not just before.
-
----
-
-## Question 25
-
-*Lesson L05 · Game Theory*
-
-
-Woolworths builds a new distribution centre before Aldi announces Australian expansion plans. This could be interpreted as:
-
-
-**Type:** Multiple Choice
-
-- **A)** Predatory pricing
-- **B)** A commitment to cost efficiency that makes the market less attractive to Aldi
-- **C)** Collusion with Aldi
-- **D)** Vertical integration
-
-??? success "Show Answer"
-    **Answer: B) A commitment to cost efficiency that makes the market less attractive to Aldi**
-
-    Investing in cost-reducing capacity before a rival's entry decision can credibly signal lower costs and higher future output, deterring entry.
-
----
+    This is a fiscal multiplier of 1.0 — each dollar of government spending raises GDP by \$1 in total over 3 periods (the effect is fully transmitted but with delays). Note this is below the simple Keynesian multiplier of $k = 1/(1-c)$ because we are not modelling the full income-expenditure dynamics here — just the direct statistical relationship from the FDL.

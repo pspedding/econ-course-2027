@@ -1,41 +1,34 @@
-# 📝 Module Quizzes
+# 📝 Module Quizzes — ECMT5001 Econometrics
 
-*630 questions across all 21 modules — multiple choice, calculation, and short answer*
+*Practice questions aligned to USYD ECMT5001 Principles of Econometrics (Wooldridge, S1 2027). Mix of MCQ, calculation, and short answer — all with full worked answers.*
 
+!!! tip "How to use"
+    Attempt each question before clicking **Show Answer**. Write working for calculations. Target 80%+ before moving on. Questions marked **[Calculation]** require showing your algebra.
 
-## How to Use
+| Module | Topic | Questions | Priority |
+|--------|-------|-----------|----------|
+| [M01](module-01-quiz.md) | Probability & Statistics Review | 18 | ⭐⭐⭐ Exam foundation |
+| [M02](module-02-quiz.md) | Simple Linear Regression & OLS | 18 | ⭐⭐⭐ Core |
+| [M03](module-03-quiz.md) | Multiple Regression & OVB | 16 | ⭐⭐⭐ Core |
+| [M04](module-04-quiz.md) | Inference: t-Tests & F-Tests | 16 | ⭐⭐⭐ Core |
+| [M05](module-05-quiz.md) | Functional Forms & Dummy Variables | 14 | ⭐⭐ Important |
+| [M06](module-06-quiz.md) | Heteroskedasticity | 14 | ⭐⭐ Important |
+| [M07](module-07-quiz.md) | Misspecification, Proxies & Measurement Error | 12 | ⭐⭐ Important |
+| [M08](module-08-quiz.md) | Time Series: Stationarity & Distributed Lags | 12 | ⭐ Extension |
+| [M09](module-09-quiz.md) | Serial Correlation | 12 | ⭐ Extension |
+| [M10](module-10-quiz.md) | IV, 2SLS & Causal Inference | 14 | ⭐⭐ Important |
 
-1. Attempt each question before expanding the answer
-2. Click **Show Answer** to reveal the correct answer and explanation
-3. Work through each module quiz after completing the corresponding lessons
+**Total: 146 practice questions with full worked answers**
 
-## Introductory Modules (ECON1001)
+---
 
-| Module | Questions |
-|--------|-----------|
-| [M01 — Introduction: Scarcity and Choice](module-01-quiz.md) | 25 |
-| [M02 — Demand and Willingness to Pay](module-02-quiz.md) | 25 |
-| [M03 — Production and Costs](module-03-quiz.md) | 25 |
-| [M04 — Supply and Market Equilibrium](module-04-quiz.md) | 30 |
-| [M05 — Economic Surplus and Elasticity](module-05-quiz.md) | 30 |
-| [M06 — Market Equilibrium and Perfect Competition](module-06-quiz.md) | 25 |
-| [M07 — Monopoly](module-07-quiz.md) | 30 |
-| [M08 — Game Theory and Oligopoly](module-08-quiz.md) | 25 |
-| [M09 — Price Regulation, Taxes, and Subsidies](module-09-quiz.md) | 25 |
-| [M10 — Externalities and Market Failure](module-10-quiz.md) | 25 |
-| [M11 — Public Goods and Common Resources](module-11-quiz.md) | 25 |
-| [M12 — International Trade and Synthesis](module-12-quiz.md) | 25 |
+## Suggested Study Path
 
-## Intermediate Modules (ECOS2001)
+!!! info "Before your In-Semester Test"
+    Priority: **M01 → M02 → M03 → M04** (foundation of all econometrics)
 
-| Module | Questions |
-|--------|-----------|
-| [M13 — Budget Constraints, Preferences, and Utility](module-13-quiz.md) | 25 |
-| [M14 — Consumer Choice and Demand](module-14-quiz.md) | 25 |
-| [M15 — Comparative Statics and Demand Theory](module-15-quiz.md) | 25 |
-| [M16 — Applications of Consumer Theory](module-16-quiz.md) | 25 |
-| [M17 — Exchange Economy and General Equilibrium](module-17-quiz.md) | 25 |
-| [M18 — Technology, Production, and Profit Maximisation](module-18-quiz.md) | 25 |
-| [M19 — Costs, Competitive Supply, and Industry Equilibrium](module-19-quiz.md) | 25 |
-| [M20 — Monopoly and Game Theory (Advanced)](module-20-quiz.md) | 30 |
-| [M21 — Information Asymmetry and Synthesis](module-21-quiz.md) | 25 |
+!!! info "Before your Final Exam"
+    Add: **M05 → M06 → M07 → M10** (applied extensions)
+
+!!! info "If you have extra time"
+    Also do: **M08 → M09** (time series — may appear as a smaller component)

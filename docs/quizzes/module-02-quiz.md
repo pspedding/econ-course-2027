@@ -1,509 +1,340 @@
-# Module M02 Quiz: Demand and Willingness to Pay
+# Module M02 Quiz: Simple Linear Regression
 
-*25 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*18 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. Show your algebra for calculation questions.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Demand Curve*
+*Lesson L02 · OLS Objective*
 
-
-The law of demand states:
-
+OLS estimation minimises which quantity?
 
 **Type:** Multiple Choice
 
-- **A)** Price and quantity demanded are directly related
-- **B)** Price and quantity demanded are inversely related
-- **C)** Demand curves slope upward
-- **D)** Supply determines demand
+- **A)** $\sum_{i=1}^n \hat{u}_i$
+- **B)** $\sum_{i=1}^n |\hat{u}_i|$
+- **C)** $\sum_{i=1}^n \hat{u}_i^2$
+- **D)** $\max_i |\hat{u}_i|$
 
 ??? success "Show Answer"
-    **Answer: B) Price and quantity demanded are inversely related**
+    **Answer: C**
 
-    Higher prices reduce quantity demanded, ceteris paribus.
+    OLS minimises the **sum of squared residuals**: $\text{SSR} = \sum_{i=1}^n \hat{u}_i^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2$. Squaring penalises large deviations more heavily than small ones, and makes the first-order conditions linear — yielding closed-form estimators.
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Demand Curve*
+*Lesson L02 · OLS Computation*
 
+**[Calculation]** Given $x = \{1,2,3,4,5\}$ and $y = \{2,4,5,4,6\}$, compute $\hat{\beta}_1$ using:
+$$\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}$$
 
-Which causes movement along the demand curve?
-
-
-**Type:** Multiple Choice
-
-- **A)** Income change
-- **B)** Price change
-- **C)** Population growth
-- **D)** Taste shifts
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) Price change**
+    $\bar{x} = 3$, $\bar{y} = 4.2$
 
-    Only price changes cause movements; other factors shift the entire curve.
+    | $i$ | $x_i - \bar{x}$ | $y_i - \bar{y}$ | product | $(x_i-\bar{x})^2$ |
+    |-----|---------|---------|---------|--------|
+    | 1 | $-2$ | $-2.2$ | $4.4$ | $4$ |
+    | 2 | $-1$ | $-0.2$ | $0.2$ | $1$ |
+    | 3 | $0$ | $0.8$ | $0$ | $0$ |
+    | 4 | $1$ | $-0.2$ | $-0.2$ | $1$ |
+    | 5 | $2$ | $1.8$ | $3.6$ | $4$ |
+    | **Sum** | | | **8.0** | **10** |
+
+    $$\hat{\beta}_1 = \frac{8.0}{10} = \mathbf{0.8}$$
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Intro*
+*Lesson L02 · OLS Intercept*
 
-
-If price rises from $3 to $5 and quantity demanded falls from 1000 to 600, calculate the percentage change in quantity.
-
+**[Calculation]** Using the result from Q2 ($\hat{\beta}_1 = 0.8$, $\bar{x}=3$, $\bar{y}=4.2$), compute $\hat{\beta}_0$.
 
 **Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** (1000-600)/1000 = 40% decrease.
+    $$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x} = 4.2 - 0.8 \times 3 = 4.2 - 2.4 = \mathbf{1.8}$$
 
-    demand-curve
+    Fitted line: $\hat{y} = 1.8 + 0.8x$. This passes through the sample means $(\bar{x}, \bar{y}) = (3, 4.2)$ — a guaranteed property of OLS.
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Intro*
+*Lesson L03 · Residual Properties*
 
+Which of the following is **NOT** a guaranteed algebraic property of OLS residuals?
 
-Explain the substitution effect.
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** $\sum_{i=1}^n \hat{u}_i = 0$
+- **B)** $\sum_{i=1}^n x_i \hat{u}_i = 0$
+- **C)** $\sum_{i=1}^n \hat{u}_i^2 = 0$
+- **D)** $\bar{y} = \hat{\bar{y}}$ (mean of fitted values equals mean of $y$)
 
 ??? success "Show Answer"
-    **Answer:** Consumers switch to alternatives when a good's price rises, reducing quantity demanded.
+    **Answer: C**
 
-    demand-curve
+    $\sum \hat{u}_i^2 = \text{SSR} > 0$ unless the fit is perfect. The true OLS properties are:
+
+    - $\sum \hat{u}_i = 0$ (from intercept FOC)
+    - $\sum x_i \hat{u}_i = 0$ (from slope FOC — residuals orthogonal to $x$)
+    - $\bar{\hat{y}} = \bar{y}$ (consequence of the first property)
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Demand Curve*
+*Lesson L04 · R-squared*
 
-
-Diminishing marginal utility means:
-
+A regression of hourly wage on years of education gives $R^2 = 0.35$. The best interpretation is:
 
 **Type:** Multiple Choice
 
-- **A)** Total utility declines
-- **B)** Each additional unit provides less satisfaction
-- **C)** Prices must fall over time
-- **D)** Demand curves slope upward
+- **A)** Education causes 35% of the variation in wages
+- **B)** 35% of the variation in wages is explained by the linear relationship with education
+- **C)** The regression fits the data well
+- **D)** Education is statistically significant at the 35% level
 
 ??? success "Show Answer"
-    **Answer: B) Each additional unit provides less satisfaction**
+    **Answer: B**
 
-    Consumers value additional units less, explaining downward-sloping demand.
+    $R^2 = \text{SSE}/\text{SST}$ measures the proportion of total variation in $y$ *explained* (in a statistical, not causal, sense) by the regression. 35% is fairly typical for simple wage regressions. Option A is wrong — $R^2$ says nothing about causality. Option C is misleading — whether 35% is "good" depends on the application.
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Willingness Pay*
+*Lesson L04 · SST decomposition*
 
+**[Calculation]** $\text{SST} = 200$, $\text{SSE} = 150$. Compute $\text{SSR}$ and $R^2$.
 
-Consumer surplus is:
-
-
-**Type:** Multiple Choice
-
-- **A)** The same as profit
-- **B)** Price minus cost
-- **C)** WTP minus price
-- **D)** Total revenue
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: C) WTP minus price**
+    $$\text{SST} = \text{SSE} + \text{SSR} \Rightarrow \text{SSR} = 200 - 150 = \mathbf{50}$$
 
-    It measures net benefit to consumers from paying less than their maximum willingness.
+    $$R^2 = \frac{\text{SSE}}{\text{SST}} = \frac{150}{200} = \mathbf{0.75}$$
+
+    Equivalently: $R^2 = 1 - \text{SSR}/\text{SST} = 1 - 50/200 = 0.75$. The regression explains 75% of the variation in $y$.
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Willingness Pay*
+*Lesson L05 · SLR Assumptions*
 
+SLR Assumption 1 (linearity in parameters) requires:
 
-If WTPs are $20, $18, $15, $12 and price is $16, total surplus is:
-
-
-**Type:** Multiple Choice
-
-- **A)** $5
-- **B)** $7
-- **C)** $9
-- **D)** $11
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: A) $5**
-
-    $20-$16=$4, $18-$16=$2, others get $0 → $4+$2=$6 (error in options).
+    The population model is **linear in the parameters**: $y = \beta_0 + \beta_1 x + u$. The coefficients $\beta_0, \beta_1$ enter linearly. This does **not** require $y$ and $x$ to have a linear relationship — we can use $\ln(y)$ or $x^2$ as variables and still satisfy SLR.1. What cannot be linear in $\beta$ is something like $y = e^{\beta_1 x} + u$ (a nonlinear model that requires nonlinear least squares).
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Intro*
+*Lesson L05 · SLR Assumptions*
 
+Why is SLR Assumption 4 — the zero conditional mean $E(u \mid x) = 0$ — considered the key identification assumption?
 
-Calculate surplus when WTP=$15 and price=$10.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** $15 - $10 = $5 consumer surplus.
-
-    willingness-pay
+    $E(u \mid x) = 0$ means the error term is mean-independent of $x$: everything in $u$ that affects $y$ is uncorrelated with $x$ on average. This is needed for **unbiasedness** — if violated (e.g. $x$ is correlated with an omitted variable in $u$), OLS is biased. In practice, SLR.4 is the hardest assumption to justify with observational data. Randomised experiments guarantee it by design (random assignment makes $x$ independent of $u$). With observational data, credible strategies (IV, DiD, controls) are needed.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Intro*
+*Lesson L05 · Unbiasedness*
 
+$E(\hat{\beta}_1) = \beta_1$ (OLS is unbiased for the slope) requires which SLR assumptions?
 
-Why does NBN subsidy increase consumer surplus?
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** SLR.1 only
+- **B)** SLR.1, SLR.2, SLR.3, and SLR.4 (not SLR.5)
+- **C)** All five assumptions SLR.1–SLR.5
+- **D)** SLR.4 and SLR.5 only
 
 ??? success "Show Answer"
-    **Answer:** It lowers effective prices below consumers' WTP, increasing the surplus gap.
+    **Answer: B**
 
-    willingness-pay
+    Unbiasedness requires SLR.1 (linearity), SLR.2 (random sampling), SLR.3 (variation in $x$), and SLR.4 (zero conditional mean). SLR.5 (homoskedasticity) is **not** needed for unbiasedness — only for the Gauss-Markov result (OLS is BLUE) and for standard error formulas to be correct.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Willingness Pay*
+*Lesson L05 · Variance of OLS*
 
-
-Graphically, consumer surplus is:
-
+$\text{Var}(\hat{\beta}_1) = \sigma^2 / \sum(x_i - \bar{x})^2$. Which statements are correct?
 
 **Type:** Multiple Choice
 
-- **A)** Area above price
-- **B)** Area below demand curve
-- **C)** Area above price and below demand
-- **D)** Total revenue box
+- **A)** Variance decreases as $n$ increases; variance decreases as spread of $x$ increases
+- **B)** Variance increases as $n$ increases; variance increases as spread of $x$ increases
+- **C)** Variance is unaffected by sample size
+- **D)** Variance decreases as $\sigma^2$ increases
 
 ??? success "Show Answer"
-    **Answer: C) Area above price and below demand**
+    **Answer: A**
 
-    It's the triangle between price and demand curve up to quantity sold.
+    As $n \to \infty$, $\sum(x_i - \bar{x})^2 \to \infty \Rightarrow \text{Var}(\hat{\beta}_1) \to 0$ (consistent estimator). As the spread of $x$ increases (more variation in the regressor), $\sum(x_i-\bar{x})^2$ increases $\Rightarrow$ lower variance. Intuitively: more variation in $x$ gives more "information" to pin down the slope. This is why experimenters often spread $x$ values across the design space.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Demand Shifts*
+*Lesson L05 · Error Variance*
 
-
-Which shifts the demand curve?
-
+Why does the unbiased estimator of $\sigma^2$ use $n-2$ as the divisor: $\hat{\sigma}^2 = \text{SSR}/(n-2)$?
 
 **Type:** Multiple Choice
 
-- **A)** Price change
-- **B)** Income change
-- **C)** Both
-- **D)** Neither
+- **A)** Because we have 2 regressors
+- **B)** Because estimating $\beta_0$ and $\beta_1$ consumes 2 degrees of freedom, leaving $n-2$ free residuals
+- **C)** Convention — $n-1$ would work equally well
+- **D)** Because the formula applies only to samples of size $\geq 2$
 
 ??? success "Show Answer"
-    **Answer: B) Income change**
+    **Answer: B**
 
-    Only non-price factors (income, tastes, etc.) shift the curve; price changes cause movements.
+    Each estimated coefficient "uses up" one degree of freedom. With 2 parameters estimated ($\hat{\beta}_0, \hat{\beta}_1$), only $n-2$ residuals are "free". Using SSR/$(n-2)$ makes $E(\hat{\sigma}^2) = \sigma^2$ (unbiased). In multiple regression with $k$ slope coefficients plus intercept: $\hat{\sigma}^2 = \text{SSR}/(n-k-1)$.
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Demand Shifts*
+*Lesson L01 · Log Interpretation*
 
-
-During COVID, Melbourne café demand likely:
-
+The estimated regression is $\ln(\text{wage}) = 1.2 + 0.08 \cdot \text{educ}$. The coefficient 0.08 means:
 
 **Type:** Multiple Choice
 
-- **A)** Shifted left
-- **B)** Shifted right
-- **C)** Became more elastic
-- **D)** Was unaffected
+- **A)** An additional year of education raises wages by \$0.08
+- **B)** An additional year of education raises wages by approximately 8%
+- **C)** An additional year of education raises log-wages by 8 units
+- **D)** Wages increase by 8 times for each year of education
 
 ??? success "Show Answer"
-    **Answer: A) Shifted left**
+    **Answer: B**
 
-    Lower incomes and fewer buyers reduced demand at all prices.
+    In a log-level model, the coefficient approximates the percentage change: $100 \times 0.08 = 8\%$ wage increase per additional year of education. More precisely: $e^{0.08} - 1 \approx 8.33\%$. The approximation $\approx \beta_1 \times 100\%$ is accurate for small $\beta_1$ (say, $|\beta_1| < 0.2$).
 
 ---
 
 ## Question 13
 
-*Lesson L03 · Intro*
+*Lesson L04 · Scale Effects*
 
+If we replace $y$ with $100y$ in the regression (e.g., convert from dollars to cents), what happens to $\hat{\beta}_1$ and $R^2$?
 
-If beef prices rise 20% and vegan burger demand increases 15%, calculate cross-price elasticity.
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** $\hat{\beta}_1$ is multiplied by 100; $R^2$ is unchanged
+- **B)** Both $\hat{\beta}_1$ and $R^2$ are multiplied by 100
+- **C)** $\hat{\beta}_1$ is divided by 100; $R^2$ is unchanged
+- **D)** $R^2$ is multiplied by 100; $\hat{\beta}_1$ is unchanged
 
 ??? success "Show Answer"
-    **Answer:** 15%/20% = 0.75, indicating substitutes.
+    **Answer: A**
 
-    demand-shifts
+    Scaling $y$ by $c$ scales $\hat{\beta}_1$ by $c$ (since $\hat{\beta}_1 = \hat{\text{Cov}}(x,y)/\hat{\text{Var}}(x)$ and scaling $y$ scales the numerator). $R^2$ is scale-invariant — it measures the proportion of variance explained, which is unchanged by a constant multiplicative transformation of either variable.
 
 ---
 
 ## Question 14
 
-*Lesson L03 · Intro*
+*Lesson L05 · Gauss-Markov*
 
-
-Why is Sydney housing demand inelastic?
-
+OLS is **BLUE** under SLR.1–SLR.5. What does BLUE stand for and what assumption is most critical?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Limited substitutes and necessity make quantity demanded less responsive to price changes.
+    **B**est **L**inear **U**nbiased **E**stimator. Among all linear unbiased estimators of $\beta_1$, OLS has the smallest variance.
 
-    demand-shifts
+    The critical assumption is **SLR.5 (homoskedasticity):** $\text{Var}(u \mid x) = \sigma^2$ (constant). If violated (heteroskedasticity), OLS is still unbiased but no longer efficient — weighted least squares (WLS) would beat it. Gauss-Markov requires SLR.1–SLR.5; it does **not** require normality (SLR.6). For valid t/F tests with finite samples, normality is additionally required.
 
 ---
 
 ## Question 15
 
-*Lesson L03 · Demand Shifts*
+*Lesson L02 · CEF with Dummy Regressor*
 
+**[Short Answer]** If $x \in \{0,1\}$ (binary), show that the OLS estimate gives $\hat{\beta}_1 = \bar{y}_1 - \bar{y}_0$ (difference in group means).
 
-A normal good's demand responds to income how?
-
-
-**Type:** Multiple Choice
-
-- **A)** Positively
-- **B)** Negatively
-- **C)** Not at all
-- **D)** Inversely
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: A) Positively**
+    Let $n_1$ = number with $x=1$, $n_0$ with $x=0$, $n = n_0 + n_1$.
 
-    Higher income increases demand for normal goods (e.g., housing).
+    $\bar{x} = n_1/n$. For $x_i \in \{0,1\}$: $\sum(x_i - \bar{x})^2 = n_1(1-\bar{x})^2 + n_0(0-\bar{x})^2 = n_1 n_0^2/n^2 + n_0 n_1^2/n^2 = n_1 n_0/n$.
+
+    $\sum(x_i-\bar{x})(y_i-\bar{y}) = \sum_{x_i=1}(1-\bar{x})(y_i-\bar{y}) = (1-\bar{x})\sum_{x_i=1}y_i - (1-\bar{x})n_1\bar{y}$
+
+    After algebra: $= (n_0/n)(n_1\bar{y}_1) - (n_0/n)n_1\bar{y} = (n_1 n_0/n)(\bar{y}_1 - \bar{y})$.
+
+    Since $\bar{y} = (n_1\bar{y}_1 + n_0\bar{y}_0)/n$, we get $\bar{y}_1 - \bar{y} = n_0(\bar{y}_1-\bar{y}_0)/n$.
+
+    Therefore: $\hat{\beta}_1 = \frac{(n_1n_0/n)(\bar{y}_1-\bar{y})}{n_1n_0/n} = \bar{y}_1 - \bar{y}_0$. $\square$
 
 ---
 
 ## Question 16
 
-*Lesson L04 · Market Demand*
+*Lesson L02 · t-Test — MIT 14.32 style*
 
+**[Calculation]** A wine price regression: $\hat{\beta}_1 = 0.032$ (effect of vintage year on $\ln(\text{price})$), $\text{se}(\hat{\beta}_1) = 0.012$, $n = 25$. Test $H_0: \beta_1 = 0$ at the 5% level. Critical value $t_{0.025, 23} = 2.069$.
 
-Market demand is the:
-
-
-**Type:** Multiple Choice
-
-- **A)** Average of individual demands
-- **B)** Vertical sum of demands
-- **C)** Horizontal sum of demands
-- **D)** Highest individual demand
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: C) Horizontal sum of demands**
+    $$t = \frac{\hat{\beta}_1 - 0}{\text{se}(\hat{\beta}_1)} = \frac{0.032}{0.012} = \mathbf{2.67}$$
 
-    Quantities demanded are summed at each price level.
+    Since $|t| = 2.67 > t_{0.025,23} = 2.069$, **reject $H_0$** at 5%. Wine prices are significantly related to vintage year. Each additional year is associated with approximately $100 \times 0.032 = 3.2\%$ higher price.
 
 ---
 
 ## Question 17
 
-*Lesson L04 · Market Demand*
+*Lesson L04 · Confidence Interval*
 
+**[Calculation]** $\hat{\beta}_1 = 1.5$, $\text{se}(\hat{\beta}_1) = 0.3$, $n = 50$, $k = 1$ slope. Construct a 95% CI for $\beta_1$. Use $t_{0.025,48} \approx 2.011$.
 
-A kink in the market demand curve indicates:
-
-
-**Type:** Multiple Choice
-
-- **A)** Price ceiling
-- **B)** Choke price
-- **C)** Elasticity change
-- **D)** Tax incidence
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) Choke price**
+    $$\text{CI} = \hat{\beta}_1 \pm t_{0.025,48} \times \text{se}(\hat{\beta}_1) = 1.5 \pm 2.011 \times 0.3 = 1.5 \pm 0.603$$
 
-    It shows where some buyers drop out as price rises.
+    $$\mathbf{[0.897,\ 2.103]}$$
+
+    Interpretation: If we repeated this sampling procedure many times and constructed a CI each time, 95% of such intervals would contain the true $\beta_1$.
 
 ---
 
 ## Question 18
 
-*Lesson L04 · Intro*
+*Lesson L02 · Prediction*
 
-
-Sum demands: A (1 bike at $500, 0 at $600) and B (2 at $500, 1 at $600). What's total demand at $600?
-
+**[Calculation]** Using $\hat{y} = 1.8 + 0.8x$ from Q3: for observation $i=3$ with $x_3 = 3$ and $y_3 = 5$, find the fitted value $\hat{y}_3$ and residual $\hat{u}_3$.
 
 **Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** Only Buyer B demands 1 bike at $600.
+    $$\hat{y}_3 = 1.8 + 0.8 \times 3 = 1.8 + 2.4 = \mathbf{4.2}$$
 
-    market-demand
+    $$\hat{u}_3 = y_3 - \hat{y}_3 = 5 - 4.2 = \mathbf{0.8}$$
 
----
-
-## Question 19
-
-*Lesson L04 · Intro*
-
-
-Why might Perth LNG demand have multiple kinks?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Different buyer groups (e.g., domestic vs. export) exit at different price points.
-
-    market-demand
-
----
-
-## Question 20
-
-*Lesson L04 · Market Demand*
-
-
-Aggregating demand works for:
-
-
-**Type:** Multiple Choice
-
-- **A)** Private goods
-- **B)** Public goods
-- **C)** Both
-- **D)** Neither
-
-??? success "Show Answer"
-    **Answer: A) Private goods**
-
-    Private goods' consumption is rivalrous, allowing quantity summation.
-
----
-
-## Question 21
-
-*Lesson L05 · Australian Demand*
-
-
-Sydney housing demand is inelastic because:
-
-
-**Type:** Multiple Choice
-
-- **A)** Substitutes are limited
-- **B)** It's a necessity
-- **C)** Both a and b
-- **D)** Prices never change
-
-??? success "Show Answer"
-    **Answer: C) Both a and b**
-
-    Few alternatives and essential nature make demand insensitive to price.
-
----
-
-## Question 22
-
-*Lesson L05 · Australian Demand*
-
-
-Solar adoption makes electricity demand:
-
-
-**Type:** Multiple Choice
-
-- **A)** More elastic
-- **B)** More inelastic
-- **C)** Unaffected
-- **D)** Vertical
-
-??? success "Show Answer"
-    **Answer: A) More elastic**
-
-    Solar provides substitutes, increasing price sensitivity.
-
----
-
-## Question 23
-
-*Lesson L05 · Intro*
-
-
-If electricity demand falls 5% when prices rise 10%, calculate elasticity.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** 5%/10% = 0.5 (inelastic).
-
-    australian-demand
-
----
-
-## Question 24
-
-*Lesson L05 · Intro*
-
-
-How did COVID affect food delivery vs. iron ore demand differently?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Delivery spiked (home consumption) while ore fluctuated with Chinese construction.
-
-    australian-demand
-
----
-
-## Question 25
-
-*Lesson L05 · Australian Demand*
-
-
-Essential goods typically have:
-
-
-**Type:** Multiple Choice
-
-- **A)** Elastic demand
-- **B)** Inelastic demand
-- **C)** Unitary elasticity
-- **D)** Perfect elasticity
-
-??? success "Show Answer"
-    **Answer: B) Inelastic demand**
-
-    Necessities see smaller quantity changes when prices change.
-
----
+    The positive residual means the actual wage is 0.8 units above the predicted value for this observation.

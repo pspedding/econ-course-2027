@@ -1,594 +1,290 @@
-# Module M05 Quiz: Economic Surplus and Elasticity
+# Module M05 Quiz: Functional Forms & Dummy Variables
 
-*30 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*14 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. For interpretation questions, state the units carefully.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Surplus*
+*Lesson L01 · Log-Log Model*
 
-
-Consumer surplus is the:
-
+The regression $\ln(\text{sales}) = 2.1 + 0.7 \cdot \ln(\text{price})$ is estimated. The coefficient $-0.7$ (assuming price has a negative effect) or $0.7$ here represents:
 
 **Type:** Multiple Choice
 
-- **A)** Total spending by consumers
-- **B)** Difference between what consumers are willing to pay and what they actually pay
-- **C)** Area above the supply curve
-- **D)** Producer profit
+- **A)** Sales increase by 0.7 units for each \$1 increase in price
+- **B)** A 1% increase in price is associated with a 0.7% change in sales — the price elasticity of sales
+- **C)** Sales increase by 70% for each unit increase in price
+- **D)** The slope of the demand curve
 
 ??? success "Show Answer"
-    **Answer: B) Difference between what consumers are willing to pay and what they actually pay**
+    **Answer: B**
 
-    CS = WTP - Price paid, summed over all units. Graphically it is the area under the demand curve above the market price.
+    In a **log-log** model $\ln(y) = \beta_0 + \beta_1 \ln(x) + u$, the coefficient $\beta_1$ is the **elasticity** of $y$ with respect to $x$: a 1% increase in $x$ is associated with a $\beta_1$% change in $y$. Here, 0.7 means a 1% increase in price is associated with a 0.7% increase in sales — an inelastic response. If this were a demand function, we'd expect a negative sign ($\beta_1 < 0$).
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Surplus*
+*Lesson L01 · Log-Level Model*
 
+$\ln(\text{wage}) = 1.0 + 0.09 \cdot \text{educ}$. The coefficient 0.09 means:
 
-If a consumer's WTP for a concert ticket is $150 and the price is $90, their consumer surplus is:
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** Each additional year of education raises wages by \$0.09
+- **B)** Each additional year of education raises wages by approximately 9%
+- **C)** Wages are multiplied by 0.09 per year of education
+- **D)** The log of wages increases by 9 units per year of education
 
 ??? success "Show Answer"
-    **Answer:** $60
+    **Answer: B**
 
-    CS = WTP - Price = $150 - $90 = $60.
+    In a **log-level** model $\ln(y) = \beta_0 + \beta_1 x$, $\beta_1 \approx$ the proportional change in $y$ per unit change in $x$. So $100 \times 0.09 = 9\%$ wage increase per year of education (approximate, exact: $e^{0.09}-1 \approx 9.4\%$). This approximation works well for small $|\beta_1|$.
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Surplus*
+*Lesson L01 · Level-Log Model*
 
+$\text{wage} = 5 + 2.3 \cdot \ln(\text{experience})$. Interpret the coefficient 2.3.
 
-If price falls from $80 to $60 and quantity rises from 100 to 140, calculate the approximate change in consumer surplus.
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** Wages increase by \$2.30 for each additional year of experience
+- **B)** A 1% increase in experience is associated with a \$0.023 increase in wage ($= 2.3/100$)
+- **C)** Wages increase by 2.3% for each additional year of experience
+- **D)** Experience elasticity of wages is 2.3
 
 ??? success "Show Answer"
-    **Answer:** $2,800
+    **Answer: B**
 
-    ΔCS ≈ (ΔP × Q_original) + 0.5 × (ΔP × ΔQ) = (20×100) + 0.5×(20×40) = $2,000 + $400 = $2,400. (Trapezoid: 0.5×(100+140)×20=$2,400)
+    In a **level-log** model $y = \beta_0 + \beta_1 \ln(x)$, a 1% increase in $x$ is associated with a $\beta_1/100$ unit change in $y$. So a 1% increase in experience raises wages by $2.3/100 = \$0.023$. Equivalently, a doubling of experience ($\approx 100\%$ increase) raises wages by approximately \$2.30. This functional form captures diminishing returns: each extra year of experience adds less to wages at higher experience levels.
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Surplus*
+*Lesson L01 · Choosing a Functional Form*
 
+You expect wages to increase with experience but at a **decreasing rate** (diminishing returns). Which functional form is most appropriate?
 
-Why does a lower price increase consumer surplus?
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** Linear: $\text{wage} = \beta_0 + \beta_1 \text{exper}$
+- **B)** Level-log: $\text{wage} = \beta_0 + \beta_1 \ln(\text{exper})$ or quadratic with negative $\beta_2$
+- **C)** Log-log: $\ln(\text{wage}) = \beta_0 + \beta_1 \ln(\text{exper})$ with $\beta_1 > 1$
+- **D)** Linear with $\beta_1 < 0$
 
 ??? success "Show Answer"
-    **Answer:** A lower price directly benefits existing buyers (they pay less than before) and also brings in new buyers whose WTP exceeds the new price. Both groups gain surplus — existing buyers gain more per unit and new buyers enter the market.
+    **Answer: B**
 
-    Price reductions benefit both inframarginal and marginal consumers.
+    Diminishing returns means the marginal effect of experience decreases as experience grows. Two options work: (1) **Level-log**: $\text{wage} = \beta_0 + \beta_1 \ln(\text{exper})$ — the log transformation compresses large values and naturally produces diminishing returns. (2) **Quadratic**: $\text{wage} = \beta_0 + \beta_1 \text{exper} + \beta_2 \text{exper}^2$ with $\beta_2 < 0$ — creates an inverted-U (wages eventually fall; consistent with retirement/obsolescence). The log-log with $\beta_1 > 1$ would imply *increasing* returns.
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Surplus*
+*Lesson L02 · Quadratic — Turning Point*
 
+**[Calculation]** Estimated model: $\text{wage} = 3 + 0.50 \cdot \text{exper} - 0.01 \cdot \text{exper}^2$. At what years of experience does wage reach its maximum?
 
-The Infrastructure Australia framework uses willingness-to-pay estimates to evaluate transport projects. This is an application of:
-
-
-**Type:** Multiple Choice
-
-- **A)** Producer surplus analysis
-- **B)** Consumer surplus analysis — aggregating the value road/rail users place on time and cost savings
-- **C)** Government revenue maximisation
-- **D)** Cost-benefit analysis using only financial returns
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) Consumer surplus analysis — aggregating the value road/rail users place on time and cost savings**
+    The turning point (maximum) of $y = \beta_0 + \beta_1 x + \beta_2 x^2$ is at:
 
-    CBA for public infrastructure estimates consumer surplus gains (time saved, cost reduced) as the main benefit measure.
+    $$x^* = -\frac{\hat{\beta}_1}{2\hat{\beta}_2} = -\frac{0.50}{2 \times (-0.01)} = -\frac{0.50}{-0.02} = \mathbf{25 \text{ years}}$$
+
+    Since $\hat{\beta}_2 = -0.01 < 0$, this is a **maximum** (the parabola opens downward). Wages rise for the first 25 years of experience, then fall — consistent with skill obsolescence or physical decline. At $x^* = 25$: wage $= 3 + 0.5(25) - 0.01(625) = 3 + 12.5 - 6.25 = \$9.25$.
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Surplus*
+*Lesson L03 · Dummy Variable Interpretation*
 
-
-Producer surplus is the:
-
+The regression $\ln(\text{wage}) = 1.2 + 0.08 \cdot \text{educ} + 0.15 \cdot \text{female}$. Interpret the female dummy coefficient.
 
 **Type:** Multiple Choice
 
-- **A)** Area above the demand curve
-- **B)** Revenue minus variable costs / area above supply curve below price
-- **C)** Total revenue of all firms
-- **D)** Area below the demand curve
+- **A)** Females earn \$0.15 more per hour than males with the same education
+- **B)** Females earn approximately 15% more than males with the same education
+- **C)** Females earn approximately 15% less than males with the same education
+- **D)** The female dummy has no interpretation without knowing the base wage
 
 ??? success "Show Answer"
-    **Answer: B) Revenue minus variable costs / area above supply curve below price**
+    **Answer: B** — but note: the sign is *positive* here, so females earn **more**.
 
-    PS = price received - minimum acceptable price (MC), summed over all units. Graphically: area above supply curve, below price.
+    With a log-level dependent variable and a dummy regressor: $100 \times \hat{\beta}_\text{female} = 100 \times 0.15 = 15\%$ wage premium for females relative to males (holding education constant). More precisely: $e^{0.15} - 1 \approx 16.2\%$.
+
+    **Typical finding:** in most wage regressions, the female coefficient is *negative* (gender pay gap). Here the positive sign is unusual — possibly because this dataset controls for certain occupations or industries where women are better represented. Always report the sign carefully.
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Surplus*
+*Lesson L04 · Dummy Variable Trap*
 
-
-Total economic surplus equals:
-
+You have 4 education categories (no diploma, high school, some college, college degree). With an intercept, how many dummies can you include?
 
 **Type:** Multiple Choice
 
-- **A)** GDP
-- **B)** Consumer surplus plus producer surplus
-- **C)** Government tax revenue
-- **D)** Total firm profit
+- **A)** 4
+- **B)** 3
+- **C)** 2
+- **D)** As many as needed
 
 ??? success "Show Answer"
-    **Answer: B) Consumer surplus plus producer surplus**
+    **Answer: B — 3 dummies**
 
-    Total surplus (TS) = CS + PS. It measures the total gains from trade in a market.
+    Include $k - 1 = 4 - 1 = 3$ dummies, omitting one **base/reference group**. Including all 4 creates perfect multicollinearity (the dummy variable trap): the 4 dummies sum to 1 for every observation, which is a perfect linear combination of the intercept column. The omitted category becomes the baseline — its mean is captured by $\hat{\beta}_0$, and each dummy coefficient measures the mean difference relative to that baseline.
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Surplus*
+*Lesson L03 · Base Group Interpretation*
 
+A regression includes dummies for "high school" ($D_{HS}$), "some college" ($D_{SC}$), "college degree" ($D_{CD}$), with "no diploma" as the omitted base group. Interpret the intercept $\hat{\beta}_0$.
 
-At equilibrium P*=$70 with Qd=Qs=200. The supply curve starts at P=$30. Calculate producer surplus if supply is linear.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** $4,000
+    The intercept $\hat{\beta}_0$ represents the **estimated mean outcome for the base group** — here, workers with no diploma — when all other continuous regressors are at zero (or their base values if there are no other regressors).
 
-    PS = 0.5 × base × height = 0.5 × 200 × (70-30) = 0.5 × 200 × 40 = $4,000
+    In a wage regression with only education dummies: $\hat{\beta}_0 = \bar{y}_{no\ diploma}$ (the mean wage for workers with no diploma). Each dummy coefficient $\hat{\beta}_{HS}$, $\hat{\beta}_{SC}$, $\hat{\beta}_{CD}$ measures the mean wage *difference* relative to the no-diploma group. Changing the base group changes the intercept and all dummy coefficients, but not the fit of the model ($R^2$, SSR, etc.).
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Surplus*
+*Lesson L05 · Interaction Terms*
 
-
-What is deadweight loss and why does it represent a social cost?
-
+In the model $\ln(\text{wage}) = \beta_0 + \beta_1 \cdot \text{educ} + \beta_2 \cdot \text{female} + \beta_3 \cdot (\text{educ} \times \text{female}) + u$, what does $\beta_3$ represent?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Deadweight loss is the reduction in total economic surplus caused by a market distortion (tax, price control, monopoly). It represents transactions that would create positive surplus but do not occur — value that is lost to society entirely, not transferred.
+    $\beta_3$ is the **interaction effect**: the difference in the return to education between females and males.
 
-    DWL is not a transfer from one party to another — it is surplus that disappears.
+    - For males ($\text{female} = 0$): marginal effect of education $= \beta_1$
+    - For females ($\text{female} = 1$): marginal effect of education $= \beta_1 + \beta_3$
+
+    So $\beta_3 = (\text{return to educ for females}) - (\text{return to educ for males})$.
+
+    If $\beta_3 > 0$: each year of education has a *larger* wage effect for women than men.
+    If $\beta_3 < 0$: education raises wages by *less* for women than men.
+    If $\beta_3 = 0$: equal returns to education (parallel wage-education profiles).
+
+    Interactions allow slopes to differ by group — a key tool when studying heterogeneous effects.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Surplus*
+*Lesson L05 · Interaction Calculation*
 
+**[Calculation]** Model: $\ln(\text{wage}) = 1.0 + 0.10 \cdot \text{educ} + 0.20 \cdot \text{female} + 0.03 \cdot (\text{educ} \times \text{female})$. For a **female** worker with **16 years of education**, what is predicted $\ln(\text{wage})$?
 
-Competitive equilibrium maximises total economic surplus because:
-
-
-**Type:** Multiple Choice
-
-- **A)** Firms earn the most profit
-- **B)** All mutually beneficial trades occur — every unit where WTP ≥ MC is produced and no units where WTP < MC are produced
-- **C)** Government revenue is maximised
-- **D)** Consumer surplus is maximised at the expense of producer surplus
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) All mutually beneficial trades occur — every unit where WTP ≥ MC is produced and no units where WTP < MC are produced**
+    For female = 1, educ = 16:
 
-    At P*=MC, every unit that creates positive surplus (WTP > MC) is traded. Any restriction creates DWL.
+    $$\ln(\hat{\text{wage}}) = 1.0 + 0.10(16) + 0.20(1) + 0.03(16 \times 1)$$
+    $$= 1.0 + 1.60 + 0.20 + 0.48 = \mathbf{3.28}$$
+
+    Predicted wage: $e^{3.28} \approx \$26.58$ per hour.
+
+    For comparison, a **male** with 16 years of education: $\ln(\hat{\text{wage}}) = 1.0 + 1.60 + 0 + 0 = 2.60 \Rightarrow e^{2.60} \approx \$13.46$. The female premium at 16 years of education is $e^{3.28}/e^{2.60} = e^{0.68} \approx 97\%$ — a very large positive gap (unusual in practice).
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Elasticity*
+*Lesson L01 · Comparing Models*
 
-
-Price elasticity of demand (PED) is calculated as:
-
+Can you compare $R^2$ between the model $\ln(y) = X\beta + u$ and $y = X\beta + u$ to decide which fits better?
 
 **Type:** Multiple Choice
 
-- **A)** ΔP/ΔQ
-- **B)** (ΔQ/Q)/(ΔP/P) — percentage change in quantity demanded divided by percentage change in price
-- **C)** ΔQ/ΔP
-- **D)** (ΔP/P)/(ΔQ/Q)
+- **A)** Yes — the model with higher $R^2$ always fits better
+- **B)** No — $R^2$ from a log-dependent model measures the proportion of variance in $\ln(y)$ explained, while the other measures variance in $y$ — they are not comparable
+- **C)** Yes, but only if the sample sizes are equal
+- **D)** No, because $R^2$ is undefined for log-linear models
 
 ??? success "Show Answer"
-    **Answer: B) (ΔQ/Q)/(ΔP/P) — percentage change in quantity demanded divided by percentage change in price**
+    **Answer: B**
 
-    PED = %ΔQd / %ΔP. The absolute value indicates responsiveness; negative sign reflects the law of demand.
+    $R^2$ measures the share of variance in the *dependent variable* explained. If the dependent variable is $\ln(y)$ in one model and $y$ in another, the benchmarks differ — you are comparing $\text{Var}(\ln y)$ explained vs $\text{Var}(y)$ explained. These are incomparable quantities.
+
+    To compare models with different dependent variable transformations, use alternative criteria such as comparing actual vs predicted $y$ values (after transforming $\hat{y}$ back from log scale), AIC/BIC, or simply plotting residuals.
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Elasticity*
+*Lesson L01 · Log Approximation*
 
+In a log-level model, if $\hat{\beta} = 0.05$, the approximate percentage effect of a one-unit increase in $x$ on $y$ is:
 
-Petrol price rises 10% and quantity demanded falls 3%. What is the PED?
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** 0.05%
+- **B)** 5%
+- **C)** 50%
+- **D)** $e^{0.05} \approx 105.1\%$
 
 ??? success "Show Answer"
-    **Answer:** PED = -0.3 (inelastic)
+    **Answer: B — approximately 5%**
 
-    PED = %ΔQd/%ΔP = -3%/10% = -0.3. |PED| < 1 → inelastic demand.
+    For the log-level model $\ln(y) = \beta_0 + \beta_1 x$: $\Delta \ln(y) \approx \% \Delta y / 100$. So a one-unit increase in $x$ changes $\ln(y)$ by 0.05, implying approximately $100 \times 0.05 = 5\%$ change in $y$. Exact: $e^{0.05} - 1 = 5.13\%$. The approximation $100\hat{\beta}\%$ works well for $|\hat{\beta}| \lesssim 0.2$.
 
 ---
 
 ## Question 13
 
-*Lesson L03 · Elasticity*
+*Lesson L03 · Seasonal Dummies*
 
-
-Why is demand for insulin relatively price inelastic?
-
+A quarterly time-series regression includes dummies $Q1$, $Q2$, $Q3$ with $Q4$ as the base. What does the coefficient on $Q1$ represent?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Insulin is a medical necessity with no close substitutes. Diabetics must purchase it regardless of price — there are no alternatives and health consequences of not consuming are severe.
+    The $Q1$ coefficient represents the **mean difference in the outcome between Q1 and Q4** (the base quarter), holding any other regressors constant.
 
-    Medical necessities with no substitutes have highly inelastic demand.
+    For example, if the outcome is electricity demand and $\hat{\beta}_{Q1} = -15$, this means electricity demand in Q1 is on average 15 units lower than in Q4 (all else equal). Q4 is the reference — its seasonal effect is absorbed into the intercept. This is how seasonal adjustment is achieved via regression: the seasonal pattern is estimated and can be "partialled out" if needed.
 
 ---
 
 ## Question 14
 
-*Lesson L03 · Elasticity*
+*Lesson L02 · ECMT5001-style*
 
+**[Short Answer]** A wage regression is estimated: $\ln(\text{wage}) = \beta_0 + \beta_1 \text{educ} + \beta_2 \text{exper} + \beta_3 \text{exper}^2 + \beta_4 \text{union} + u$
 
-Which good is likely to have the most price elastic demand?
+where union = 1 if union member, 0 otherwise.
 
-
-**Type:** Multiple Choice
-
-- **A)** Electricity
-- **B)** Water
-- **C)** A specific brand of bottled water (many close substitutes)
-- **D)** Prescription medication
-
-??? success "Show Answer"
-    **Answer: C) A specific brand of bottled water (many close substitutes)**
-
-    A specific brand of bottled water has many close substitutes — if its price rises, consumers easily switch to another brand. Many substitutes → more elastic demand.
-
----
-
-## Question 15
-
-*Lesson L03 · Elasticity*
-
-
-Using the midpoint method, calculate PED when price rises from $8 to $10 and quantity falls from 120 to 100.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** PED = -0.82
-
-    Midpoint P=(8+10)/2=9; midpoint Q=(120+100)/2=110. %ΔQ=-20/110=-18.2%; %ΔP=2/9=22.2%. PED=-18.2/22.2≈-0.82 (inelastic)
-
----
-
-## Question 16
-
-*Lesson L04 · Elasticity*
-
-
-Along a downward-sloping linear demand curve, demand is elastic at:
-
-
-**Type:** Multiple Choice
-
-- **A)** Low prices and high quantities
-- **B)** High prices and low quantities
-- **C)** All points equally
-- **D)** Only at the midpoint
-
-??? success "Show Answer"
-    **Answer: B) High prices and low quantities**
-
-    At high prices and low quantities, %ΔQ is large relative to %ΔP — elastic. At low prices and high quantities, %ΔP is large relative to %ΔQ — inelastic.
-
----
-
-## Question 17
-
-*Lesson L04 · Elasticity*
-
-
-When demand is elastic (|PED|>1) and a firm raises its price, total revenue:
-
-
-**Type:** Multiple Choice
-
-- **A)** Rises
-- **B)** Falls — quantity falls by a larger percentage than price rises
-- **C)** Stays the same
-- **D)** Rises then falls
-
-??? success "Show Answer"
-    **Answer: B) Falls — quantity falls by a larger percentage than price rises**
-
-    With elastic demand, a price rise causes a proportionally larger quantity fall, reducing total revenue (TR = P × Q).
-
----
-
-## Question 18
-
-*Lesson L04 · Elasticity*
-
-
-A cinema charges $15 per ticket and sells 200 tickets. It cuts price to $12 and sells 260 tickets. Calculate the change in total revenue and the approximate PED.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** TR rises $180; PED ≈ -1.5 (elastic)
-
-    TR: was $3,000, now $3,120 → +$120 (note: +$120 not $180; recheck). PED=(60/230)/(-3/13.5)≈26%/22%≈-1.18 (elastic — TR rose consistent with elastic demand below midpoint... check signs).
-
----
-
-## Question 19
-
-*Lesson L04 · Elasticity*
-
-
-At what point on a linear demand curve is total revenue maximised?
-
+(a) Interpret each coefficient $\beta_1, \beta_2, \beta_3, \beta_4$.
+(b) What turning point in experience does the quadratic imply? What does this mean?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Total revenue is maximised at the midpoint of a linear demand curve where |PED|=1 (unit elastic). At this point MR=0 and TR is at its peak.
+    **(a) Interpretations:**
 
-    Above the midpoint demand is elastic (TR rises as P falls); below the midpoint demand is inelastic (TR falls as P falls).
+    - $\beta_1$: An additional year of education raises wages by approximately $100\beta_1\%$, holding experience and union membership constant.
+    - $\beta_2$: The marginal effect of experience on log-wages when $\text{exper} = 0$; the instantaneous return to the first year of experience ($\approx 100\beta_2\%$). Note: the full marginal effect at experience level $e$ is $\beta_2 + 2\beta_3 e$.
+    - $\beta_3$: Captures non-linearity in the experience-wage profile. Expected sign: $\beta_3 < 0$ (diminishing returns — each year of experience adds less as workers age).
+    - $\beta_4$: Union members earn approximately $100\beta_4\%$ more than non-union workers with the same education and experience (the union wage premium).
 
----
+    **(b) Turning point:**
 
-## Question 20
+    $$\text{exper}^* = -\frac{\hat{\beta}_2}{2\hat{\beta}_3}$$
 
-*Lesson L04 · Elasticity*
-
-
-Australian tobacco tax raises the price of cigarettes. The government expects revenue to rise. This implies the government believes demand is:
-
-
-**Type:** Multiple Choice
-
-- **A)** Perfectly elastic
-- **B)** Inelastic — a price rise reduces quantity less than proportionally so TR (and tax revenue) rises
-- **C)** Unit elastic
-- **D)** Perfectly inelastic
-
-??? success "Show Answer"
-    **Answer: B) Inelastic — a price rise reduces quantity less than proportionally so TR (and tax revenue) rises**
-
-    Tax revenue = tax × quantity sold. If demand is inelastic, quantity falls less than price rises → revenue rises. This is the Treasury assumption behind tobacco tax rises.
-
----
-
-## Question 21
-
-*Lesson L05 · Elasticity*
-
-
-Price elasticity of supply (PES) measures:
-
-
-**Type:** Multiple Choice
-
-- **A)** How supply shifts when demand changes
-- **B)** The percentage change in quantity supplied divided by percentage change in price
-- **C)** The slope of the supply curve
-- **D)** How fast firms enter the market
-
-??? success "Show Answer"
-    **Answer: B) The percentage change in quantity supplied divided by percentage change in price**
-
-    PES = %ΔQs/%ΔP. A high PES means suppliers respond strongly to price changes.
-
----
-
-## Question 22
-
-*Lesson L05 · Elasticity*
-
-
-Income elasticity of demand (YED) for a normal good is:
-
-
-**Type:** Multiple Choice
-
-- **A)** Negative
-- **B)** Positive — when income rises demand rises for a normal good
-- **C)** Zero
-- **D)** Greater than 1 always
-
-??? success "Show Answer"
-    **Answer: B) Positive — when income rises demand rises for a normal good**
-
-    YED > 0 for normal goods (income and demand move in the same direction).
-
----
-
-## Question 23
-
-*Lesson L05 · Elasticity*
-
-
-The cross-price elasticity between Coles homebrand and Woolworths homebrand bread is +1.2. This means they are:
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Substitutes
-
-    XED > 0 means the goods are substitutes. A rise in the price of one raises demand for the other.
-
----
-
-## Question 24
-
-*Lesson L05 · Elasticity*
-
-
-Explain why housing supply in Sydney is relatively price inelastic.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Housing supply is inelastic because construction takes time (planning approvals, building), land in desirable areas is scarce and fixed, and zoning regulations restrict density. Suppliers cannot quickly increase quantity even when prices rise significantly.
-
-    Physical and regulatory constraints limit the supply response in the short to medium run.
-
----
-
-## Question 25
-
-*Lesson L05 · Elasticity*
-
-
-A 10% rise in avocado prices leads to a 15% rise in demand for hummus (a complement ingredient). Calculate the cross-price elasticity and interpret.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** XED = +1.5 (substitutes? wait — hummus and avocado are complements not substitutes)
-
-    XED = +15%/+10% = +1.5. But avocado and hummus are complements — if avocado price rises and hummus demand also rises this seems odd. More likely they are substitutes on toast. XED > 0 → substitutes.
-
----
-
-## Question 26
-
-*Lesson L06 · Elasticity*
-
-
-A $10 per unit tax is imposed. If demand elasticity is -0.5 and supply elasticity is +2.0, who bears the larger share of the tax?
-
-
-**Type:** Multiple Choice
-
-- **A)** Producers
-- **B)** Consumers — less elastic side bears more
-- **C)** Split equally
-- **D)** Government bears the tax
-
-??? success "Show Answer"
-    **Answer: B) Consumers — less elastic side bears more**
-
-    Consumers (|PED|=0.5) are less elastic than producers (PES=2.0) so consumers bear the larger share: consumer share ≈ PES/(PES+|PED|) = 2/2.5 = 80%.
-
----
-
-## Question 27
-
-*Lesson L06 · Elasticity*
-
-
-Australia's tobacco excise raises cigarette prices by ~$0.80/cigarette. If a pack of 20 costs $50 and annual consumption is 3 billion packs, calculate annual excise revenue.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $48bn
-
-    Excise per pack = 20 × $0.80 = $16. Revenue = $16 × 3bn = $48bn. (Note: approximate; actual revenue ~$12bn suggesting lower pack consumption.)
-
----
-
-## Question 28
-
-*Lesson L06 · Elasticity*
-
-
-Sydney's housing supply is price inelastic and demand rises. Who gains most from the demand increase?
-
-
-**Type:** Multiple Choice
-
-- **A)** Buyers
-- **B)** Sellers/landowners — with inelastic supply most of the demand-driven price rise accrues to suppliers
-- **C)** Both equally
-- **D)** Government via stamp duty
-
-??? success "Show Answer"
-    **Answer: B) Sellers/landowners — with inelastic supply most of the demand-driven price rise accrues to suppliers**
-
-    Inelastic supply means suppliers cannot expand quantity much — most of the price rise from increased demand accrues to existing suppliers (landowners).
-
----
-
-## Question 29
-
-*Lesson L06 · Elasticity*
-
-
-A carbon tax of $30/tonne is applied to electricity generation. If electricity demand is inelastic (|PED|=0.2) describe the likely welfare effects.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Most of the tax is passed to consumers (inelastic demand → consumers pay ~80% of tax). Consumer surplus falls substantially. Producer surplus falls modestly. DWL is small because quantity barely changes. Revenue raised is large.
-
-    Inelastic demand → large revenue, small DWL, large consumer burden.
-
----
-
-## Question 30
-
-*Lesson L06 · Elasticity*
-
-
-Why do economists generally prefer a broad-based tax (like GST) over a narrow excise for revenue purposes?
-
-
-**Type:** Multiple Choice
-
-- **A)** GST raises less revenue
-- **B)** Broad-based taxes spread the burden across many goods creating less distortion per dollar of revenue than narrow taxes which concentrate the burden on one good
-- **C)** Excise taxes are unconstitutional
-- **D)** Narrow taxes encourage more saving
-
-??? success "Show Answer"
-    **Answer: B) Broad-based taxes spread the burden across many goods creating less distortion per dollar of revenue than narrow taxes which concentrate the burden on one good**
-
-    A broad-based tax has lower DWL per dollar of revenue because each good faces a smaller rate — the efficiency cost rises with the square of the tax rate.
-
----
+    This is the experience level at which wages peak (if $\hat{\beta}_3 < 0$). For example, if $\hat{\beta}_2 = 0.04$ and $\hat{\beta}_3 = -0.0007$, then $\text{exper}^* = 0.04 / (2 \times 0.0007) \approx 28.6$ years. Workers with more than ~29 years of experience see declining log-wages — consistent with the Mincer earnings profile observed in Australian labour force data.

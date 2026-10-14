@@ -1,504 +1,304 @@
-# Module M06 Quiz: Market Equilibrium and Perfect Competition
+# Module M06 Quiz: Heteroskedasticity
 
-*25 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*14 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. For test questions, state H₀, test statistic, critical value, and conclusion.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · Definition*
 
-
-Which market structure has the most firms?
-
+Heteroskedasticity violates which Gauss-Markov assumption?
 
 **Type:** Multiple Choice
 
-- **A)** Oligopoly
-- **B)** Monopoly
-- **C)** Perfect competition
-- **D)** Monopolistic competition
+- **A)** MLR.1 — Linearity in parameters
+- **B)** MLR.4 — Zero conditional mean $E(u|\mathbf{x}) = 0$
+- **C)** MLR.5 — Homoskedasticity $\text{Var}(u|\mathbf{x}) = \sigma^2$
+- **D)** MLR.3 — No perfect multicollinearity
 
 ??? success "Show Answer"
-    **Answer: C) Perfect competition**
+    **Answer: C**
 
-    Perfect competition has a very large number of small price-taking firms — the defining characteristic.
+    **Homoskedasticity (MLR.5)** requires $\text{Var}(u_i | \mathbf{x}_i) = \sigma^2$ — constant error variance across all observations. **Heteroskedasticity** means $\text{Var}(u_i | \mathbf{x}_i) = \sigma_i^2$ varies with $i$ (depends on the regressors or observation characteristics). This leaves OLS unbiased and consistent (MLR.4 is intact), but violates the efficiency condition needed for Gauss-Markov.
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · Consequences*
 
-
-Monopolistic competition differs from perfect competition mainly because:
-
+When heteroskedasticity is present, OLS:
 
 **Type:** Multiple Choice
 
-- **A)** Entry is blocked
-- **B)** Products are differentiated — each firm has some pricing power over its unique product
-- **C)** There are few firms
-- **D)** Firms make economic profit in the long run
+- **A)** Is biased and inconsistent
+- **B)** Is unbiased and consistent, but no longer BLUE; standard errors are incorrect, invalidating t and F tests
+- **C)** Is still BLUE — heteroskedasticity only affects efficiency, not inference
+- **D)** Produces coefficients that are too large in absolute value
 
 ??? success "Show Answer"
-    **Answer: B) Products are differentiated — each firm has some pricing power over its unique product**
+    **Answer: B**
 
-    Monopolistic competition: many firms but differentiated products (brand, style, location) give each some monopoly-like pricing power.
+    Since heteroskedasticity does not violate MLR.1–MLR.4, OLS remains **unbiased** ($E(\hat{\beta}|X) = \beta$) and **consistent**. However:
+
+    1. OLS is **no longer BLUE** — it is no longer the minimum-variance linear unbiased estimator (WLS with correct weights beats it).
+    2. The standard OLS standard error formulas assume homoskedasticity; with heteroskedasticity they are **biased** → t-statistics and F-statistics are invalid → confidence intervals and hypothesis tests are unreliable (typically too narrow → inflated Type I error).
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Market Structure*
+*Lesson L01 · Detection*
 
-
-Australia has four major banks (CBA, NAB, ANZ, Westpac) with combined market share >75%. This is:
-
+A residual plot shows residuals fanning out (increasing spread) as fitted values $\hat{y}$ increase. This pattern suggests:
 
 **Type:** Multiple Choice
 
-- **A)** Perfect competition
-- **B)** Monopoly
-- **C)** Oligopoly
-- **D)** Monopolistic competition
+- **A)** Serial correlation — errors are correlated across observations
+- **B)** Heteroskedasticity — error variance increases with the level of the fitted value
+- **C)** Omitted variable bias — a relevant variable is missing
+- **D)** Perfect multicollinearity among the regressors
 
 ??? success "Show Answer"
-    **Answer: C) Oligopoly**
+    **Answer: B**
 
-    A few large firms with strategic interdependence and significant market share = oligopoly.
+    A **fan pattern** (residuals spread wider at higher fitted values) is the classic visual signature of heteroskedasticity where $\text{Var}(u_i) \propto \hat{y}_i$ or some function of the regressors. Common causes: wage data (high earners have more earnings variability), firm-level data (larger firms have larger absolute errors), cross-country data (larger economies have more variable growth). The remedy is robust standard errors or WLS.
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Market Structure*
+*Lesson L02 · Breusch-Pagan Test*
 
-
-What is a contestable market and why does it limit monopoly pricing?
-
+Describe the Breusch-Pagan (BP) test for heteroskedasticity step by step.
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** A contestable market is one with free entry and exit even if currently served by one firm. The threat of entry by rivals disciplines pricing — if the monopolist charges above costs, a new firm will enter and undercut them.
+    **Steps:**
 
-    The discipline of potential competition can be as effective as actual competition.
+    1. Estimate the original regression by OLS: $y = X\beta + u$. Obtain residuals $\hat{u}_i$.
+    2. Compute squared residuals $\hat{u}_i^2$.
+    3. Regress $\hat{u}_i^2$ on the original regressors $x_1, \ldots, x_k$ (and a constant): $\hat{u}_i^2 = \delta_0 + \delta_1 x_{i1} + \cdots + \delta_k x_{ik} + v_i$.
+    4. Compute the **LM statistic**: $LM = n \cdot R^2_{\hat{u}^2}$ where $R^2_{\hat{u}^2}$ is the $R^2$ from the auxiliary regression.
+    5. Under $H_0$ (homoskedasticity), $LM \sim \chi^2_k$ asymptotically.
+    6. Reject $H_0$ if $LM > \chi^2_{k, \alpha}$.
+
+    **$H_0$:** $\delta_1 = \delta_2 = \cdots = \delta_k = 0$ (error variance does not depend on regressors).
+
+    The BP test assumes heteroskedasticity is a **linear function** of the regressors. If the true form is nonlinear, the White test (which adds squared and cross terms) has more power.
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Market Structure*
+*Lesson L02 · BP Test Calculation*
 
+**[Calculation]** You run the auxiliary regression of $\hat{u}_i^2$ on $x_1$ and $x_2$ with $n = 200$ observations. The auxiliary regression gives $R^2 = 0.08$. Test for heteroskedasticity at the 5% level. $\chi^2_{2, 0.05} = 5.99$.
 
-Which market structure is most likely to achieve both allocative and productive efficiency in long-run equilibrium?
-
-
-**Type:** Multiple Choice
-
-- **A)** Monopoly
-- **B)** Oligopoly
-- **C)** Perfect competition — P=MC=min ATC in long run
-- **D)** Monopolistic competition
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: C) Perfect competition — P=MC=min ATC in long run**
+    $$LM = n \cdot R^2 = 200 \times 0.08 = \mathbf{16.0}$$
 
-    In perfect competition long-run equilibrium P=MC (allocative) and P=min ATC (productive) — both efficiency conditions are satisfied.
+    Since $LM = 16.0 > \chi^2_{2, 0.05} = 5.99$, **reject $H_0$** at the 5% level. There is statistically significant evidence of heteroskedasticity. OLS standard errors are unreliable — use robust (HC) standard errors or WLS.
+
+    Note: $k = 2$ regressors (not counting the intercept in the auxiliary regression), so df = 2.
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Market Structure*
+*Lesson L02 · White vs BP*
 
+What is the key difference between the White test and the Breusch-Pagan test? When would you prefer the White test?
 
-In perfect competition, the demand curve facing an individual firm is:
-
-
-**Type:** Multiple Choice
-
-- **A)** Downward sloping like the market demand
-- **B)** Perfectly horizontal at the market price (P = AR = MR)
-- **C)** Upward sloping
-- **D)** Vertical
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Perfectly horizontal at the market price (P = AR = MR)**
+    **Key difference:** The Breusch-Pagan test assumes heteroskedasticity is a **linear function** of the regressors ($\text{Var}(u_i) = \sigma^2 h(\delta_0 + \delta_1 x_1 + \cdots + \delta_k x_k)$). The **White test** is more general — it adds **squared terms** and **cross-products** of all regressors to the auxiliary regression, allowing for nonlinear heteroskedasticity.
 
-    A price-taking firm can sell any quantity at the market price — it faces a horizontal demand curve at P*.
+    **Prefer the White test when:**
+    - You suspect nonlinear heteroskedasticity (e.g. variance proportional to $x^2$)
+    - You are unsure of the functional form of the heteroskedasticity
+    - After a BP test that fails to reject, if the residual plot still suggests a problem
+
+    **Cost of White test:** Uses more degrees of freedom (with $k$ regressors: $2k + \binom{k}{2}$ terms in the auxiliary regression), reducing power in small samples. The BP test is preferred when the functional form of heteroskedasticity is known or suspected to be linear.
+
+    *(Adapted from MIT 14.32 rec_4_20: "There is no universally better test — BP is better when the linear functional form is correct; White is better when nonlinear heteroskedasticity is present.")*
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Market Structure*
+*Lesson L02 · White Test Degrees of Freedom*
 
+**[Calculation]** With $k = 2$ original regressors, the White test auxiliary regression includes: the 2 original regressors, their squares ($x_1^2$, $x_2^2$), and their cross-product ($x_1 x_2$). How many regressors (excluding the intercept) are in the White auxiliary regression?
 
-For a perfectly competitive firm P = AR = MR because:
-
-
-**Type:** Multiple Choice
-
-- **A)** It has market power
-- **B)** Each extra unit sold earns exactly the market price — the firm can sell any amount without affecting price
-- **C)** Government sets price equal to average revenue
-- **D)** Firms collude on price
+**Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer: B) Each extra unit sold earns exactly the market price — the firm can sell any amount without affecting price**
+    - Original regressors: $x_1$, $x_2$ → **2 terms**
+    - Squared terms: $x_1^2$, $x_2^2$ → **2 terms**
+    - Cross-product: $x_1 x_2$ → **1 term**
 
-    As a price taker, the firm sells each unit at P. Total revenue = P×Q, so MR = P and AR = P always.
+    **Total = 5 terms** → degrees of freedom for the $\chi^2$ test: $df = 5$.
+
+    General formula for $k$ regressors: $k + k + \binom{k}{2} = 2k + k(k-1)/2$ terms. For $k=3$: $6 + 3 = 9$ terms. This rapid growth in df explains why the White test loses power quickly as $k$ increases.
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Market Structure*
+*Lesson L03 · Robust Standard Errors*
 
+Robust (heteroskedasticity-consistent / HC) standard errors fix the **inference** problem from heteroskedasticity but not the **efficiency** problem. Explain why.
 
-Market price is $25. A wheat farmer's MC at Q=500 tonnes is $20 and at Q=520 is $28. What is the profit-maximising output?
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** Between 500 and 520 tonnes (approximately 510)
+    **Fixing inference:** Robust (White/Huber-Eicker) SEs use a consistent estimator of $\text{Var}(\hat{\beta}|X)$ that remains valid under any form of heteroskedasticity: $\widehat{\text{Var}}(\hat{\beta}) = (X'X)^{-1} \left(\sum \hat{u}_i^2 x_i x_i'\right) (X'X)^{-1}$. Using these SEs for t and F tests gives asymptotically correct inference.
 
-    Profit max: MC=P=$25. Since MC=$20 at Q=500 (< P, expand) and MC=$28 at Q=520 (> P, contract), Q* lies between 500-520, approximately where MC=$25.
+    **Not fixing efficiency:** Robust SEs still use **OLS point estimates** $\hat{\beta}$. OLS is no longer BLUE under heteroskedasticity — WLS with weights $1/\sigma_i$ would give more precise (lower-variance) estimates. Robust SEs simply correct the reported uncertainty around the (inefficient) OLS estimates. They do not change $\hat{\beta}$ itself.
+
+    **Practical implication:** When heteroskedasticity is suspected, always report robust SEs. But if the form of heteroskedasticity is known, use WLS for efficiency gains.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Market Structure*
+*Lesson L03 · When to Use Robust SEs*
 
+You run a regression and suspect heteroskedasticity but are unsure of its form. Which SEs should you report?
 
-Name two real-world markets that approximate perfect competition and explain why.
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** OLS SEs — they are always valid with large samples
+- **B)** Robust (HC) SEs — valid asymptotically under any form of heteroskedasticity
+- **C)** WLS SEs — always more efficient than OLS
+- **D)** Bootstrap SEs — always preferred over asymptotic SEs
 
 ??? success "Show Answer"
-    **Answer:** 1. Wheat/grain markets — many small farmers selling a homogeneous product with prices set on commodity exchanges. 2. ASX share trading — many buyers and sellers of identical shares with publicly observable prices.
+    **Answer: B**
 
-    Both have many participants, standardised products, and price-taking behaviour.
+    When the form of heteroskedasticity is **unknown**, robust (HC) SEs are the safe default. They are valid asymptotically regardless of the heteroskedasticity pattern. OLS SEs (Answer A) are invalid under heteroskedasticity even in large samples — they are biased, not just imprecise. WLS (C) requires knowing the form of heteroskedasticity to choose correct weights; misspecifying the weights can make things worse. Bootstrap SEs (D) are a good alternative but computationally intensive and not always needed.
+
+    **Modern practice:** Most applied econometricians report robust SEs by default, even when heteroskedasticity is not confirmed — the cost is negligible (slightly less power under homoskedasticity) and the protection against invalid inference is valuable.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Market Structure*
+*Lesson L04 · WLS Weights*
 
-
-Why does the market demand curve slope downward even though each individual firm faces a horizontal demand curve?
-
+If $\text{Var}(u_i) = \sigma^2 \cdot x_i$ (error variance proportional to $x_i$), what weight should observation $i$ receive in WLS?
 
 **Type:** Multiple Choice
 
-- **A)** It is a contradiction — they cannot both be true
-- **B)** Market demand aggregates all consumers' behaviour — the market price must fall to induce more total consumption, even though each firm takes the market price as given
-- **C)** Individual firms control the market price
-- **D)** Market demand is always steeper than individual demand
+- **A)** $w_i = x_i$
+- **B)** $w_i = 1/x_i$
+- **C)** $w_i = \sqrt{x_i}$
+- **D)** $w_i = 1/\sqrt{x_i}$
 
 ??? success "Show Answer"
-    **Answer: B) Market demand aggregates all consumers' behaviour — the market price must fall to induce more total consumption, even though each firm takes the market price as given**
+    **Answer: B — $w_i = 1/x_i$**
 
-    There is no contradiction: the market demand is the aggregate of all consumers while the firm's demand is the price signal it receives from the market.
+    WLS multiplies each observation by $1/\sqrt{h_i}$ (transforming the equation), where $\text{Var}(u_i) = \sigma^2 h_i$. Here $h_i = x_i$, so the **weight** applied in WLS is $w_i = 1/h_i = 1/x_i$.
+
+    After weighting: $\tilde{y}_i = y_i/\sqrt{x_i}$, $\tilde{x}_i = x_i/\sqrt{x_i} = \sqrt{x_i}$, $\tilde{u}_i = u_i/\sqrt{x_i}$. Then $\text{Var}(\tilde{u}_i) = \sigma^2 x_i / x_i = \sigma^2$ — homoskedastic. OLS on the transformed model is equivalent to WLS and is now BLUE.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Market Structure*
+*Lesson L04 · FGLS*
 
-
-The profit-maximisation condition MR=MC means:
-
+In Feasible GLS (FGLS), you estimate $\ln(\hat{u}_i^2) = \delta_0 + \delta_1 x_{i1} + \delta_2 x_{i2} + v_i$ and obtain fitted values $\hat{g}_i$. You then set $\hat{h}_i = e^{\hat{g}_i}$. What weight do you use in the subsequent WLS step?
 
 **Type:** Multiple Choice
 
-- **A)** The firm earns zero profit
-- **B)** The firm expands output as long as the extra revenue from one more unit exceeds the extra cost, stopping when they are equal
-- **C)** Marginal cost equals average cost
-- **D)** The firm always maximises revenue
+- **A)** $w_i = \hat{h}_i$
+- **B)** $w_i = 1/\hat{h}_i$
+- **C)** $w_i = \ln(\hat{h}_i)$
+- **D)** $w_i = \sqrt{\hat{h}_i}$
 
 ??? success "Show Answer"
-    **Answer: B) The firm expands output as long as the extra revenue from one more unit exceeds the extra cost, stopping when they are equal**
+    **Answer: B — $w_i = 1/\hat{h}_i$**
 
-    If MR>MC, an extra unit adds more to revenue than cost — expand. If MR<MC, an extra unit adds more to cost — contract. Profit is maximised at MR=MC.
+    The auxiliary log-regression estimates $\ln(\text{Var}(u_i)) \approx \hat{g}_i$, so $\hat{h}_i = e^{\hat{g}_i}$ estimates $\text{Var}(u_i)/\sigma^2$. WLS requires weighting by the inverse of the estimated variance: $w_i = 1/\hat{h}_i$. This is FGLS — it is efficient when the model for $h_i$ is correct, and is asymptotically as efficient as GLS with known $h_i$. In practice, FGLS beats OLS (more efficient) but is less reliable than robust SEs when the heteroskedasticity model is misspecified.
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Market Structure*
+*Lesson L02 · MIT-Style Comparison*
 
+**[Short Answer — adapted from MIT 14.32 rec_4_20]** "Which is better — the Breusch-Pagan test or the White test?" Give a balanced answer.
 
-P=$40, ATC=$35 at Q*=100 units. Calculate total profit.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** $500
+    **Neither is universally better** — each has advantages:
 
-    Profit=(P-ATC)×Q=(40-35)×100=$500
+    **BP test advantages:**
+    - More powerful when heteroskedasticity is actually a linear function of the regressors
+    - Uses fewer degrees of freedom → more power in small samples
+    - Simpler to implement and interpret
+
+    **White test advantages:**
+    - More general — detects nonlinear heteroskedasticity that BP misses
+    - Also detects certain specification errors (since the White test statistic is related to the general test for misspecification)
+    - Does not require prior knowledge of the heteroskedasticity's functional form
+
+    **Practical recommendation:** Run BP first. If rejected, heteroskedasticity is confirmed. If not rejected but the residual plot looks suspicious, run the White test as a robustness check. Regardless of test results, in applied work it is now standard to report robust SEs — making the test results less critical for inference (though still important for understanding the data structure).
 
 ---
 
 ## Question 13
 
-*Lesson L03 · Market Structure*
+*Lesson L01 · Log Transformation*
 
+Wages are often modelled as $\ln(\text{wage})$ rather than wage levels. Why does taking logs reduce heteroskedasticity?
 
-P=$40, ATC=$35, AVC=$28, TFC=$700, Q*=100. Calculate total fixed costs as a share of total cost.
-
-
-**Type:** Calculation
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** 20%
+    **Log transformation compresses the scale** of the dependent variable, which tends to reduce heteroskedasticity when the variance of the outcome grows with its level.
 
-    TC=ATC×Q=$3,500. TFC=$700. Share=700/3500=20%
+    **Mechanism:** If $\text{Var}(y_i) \propto \mu_i^2$ (i.e. a constant *coefficient of variation*), then $\text{Var}(\ln y_i) \approx \text{Var}(y_i)/\mu_i^2 \approx $ constant — homoskedastic. This is exactly the case for wages: high earners have higher *absolute* variance but similar *proportional* variability. The log transformation effectively converts absolute dispersion to proportional dispersion.
+
+    Additionally, log-wages are more normally distributed than levels (wages are right-skewed), which validates the normality assumption for exact finite-sample inference.
 
 ---
 
 ## Question 14
 
-*Lesson L03 · Market Structure*
+*Lesson L03 · ECMT5001-Style*
 
+**[Short Answer + Calculation]** A regression of house prices on income and household size gives:
 
-A firm's MC=$50 and MR=$60 at current output. What should it do?
+| | Coefficient | OLS SE | Robust SE |
+|--|--|--|--|
+| Intercept | 120,000 | 35,000 | 48,000 |
+| Income | 3,840 | 1,200 | 1,670 |
+| Household size | −8,000 | 2,500 | 3,200 |
 
+(a) Calculate the t-statistics using OLS SEs and robust SEs for the income coefficient.
+(b) Is the income effect still significant at 5% under robust SEs? (Critical value $\approx 1.96$.)
+(c) What does the change in SEs suggest about the data?
 
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Expand output. Since MR>MC, producing one more unit adds $60 to revenue but only $50 to costs — a net gain of $10. The firm should keep expanding until MR=MC.
-
-    When MR>MC, expanding output increases profit.
-
----
-
-## Question 15
-
-*Lesson L03 · Market Structure*
-
-
-Alternative firm objectives include revenue maximisation. A revenue-maximising firm produces where:
-
-
-**Type:** Multiple Choice
-
-- **A)** MR=MC
-- **B)** MR=0 (sells as long as MR is positive)
-- **C)** P=ATC
-- **D)** MC=0
+**Type:** Short Answer + Calculation
 
 ??? success "Show Answer"
-    **Answer: B) MR=0 (sells as long as MR is positive)**
+    **(a) t-statistics for income:**
 
-    Revenue is maximised where MR=0 (unit elastic demand). This typically means higher output and lower price than profit maximisation.
+    - OLS: $t = 3840/1200 = \mathbf{3.20}$
+    - Robust: $t = 3840/1670 = \mathbf{2.30}$
 
----
+    **(b)** Since robust $|t| = 2.30 > 1.96$, the income effect is **still significant at 5%** under robust SEs — though less convincingly so (it would not be significant at 1% with the robust SE).
 
-## Question 16
-
-*Lesson L04 · Market Structure*
-
-
-A firm should shut down in the short run if:
-
-
-**Type:** Multiple Choice
-
-- **A)** It is making zero economic profit
-- **B)** Price falls below average variable cost (P < AVC)
-- **C)** Its fixed costs exceed variable costs
-- **D)** Average total cost exceeds price
-
-??? success "Show Answer"
-    **Answer: B) Price falls below average variable cost (P < AVC)**
-
-    If P < AVC, the firm cannot cover its variable costs — every unit produced deepens the loss beyond the fixed cost loss of shutting down.
-
----
-
-## Question 17
-
-*Lesson L04 · Market Structure*
-
-
-P=$18, AVC=$20, ATC=$28. Should the firm produce or shut down?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Shut down
-
-    P=$18 < AVC=$20 → shut down. The firm loses less by shutting down (loses only TFC) than by producing (loses TFC + per-unit shortfall on AVC).
-
----
-
-## Question 18
-
-*Lesson L04 · Market Structure*
-
-
-P=$25, AVC=$22, ATC=$30, Q*=200. Calculate the firm's loss and compare to shutdown loss.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Loss operating = $1,000; Shutdown loss = TFC = $1,600
-
-    Operating loss=(P-ATC)×Q=(25-30)×200=-$1,000. TFC=(ATC-AVC)×Q=(30-22)×200=$1,600. Since operating loss $1,000 < TFC $1,600 → produce (minimise loss).
-
----
-
-## Question 19
-
-*Lesson L04 · Market Structure*
-
-
-Why are fixed costs irrelevant to the shutdown decision?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Fixed costs are sunk in the short run — the firm pays them whether it produces or not. The relevant comparison is whether revenue covers variable costs. If P≥AVC the firm at least recovers its variable costs and contributes something toward fixed costs.
-
-    Only avoidable costs (variable costs) matter for the shutdown decision.
-
----
-
-## Question 20
-
-*Lesson L04 · Market Structure*
-
-
-The short-run supply curve of a perfectly competitive firm is:
-
-
-**Type:** Multiple Choice
-
-- **A)** The entire MC curve
-- **B)** The MC curve above the AVC curve
-- **C)** The ATC curve
-- **D)** The AVC curve
-
-??? success "Show Answer"
-    **Answer: B) The MC curve above the AVC curve**
-
-    The firm supplies only if P≥AVC. Below that price it shuts down. So supply = MC curve above AVC.
-
----
-
-## Question 21
-
-*Lesson L05 · Market Structure*
-
-
-In long-run equilibrium in perfect competition, economic profit equals:
-
-
-**Type:** Multiple Choice
-
-- **A)** Maximum possible profit
-- **B)** Zero — entry of new firms drives price down to min ATC
-- **C)** A normal rate of return above zero
-- **D)** Whatever the firm desires
-
-??? success "Show Answer"
-    **Answer: B) Zero — entry of new firms drives price down to min ATC**
-
-    Economic profit attracts entry → supply increases → price falls → economic profit → zero. Long-run: P=min ATC=MC, zero economic profit.
-
----
-
-## Question 22
-
-*Lesson L05 · Market Structure*
-
-
-If existing firms are earning economic losses in a competitive industry, in the long run:
-
-
-**Type:** Multiple Choice
-
-- **A)** They all immediately close
-- **B)** Some firms exit → supply decreases → price rises → remaining firms return to normal profit
-- **C)** Government subsidises the losses
-- **D)** Consumers must pay higher prices permanently
-
-??? success "Show Answer"
-    **Answer: B) Some firms exit → supply decreases → price rises → remaining firms return to normal profit**
-
-    Losses trigger exit → supply falls → price rises until remaining firms break even. The market self-corrects.
-
----
-
-## Question 23
-
-*Lesson L05 · Market Structure*
-
-
-In long-run competitive equilibrium P=$45 and min ATC=$45. If demand rises shifting equilibrium to P=$55, describe the adjustment.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** New entry; price returns to $45 in long run
-
-    At P=$55, firms earn $55-$45=$10 economic profit per unit. New firms enter, supply increases, price falls back toward $45 (min ATC) in the long run.
-
----
-
-## Question 24
-
-*Lesson L05 · Market Structure*
-
-
-Zero economic profit in long-run competitive equilibrium does not mean firms earn no accounting profit. Explain.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** Economic profit subtracts the opportunity cost of all inputs including the owner's capital and time. Zero economic profit means the firm earns exactly its opportunity cost — a normal return. Accounting profit ignores implicit opportunity costs so it may be positive.
-
-    Normal profit = accounting profit - implicit costs. Zero economic profit = normal (accounting) profit.
-
----
-
-## Question 25
-
-*Lesson L05 · Market Structure*
-
-
-Perfect competition in the long run achieves which efficiency conditions simultaneously?
-
-
-**Type:** Multiple Choice
-
-- **A)** Allocative efficiency only (P=MC)
-- **B)** Productive efficiency only (P=min ATC)
-- **C)** Both allocative (P=MC) and productive (P=min ATC) efficiency
-- **D)** Neither — perfect competition is inefficient
-
-??? success "Show Answer"
-    **Answer: C) Both allocative (P=MC) and productive (P=min ATC) efficiency**
-
-    Long-run competitive equilibrium: P=MC=min ATC. Both allocative and productive efficiency are achieved simultaneously.
-
----
+    **(c)** The robust SEs are substantially larger than OLS SEs (income SE: 1670 vs 1200, a 39% increase; household size: 3200 vs 2500, a 28% increase). This is strong evidence of **heteroskedasticity**: the OLS SEs understate the true sampling variability, making OLS t-tests too liberal (over-rejecting). In house price data, this is common — variance in prices tends to be higher for higher-income households (greater dispersion in luxury spending). Reports should use robust SEs; WLS could improve efficiency if the form of heteroskedasticity can be modelled.

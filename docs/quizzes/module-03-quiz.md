@@ -1,504 +1,318 @@
-# Module M03 Quiz: Production and Costs
+# Module M03 Quiz: Multiple Regression
 
-*25 questions · Introductory · Mix of multiple choice, calculation, and short answer*
-
+*16 questions · Graduate (ECMT5001) · MCQ, calculation, short answer*
 
 !!! tip "How to use"
-    Attempt each question before clicking **Show Answer**. For calculation questions, write out your working first.
+    Attempt each question before clicking **Show Answer**. Write out your working for calculation questions.
 
 ---
 
 ## Question 1
 
-*Lesson L01 · Costs*
+*Lesson L01 · Interpretation*
 
-
-Marginal product of labour (MPL) is defined as:
-
+In the multiple regression $\ln(\text{wage}) = \beta_0 + \beta_1 \text{educ} + \beta_2 \text{exper} + u$, the coefficient $\beta_1$ represents:
 
 **Type:** Multiple Choice
 
-- **A)** Total output divided by number of workers
-- **B)** The change in total output from hiring one more worker
-- **C)** The wage paid to the last worker hired
-- **D)** Average output per worker
+- **A)** The simple correlation between education and log-wages
+- **B)** The change in log-wages for one additional year of education, holding experience constant (ceteris paribus)
+- **C)** The total effect of education on wages, including its effect through experience
+- **D)** The average log-wage for a worker with zero education
 
 ??? success "Show Answer"
-    **Answer: B) The change in total output from hiring one more worker**
+    **Answer: B**
 
-    MPL = ΔTP/ΔL — the additional output from one more unit of labour, holding other inputs fixed.
+    The ceteris paribus interpretation: $\beta_1$ measures the effect of education on log-wages *holding all other regressors (here, experience) fixed*. This is the whole point of multiple regression — isolating the partial effect of one variable while controlling for others. The Frisch-Waugh-Lovell theorem shows this is literally the slope from regressing wages (residualised on experience) on education (residualised on experience).
 
 ---
 
 ## Question 2
 
-*Lesson L01 · Costs*
+*Lesson L04 · Omitted Variable Bias*
 
-
-When marginal product is above average product, average product is:
-
+A researcher regresses wages on education only, omitting ability. Ability is positively correlated with education and positively affects wages. The bias in $\hat{\beta}_\text{educ}$ is:
 
 **Type:** Multiple Choice
 
-- **A)** Falling
-- **B)** Rising — the marginal unit pulls the average up
-- **C)** Constant
-- **D)** Zero
+- **A)** Downward — the estimated return to education is too low
+- **B)** Upward — the estimated return to education is too high
+- **C)** Zero — omitting variables never causes bias if the sample is large
+- **D)** Ambiguous — we cannot determine the direction without data
 
 ??? success "Show Answer"
-    **Answer: B) Rising — the marginal unit pulls the average up**
+    **Answer: B**
 
-    When MPL > APL, each new worker contributes more than the current average, pulling the average up — same logic as batting averages.
+    OVB formula: $\tilde{\beta}_1 = \beta_1 + \beta_2 \cdot \delta_{12}$ where $\delta_{12} = \text{Cov}(\text{ability}, \text{educ})/\text{Var}(\text{educ}) > 0$ (ability positively correlated with education) and $\beta_2 > 0$ (ability raises wages). So $\tilde{\beta}_1 > \beta_1$ — the estimated return to education is **upward biased**. Part of what looks like a "return to education" is actually the return to unobserved ability.
 
 ---
 
 ## Question 3
 
-*Lesson L01 · Costs*
+*Lesson L04 · OVB Formula*
 
-
-A wheat farm employs 3 workers producing 90 tonnes. A 4th worker raises output to 112 tonnes. Calculate MPL for the 4th worker.
-
+**[Calculation]** The OVB formula is $\tilde{\beta}_1 = \beta_1 + \beta_2 \cdot \delta_{12}$. Given: true $\beta_1 = 0.08$ (education effect), $\beta_2 = 0.05$ (ability effect), $\delta_{12} = 0.6$ (slope from regressing ability on education). What is $\tilde{\beta}_1$?
 
 **Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** 22 tonnes
+    $$\tilde{\beta}_1 = \beta_1 + \beta_2 \cdot \delta_{12} = 0.08 + 0.05 \times 0.6 = 0.08 + 0.03 = \mathbf{0.11}$$
 
-    MPL = ΔTP/ΔL = (112-90)/(4-3) = 22 tonnes.
+    The simple regression overstates the education return by 0.03 — about 38% inflation. This is a substantial bias in practice, explaining why education returns estimated without ability controls tend to be higher than those from natural experiments (IV) that arguably hold ability constant.
 
 ---
 
 ## Question 4
 
-*Lesson L01 · Costs*
+*Lesson L04 · OVB Direction*
 
+In the OVB formula $\tilde{\beta}_1 = \beta_1 + \beta_2 \delta_{12}$, if $\text{Corr}(x_2, x_1) < 0$ and $\beta_2 > 0$, the bias is:
 
-Explain the difference between the short run and long run in production theory.
+**Type:** Multiple Choice
 
-
-**Type:** Short Answer
+- **A)** Upward ($\tilde{\beta}_1 > \beta_1$)
+- **B)** Downward ($\tilde{\beta}_1 < \beta_1$)
+- **C)** Zero
+- **D)** Indeterminate
 
 ??? success "Show Answer"
-    **Answer:** In the short run at least one input (usually capital) is fixed and cannot be changed. In the long run all inputs are variable — the firm can adjust capital, labour, and other factors.
+    **Answer: B**
 
-    The short/long run distinction is about the flexibility of inputs, not a fixed calendar period.
+    $\delta_{12} < 0$ (negative correlation between $x_2$ and $x_1$) and $\beta_2 > 0 \Rightarrow \beta_2 \cdot \delta_{12} < 0 \Rightarrow \tilde{\beta}_1 < \beta_1$: **downward bias**. Full OVB direction table:
+
+    | $\text{Corr}(x_2, x_1)$ | $\beta_2 > 0$ | $\beta_2 < 0$ |
+    |---|---|---|
+    | Positive | Upward bias | Downward bias |
+    | Negative | Downward bias | Upward bias |
 
 ---
 
 ## Question 5
 
-*Lesson L01 · Costs*
+*Lesson L01 · Multicollinearity*
 
-
-Average product of labour (APL) is maximised when:
-
+If two regressors are **perfectly** collinear (e.g. $x_2 = 3x_1$), OLS:
 
 **Type:** Multiple Choice
 
-- **A)** Total product is maximised
-- **B)** MPL = APL (marginal product equals average product)
-- **C)** MPL is maximised
-- **D)** Total product begins to fall
+- **A)** Produces estimates with very large standard errors
+- **B)** Is undefined — $(X'X)$ is singular and cannot be inverted
+- **C)** Produces unbiased but imprecise estimates
+- **D)** Automatically drops the collinear regressor
 
 ??? success "Show Answer"
-    **Answer: B) MPL = APL (marginal product equals average product)**
+    **Answer: B**
 
-    APL is maximised at the point where the MPL curve crosses the APL curve from above.
+    Perfect multicollinearity violates MLR.3 (no perfect linear relationships among regressors). The matrix $X'X$ becomes singular (rank-deficient) and cannot be inverted, so $\hat{\beta} = (X'X)^{-1}X'y$ is undefined. Statistical software will typically drop one of the collinear columns and warn you. *Near* perfect multicollinearity (high but not perfect correlation) is handled differently — OLS works but estimates have very large standard errors.
 
 ---
 
 ## Question 6
 
-*Lesson L02 · Costs*
+*Lesson L03 · MLR.3 Assumption*
 
+Give a concrete example where perfect multicollinearity would arise due to the dummy variable trap.
 
-The law of diminishing marginal returns states that as more of a variable input is added to a fixed input:
-
-
-**Type:** Multiple Choice
-
-- **A)** Total output eventually falls to zero
-- **B)** Marginal product of the variable input eventually falls
-- **C)** Average product always rises
-- **D)** Fixed costs increase
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Marginal product of the variable input eventually falls**
-
-    Eventually each additional unit of the variable input adds less to total output — diminishing marginal returns.
+    Suppose you include dummies for **all** seasons: $D_\text{Spring}$, $D_\text{Summer}$, $D_\text{Autumn}$, $D_\text{Winter}$, and also an intercept. Since exactly one season dummy = 1 for every observation: $D_\text{Spring} + D_\text{Summer} + D_\text{Autumn} + D_\text{Winter} = 1$ for all $i$. This is a perfect linear relationship with the intercept column (constant 1). Solution: drop one dummy (the "base group") — include only 3 of 4 season dummies. The omitted category becomes the reference level captured by the intercept.
 
 ---
 
 ## Question 7
 
-*Lesson L02 · Costs*
+*Lesson L05 · Variance Formula*
 
+The variance of $\hat{\beta}_j$ is $\text{Var}(\hat{\beta}_j) = \sigma^2 / [SST_j(1-R_j^2)]$. What is $R_j^2$ and what does $\text{VIF}_j = 1/(1-R_j^2)$ measure?
 
-Diminishing marginal returns occurs in the:
-
-
-**Type:** Multiple Choice
-
-- **A)** Long run when all inputs can vary
-- **B)** Short run when at least one input is fixed
-- **C)** Only in agriculture
-- **D)** Only when workers are unskilled
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) Short run when at least one input is fixed**
+    $R_j^2$ is the **$R^2$ from regressing $x_j$ on all other regressors** in the model. It measures how much of $x_j$'s variation is explained by the other regressors.
 
-    Diminishing marginal returns is a short-run concept — it arises because additional variable inputs are combined with a fixed factor.
+    $\text{VIF}_j$ (Variance Inflation Factor) measures how much the variance of $\hat{\beta}_j$ is **inflated** relative to the case where $x_j$ is uncorrelated with all other regressors ($R_j^2 = 0 \Rightarrow \text{VIF} = 1$).
+
+    - $\text{VIF} = 1$: no multicollinearity
+    - $\text{VIF} = 5$: $\text{Var}(\hat{\beta}_j)$ is 5× what it would be without collinearity; $R_j^2 = 0.8$
+    - $\text{VIF} > 10$: rule-of-thumb threshold for "serious" multicollinearity ($R_j^2 > 0.9$)
 
 ---
 
 ## Question 8
 
-*Lesson L02 · Costs*
+*Lesson L05 · Adding Variables*
 
+If you add an **irrelevant** variable $x_3$ (truly $\beta_3 = 0$ in the population) to a regression, what happens to $\hat{\beta}_1$?
 
-A Pilbara mine has fixed machinery. Workers 1-3 each produce 100 tonnes/day. Worker 4 produces 80, worker 5 produces 50. From which worker do diminishing returns set in?
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** $\hat{\beta}_1$ becomes biased upward
+- **B)** $\hat{\beta}_1$ remains unbiased but its variance increases (or at best stays the same)
+- **C)** $\hat{\beta}_1$ becomes more precise because we have more information
+- **D)** $\hat{\beta}_1$ is inconsistent
 
 ??? success "Show Answer"
-    **Answer:** Worker 4
+    **Answer: B**
 
-    MPL falls from 100 to 80 at worker 4 — diminishing marginal returns begin with the 4th worker.
+    Including an irrelevant variable does not cause bias (since the true $\beta_3 = 0$, there is no OVB from including it). However, $\text{Var}(\hat{\beta}_1)$ increases because: (1) we lose a degree of freedom, and (2) if $x_3$ is correlated with $x_1$, VIF$_1$ rises. This is the bias-variance trade-off in variable selection: omitting a relevant variable causes bias; including an irrelevant one inflates variance. The Gauss-Markov Theorem says OLS is efficient *among correctly specified models*.
 
 ---
 
 ## Question 9
 
-*Lesson L02 · Costs*
+*Lesson L03 · Gauss-Markov*
 
-
-Explain why diminishing marginal returns eventually occur in any production process.
-
+What do the five MLR assumptions (MLR.1–MLR.5) together guarantee?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** As more of a variable input is added to a fixed input, the fixed input becomes a bottleneck. Each additional worker has less of the fixed input (e.g. machinery, land) to work with, so their marginal contribution eventually declines.
-
-    The fixed factor becomes increasingly scarce relative to the variable factor.
+    Under MLR.1–MLR.5 (linearity, random sampling, no perfect multicollinearity, zero conditional mean $E(u|\mathbf{x})=0$, homoskedasticity $\text{Var}(u|\mathbf{x})=\sigma^2$), the **Gauss-Markov Theorem** guarantees that OLS is **BLUE**: the Best Linear Unbiased Estimator. "Best" means minimum variance among all linear unbiased estimators. Adding MLR.6 (normality: $u|\mathbf{x} \sim N(0,\sigma^2)$) upgrades OLS to **BUE** (Best Unbiased Estimator, not just among linear ones) and validates exact $t$ and $F$ tests in finite samples.
 
 ---
 
 ## Question 10
 
-*Lesson L02 · Costs*
+*Lesson L04 · Adjusted R²*
 
-
-Which scenario violates the law of diminishing marginal returns?
-
+Adjusted $R^2 = 1 - \frac{SSR/(n-k-1)}{SST/(n-1)}$. Unlike $R^2$, adjusted $R^2$ can **decrease** when a variable is added. Why?
 
 **Type:** Multiple Choice
 
-- **A)** A farm where each additional worker after the 5th adds less output
-- **B)** A factory where the 10th worker adds less than the 9th
-- **C)** A mine where every additional worker permanently adds more output than the last
-- **D)** A restaurant where cramming more chefs reduces output per chef
+- **A)** Because adjusted $R^2$ is always smaller than $R^2$
+- **B)** Because adding a variable always reduces SSR, but the penalty for the lost degree of freedom ($n-k-1$ shrinks) may outweigh the SSR reduction if the variable adds little explanatory power
+- **C)** Because adjusted $R^2$ is only valid for large samples
+- **D)** It cannot decrease — adding variables always improves model fit
 
 ??? success "Show Answer"
-    **Answer: C) A mine where every additional worker permanently adds more output than the last**
+    **Answer: B**
 
-    Permanently increasing marginal returns would violate the law — in a short-run setting with fixed capital this cannot persist indefinitely.
+    $R^2$ never decreases when a variable is added (SSR can only fall or stay flat). Adjusted $R^2$ imposes a **degrees-of-freedom penalty**: the denominator $n-k-1$ shrinks by 1 each time a variable is added. If the reduction in SSR is small (the variable is nearly irrelevant), the penalty outweighs the gain and adjusted $R^2$ falls. Adjusted $R^2$ provides a better criterion for model selection than $R^2$ because it does not reward adding noise variables.
 
 ---
 
 ## Question 11
 
-*Lesson L03 · Costs*
+*Lesson L05 · FWL Theorem*
 
-
-Average fixed cost (AFC) always:
-
+The Frisch-Waugh-Lovell (FWL) theorem says $\hat{\beta}_1$ from regressing $y$ on $x_1, x_2$ equals the slope from regressing $\tilde{y}$ on $\tilde{x}_1$. What is $\tilde{x}_1$?
 
 **Type:** Multiple Choice
 
-- **A)** Rises as output increases
-- **B)** Falls as output increases — fixed costs are spread over more units
-- **C)** Equals marginal cost
-- **D)** Is U-shaped
+- **A)** $x_1$ standardised to have mean zero and variance one
+- **B)** The residuals from regressing $x_1$ on $x_2$ — the part of $x_1$ not explained by $x_2$
+- **C)** $x_1$ minus its sample mean
+- **D)** The fitted values from regressing $x_1$ on $x_2$
 
 ??? success "Show Answer"
-    **Answer: B) Falls as output increases — fixed costs are spread over more units**
+    **Answer: B**
 
-    AFC = TFC/Q. As Q rises, fixed costs are spread over more units so AFC continuously declines.
+    $\tilde{x}_1 = M_2 x_1$ where $M_2$ is the residual maker for $x_2$. Specifically: regress $x_1$ on $x_2$ and take the residuals. These residuals are the variation in $x_1$ **orthogonal to** $x_2$ — the part of $x_1$ that cannot be predicted by $x_2$. Similarly $\tilde{y} = M_2 y$ are the residuals from regressing $y$ on $x_2$. The FWL slope $\hat{\beta}_1 = \text{Cov}(\tilde{y}, \tilde{x}_1)/\text{Var}(\tilde{x}_1)$ is identical to the multiple regression slope.
 
 ---
 
 ## Question 12
 
-*Lesson L03 · Costs*
+*Lesson L05 · FWL Application*
 
+In a wage regression of $\ln(\text{wage})$ on education and experience, FWL says the education coefficient represents:
 
-The marginal cost curve intersects the average total cost curve at:
-
-
-**Type:** Multiple Choice
-
-- **A)** The maximum point of ATC
-- **B)** The minimum point of ATC
-- **C)** Any arbitrary point
-- **D)** The point where AFC = AVC
+**Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer: B) The minimum point of ATC**
+    The education coefficient captures the **relationship between wages and education after removing the linear influence of experience from both**. Concretely:
 
-    MC intersects ATC at ATC's minimum. When MC < ATC, ATC falls; when MC > ATC, ATC rises.
+    1. Residualise education on experience: $\tilde{\text{educ}} = \text{educ} - \hat{\delta}_0 - \hat{\delta}_1 \cdot \text{exper}$
+    2. Residualise log-wage on experience: $\tilde{y} = \ln(\text{wage}) - \hat{\gamma}_0 - \hat{\gamma}_1 \cdot \text{exper}$
+    3. $\hat{\beta}_\text{educ} = \text{Cov}(\tilde{y}, \tilde{\text{educ}})/\text{Var}(\tilde{\text{educ}})$
+
+    $\tilde{\text{educ}}$ is the component of education **not predicted by experience**. The regression uses only this "clean" variation. This is precisely what "holding experience constant" means — and why adding experience to the regression changes the education coefficient (it removes the part of the education-wage correlation that was actually driven by experience).
 
 ---
 
 ## Question 13
 
-*Lesson L03 · Costs*
+*Lesson L02 · Matrix OLS*
 
+For OLS with $n = 100$ observations and $k = 2$ slope regressors (plus intercept), the design matrix $X$ is $100 \times 3$. What is the dimension of $(X'X)$?
 
-A Sydney café has TFC=$800/day. Variable costs: TC(10)=$1,100, TC(11)=$1,210. Calculate MC of the 11th coffee and ATC at Q=11.
+**Type:** Multiple Choice
 
-
-**Type:** Calculation
+- **A)** $100 \times 100$
+- **B)** $3 \times 100$
+- **C)** $3 \times 3$
+- **D)** $100 \times 3$
 
 ??? success "Show Answer"
-    **Answer:** MC=$110; ATC=$110
+    **Answer: C**
 
-    MC=ΔTC/ΔQ=(1210-1100)/1=$110. ATC=TC/Q=1210/11=$110.
+    $X$ is $n \times (k+1) = 100 \times 3$. Then $X' $ is $3 \times 100$. So $X'X$ is $(3 \times 100)(100 \times 3) = \mathbf{3 \times 3}$. The inverse $(X'X)^{-1}$ is also $3 \times 3$. This is why OLS is computationally easy even with huge $n$ — the key matrix to invert is only $(k+1) \times (k+1)$.
 
 ---
 
 ## Question 14
 
-*Lesson L03 · Costs*
+*Lesson L04 · Practical OVB*
 
-
-Why is the ATC curve U-shaped?
-
+A study regresses crime rates on the number of police officers per capita, without controlling for poverty. The coefficient on police is *positive* — more police is associated with more crime. Is this causal?
 
 **Type:** Short Answer
 
 ??? success "Show Answer"
-    **Answer:** At low output, high AFC pulls ATC up (fixed costs dominate). As output rises AFC falls rapidly, pulling ATC down. Eventually diminishing returns raise AVC faster than AFC falls, causing ATC to rise again — creating the U-shape.
+    Almost certainly **not causal** — this is a classic OVB problem. Poverty (the omitted variable) is likely:
+    - Positively correlated with police presence ($\delta_{12} > 0$: governments deploy more police to high-crime/high-poverty areas)
+    - Positively affects crime ($\beta_2 > 0$: poverty is a driver of crime)
 
-    The U-shape reflects the tension between falling AFC and rising AVC.
+    Therefore $\beta_2 \cdot \delta_{12} > 0$ → **upward bias** in the police coefficient. The positive association between police and crime reflects reverse causality (more crime → more police) and confounding by poverty — not that police *cause* crime. To estimate the causal effect, one needs an instrument for police deployment (e.g. election cycles affecting political motivation to hire police, as in Levitt 1997) or a natural experiment.
 
 ---
 
 ## Question 15
 
-*Lesson L03 · Costs*
+*Lesson L02 · Calculation*
 
-
-A firm's TVC at Q=50 is $500 and TFC is $200. Calculate AVC and ATC.
-
+**[Calculation]** A regression with $n = 50$, $k = 2$ slope regressors (plus intercept) gives $SSR = 400$ and $SST = 1{,}000$. Calculate:
+(a) $R^2$, (b) Adjusted $R^2$, (c) $\hat{\sigma}^2$.
 
 **Type:** Calculation
 
 ??? success "Show Answer"
-    **Answer:** AVC=$10; ATC=$14
+    **(a)** $R^2 = 1 - SSR/SST = 1 - 400/1000 = \mathbf{0.60}$
 
-    AVC=TVC/Q=500/50=$10. ATC=(TVC+TFC)/Q=700/50=$14.
+    **(b)** $\bar{R}^2 = 1 - \frac{SSR/(n-k-1)}{SST/(n-1)} = 1 - \frac{400/47}{1000/49} = 1 - \frac{8.511}{20.408} = 1 - 0.417 = \mathbf{0.583}$
+
+    Adjusted $R^2 < R^2$ (always true). The penalty for $k=2$ regressors is modest here.
+
+    **(c)** $\hat{\sigma}^2 = SSR/(n-k-1) = 400/(50-2-1) = 400/47 \approx \mathbf{8.51}$
 
 ---
 
 ## Question 16
 
-*Lesson L04 · Costs*
+*Lesson L02 · ECMT5001 style*
 
+**[Short Answer + Calculation]** A regression of $\ln(\text{salary})$ on years of experience and a female dummy gives:
 
-Economies of scale means:
+| Variable | Coef | Std Err |
+|----------|------|---------|
+| experience | 0.045 | 0.008 |
+| female | −0.183 | 0.052 |
+| intercept | 3.210 | 0.065 |
 
+$n = 200$, $R^2 = 0.41$.
 
-**Type:** Multiple Choice
+(a) Interpret the experience and female coefficients.
+(b) Test $H_0: \beta_\text{female} = 0$ at the 1% significance level. Critical value $t_{0.005, 197} \approx 2.601$.
 
-- **A)** Long-run average cost rises as output expands
-- **B)** Long-run average cost falls as output expands
-- **C)** Short-run marginal cost falls
-- **D)** Fixed costs increase with scale
-
-??? success "Show Answer"
-    **Answer: B) Long-run average cost falls as output expands**
-
-    Economies of scale: LRATC falls as output increases — often due to specialisation, efficient capital, and technology.
-
----
-
-## Question 17
-
-*Lesson L04 · Costs*
-
-
-Diseconomies of scale occur when a firm grows too large because of:
-
-
-**Type:** Multiple Choice
-
-- **A)** Increasing returns to the variable factor
-- **B)** Coordination and management problems that raise per-unit costs
-- **C)** Government regulation
-- **D)** Too much competition
+**Type:** Short Answer + Calculation
 
 ??? success "Show Answer"
-    **Answer: B) Coordination and management problems that raise per-unit costs**
+    **(a) Interpretation:**
+    - **Experience:** Each additional year of experience is associated with approximately $100 \times 0.045 = 4.5\%$ higher salary, holding gender constant.
+    - **Female:** Female workers earn approximately $100 \times 0.183 = 18.3\%$ less than male workers with the same experience. More precisely: $e^{-0.183} - 1 \approx -16.7\%$.
 
-    Very large firms face coordination failures, communication breakdowns, and bureaucratic inefficiency that raise LRATC.
+    **(b) t-test for gender gap:**
+    $$t = \frac{-0.183 - 0}{0.052} = \frac{-0.183}{0.052} \approx -3.52$$
 
----
-
-## Question 18
-
-*Lesson L04 · Costs*
-
-
-Qantas moves from 50 aircraft to 100 aircraft. LRATC falls from $180/seat to $160/seat. What type of returns does this represent?
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** Economies of scale
-
-    LRATC fell as output doubled — economies of scale. The percentage fall in LRATC (11%) accompanies a 100% increase in scale.
-
----
-
-## Question 19
-
-*Lesson L04 · Costs*
-
-
-What is the minimum efficient scale (MES)?
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** The MES is the smallest output level at which a firm's long-run average total cost is minimised. Firms operating below MES have higher per-unit costs than larger rivals.
-
-    MES determines the natural size of firms in an industry and influences market structure.
-
----
-
-## Question 20
-
-*Lesson L04 · Costs*
-
-
-An industry where MES is very large relative to market demand will tend toward:
-
-
-**Type:** Multiple Choice
-
-- **A)** Perfect competition with many small firms
-- **B)** Natural monopoly or oligopoly — only a few firms can operate at efficient scale
-- **C)** Monopolistic competition
-- **D)** Government ownership always
-
-??? success "Show Answer"
-    **Answer: B) Natural monopoly or oligopoly — only a few firms can operate at efficient scale**
-
-    When MES is large relative to demand, only a few firms can reach efficient scale — the industry tends toward concentrated market structures.
-
----
-
-## Question 21
-
-*Lesson L05 · Costs*
-
-
-Allocative efficiency requires:
-
-
-**Type:** Multiple Choice
-
-- **A)** P = minimum ATC
-- **B)** P = MC (price equals marginal cost)
-- **C)** MR = 0
-- **D)** Zero economic profit
-
-??? success "Show Answer"
-    **Answer: B) P = MC (price equals marginal cost)**
-
-    Allocative efficiency: resources are allocated optimally when P=MC — the value placed on the last unit equals its production cost.
-
----
-
-## Question 22
-
-*Lesson L05 · Costs*
-
-
-BHP's Pilbara iron ore operations benefit from economies of scale. If LRATC at 200m tonnes/year is $35/tonne and at 100m tonnes is $50/tonne, calculate the cost saving from doubling output.
-
-
-**Type:** Calculation
-
-??? success "Show Answer"
-    **Answer:** $15/tonne or $3bn total
-
-    Saving per tonne = $50-$35=$15. At 200m tonnes: total saving vs 100m tonne cost base = $15×200m=$3bn.
-
----
-
-## Question 23
-
-*Lesson L05 · Costs*
-
-
-Productive efficiency requires:
-
-
-**Type:** Multiple Choice
-
-- **A)** P = MC
-- **B)** Production at minimum LRATC
-- **C)** MR = MC
-- **D)** Zero fixed costs
-
-??? success "Show Answer"
-    **Answer: B) Production at minimum LRATC**
-
-    Productive efficiency: the good is produced at the lowest possible per-unit cost (minimum LRATC).
-
----
-
-## Question 24
-
-*Lesson L05 · Costs*
-
-
-Explain the relationship MC = PL/MPL.
-
-
-**Type:** Short Answer
-
-??? success "Show Answer"
-    **Answer:** The marginal cost of producing one more unit equals the wage rate (PL) divided by the marginal product of labour. If workers are more productive (higher MPL) each unit costs less to produce; if wages rise, MC rises.
-
-    This connects the labour market to the firm's cost structure.
-
----
-
-## Question 25
-
-*Lesson L05 · Costs*
-
-
-Coles operates 800+ supermarkets. Grams per $1 of generic product vs premium: identical quality. The cost advantage comes from:
-
-
-**Type:** Multiple Choice
-
-- **A)** Monopoly pricing power
-- **B)** Economies of scale in procurement, distribution, and private label production
-- **C)** Government subsidies
-- **D)** Lower quality inputs
-
-??? success "Show Answer"
-    **Answer: B) Economies of scale in procurement, distribution, and private label production**
-
-    Large retailers achieve lower unit costs through bulk purchasing power, efficient distribution networks, and scale in own-brand manufacturing.
-
----
+    $|t| = 3.52 > t_{0.005, 197} = 2.601$, so **reject $H_0$** at the 1% level. The gender pay gap is statistically significant at the 1% level. Note: this is a conditional gap (holding experience fixed); it does not account for occupational sorting, hours worked, or other confounders.
