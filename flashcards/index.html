@@ -1,0 +1,3341 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Principles of Econometrics — USYD ECMT5001-aligned self-study course (Wooldridge)">
+      
+      
+        <meta name="author" content="Econometrics 2027">
+      
+      
+        <link rel="canonical" href="https://pspedding.github.io/econ-course-2027/flashcards/">
+      
+      
+        <link rel="prev" href="../revision-quiz/">
+      
+      
+        <link rel="next" href="../resources/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>🃏 Flashcards - Econometrics 2027</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flashcards" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Econometrics 2027" class="md-header__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Econometrics 2027
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🃏 Flashcards
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-tabs__link">
+          
+  
+  
+  M01 — Probability & Statistics Review
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-02/M02.L01-simple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M02 — Simple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-03/M03.L01-multiple-regression-model/" class="md-tabs__link">
+          
+  
+  
+  M03 — Multiple Linear Regression
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-04/M04.L01-sampling-distributions/" class="md-tabs__link">
+          
+  
+  
+  M04 — Statistical Inference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-05/M05.L01-log-transformations/" class="md-tabs__link">
+          
+  
+  
+  M05 — Functional Forms & Dummy Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-06/M06.L01-nature-consequences/" class="md-tabs__link">
+          
+  
+  
+  M06 — Heteroskedasticity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-07/M07.L01-specification-errors/" class="md-tabs__link">
+          
+  
+  
+  M07 — Specification & Data Issues
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-08/M08.L01-nature-time-series/" class="md-tabs__link">
+          
+  
+  
+  M08 — Time Series Basics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-09/M09.L01-ols-serial-correlation/" class="md-tabs__link">
+          
+  
+  
+  M09 — Serial Correlation & Autocorrelation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../modules/module-10/M10.L01-endogeneity-causality/" class="md-tabs__link">
+          
+  
+  
+  M10 — Instrumental Variables
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../exam-prep/formula-sheet/" class="md-tabs__link">
+          
+  
+  
+  🎯 Exam Prep
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../quizzes/" class="md-tabs__link">
+          
+  
+  
+  📝 Quizzes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../diagrams/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  📊 Key Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../daily-bite/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  🎮 Daily Bite
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../revision-quiz/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  🔀 Revision Quizzes
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  🃏 Flashcards
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  📚 Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Econometrics 2027" class="md-nav__button md-logo" aria-label="Econometrics 2027" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Econometrics 2027
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01 — Probability & Statistics Review
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M01 — Probability & Statistics Review
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L01-descriptive-stats-summation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L01 — Descriptive Statistics & Summation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L02-probability-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L02 — Probability Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L03-random-variables-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L03 — Random Variables & Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L04-joint-distributions-covariance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L04 — Joint Distributions, Covariance & Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L05-sampling-sample-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L05 — Sampling & Sample Statistics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-01/M01.L06-hypothesis-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01.L06 — Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02 — Simple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M02 — Simple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-02/M02.L01-simple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L01 — The Simple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-02/M02.L02-ols-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L02 — OLS Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-02/M02.L03-ols-algebraic-properties/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L03 — Algebraic Properties of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-02/M02.L04-units-functional-forms-r-squared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L04 — Units, Functional Forms & Goodness of Fit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-02/M02.L05-expected-values-unbiasedness/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02.L05 — Expected Values & Unbiasedness of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03 — Multiple Linear Regression
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M03 — Multiple Linear Regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-03/M03.L01-multiple-regression-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L01 — The Multiple Regression Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-03/M03.L02-ols-multiple-regression/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L02 — OLS Estimation in Multiple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-03/M03.L03-gauss-markov-assumptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L03 — Gauss-Markov Assumptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-03/M03.L04-omitted-variable-bias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L04 — Omitted Variable Bias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-03/M03.L05-multicollinearity-variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03.L05 — Multicollinearity & Variance of OLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04 — Statistical Inference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M04 — Statistical Inference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-04/M04.L01-sampling-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L01 — Sampling Distributions of OLS Estimators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-04/M04.L02-t-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L02 — t-Tests for Single Coefficients
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-04/M04.L03-confidence-intervals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L03 — Confidence Intervals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-04/M04.L04-f-tests-joint-hypotheses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L04 — F-Tests & Joint Hypotheses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-04/M04.L05-reporting-results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04.L05 — Reporting & Interpreting Regression Results
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M05 — Functional Forms & Dummy Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-05/M05.L01-log-transformations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L01 — Log Transformations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-05/M05.L02-quadratic-interaction-terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L02 — Quadratic & Interaction Terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-05/M05.L03-dummy-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L03 — Dummy Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-05/M05.L04-dummy-variable-trap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L04 — Dummy Variable Trap & Multiple Categories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-05/M05.L05-interactions-dummies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05.L05 — Interactions with Dummies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06 — Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M06 — Heteroskedasticity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-06/M06.L01-nature-consequences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L01 — Nature & Consequences of Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-06/M06.L02-testing-heteroskedasticity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L02 — Testing for Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-06/M06.L03-robust-standard-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L03 — Robust Standard Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-06/M06.L04-weighted-least-squares/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06.L04 — Weighted Least Squares (WLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07 — Specification & Data Issues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M07 — Specification & Data Issues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-07/M07.L01-specification-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L01 — Regression Specification Errors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-07/M07.L02-proxy-measurement-error/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L02 — Proxy Variables & Measurement Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-07/M07.L03-missing-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07.L03 — Missing Data & Non-Random Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08 — Time Series Basics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M08 — Time Series Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-08/M08.L01-nature-time-series/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L01 — Nature of Time Series Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-08/M08.L02-static-fdl-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L02 — Static & Finite Distributed Lag Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-08/M08.L03-serial-correlation-spurious/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L03 — Serial Correlation & Spurious Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-08/M08.L04-stationarity-trends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08.L04 — Stationarity & Trends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M09 — Serial Correlation & Autocorrelation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-09/M09.L01-ols-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L01 — Properties of OLS with Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-09/M09.L02-testing-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L02 — Testing for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-09/M09.L03-correcting-serial-correlation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09.L03 — Correcting for Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10 — Instrumental Variables
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    M10 — Instrumental Variables
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-10/M10.L01-endogeneity-causality/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L01 — Endogeneity & the Problem of Causality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-10/M10.L02-iv-estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L02 — Instrumental Variables (IV) Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-10/M10.L03-2sls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L03 — Two-Stage Least Squares (2SLS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-10/M10.L04-weak-instruments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L04 — Weak Instruments & Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modules/module-10/M10.L05-differences-in-differences/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10.L05 — Differences-in-Differences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎯 Exam Prep
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    🎯 Exam Prep
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/formula-sheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Formula Sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/past-exams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Past Exams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exam-prep/exam-tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exam Tips & Traps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📝 Quizzes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    📝 Quizzes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quiz Index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-01-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M01 — Statistics Review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-02-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M02 — Simple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-03-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M03 — Multiple Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-04-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M04 — Inference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-05-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M05 — Functional Forms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-06-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M06 — Heteroskedasticity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-07-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M07 — Misspecification & Measurement Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-08-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M08 — Time Series
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-09-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M09 — Serial Correlation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quizzes/module-10-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    M10 — IV, 2SLS & DiD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📊 Key Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../daily-bite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🎮 Daily Bite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../revision-quiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🔀 Revision Quizzes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    🃏 Flashcards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="flashcards">🃏 Flashcards</h1>
+<p><em>135 cards · Modules 01–21 · Introductory + Intermediate · Tap to flip</em></p>
+<div id="flashcard-app">
+
+<div style="margin-bottom:1rem; display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center;">
+  <label for="module-filter" style="font-weight:600;">Module:</label>
+  <select id="module-filter" onchange="filterCards()" style="padding:0.3rem 0.6rem; border-radius:4px; border:1px solid #ccc;">
+    <option value="ALL">All Modules</option>
+    <option value="INTRO">Introductory (M01-M12)</option>
+    <option value="INTER">Intermediate (M13-M21)</option>
+  </select>
+  <select id="module-specific" onchange="filterSpecific()" style="padding:0.3rem 0.6rem; border-radius:4px; border:1px solid #ccc;">
+    <option value="ALL">All</option>
+  </select>
+  <label for="type-filter" style="font-weight:600; margin-left:0.5rem;">Type:</label>
+  <select id="type-filter" onchange="filterCards()" style="padding:0.3rem 0.6rem; border-radius:4px; border:1px solid #ccc;">
+    <option value="ALL">All Types</option>
+    <option value="mcq">Multiple Choice</option>
+    <option value="calc">Calculation</option>
+    <option value="short">Short Answer</option>
+  </select>
+  <button onclick="shuffleDeck()" style="margin-left:0.5rem; padding:0.3rem 0.8rem; background:#00897b; color:white; border:none; border-radius:4px; cursor:pointer;">🔀 Shuffle</button>
+  <button onclick="resetDeck()" style="padding:0.3rem 0.8rem; background:#78909c; color:white; border:none; border-radius:4px; cursor:pointer;">↺ Reset</button>
+</div>
+
+<div id="progress-bar-wrap" style="background:#e0e0e0; border-radius:4px; height:6px; margin-bottom:0.8rem;">
+  <div id="progress-bar" style="background:#00897b; height:6px; border-radius:4px; width:0%; transition:width 0.3s;"></div>
+</div>
+<div id="counter" style="font-size:0.9rem; color:#666; margin-bottom:1rem;">Card 1 of 545</div>
+
+<div id="card" onclick="flipCard()" style="cursor:pointer; min-height:220px; background:white; border:2px solid #00897b; border-radius:12px; padding:1.8rem; display:flex; align-items:center; justify-content:center; text-align:center; font-size:1rem; line-height:1.6; box-shadow:0 4px 12px rgba(0,0,0,0.1); user-select:none; transition: background 0.2s;">
+  <div id="card-content">Loading...</div>
+</div>
+
+<div style="text-align:center; margin-top:0.4rem; font-size:0.8rem; color:#999;" id="flip-hint">👆 Tap to reveal answer</div>
+
+<div style="display:flex; justify-content:center; gap:1rem; margin-top:1.2rem;">
+  <button onclick="prevCard()" style="padding:0.5rem 1.4rem; background:#e0f2f1; color:#00695c; border:1px solid #80cbc4; border-radius:6px; cursor:pointer; font-size:0.95rem;">◀ Prev</button>
+  <button onclick="nextCard()" style="padding:0.5rem 1.4rem; background:#00897b; color:white; border:none; border-radius:6px; cursor:pointer; font-size:0.95rem;">Next ▶</button>
+</div>
+
+<div id="module-badge" style="margin-top:1rem; text-align:center; font-size:0.8rem; color:#888;"></div>
+
+</div>
+
+<script>
+const ALL_CARDS = [{"module":"M01","lesson":"L01","topic":"summation","type":"mcq","front":"Which summation identity is ALWAYS true?<br><br>A) \u2211x\u1d62y\u1d62 = (\u2211x\u1d62)(\u2211y\u1d62)<br>B) \u2211(x\u1d62 \u2212 x\u0304) = 0<br>C) \u2211cx\u1d62 = c\u207f\u2211x\u1d62<br>D) \u2211x\u1d62\u00b2 = (\u2211x\u1d62)\u00b2","back":"<strong>B) \u2211(x\u1d62 \u2212 x\u0304) = 0</strong><br><br>Deviations from the mean always sum to zero \u2014 a fundamental OLS property. Option A is wrong: products do NOT distribute through sums."},{"module":"M01","lesson":"L01","topic":"variance","type":"mcq","front":"Why does sample variance divide by n\u22121 rather than n?<br><br>A) Convention<br>B) Estimating x\u0304 loses 1 degree of freedom \u2014 dividing by n\u22121 makes s\u00b2 unbiased for \u03c3\u00b2<br>C) Only applies when n > 1<br>D) Makes calculations easier","back":"<strong>B) Dividing by n\u22121 makes s\u00b2 unbiased for \u03c3\u00b2</strong><br><br>E[\u03a3(x\u1d62\u2212x\u0304)\u00b2/n] = (n\u22121)\u03c3\u00b2/n < \u03c3\u00b2. Using n\u22121 corrects this. In OLS: \u03c3\u0302\u00b2 = SSR/(n\u2212k\u22121) for the same reason."},{"module":"M01","lesson":"L02","topic":"probability","type":"mcq","front":"The Law of Iterated Expectations states E[E(Y|X)] = E(Y). This means:<br><br>A) E(Y|X) = E(Y) always<br>B) Average the conditional mean over X to get the unconditional mean \u2014 true for any joint distribution<br>C) Only holds when X and Y are independent<br>D) Only for normal distributions","back":"<strong>B) Average E(Y|X) over X to recover E(Y)</strong><br><br>LIE: E\u2093E(Y|X) = E(Y). Used everywhere in econometrics \u2014 e.g. to prove OLS unbiasedness: E(\u03b2\u0302) = E[E(\u03b2\u0302|X)] = \u03b2."},{"module":"M01","lesson":"L03","topic":"normal","type":"mcq","front":"If X ~ N(50, 16), which z-score corresponds to X = 54?<br><br>A) 0.5<br>B) 1.0<br>C) 2.0<br>D) 4.0","back":"<strong>B) z = (54\u221250)/\u221a16 = 4/4 = 1.0</strong><br><br>P(X > 54) = P(Z > 1) = 1 \u2212 \u03a6(1.0) = 1 \u2212 0.8413 \u2248 15.9%."},{"module":"M01","lesson":"L05","topic":"clt","type":"mcq","front":"In a population with \u03bc = 200, \u03c3\u00b2 = 400, what is the distribution of x\u0304 for n = 100?<br><br>A) N(200, 400)<br>B) N(200, 4)<br>C) N(200, 40)<br>D) t(99)","back":"<strong>B) N(200, 4)</strong><br><br>CLT: x\u0304 ~ N(\u03bc, \u03c3\u00b2/n) = N(200, 400/100) = N(200, 4). SE = \u03c3/\u221an = 20/10 = 2."},{"module":"M01","lesson":"L06","topic":"hypothesis","type":"mcq","front":"A Type I error is:<br><br>A) Failing to reject H\u2080 when H\u2081 is true<br>B) Rejecting H\u2080 when H\u2080 is true<br>C) Using the wrong test statistic<br>D) A calculation mistake","back":"<strong>B) Rejecting H\u2080 when H\u2080 is true (false positive)</strong><br><br>P(Type I) = \u03b1. Type II = failing to reject a false H\u2080; P(Type II) = \u03b2. Power = 1\u2212\u03b2."},{"module":"M01","lesson":"L06","topic":"pvalue","type":"mcq","front":"p = 0.03, \u03b1 = 0.05. The correct conclusion is:<br><br>A) Fail to reject H\u2080<br>B) Reject H\u2080 \u2014 statistically significant at 5%<br>C) The effect is practically important<br>D) H\u2080 is false with 97% probability","back":"<strong>B) Reject H\u2080</strong><br><br>p < \u03b1 \u2192 reject. Option D is wrong \u2014 p-value is P(data this extreme | H\u2080 true), NOT P(H\u2080 true | data). Statistical significance \u2260 practical importance."},{"module":"M01","lesson":"L04","topic":"covariance","type":"calc","front":"<em>[Calculation]</em><br><br>E(XY) = 15, E(X) = 3, E(Y) = 4. Calculate Cov(X,Y).","back":"<strong>Cov(X,Y) = E(XY) \u2212 E(X)E(Y) = 15 \u2212 (3)(4) = <u>3</u></strong><br><br>This is the computational formula for covariance, used in the OLS slope: \u03b2\u0302\u2081 = Cov(x,y)/Var(x)."},{"module":"M01","lesson":"L04","topic":"correlation","type":"calc","front":"<em>[Calculation]</em><br><br>Cov(X,Y) = 12, Var(X) = 9, Var(Y) = 16. Calculate Pearson's r.","back":"<strong>r = 12/\u221a(9\u00d716) = 12/12 = <u>1.0</u></strong><br><br>Perfect positive linear relationship. Formula: r = Cov(X,Y)/\u221a(Var(X)\u00b7Var(Y))."},{"module":"M01","lesson":"L04","topic":"independence","type":"mcq","front":"If X and Y are independent, Cov(X,Y) = ?<br><br>A) 1<br>B) Cannot determine<br>C) 0<br>D) E(X)\u00b7E(Y)","back":"<strong>C) 0</strong><br><br>Independence \u2192 E(XY) = E(X)E(Y) \u2192 Cov = 0. Converse is FALSE \u2014 zero covariance does not imply independence (except for joint normals)."},{"module":"M01","lesson":"L04","topic":"variance-formula","type":"calc","front":"<em>[Calculation]</em><br><br>a=2, b=3, Var(X)=4, Var(Y)=9, Cov(X,Y)=0. Find Var(aX+bY).","back":"<strong>Var(2X+3Y) = 4\u00b74 + 9\u00b79 + 0 = 16 + 81 = <u>97</u></strong><br><br>Var(aX+bY) = a\u00b2Var(X) + b\u00b2Var(Y) + 2ab\u00b7Cov(X,Y)."},{"module":"M01","lesson":"L06","topic":"ttest","type":"calc","front":"<em>[Calculation]</em><br><br>Two-tailed t-test: t = 2.40, df = 24, \u03b1 = 0.05. Critical value t_{0.025,24} = 2.064. Reject H\u2080?","back":"<strong>Yes \u2014 |t| = 2.40 > 2.064 \u2192 reject H\u2080</strong><br><br>p = 2\u00d7P(T\u2082\u2084 > 2.40) \u2248 0.024 < 0.05. Also equivalent via CI: 0 outside the 95% CI."},{"module":"M01","lesson":"L02","topic":"bayes","type":"calc","front":"<em>[Calculation]</em><br><br>Test: 95% sensitivity, 90% specificity. Disease prevalence 1%. Patient tests positive. P(disease|positive) = ?","back":"<strong>\u2248 8.8%</strong><br><br>P(+|D)P(D) = 0.95\u00d70.01 = 0.0095. P(+) = 0.0095+0.10\u00d70.99 = 0.1085. P(D|+) = 0.0095/0.1085 \u2248 8.8%. Base rate fallacy \u2014 rare diseases produce many false positives."},{"module":"M01","lesson":"L06","topic":"onetail","type":"short","front":"<em>[Short Answer]</em><br><br>When should you use a one-tailed test vs a two-tailed test?","back":"<strong>One-tailed</strong> when theory gives a clear directional prediction BEFORE seeing data (e.g. H\u2081: \u03b2 > 0). More power in predicted direction.<br><br><strong>Two-tailed</strong> is the default \u2014 tests H\u2081: \u03b2 \u2260 0 without assuming direction. Choosing one-tailed after seeing results is p-hacking."},{"module":"M01","lesson":"L03","topic":"zscore","type":"calc","front":"<em>[Calculation]</em><br><br>X ~ N(100, 25). Find P(X < 90).","back":"<strong>P(X < 90) = P(Z < (90\u2212100)/5) = P(Z < \u22122) = 1 \u2212 \u03a6(2) \u2248 1 \u2212 0.9772 = <u>0.0228</u></strong><br><br>\u03c3 = \u221a25 = 5. z = \u22122. About 2.3% of observations fall below 90."},{"module":"M01","lesson":"L05","topic":"sample-stats","type":"mcq","front":"Which distinguishes sample statistics from population parameters?<br><br>A) Parameters are estimated by statistics; statistics are random variables that vary across samples<br>B) Parameters are unknown; statistics are fixed<br>C) Sample variance uses N; population variance uses n\u22121<br>D) Parameters are always normally distributed","back":"<strong>A) Parameters are fixed (unknown) constants; statistics are random variables</strong><br><br>\u03bc is fixed, x\u0304 varies across samples. This distinction is the foundation of frequentist inference."},{"module":"M01","lesson":"L05","topic":"design","type":"calc","front":"<em>[Calculation]</em><br><br>n\u2081 treated, n\u2080 = n\u2212n\u2081 controls. Var(\u0232\u2081\u2212\u0232\u2080) = \u03c3\u00b2(1/n\u2081+1/n\u2080). What proportion p = n\u2081/n minimises this variance?","back":"<strong>p = 0.5 (equal split)</strong><br><br>Minimise \u03c3\u00b2/n(1/p + 1/(1\u2212p)). d/dp[1/p + 1/(1\u2212p)] = 0 \u2192 (1\u2212p)\u00b2 = p\u00b2 \u2192 p = 0.5. Equal allocation is optimal when per-subject costs are equal."},{"module":"M01","lesson":"L04","topic":"corr-causation","type":"short","front":"<em>[Short Answer]</em><br><br>Ice cream sales and drowning deaths are positively correlated. What does this tell us?","back":"<strong>Nothing causal</strong> \u2014 both are driven by a common cause: hot weather increases both ice cream purchases AND swimming (\u2191 drowning risk). The correlation is spurious. In econometrics, failing to control for confounders causes omitted variable bias."},{"module":"M02","lesson":"L02","topic":"ols-objective","type":"mcq","front":"OLS minimises which quantity?<br><br>A) \u2211\u00fb\u1d62<br>B) \u2211|\u00fb\u1d62|<br>C) \u2211\u00fb\u1d62\u00b2<br>D) max|\u00fb\u1d62|","back":"<strong>C) \u2211\u00fb\u1d62\u00b2 (Sum of Squared Residuals = SSR)</strong><br><br>SSR = \u2211(y\u1d62 \u2212 \u03b2\u0302\u2080 \u2212 \u03b2\u0302\u2081x\u1d62)\u00b2. Squaring penalises large errors and yields closed-form linear estimators from the FOCs."},{"module":"M02","lesson":"L02","topic":"slope-formula","type":"mcq","front":"The OLS slope formula is:<br><br>A) \u03b2\u0302\u2081 = \u0233/x\u0304<br>B) \u03b2\u0302\u2081 = \u03a3(x\u1d62\u2212x\u0304)(y\u1d62\u2212\u0233) / \u03a3(x\u1d62\u2212x\u0304)\u00b2<br>C) \u03b2\u0302\u2081 = Cov(x,y) \u00b7 Var(x)<br>D) \u03b2\u0302\u2081 = \u03a3x\u1d62y\u1d62 / \u03a3x\u1d62\u00b2","back":"<strong>B) \u03b2\u0302\u2081 = \u03a3(x\u1d62\u2212x\u0304)(y\u1d62\u2212\u0233) / \u03a3(x\u1d62\u2212x\u0304)\u00b2</strong><br><br>Equivalently: \u03b2\u0302\u2081 = \u0108ov(x,y)/V\u0302ar(x). This minimises SSR and equals the sample covariance of x and y divided by the sample variance of x."},{"module":"M02","lesson":"L02","topic":"intercept","type":"mcq","front":"The OLS intercept is:<br><br>A) \u03b2\u0302\u2080 = x\u0304 \u2212 \u03b2\u0302\u2081\u0233<br>B) \u03b2\u0302\u2080 = \u0233 \u2212 \u03b2\u0302\u2081x\u0304<br>C) \u03b2\u0302\u2080 = \u03a3y\u1d62/n<br>D) \u03b2\u0302\u2080 = \u03b2\u0302\u2081","back":"<strong>B) \u03b2\u0302\u2080 = \u0233 \u2212 \u03b2\u0302\u2081x\u0304</strong><br><br>The OLS line always passes through the sample means (x\u0304, \u0233). This is an algebraic consequence of the intercept first-order condition: \u03a3\u00fb\u1d62 = 0."},{"module":"M02","lesson":"L03","topic":"residual-props","type":"mcq","front":"Which is NOT a guaranteed algebraic property of OLS residuals?<br><br>A) \u03a3\u00fb\u1d62 = 0<br>B) \u03a3x\u1d62\u00fb\u1d62 = 0<br>C) \u03a3\u00fb\u1d62\u00b2 = 0<br>D) \u0233 = \u0177\u0304","back":"<strong>C) \u03a3\u00fb\u1d62\u00b2 = 0</strong><br><br>SSR = \u03a3\u00fb\u1d62\u00b2 > 0 (unless perfect fit). True properties: \u03a3\u00fb\u1d62=0 (intercept FOC), \u03a3x\u1d62\u00fb\u1d62=0 (slope FOC \u2014 residuals orthogonal to x), \u0233=\u0177\u0304 (from first property)."},{"module":"M02","lesson":"L04","topic":"r-squared","type":"mcq","front":"R\u00b2 = 0.35 in a wage-on-education regression means:<br><br>A) Education causes 35% of wage variation<br>B) 35% of variation in wages is explained by the linear relationship with education<br>C) The regression fits well<br>D) Education is significant at 35%","back":"<strong>B) 35% of variation in wages is explained linearly by education</strong><br><br>R\u00b2 = SSE/SST = 1 \u2212 SSR/SST. It is a descriptive fit measure \u2014 says nothing about causality."},{"module":"M02","lesson":"L04","topic":"sst-decomp","type":"calc","front":"<em>[Calculation]</em><br><br>SST = 200, SSE = 150. Compute SSR and R\u00b2.","back":"<strong>SSR = 200 \u2212 150 = 50; R\u00b2 = 150/200 = <u>0.75</u></strong><br><br>SST = SSE + SSR. R\u00b2 = SSE/SST = 1 \u2212 SSR/SST."},{"module":"M02","lesson":"L05","topic":"slr-assumptions","type":"mcq","front":"OLS unbiasedness E(\u03b2\u0302\u2081) = \u03b2\u2081 requires which SLR assumptions?<br><br>A) SLR.1 only<br>B) SLR.1\u2013SLR.4 (not SLR.5)<br>C) All five SLR.1\u2013SLR.5<br>D) SLR.4 and SLR.5 only","back":"<strong>B) SLR.1\u2013SLR.4</strong><br><br>SLR.5 (homoskedasticity) is NOT needed for unbiasedness \u2014 only for efficiency (BLUE) and valid standard errors."},{"module":"M02","lesson":"L05","topic":"zero-mean","type":"short","front":"<em>[Short Answer]</em><br><br>Why is E(u|x) = 0 (SLR.4) the key identification assumption?","back":"<strong>It ensures the error u is mean-independent of x</strong> \u2014 no omitted variable correlated with x is in u. If violated (e.g. ability is omitted and correlated with education), OLS is biased. RCTs guarantee SLR.4 by design; observational studies need IV/DiD/controls."},{"module":"M02","lesson":"L05","topic":"var-beta","type":"mcq","front":"Var(\u03b2\u0302\u2081) = \u03c3\u00b2/\u03a3(x\u1d62\u2212x\u0304)\u00b2. As sample size n increases, Var(\u03b2\u0302\u2081):<br><br>A) Increases<br>B) Decreases \u2192 0<br>C) Is unchanged<br>D) Depends on \u03c3\u00b2","back":"<strong>B) Decreases \u2192 0 as n \u2192 \u221e (consistent)</strong><br><br>\u03a3(x\u1d62\u2212x\u0304)\u00b2 grows with n \u2192 Var(\u03b2\u0302\u2081) \u2192 0. Also: more variation in x (larger \u03a3(x\u1d62\u2212x\u0304)\u00b2) \u2192 lower variance \u2192 more precise estimates."},{"module":"M02","lesson":"L05","topic":"sigma-hat","type":"mcq","front":"Why does \u03c3\u0302\u00b2 = SSR/(n\u22122) use n\u22122 as the divisor?<br><br>A) We have 2 regressors<br>B) Estimating \u03b2\u0302\u2080 and \u03b2\u0302\u2081 consumes 2 degrees of freedom<br>C) Convention \u2014 n\u22121 works equally well<br>D) Formula only valid for n \u2265 2","back":"<strong>B) Two estimated coefficients use 2 df</strong><br><br>With k slope coefficients + intercept: \u03c3\u0302\u00b2 = SSR/(n\u2212k\u22121). Using n\u2212k\u22121 makes \u03c3\u0302\u00b2 an unbiased estimator of \u03c3\u00b2."},{"module":"M02","lesson":"L01","topic":"log-interpret","type":"mcq","front":"ln(wage) = 1.2 + 0.08\u00b7educ. The coefficient 0.08 means:<br><br>A) Education raises wages by $0.08<br>B) Education raises wages by approximately 8%<br>C) Log-wages increase by 8 units per year of education<br>D) Wages multiply by 8 per year","back":"<strong>B) Approximately 8% wage increase per year of education</strong><br><br>Log-level model: 100\u00d7\u03b2\u2081 \u2248 % change in y per unit change in x. Exact: e^0.08 \u2212 1 \u2248 8.3%."},{"module":"M02","lesson":"L04","topic":"scale","type":"mcq","front":"If y is multiplied by 100 (e.g. dollars to cents), what happens to \u03b2\u0302\u2081 and R\u00b2?<br><br>A) \u03b2\u0302\u2081 \u00d7100; R\u00b2 unchanged<br>B) Both \u00d7100<br>C) \u03b2\u0302\u2081 \u00f7100; R\u00b2 unchanged<br>D) R\u00b2 \u00d7100; \u03b2\u0302\u2081 unchanged","back":"<strong>A) \u03b2\u0302\u2081 is multiplied by 100; R\u00b2 is unchanged</strong><br><br>Scaling y by c scales \u03b2\u0302\u2081 by c (numerator of slope formula). R\u00b2 is scale-invariant \u2014 it measures proportion of variance explained."},{"module":"M02","lesson":"L05","topic":"gauss-markov","type":"short","front":"<em>[Short Answer]</em><br><br>What does BLUE mean and which assumption is critical for OLS to be BLUE?","back":"<strong>Best Linear Unbiased Estimator</strong> \u2014 minimum variance among linear unbiased estimators.<br><br>Critical assumption: <strong>SLR.5 (homoskedasticity): Var(u|x) = \u03c3\u00b2</strong>. Without it, OLS is unbiased but not efficient \u2014 WLS beats it. Gauss-Markov does NOT require normality."},{"module":"M02","lesson":"L02","topic":"cef-dummy","type":"short","front":"<em>[Short Answer]</em><br><br>If x \u2208 {0,1}, show that OLS gives \u03b2\u0302\u2081 = \u0233\u2081 \u2212 \u0233\u2080.","back":"<strong>\u03a3(x\u1d62\u2212x\u0304)(y\u1d62\u2212\u0233) = n\u2081n\u2080/n \u00b7 (\u0233\u2081\u2212\u0233\u2080); \u03a3(x\u1d62\u2212x\u0304)\u00b2 = n\u2081n\u2080/n \u2192 \u03b2\u0302\u2081 = \u0233\u2081 \u2212 \u0233\u2080</strong><br><br>OLS with a binary regressor equals the difference in group means \u2014 the same as a two-sample t-test (if assuming equal variances)."},{"module":"M02","lesson":"L02","topic":"wine-ttest","type":"calc","front":"<em>[Calculation]</em><br><br>\u03b2\u0302\u2081 = 0.032 (vintage effect on ln price), se = 0.012, n = 25. Test H\u2080:\u03b2\u2081=0 at 5%. Critical value t_{0.025,23} = 2.069.","back":"<strong>t = 0.032/0.012 = 2.67 > 2.069 \u2192 Reject H\u2080</strong><br><br>Wine prices are significantly related to vintage year. Each additional year \u2248 3.2% higher price. (Adapted from MIT 14.32 Problem Set II.)"},{"module":"M02","lesson":"L04","topic":"ci-calc","type":"calc","front":"<em>[Calculation]</em><br><br>\u03b2\u0302\u2081 = 1.5, se = 0.3, n = 50, k = 1. Construct 95% CI. Use t_{0.025,48} \u2248 2.011.","back":"<strong>CI = 1.5 \u00b1 2.011 \u00d7 0.3 = 1.5 \u00b1 0.603 = [0.897, 2.103]</strong><br><br>Interpretation: 95% of such intervals constructed this way contain the true \u03b2\u2081."},{"module":"M02","lesson":"L02","topic":"prediction","type":"calc","front":"<em>[Calculation]</em><br><br>\u0177 = 1.8 + 0.8x. For obs i=3: x\u2083=3, y\u2083=5. Find \u0177\u2083 and \u00fb\u2083.","back":"<strong>\u0177\u2083 = 1.8 + 0.8(3) = 4.2; \u00fb\u2083 = 5 \u2212 4.2 = 0.8</strong><br><br>Positive residual: actual y is 0.8 above the predicted line. The OLS line minimises the sum of all such squared residuals."},{"module":"M02","lesson":"L05","topic":"slr1","type":"short","front":"<em>[Short Answer]</em><br><br>SLR.1 requires 'linearity in parameters'. Does this mean y and x must have a linear relationship?","back":"<strong>No</strong> \u2014 SLR.1 requires the model to be linear in the PARAMETERS (\u03b2\u2080, \u03b2\u2081), not in the variables. You can include ln(x), x\u00b2, or other transformations as the regressor and still satisfy SLR.1. What's ruled out: models like y = e^(\u03b2\u2081x) + u where \u03b2\u2081 enters nonlinearly."},{"module":"M03","lesson":"L01","topic":"ceteris-paribus","type":"mcq","front":"In ln(wage) = \u03b2\u2080 + \u03b2\u2081educ + \u03b2\u2082exper + u, \u03b2\u2081 represents:<br><br>A) Simple correlation between education and wages<br>B) Wage change per year of education, holding experience constant<br>C) Total effect of education including through experience<br>D) Mean log-wage with zero education","back":"<strong>B) Wage change per year of education, holding experience constant (ceteris paribus)</strong><br><br>Multiple regression isolates the partial effect \u2014 the FWL theorem shows \u03b2\u0302\u2081 literally uses only variation in education orthogonal to experience."},{"module":"M03","lesson":"L04","topic":"ovb-direction","type":"mcq","front":"Wages regressed on education only, omitting ability. Ability is positively correlated with education and raises wages. The bias in \u03b2\u0302_educ is:<br><br>A) Downward<br>B) Upward<br>C) Zero in large samples<br>D) Ambiguous","back":"<strong>B) Upward bias</strong><br><br>OVB = \u03b2\u2082\u00b7\u03b4\u2081\u2082 where \u03b2\u2082>0 (ability\u2192wages) and \u03b4\u2081\u2082>0 (ability correlated with education). Positive product \u2192 upward bias. The return to education is overstated."},{"module":"M03","lesson":"L04","topic":"ovb-formula","type":"calc","front":"<em>[Calculation]</em><br><br>OVB formula: \u03b2\u0303\u2081 = \u03b2\u2081 + \u03b2\u2082\u00b7\u03b4\u2081\u2082. True \u03b2\u2081=0.08, \u03b2\u2082=0.05, \u03b4\u2081\u2082=0.6. Calculate \u03b2\u0303\u2081.","back":"<strong>\u03b2\u0303\u2081 = 0.08 + 0.05\u00d70.6 = 0.08 + 0.03 = 0.11</strong><br><br>Simple regression overstates the education return by 0.03 (38% inflation). This is typical in wage regressions without ability controls."},{"module":"M03","lesson":"L04","topic":"ovb-table","type":"mcq","front":"In OVB: \u03b2\u0303\u2081 = \u03b2\u2081 + \u03b2\u2082\u00b7\u03b4\u2081\u2082. If Corr(x\u2082,x\u2081) < 0 and \u03b2\u2082 > 0, the bias is:<br><br>A) Upward<br>B) Downward<br>C) Zero<br>D) Indeterminate","back":"<strong>B) Downward bias</strong><br><br>\u03b4\u2081\u2082 < 0 and \u03b2\u2082 > 0 \u2192 product < 0 \u2192 \u03b2\u0303\u2081 < \u03b2\u2081. Full table: (+,+)=up, (+,\u2212)=down, (\u2212,+)=down, (\u2212,\u2212)=up."},{"module":"M03","lesson":"L03","topic":"multicollinearity","type":"mcq","front":"If two regressors are perfectly collinear (x\u2082 = 3x\u2081), OLS:<br><br>A) Produces large but valid SEs<br>B) Is undefined \u2014 (X'X) is singular and cannot be inverted<br>C) Automatically drops x\u2082<br>D) Is biased but consistent","back":"<strong>B) Undefined \u2014 (X'X) is singular</strong><br><br>Perfect multicollinearity violates MLR.3. Software typically drops the collinear column and warns. Near-perfect multicollinearity is different: OLS works but SEs are very large."},{"module":"M03","lesson":"L05","topic":"vif","type":"short","front":"<em>[Short Answer]</em><br><br>What is VIF\u2c7c and what does it measure?","back":"<strong>VIF\u2c7c = 1/(1\u2212R\u2c7c\u00b2)</strong> where R\u2c7c\u00b2 is the R\u00b2 from regressing x\u2c7c on all other regressors.<br><br>VIF measures how much Var(\u03b2\u0302\u2c7c) is inflated by collinearity. VIF=1: no collinearity. VIF=10: Var(\u03b2\u0302\u2c7c) is 10\u00d7 larger than if x\u2c7c were uncorrelated with others. Rule of thumb: VIF > 10 signals a problem."},{"module":"M03","lesson":"L05","topic":"irrelevant-var","type":"mcq","front":"Adding a truly irrelevant variable (\u03b2\u2083 = 0) to a regression:<br><br>A) Biases \u03b2\u0302\u2081 upward<br>B) Leaves \u03b2\u0302\u2081 unbiased but increases its variance<br>C) Makes \u03b2\u0302\u2081 more precise<br>D) Makes \u03b2\u0302\u2081 inconsistent","back":"<strong>B) Unbiased but higher variance</strong><br><br>No OVB from including an irrelevant variable (\u03b2\u2083=0 means no true effect to miss). But VIF\u2081 may increase and df is lost \u2192 larger SE. Bias-variance trade-off: omit relevant \u2192 bias; include irrelevant \u2192 inefficiency."},{"module":"M03","lesson":"L05","topic":"fwl","type":"mcq","front":"FWL theorem: \u03b2\u0302\u2081 from regressing y on x\u2081,x\u2082 equals the slope from regressing M\u2082y on M\u2082x\u2081. What is M\u2082x\u2081?<br><br>A) x\u2081 standardised<br>B) Residuals from regressing x\u2081 on x\u2082<br>C) x\u2081 minus its mean<br>D) Fitted values from regressing x\u2081 on x\u2082","back":"<strong>B) Residuals from regressing x\u2081 on x\u2082 \u2014 variation in x\u2081 orthogonal to x\u2082</strong><br><br>FWL shows 'controlling for x\u2082' literally means using only the part of x\u2081 that x\u2082 cannot explain. \u03b2\u0302\u2081 from MLR = slope of this cleaned x\u2081 on cleaned y."},{"module":"M03","lesson":"L03","topic":"gauss-markov","type":"short","front":"<em>[Short Answer]</em><br><br>What does the Gauss-Markov Theorem guarantee under MLR.1\u2013MLR.5?","back":"<strong>OLS is BLUE: Best Linear Unbiased Estimator</strong> \u2014 minimum variance among all linear unbiased estimators.<br><br>Adding MLR.6 (normality) upgrades to BUE (best among ALL unbiased) and validates exact t/F tests. GM does not require normality."},{"module":"M03","lesson":"L04","topic":"adj-r2","type":"mcq","front":"Adjusted R\u00b2 can decrease when a variable is added because:<br><br>A) It is always smaller than R\u00b2<br>B) Adding a variable reduces SSR but the degrees-of-freedom penalty may outweigh the gain if the variable is nearly irrelevant<br>C) Only valid for large n<br>D) Adding variables always improves fit","back":"<strong>B) The df penalty may exceed the SSR gain</strong><br><br>R\u00b2 never decreases; adjusted R\u00b2 = 1 \u2212 (SSR/(n\u2212k\u22121))/(SST/(n\u22121)) penalises extra parameters. Use adjusted R\u00b2 for model selection."},{"module":"M03","lesson":"L02","topic":"matrix-ols","type":"mcq","front":"For n=100, k=2 slopes plus intercept, what is the dimension of (X'X)?<br><br>A) 100\u00d7100<br>B) 3\u00d7100<br>C) 3\u00d73<br>D) 100\u00d73","back":"<strong>C) 3\u00d73</strong><br><br>X is 100\u00d73. X' is 3\u00d7100. (X'X) is 3\u00d73. The key matrix to invert is only (k+1)\u00d7(k+1) \u2014 why OLS is computationally feasible even with huge n."},{"module":"M03","lesson":"L04","topic":"police-crime","type":"short","front":"<em>[Short Answer]</em><br><br>A regression of crime on police presence is positive. Is this causal? What is the OVB?","back":"<strong>Not causal</strong> \u2014 reverse causality + OVB. Poverty is omitted: positively correlated with police deployment (\u03b4\u2081\u2082>0) and increases crime (\u03b2\u2082>0) \u2192 upward bias. More police in high-crime areas makes the coefficient look positive even if police reduce crime. Levitt (1997) used election cycles as an instrument to fix this."},{"module":"M03","lesson":"L02","topic":"calc-r2","type":"calc","front":"<em>[Calculation]</em><br><br>n=50, k=2, SSR=400, SST=1000. Calculate R\u00b2, adjusted R\u00b2, and \u03c3\u0302\u00b2.","back":"<strong>R\u00b2 = 1\u2212400/1000 = 0.60; Adj R\u00b2 = 1\u2212(400/47)/(1000/49) = 1\u22120.417 = 0.583; \u03c3\u0302\u00b2 = 400/47 \u2248 8.51</strong><br><br>df_ur = n\u2212k\u22121 = 47. Adjusted R\u00b2 < R\u00b2 always; the gap grows with k."},{"module":"M03","lesson":"L02","topic":"gender-gap","type":"calc","front":"<em>[Calculation]</em><br><br>ln(salary) on experience and female dummy: \u03b2\u0302_female = \u22120.183, se = 0.052, n=200. Test H\u2080:\u03b2_female=0 at 1%. Critical value t_{0.005,197} \u2248 2.601.","back":"<strong>t = \u22120.183/0.052 = \u22123.52; |t| = 3.52 > 2.601 \u2192 Reject H\u2080 at 1%</strong><br><br>Female workers earn \u224818.3% (exact: e^\u22120.183\u22121 \u2248 \u221216.7%) less than males with same experience. Statistically significant at 1% level."},{"module":"M03","lesson":"L01","topic":"ovb-crime","type":"mcq","front":"Corr(x\u2082,x\u2081) > 0 and \u03b2\u2082 > 0. The bias in \u03b2\u0303\u2081 (simple regression) is:<br><br>A) Downward<br>B) Upward<br>C) Zero<br>D) Depends on sample size","back":"<strong>B) Upward bias</strong><br><br>\u03b2\u2082\u00b7\u03b4\u2081\u2082 > 0 \u2192 \u03b2\u0303\u2081 > \u03b2\u2081. Classic case: regressing wages on education only, omitting ability (positively correlated with education, positive effect on wages)."},{"module":"M04","lesson":"L02","topic":"tstat","type":"mcq","front":"t = (\u03b2\u0302\u2c7c \u2212 \u03b2\u2080)/se(\u03b2\u0302\u2c7c) follows t_{n\u2212k\u22121} exactly when:<br><br>A) n > 30<br>B) CLM assumptions hold: MLR.1\u2013MLR.6 (including normality of u)<br>C) Regressors are normally distributed<br>D) Heteroskedasticity is absent","back":"<strong>B) Under CLM assumptions including MLR.6 (normality of u)</strong><br><br>Without MLR.6, t and F are asymptotically N(0,1) and \u03c7\u00b2/F but only approximately t_{n\u2212k\u22121} in finite samples."},{"module":"M04","lesson":"L02","topic":"ttest-calc","type":"calc","front":"<em>[Calculation]</em><br><br>\u03b2\u0302\u2081=2.4, se=0.8, n=32, k=2. Test H\u2080:\u03b2\u2081=0 at 5% (two-tailed). Critical value t_{0.025,29}=2.045.","back":"<strong>t = 2.4/0.8 = 3.0 > 2.045 \u2192 Reject H\u2080</strong><br><br>df = n\u2212k\u22121 = 32\u22122\u22121 = 29. The coefficient is statistically significant at 5%."},{"module":"M04","lesson":"L03","topic":"ci-calc","type":"calc","front":"<em>[Calculation]</em><br><br>\u03b2\u0302\u2081=3.2, se=0.9, n=60, k=3. Construct 95% CI. Use t_{0.025,56}\u22482.003.","back":"<strong>CI = 3.2 \u00b1 2.003\u00d70.9 = 3.2 \u00b1 1.803 = [1.397, 5.003]</strong><br><br>Zero not in CI \u2192 reject H\u2080:\u03b2\u2081=0 at 5%. The CI gives both significance and effect size information."},{"module":"M04","lesson":"L04","topic":"ftest-calc","type":"calc","front":"<em>[Calculation]</em><br><br>SSR\u1d63=600, SSR\u1d64\u1d63=480, q=2 restrictions, n=100, k=4. Compute F. F_{2,95,0.05}\u22483.09.","back":"<strong>F = (120/2)/(480/95) = 60/5.05 \u2248 11.87 > 3.09 \u2192 Reject H\u2080</strong><br><br>The q=2 restricted coefficients are jointly highly significant."},{"module":"M04","lesson":"L04","topic":"fvst","type":"calc","front":"<em>[Calculation]</em><br><br>For a single restriction (q=1), F = t\u00b2. If t = 2.5, what is F?","back":"<strong>F = 2.5\u00b2 = 6.25</strong><br><br>For q=1, F-test and two-tailed t-test are equivalent. F becomes essential for joint tests with q\u22652."},{"module":"M04","lesson":"L04","topic":"house-ftest","type":"calc","front":"<em>[Calculation]</em><br><br>House price regression: SSR\u1d63=2400 (dropping bedrooms+distance), SSR\u1d64\u1d63=1800, q=2, n=150, k=3. F_{2,146,0.05}\u22483.06.","back":"<strong>F = (600/2)/(1800/146) = 300/12.33 \u2248 24.3 > 3.06 \u2192 Reject H\u2080</strong><br><br>Bedrooms and distance are jointly significant \u2014 excluding them would be a serious specification error."},{"module":"M04","lesson":"L02","topic":"pvalue","type":"mcq","front":"t = 2.15 with 45 df. Is p < 0.05 for a two-tailed test? t_{0.025,45} \u2248 2.014.<br><br>A) No \u2014 2.15 < 2.014 (it doesn't matter)<br>B) Yes \u2014 |t| = 2.15 > 2.014 \u2192 p < 0.05<br>C) Cannot determine without \u03c3\u00b2<br>D) No \u2014 need n not just df","back":"<strong>B) Yes \u2014 p < 0.05</strong><br><br>t_{0.025,45}\u22482.014 < 2.15. p \u2248 2\u00d7P(T\u2084\u2085>2.15) \u2248 0.037 < 0.05. Reject H\u2080."},{"module":"M04","lesson":"L05","topic":"econ-sig","type":"short","front":"<em>[Short Answer]</em><br><br>A coefficient is 0.0001 with p=0.001. Is this practically important?","back":"<strong>Probably not</strong> \u2014 statistically significant but economically trivial. With a very large n, even negligible effects become significant. Always report effect sizes and confidence intervals alongside p-values. Statistical significance answers 'is it different from zero?'; economic significance answers 'does it matter?'."},{"module":"M04","lesson":"L04","topic":"joint-test","type":"mcq","front":"Testing H\u2080: \u03b2\u2081=0 AND \u03b2\u2082=0. How many restrictions q?<br><br>A) 1<br>B) 2<br>C) Depends on n<br>D) Depends on k","back":"<strong>B) q = 2</strong><br><br>Each equality constraint is one restriction. q=2 \u2192 use F_{2,n\u2212k\u22121}. Cannot replace with 2 separate t-tests (inflates Type I error from multiple testing)."},{"module":"M04","lesson":"L01","topic":"asymptotic","type":"short","front":"<em>[Short Answer]</em><br><br>Why does asymptotic normality matter and when does it apply?","back":"<strong>Without MLR.6</strong>, exact t/F distributions require normality. The CLT gives \u03b2\u0302\u2c7c \u2192\u1d48 N(\u03b2\u2c7c, Var(\u03b2\u0302\u2c7c)) as n\u2192\u221e regardless of error distribution. t/F tests are then approximately valid in large samples. Applies when n is large relative to k and errors are not extremely non-normal."},{"module":"M04","lesson":"L03","topic":"ci-interpret","type":"short","front":"<em>[Short Answer]</em><br><br>What is the precise frequentist meaning of 'I am 95% confident \u03b2\u2081 is in [1.2, 3.8]'?","back":"<strong>If the sampling procedure were repeated many times, 95% of constructed intervals would contain the true \u03b2\u2081</strong> \u2014 not that this specific interval contains \u03b2\u2081 with probability 95%. \u03b2\u2081 is a fixed constant; the randomness is in the procedure. A Bayesian credible interval has the direct probability interpretation."},{"module":"M04","lesson":"L02","topic":"one-tailed","type":"calc","front":"<em>[Calculation]</em><br><br>H\u2080:\u03b2\u2081\u22640 vs H\u2081:\u03b2\u2081>0. t=1.85, df=38, one-tailed critical value t_{0.05,38}=1.686. Reject?","back":"<strong>Yes \u2014 t=1.85 > 1.686 \u2192 Reject H\u2080 at 5% (one-tailed)</strong><br><br>Two-tailed critical value \u22482.024 would not reject. One-tailed is more powerful when direction is known a priori. Choosing after seeing data = p-hacking."},{"module":"M04","lesson":"L05","topic":"output-interpret","type":"short","front":"<em>[Short Answer]</em><br><br>A regression table shows: coef=1.23, se=0.41, t=3.00, p=0.003, 95%CI=[0.42, 2.04]. Write the full interpretation.","back":"<strong>The coefficient is 1.23 units of y per unit of x.</strong> t=3.00, p=0.003 < 0.05 \u2192 statistically significant at 1% level. 95% CI [0.42, 2.04] excludes zero, confirming significance. The effect size (1.23) should be assessed for economic significance relative to the scale of x and y."},{"module":"M04","lesson":"L04","topic":"overall-f","type":"mcq","front":"Overall F-test: H\u2080: all slopes=0. F=8.3 with p<0.001 means:<br><br>A) Each coefficient is individually significant<br>B) Regressors jointly explain significant variation in y<br>C) The model is correctly specified<br>D) R\u00b2 is large","back":"<strong>B) Regressors jointly explain significant variation in y</strong><br><br>At least one \u03b2\u22600. Does NOT imply individual significance (multicollinearity can obscure individual effects), correct specification, or large R\u00b2."},{"module":"M04","lesson":"L05","topic":"normality","type":"mcq","front":"MLR.6 (normality: u|x~N(0,\u03c3\u00b2)) adds over MLR.1\u2013MLR.5:<br><br>A) Nothing \u2014 MLR.1\u20135 sufficient for all inference<br>B) Exact t_{n\u2212k\u22121} and F_{q,n\u2212k\u22121} distributions in finite samples<br>C) Needed only for unbiasedness<br>D) Ensures consistency","back":"<strong>B) Exact finite-sample t and F distributions</strong><br><br>Without MLR.6, t/F hold only asymptotically. For small n with non-normal errors, rely on large-sample approximations or bootstrap."},{"module":"M05","lesson":"L01","topic":"log-log","type":"mcq","front":"ln(sales) = 2.1 + 0.7\u00b7ln(price). The coefficient 0.7 is:<br><br>A) Change in sales per $1 price increase<br>B) Price elasticity of sales: 1% price increase \u2192 0.7% change in sales<br>C) Sales increase by 70% per unit price<br>D) Slope of the demand curve","back":"<strong>B) Price elasticity of sales (0.7)</strong><br><br>Log-log model: \u03b2\u2081 = % change in y per 1% change in x = elasticity. Dimensionless; directly comparable across contexts."},{"module":"M05","lesson":"L01","topic":"log-level","type":"mcq","front":"ln(wage) = 1.0 + 0.09\u00b7educ. Coefficient 0.09 means:<br><br>A) Wages increase by $0.09 per year of education<br>B) Each additional year of education raises wages by approximately 9%<br>C) Log-wages increase by 9 units per year<br>D) Wages multiply by 9 per year of education","back":"<strong>B) Approximately 9% wage increase per year of education</strong><br><br>Log-level: 100\u00d7\u03b2\u2081 \u2248 % change in y per unit change in x. Exact: e^0.09\u22121 \u2248 9.4%."},{"module":"M05","lesson":"L01","topic":"level-log","type":"mcq","front":"wage = 5 + 2.3\u00b7ln(experience). Coefficient 2.3 means:<br><br>A) $2.30 per additional year of experience<br>B) 1% increase in experience \u2192 wage increases by $0.023 (= 2.3/100)<br>C) 2.3% wage increase per year<br>D) Experience elasticity = 2.3","back":"<strong>B) 1% increase in experience \u2192 wage rises by $0.023</strong><br><br>Level-log: \u03b2\u2081/100 = change in y per 1% change in x. Captures diminishing returns \u2014 each extra year adds less."},{"module":"M05","lesson":"L02","topic":"quadratic-tp","type":"calc","front":"<em>[Calculation]</em><br><br>wage = 3 + 0.50\u00b7exper \u2212 0.01\u00b7exper\u00b2. At what experience level is wage maximised?","back":"<strong>x* = \u2212\u03b2\u0302\u2081/(2\u03b2\u0302\u2082) = \u22120.50/(2\u00d7\u22120.01) = 0.50/0.02 = 25 years</strong><br><br>\u03b2\u0302\u2082 < 0 \u2192 maximum (parabola opens downward). Wages rise for 25 years then fall \u2014 consistent with skill obsolescence."},{"module":"M05","lesson":"L03","topic":"dummy-interpret","type":"mcq","front":"ln(wage) = 1.2 + 0.08\u00b7educ + 0.15\u00b7female. Interpret the female coefficient.<br><br>A) Females earn $0.15 more<br>B) Females earn approximately 15% more than males with same education<br>C) Females earn approximately 15% less<br>D) No interpretation without base wage","back":"<strong>B) Females earn approximately 15% more</strong><br><br>Log-level dummy: 100\u00d7\u03b2_female \u2248 % difference relative to omitted group (males). Sign is positive here \u2014 unusual; typical wage regressions show a negative female coefficient."},{"module":"M05","lesson":"L04","topic":"dummy-trap","type":"mcq","front":"You have 4 education categories. With an intercept, how many dummies can you include?<br><br>A) 4<br>B) 3<br>C) 2<br>D) As many as needed","back":"<strong>B) 3 dummies (k\u22121 = 4\u22121 = 3)</strong><br><br>Including all 4 creates perfect multicollinearity: the 4 dummies sum to 1 for every observation = the intercept column. Omit one (the base group); its mean is captured by \u03b2\u0302\u2080."},{"module":"M05","lesson":"L05","topic":"interaction","type":"short","front":"<em>[Short Answer]</em><br><br>In ln(wage) = \u03b2\u2080 + \u03b2\u2081\u00b7educ + \u03b2\u2082\u00b7female + \u03b2\u2083\u00b7(educ\u00d7female), what does \u03b2\u2083 represent?","back":"<strong>\u03b2\u2083 = difference in the return to education between females and males</strong><br><br>Males: \u2202ln(wage)/\u2202educ = \u03b2\u2081. Females: \u03b2\u2081+\u03b2\u2083. \u03b2\u2083>0 means education raises wages MORE for women; \u03b2\u2083<0 means less. Interactions allow slopes to vary by group."},{"module":"M05","lesson":"L05","topic":"interaction-calc","type":"calc","front":"<em>[Calculation]</em><br><br>ln(wage) = 1.0 + 0.10\u00b7educ + 0.20\u00b7female + 0.03\u00b7(educ\u00d7female). Female with 16 years of education: ln(wage) = ?","back":"<strong>1.0 + 0.10(16) + 0.20(1) + 0.03(16\u00d71) = 1.0 + 1.6 + 0.20 + 0.48 = 3.28</strong><br><br>wage = e^3.28 \u2248 $26.58/hr. Male at 16 years: 1.0+1.6=2.60 \u2192 $13.46/hr."},{"module":"M05","lesson":"L01","topic":"log-comparison","type":"mcq","front":"Can you compare R\u00b2 between ln(y) = X\u03b2+u and y = X\u03b2+u to choose the better model?<br><br>A) Yes \u2014 higher R\u00b2 always wins<br>B) No \u2014 they explain different variance measures (ln(y) vs y) and are incomparable<br>C) Yes if n is equal<br>D) No because R\u00b2 is undefined for log models","back":"<strong>B) No \u2014 incomparable R\u00b2 values</strong><br><br>R\u00b2 in the log model measures proportion of Var(ln y) explained; in the level model, Var(y). Different benchmarks. Compare by predicting y from both models and evaluating residuals on the same scale."},{"module":"M05","lesson":"L01","topic":"log-approx","type":"mcq","front":"In a log-level model, \u03b2\u0302=0.05. The approximate % effect of a 1-unit increase in x on y is:<br><br>A) 0.05%<br>B) 5%<br>C) 50%<br>D) e^0.05 \u2248 105%","back":"<strong>B) Approximately 5%</strong><br><br>100\u00d7\u03b2\u2081 \u2248 % change in y. Exact: e^0.05\u22121 = 5.13%. The approximation works well for |\u03b2\u2081| \u2272 0.2."},{"module":"M05","lesson":"L03","topic":"seasonal","type":"short","front":"<em>[Short Answer]</em><br><br>Quarterly model with dummies Q1, Q2, Q3 and Q4 as base. What does the Q1 coefficient represent?","back":"<strong>Mean difference in the outcome between Q1 and Q4 (the base quarter), holding other controls constant</strong><br><br>e.g. if \u03b2_Q1 = \u221215 in electricity demand regression: Q1 demand is 15 units lower than Q4 on average. The base group effect is absorbed into the intercept."},{"module":"M05","lesson":"L02","topic":"diminishing-returns","type":"mcq","front":"You expect wages to increase with experience at a DECREASING rate (diminishing returns). Which functional form is most appropriate?<br><br>A) Linear: wage = \u03b2\u2080+\u03b2\u2081exper<br>B) Quadratic with \u03b2\u2082<0 or level-log<br>C) Log-log with \u03b2\u2081>1<br>D) Linear with \u03b2\u2081<0","back":"<strong>B) Quadratic with \u03b2\u2082<0 OR level-log</strong><br><br>Quadratic: wage=\u03b2\u2080+\u03b2\u2081exper+\u03b2\u2082exper\u00b2 with \u03b2\u2082<0 creates an inverted-U. Level-log: wage=\u03b2\u2080+\u03b2\u2081ln(exper) naturally produces diminishing returns. Log-log with \u03b2\u2081>1 implies INCREASING returns."},{"module":"M06","lesson":"L01","topic":"hetero-defn","type":"mcq","front":"Heteroskedasticity violates which Gauss-Markov assumption?<br><br>A) MLR.1 \u2014 Linearity<br>B) MLR.4 \u2014 E(u|x)=0<br>C) MLR.5 \u2014 Var(u|x)=\u03c3\u00b2<br>D) MLR.3 \u2014 No perfect multicollinearity","back":"<strong>C) MLR.5 \u2014 Homoskedasticity</strong><br><br>Heteroskedasticity: Var(u\u1d62|x\u1d62) = \u03c3\u1d62\u00b2 varies with i. MLR.4 is intact so OLS remains unbiased; but efficiency and valid SEs require MLR.5."},{"module":"M06","lesson":"L01","topic":"hetero-consequences","type":"mcq","front":"With heteroskedasticity, OLS is:<br><br>A) Biased and inconsistent<br>B) Unbiased and consistent but not BLUE; standard SEs are wrong<br>C) Still BLUE<br>D) Produces coefficients too large in absolute value","back":"<strong>B) Unbiased/consistent but not BLUE; standard SEs are biased \u2192 invalid t/F tests</strong><br><br>MLR.1\u20134 intact \u2192 unbiasedness. MLR.5 violated \u2192 OLS not efficient (WLS beats it); standard SE formula is wrong \u2192 inflated Type I error."},{"module":"M06","lesson":"L01","topic":"fan-plot","type":"mcq","front":"Residuals fan out (increasing spread) as fitted values increase. This suggests:<br><br>A) Serial correlation<br>B) Heteroskedasticity \u2014 error variance increases with fitted value<br>C) Omitted variable bias<br>D) Perfect multicollinearity","back":"<strong>B) Heteroskedasticity</strong><br><br>The fan/funnel pattern is the classic visual signature. Common in wage data (high earners more variable), firm-level data (larger firms larger errors), cross-country data."},{"module":"M06","lesson":"L02","topic":"bp-test","type":"short","front":"<em>[Short Answer]</em><br><br>Describe the Breusch-Pagan test procedure step by step.","back":"<strong>1.</strong> Estimate original regression; get residuals \u00fb\u1d62.<br><strong>2.</strong> Regress \u00fb\u1d62\u00b2 on original regressors.<br><strong>3.</strong> LM = n\u00b7R\u00b2_aux ~ \u03c7\u00b2_k under H\u2080 (homoskedasticity).<br><strong>4.</strong> Reject H\u2080 if LM > \u03c7\u00b2_{k,\u03b1}.<br>BP tests linear heteroskedasticity only; White test is more general."},{"module":"M06","lesson":"L02","topic":"bp-calc","type":"calc","front":"<em>[Calculation]</em><br><br>Auxiliary regression of \u00fb\u1d62\u00b2 on x\u2081,x\u2082: R\u00b2=0.08, n=200. Test at 5%. \u03c7\u00b2_{2,0.05}=5.99.","back":"<strong>LM = 200\u00d70.08 = 16.0 > 5.99 \u2192 Reject H\u2080</strong><br><br>Strong evidence of heteroskedasticity. OLS SEs are unreliable \u2014 use robust SEs or WLS."},{"module":"M06","lesson":"L02","topic":"white-df","type":"calc","front":"<em>[Calculation]</em><br><br>White test with k=2 original regressors. How many terms in the auxiliary regression (excluding intercept)?","back":"<strong>5 terms: x\u2081, x\u2082, x\u2081\u00b2, x\u2082\u00b2, x\u2081x\u2082</strong><br><br>2 original + 2 squared + 1 cross-product = 5. df = 5 for the \u03c7\u00b2 test. General formula: 2k + k(k\u22121)/2. Grows fast with k \u2192 White test loses power in large models."},{"module":"M06","lesson":"L03","topic":"robust-ses","type":"short","front":"<em>[Short Answer]</em><br><br>Robust (HC) SEs fix the inference problem from heteroskedasticity but not the efficiency problem. Explain.","back":"<strong>Inference:</strong> Robust SEs use a consistent variance estimator valid under any heteroskedasticity form \u2192 valid t/F asymptotically.<br><br><strong>Efficiency:</strong> Robust SEs still use OLS point estimates, which are NOT minimum variance under heteroskedasticity (WLS would beat them). Robust SEs correct the reported uncertainty but not the estimator itself."},{"module":"M06","lesson":"L04","topic":"wls-weights","type":"mcq","front":"If Var(u\u1d62) = \u03c3\u00b2\u00b7x\u1d62 (variance proportional to x\u1d62), the WLS weight for observation i is:<br><br>A) w\u1d62 = x\u1d62<br>B) w\u1d62 = 1/x\u1d62<br>C) w\u1d62 = \u221ax\u1d62<br>D) w\u1d62 = 1/\u221ax\u1d62","back":"<strong>B) w\u1d62 = 1/x\u1d62</strong><br><br>WLS divides each observation by \u221ah\u1d62 where Var(u\u1d62)=\u03c3\u00b2h\u1d62. Here h\u1d62=x\u1d62 \u2192 weight = 1/x\u1d62. After weighting, transformed errors have constant variance \u03c3\u00b2."},{"module":"M06","lesson":"L04","topic":"fgls","type":"mcq","front":"In FGLS, you regress ln(\u00fb\u1d62\u00b2) on regressors, get \u011d\u1d62, and set \u0125\u1d62=exp(\u011d\u1d62). The WLS weight is:<br><br>A) \u0125\u1d62<br>B) 1/\u0125\u1d62<br>C) ln(\u0125\u1d62)<br>D) \u221a\u0125\u1d62","back":"<strong>B) 1/\u0125\u1d62</strong><br><br>\u0125\u1d62 estimates Var(u\u1d62)/\u03c3\u00b2. WLS requires weighting by inverse estimated variance: w\u1d62=1/\u0125\u1d62. FGLS is asymptotically as efficient as GLS but relies on correct specification of the variance model."},{"module":"M06","lesson":"L02","topic":"bp-vs-white","type":"short","front":"<em>[Short Answer]</em><br><br>When would you prefer the White test over the Breusch-Pagan test?","back":"<strong>Prefer White when:</strong> heteroskedasticity may be nonlinear in the regressors. BP only tests linear functional form. White adds squared and cross-product terms \u2192 detects wider range of heteroskedasticity.<br><br><strong>Cost:</strong> more df \u2192 less power in small samples. BP preferred when linear form suspected or n is small."},{"module":"M06","lesson":"L03","topic":"robust-default","type":"mcq","front":"Heteroskedasticity suspected but form unknown. Which SEs should you report?<br><br>A) OLS SEs \u2014 valid in large samples<br>B) Robust (HC) SEs \u2014 valid asymptotically under any heteroskedasticity<br>C) WLS SEs \u2014 always more efficient<br>D) Bootstrap \u2014 always preferred","back":"<strong>B) Robust (HC) SEs</strong><br><br>OLS SEs are biased under heteroskedasticity even in large samples. WLS requires knowing the variance function. Modern practice: report robust SEs by default; minor cost (slightly less power under homoskedasticity) for major protection."},{"module":"M06","lesson":"L01","topic":"log-reduces-hetero","type":"short","front":"<em>[Short Answer]</em><br><br>Why does taking logs of y often reduce heteroskedasticity in wage regressions?","back":"<strong>Log transformation compresses the scale</strong> \u2014 if Var(y) \u221d \u03bc\u00b2, then Var(ln y) \u2248 Var(y)/\u03bc\u00b2 \u2248 constant (homoskedastic). High earners have higher absolute variance but similar proportional variability. Log converts absolute dispersion to proportional, removing the fan-pattern."},{"module":"M07","lesson":"L01","topic":"omit-vs-irrelevant","type":"mcq","front":"Omitting a relevant variable (\u03b2\u22600) causes OLS to be:<br><br>A) Inefficient but unbiased<br>B) Biased and inconsistent if the omitted variable is correlated with included regressors<br>C) Consistent but not unbiased<br>D) Always biased regardless of correlation","back":"<strong>B) Biased and inconsistent if correlated with included regressors</strong><br><br>If omitted x\u2082 is uncorrelated with x\u2081, \u03b2\u0302\u2081 remains unbiased (but imprecise). If correlated: OVB formula applies \u2192 biased in finite samples AND in probability limit (inconsistent)."},{"module":"M07","lesson":"L01","topic":"irrelevant-bias","type":"mcq","front":"Including an irrelevant variable (\u03b2=0 in truth) causes OLS to be:<br><br>A) Biased<br>B) Inconsistent<br>C) Unbiased but less efficient (larger variance)<br>D) Undefined","back":"<strong>C) Unbiased but less efficient</strong><br><br>\u03b2\u0302 for the irrelevant variable is E[\u03b2\u0302]=0 (unbiased). Including it wastes df and may inflate VIF \u2192 larger SEs. Trade-off: omit relevant\u2192bias; include irrelevant\u2192inefficiency."},{"module":"M07","lesson":"L01","topic":"reset-test","type":"short","front":"<em>[Short Answer]</em><br><br>What is the RESET test and what does it detect?","back":"<strong>Ramsey's RESET:</strong> add powers of fitted values (\u0177\u00b2, \u0177\u00b3) to the regression and test if their coefficients are jointly zero (F-test).<br><br>Detects: functional form misspecification \u2014 omitted nonlinear terms, interaction effects, or wrong transformations. If RESET rejects, the linear model may be misspecified."},{"module":"M07","lesson":"L02","topic":"proxy","type":"short","front":"<em>[Short Answer]</em><br><br>What is a proxy variable and when is it valid?","back":"<strong>A proxy for unobservable x* is an observable x\u2082 that is correlated with x*</strong>.<br><br>Valid proxy condition: Cov(x\u2082, u*) = 0 conditional on x\u2082* \u2014 the proxy captures all relevant information about x* for the regression. Example: IQ test score as a proxy for unobservable ability in wage regressions."},{"module":"M07","lesson":"L02","topic":"measurement-error","type":"mcq","front":"Classical errors-in-variables: the regressor x\u1d62 = x*\u1d62 + e\u1d62 where e is measurement error independent of x*. OLS for \u03b2\u2081 is:<br><br>A) Unbiased<br>B) Biased toward zero (attenuation bias)<br>C) Biased away from zero<br>D) Consistent but biased in small samples","back":"<strong>B) Biased toward zero (attenuation bias)</strong><br><br>plim \u03b2\u0302\u2081 = \u03b2\u2081 \u00d7 [Var(x*)/Var(x)] = \u03b2\u2081 \u00d7 [1/(1 + Var(e)/Var(x*))] < \u03b2\u2081. Measurement error dilutes the signal \u2192 coefficient shrinks toward zero. IV can correct this."},{"module":"M07","lesson":"L03","topic":"missing-data","type":"mcq","front":"If data are Missing Completely At Random (MCAR), OLS on the remaining sample is:<br><br>A) Always biased<br>B) Unbiased \u2014 missing completely at random means the sample is a random subset of the population<br>C) Inconsistent<br>D) Only valid if n is large","back":"<strong>B) Unbiased under MCAR</strong><br><br>MCAR: missingness is unrelated to x or y. Remaining observations are a random sample \u2192 OLS valid. Missing At Random (MAR) allows missingness to depend on observed x. Missing Not At Random (MNAR) causes selection bias."},{"module":"M07","lesson":"L01","topic":"misspecification","type":"mcq","front":"A researcher estimates a linear model but the true relationship is quadratic. This causes:<br><br>A) No problem if n is large<br>B) Biased and inconsistent OLS due to functional form misspecification<br>C) Only inflated standard errors<br>D) Heteroskedasticity","back":"<strong>B) Biased and inconsistent OLS</strong><br><br>The omitted quadratic term x\u00b2 is correlated with x \u2192 OVB. RESET test can detect this. Remedy: add x\u00b2 to the specification. The linear model mistakes curvature for a simple slope."},{"module":"M07","lesson":"L02","topic":"attenuation-iv","type":"short","front":"<em>[Short Answer]</em><br><br>A test score measures intelligence with error. If you regress wages on test score, the coefficient is attenuated. How can IV fix this?","back":"<strong>Use an instrument z correlated with true intelligence x* but uncorrelated with measurement error e</strong> (e.g. a second test administered independently). The IV estimator uses only variation in x correlated with z \u2014 which is variation in the true x*, not the noise. This removes attenuation bias."},{"module":"M07","lesson":"L01","topic":"ovb-consistency","type":"mcq","front":"Is OVB a finite-sample problem or a consistency problem?<br><br>A) Finite-sample only \u2014 disappears as n\u2192\u221e<br>B) Both \u2014 the bias does not vanish as n\u2192\u221e (inconsistency)<br>C) Only relevant for n < 30<br>D) Depends on the size of the omitted variable's effect","back":"<strong>B) Both \u2014 OVB causes inconsistency</strong><br><br>plim \u03b2\u0302\u2081 = \u03b2\u2081 + \u03b2\u2082\u00b7Cov(x\u2082,x\u2081)/Var(x\u2081) \u2260 \u03b2\u2081 as n\u2192\u221e. More data does NOT fix OVB \u2014 you need a different strategy (IV, DiD, controls, or experiment)."},{"module":"M07","lesson":"L03","topic":"selection-bias","type":"short","front":"<em>[Short Answer]</em><br><br>A survey only includes workers who are employed. You regress wages on education. What bias might arise?","back":"<strong>Selection bias (non-random sample)</strong>: workers who are employed may be positively selected on unobservables (motivation, ability) correlated with both education and wages. OLS is biased because the sample is not representative of the full population. Remedies: Heckman selection correction, IV, or data on non-participants."},{"module":"M08","lesson":"L01","topic":"ts-types","type":"mcq","front":"Which type of data follows the same units observed at multiple time periods?<br><br>A) Cross-sectional<br>B) Panel data<br>C) Time series<br>D) Pooled cross-section","back":"<strong>C) Time series</strong><br><br>Time series: single unit over multiple periods (e.g. quarterly GDP, monthly inflation). Panel data: multiple units over multiple periods. Cross-sectional: multiple units at one point in time."},{"module":"M08","lesson":"L01","topic":"strict-exogeneity","type":"mcq","front":"Strict exogeneity requires E(u\u209c|x\u2081,...,x\u2099) = 0. This is stronger than contemporaneous exogeneity because:<br><br>A) It also rules out correlation between u\u209c and past x values<br>B) It requires all regressors to be normally distributed<br>C) It only applies to time series data<br>D) It is equivalent to E(u\u209c|x\u209c) = 0","back":"<strong>A) Also rules out feedback from past errors to future x</strong><br><br>Strict exogeneity: no correlation between the error at any time t and regressors at any other time. Violated if, e.g., last period's y (which depends on u\u209c\u208b\u2081) appears as a regressor."},{"module":"M08","lesson":"L04","topic":"stationarity","type":"mcq","front":"A stationary time series has:<br><br>A) Constant mean and variance; covariance between y\u209c and y\u209c\u208b\u209b depends only on the lag s<br>B) An upward trend<br>C) No serial correlation<br>D) Normally distributed errors","back":"<strong>A) Constant mean, constant variance, lag-dependent covariance only</strong><br><br>Weak stationarity: E(y\u209c)=\u03bc, Var(y\u209c)=\u03c3\u00b2, Cov(y\u209c,y\u209c\u208b\u209b)=\u03b3(s). Non-stationary series (random walks, trends) cause spurious regression \u2014 OLS results are meaningless."},{"module":"M08","lesson":"L04","topic":"ar1","type":"mcq","front":"AR(1): y\u209c = \u03c1y\u209c\u208b\u2081 + e\u209c. For stationarity, \u03c1 must satisfy:<br><br>A) \u03c1 > 0<br>B) |\u03c1| < 1<br>C) \u03c1 = 0<br>D) \u03c1 > 1","back":"<strong>B) |\u03c1| < 1</strong><br><br>|\u03c1|<1: shocks decay \u2192 stationary. \u03c1=1: random walk \u2192 non-stationary (variance grows without bound). |\u03c1|>1: explosive \u2192 non-stationary. Random walk is the boundary case, not stationary."},{"module":"M08","lesson":"L03","topic":"spurious","type":"short","front":"<em>[Short Answer]</em><br><br>What is spurious regression and when does it arise?","back":"<strong>Spurious regression:</strong> two non-stationary (e.g. I(1)) series appear highly correlated in OLS even when they are completely unrelated. R\u00b2 is high and t-statistics are large, but inference is invalid.<br><br>Arises when series share common trends. Remedy: test for unit roots (ADF test), first-difference the series, or test for cointegration."},{"module":"M08","lesson":"L02","topic":"static-fdl","type":"mcq","front":"A Finite Distributed Lag (FDL) model includes:<br><br>A) Only the current value of x<br>B) Current and lagged values of x: y\u209c = \u03b2\u2080 + \u03b4\u2080x\u209c + \u03b4\u2081x\u209c\u208b\u2081 + \u03b4\u2082x\u209c\u208b\u2082 + u\u209c<br>C) Lagged values of y<br>D) Both lagged x and lagged y","back":"<strong>B) Current and lagged values of x</strong><br><br>FDL captures delayed effects: \u03b4\u2080 = immediate impact multiplier; \u03a3\u03b4\u2c7c = long-run multiplier. Useful when policy effects take time to materialise (e.g. monetary policy operates with 12-18 month lag)."},{"module":"M08","lesson":"L04","topic":"random-walk","type":"mcq","front":"A random walk y\u209c = y\u209c\u208b\u2081 + e\u209c (\u03c1=1 AR(1)) is non-stationary because:<br><br>A) It has a trend<br>B) Var(y\u209c) = t\u00b7\u03c3\u00b2 \u2192 grows without bound over time<br>C) E(y\u209c) is non-constant<br>D) It violates the zero conditional mean assumption","back":"<strong>B) Variance grows with time: Var(y\u209c) = t\u03c3\u00b2</strong><br><br>Shocks accumulate and never die out. The series 'wanders' without returning to a fixed mean. Differencing (\u0394y\u209c = e\u209c) creates a stationary I(0) series."},{"module":"M08","lesson":"L04","topic":"trend","type":"short","front":"<em>[Short Answer]</em><br><br>When should you include a time trend t in a time-series regression?","back":"<strong>When y\u209c and x\u209c both exhibit trending behaviour</strong> \u2014 failing to include a trend causes spurious correlation. Including t as a regressor removes common linear trends (detrending). If trends are non-linear, polynomial trends or first-differencing may be needed."},{"module":"M08","lesson":"L01","topic":"ts-exogeneity","type":"short","front":"<em>[Short Answer]</em><br><br>Give an example where contemporaneous exogeneity holds but strict exogeneity fails.","back":"<strong>Adaptive expectations or feedback:</strong> Suppose x\u209c = government spending, y\u209c = GDP. E(u\u209c|x\u209c)=0 (government sets spending based on past info). But if government responds to last period's GDP shortfall: x\u209c\u208a\u2081 depends on y\u209c = f(x\u209c,u\u209c). Then Cov(u\u209c,x\u209c\u208a\u2081)\u22600 \u2192 strict exogeneity fails."},{"module":"M08","lesson":"L02","topic":"long-run-mult","type":"calc","front":"<em>[Calculation]</em><br><br>FDL(2) model: y\u209c = 1 + 0.3x\u209c + 0.2x\u209c\u208b\u2081 + 0.1x\u209c\u208b\u2082 + u\u209c. Calculate the long-run multiplier.","back":"<strong>Long-run multiplier = \u03a3\u03b4\u2c7c = 0.3 + 0.2 + 0.1 = 0.6</strong><br><br>A permanent unit increase in x eventually raises y by 0.6 units in total. The immediate impact is 0.3; further effects accumulate over 2 periods."},{"module":"M09","lesson":"L01","topic":"sc-defn","type":"mcq","front":"Serial correlation (autocorrelation) means:<br><br>A) Var(u\u209c|x\u209c) \u2260 \u03c3\u00b2<br>B) Cov(u\u209c,u\u209c\u208b\u209b) \u2260 0 for some s\u22600<br>C) E(u\u209c|x\u209c) \u2260 0<br>D) The errors are not normally distributed","back":"<strong>B) Cov(u\u209c,u\u209c\u208b\u209b) \u2260 0 \u2014 errors are correlated across time</strong><br><br>Common in time series \u2014 economic shocks persist. Like heteroskedasticity, it leaves OLS unbiased but not BLUE, and makes standard SEs biased (typically understated \u2192 t-stats too large)."},{"module":"M09","lesson":"L01","topic":"sc-consequences","type":"mcq","front":"With serial correlation, OLS is:<br><br>A) Biased and inconsistent<br>B) Unbiased and consistent, but not BLUE; standard SEs are wrong<br>C) Still BLUE<br>D) Inconsistent regardless","back":"<strong>B) Unbiased/consistent but not BLUE; SEs wrong</strong><br><br>MLR.4 (zero conditional mean) intact \u2192 unbiasedness. But the GLS assumption (Var(u)=\u03c3\u00b2I) fails \u2192 OLS not efficient; standard SEs understate true uncertainty \u2192 over-rejection."},{"module":"M09","lesson":"L02","topic":"dw-stat","type":"mcq","front":"The Durbin-Watson statistic DW \u2248 2(1\u2212\u03c1\u0302). If DW \u2248 2, this suggests:<br><br>A) Strong positive serial correlation<br>B) No serial correlation (\u03c1\u0302 \u2248 0)<br>C) Negative serial correlation<br>D) Heteroskedasticity","back":"<strong>B) No serial correlation</strong><br><br>DW\u22482 \u2192 \u03c1\u0302\u22480. DW<2 \u2192 positive autocorrelation (common). DW>2 \u2192 negative autocorrelation. Rule of thumb: DW in [1.5, 2.5] is typically acceptable."},{"module":"M09","lesson":"L02","topic":"dw-calc","type":"calc","front":"<em>[Calculation]</em><br><br>Estimated \u03c1\u0302 = 0.6 from residuals. What is the approximate Durbin-Watson statistic?","back":"<strong>DW \u2248 2(1\u2212\u03c1\u0302) = 2(1\u22120.6) = 2\u00d70.4 = 0.8</strong><br><br>DW = 0.8 << 2 indicates strong positive serial correlation. Remedies: Newey-West SEs or GLS/quasi-differencing."},{"module":"M09","lesson":"L03","topic":"newey-west","type":"short","front":"<em>[Short Answer]</em><br><br>What are Newey-West (HAC) standard errors and when do you use them?","back":"<strong>Heteroskedasticity and Autocorrelation Consistent (HAC) standard errors</strong> \u2014 account for both serial correlation and heteroskedasticity in the variance estimate.<br><br>Use when: time series data with suspected serial correlation, or panel data with within-unit correlation. Like robust SEs, they correct the reported uncertainty without changing the OLS point estimates."},{"module":"M09","lesson":"L03","topic":"quasi-diff","type":"short","front":"<em>[Short Answer]</em><br><br>Describe the GLS quasi-differencing transformation for AR(1) serial correlation.","back":"<strong>If u\u209c = \u03c1u\u209c\u208b\u2081 + e\u209c, transform by quasi-differencing:</strong><br>\u1ef9\u209c = y\u209c \u2212 \u03c1y\u209c\u208b\u2081, x\u0303\u209c = x\u209c \u2212 \u03c1x\u209c\u208b\u2081<br><br>The transformed model \u1ef9\u209c = \u03b2\u2080(1\u2212\u03c1) + \u03b2\u2081x\u0303\u209c + e\u209c has serially uncorrelated errors. OLS on the transformed model (GLS/FGLS with estimated \u03c1\u0302) is BLUE."},{"module":"M09","lesson":"L02","topic":"dw-limitations","type":"mcq","front":"A limitation of the Durbin-Watson test is:<br><br>A) It requires large samples<br>B) It is invalid when a lagged dependent variable (y\u209c\u208b\u2081) appears as a regressor<br>C) It only detects negative autocorrelation<br>D) It requires normality of errors","back":"<strong>B) Invalid with lagged dependent variable as regressor</strong><br><br>DW assumes strict exogeneity. Including y\u209c\u208b\u2081 as a regressor creates a mechanical correlation between regressors and residuals that biases DW. Use Breusch-Godfrey LM test instead."},{"module":"M09","lesson":"L02","topic":"breusch-godfrey","type":"mcq","front":"The Breusch-Godfrey (BG) test for serial correlation is preferred over the DW test because:<br><br>A) It only requires one additional regression<br>B) It is valid with lagged dependent variables and tests for higher-order serial correlation<br>C) It does not require any additional computation<br>D) It has fewer assumptions","back":"<strong>B) Valid with lagged dependent variables; tests any order p of serial correlation</strong><br><br>BG regresses OLS residuals \u00fb\u209c on original regressors and lagged residuals \u00fb\u209c\u208b\u2081,...,\u00fb\u209c\u208b\u209a. LM = n\u00b7R\u00b2 ~ \u03c7\u00b2_p. More flexible than DW."},{"module":"M09","lesson":"L03","topic":"prais-winsten","type":"mcq","front":"Prais-Winsten estimation differs from Cochrane-Orcutt by:<br><br>A) Using a different lag structure<br>B) Retaining the first observation (transformed) rather than discarding it<br>C) Not requiring an estimate of \u03c1<br>D) Always being more efficient","back":"<strong>B) Retaining the first observation in transformed form</strong><br><br>Cochrane-Orcutt drops the first observation after quasi-differencing (loses one data point). Prais-Winsten keeps it by using \u1ef9\u2081 = \u221a(1\u2212\u03c1\u00b2)\u00b7y\u2081 etc. More efficient, especially with small n."},{"module":"M09","lesson":"L01","topic":"sc-detection","type":"short","front":"<em>[Short Answer]</em><br><br>How would you visually detect serial correlation in time-series residuals?","back":"<strong>Plot residuals \u00fb\u209c against time t:</strong> a pattern of runs (clusters of positive then negative residuals) suggests positive autocorrelation. Random scatter around zero suggests none.<br><br>Also: plot \u00fb\u209c vs \u00fb\u209c\u208b\u2081 (residual scatter against lagged residual) \u2014 positive slope indicates positive AR(1) autocorrelation. DW or BG test provides formal evidence."},{"module":"M10","lesson":"L01","topic":"endogeneity","type":"mcq","front":"A regressor x is endogenous if:<br><br>A) It is not normally distributed<br>B) Cov(x,u) \u2260 0<br>C) It has many missing values<br>D) It is correlated with other regressors","back":"<strong>B) Cov(x,u) \u2260 0 \u2014 the regressor is correlated with the error term</strong><br><br>This violates E(u|x)=0 (SLR.4). OLS is biased and inconsistent. Three sources: omitted variables, measurement error (in x), simultaneous causality (y \u2192 x)."},{"module":"M10","lesson":"L01","topic":"endogeneity-sources","type":"mcq","front":"Which is NOT a source of endogeneity?<br><br>A) Omitted variable correlated with x<br>B) Measurement error in x<br>C) Large sample size<br>D) Simultaneity (y causes x and x causes y)","back":"<strong>C) Large sample size</strong><br><br>More data cannot fix endogeneity \u2014 it causes INCONSISTENCY (plim \u03b2\u0302\u2081 \u2260 \u03b2\u2081). The three sources are: (1) OVB, (2) measurement error in x (attenuation bias), (3) simultaneity."},{"module":"M10","lesson":"L02","topic":"iv-estimator","type":"mcq","front":"The IV estimator for a single instrument z is:<br><br>A) \u03b2\u0302_IV = Cov(x,y)/Var(x)<br>B) \u03b2\u0302_IV = Cov(z,y)/Cov(z,x)<br>C) \u03b2\u0302_IV = Cov(z,x)/Cov(z,y)<br>D) \u03b2\u0302_IV = Var(z)/Cov(z,y)","back":"<strong>B) \u03b2\u0302_IV = Cov(z,y)/Cov(z,x)</strong><br><br>The instrument z extracts the variation in x that is exogenous. Cov(z,y) uses only z-driven variation in y; Cov(z,x) scales it by how strongly z moves x."},{"module":"M10","lesson":"L02","topic":"iv-conditions","type":"mcq","front":"A valid instrument z requires:<br><br>A) Relevance: Corr(z,x) \u2260 0 AND Exclusion: Cov(z,u) = 0<br>B) Corr(z,y) \u2260 0 only<br>C) z must be normally distributed<br>D) z must be uncorrelated with x","back":"<strong>A) Relevance (z moves x) AND Exclusion (z unrelated to u)</strong><br><br>Relevance is testable (first-stage F-stat). Exclusion is UNTESTABLE \u2014 requires economic reasoning. Card (1995): nearness to college \u2192 relevance (affects education); exclusion (distance to college affects wages ONLY through education)."},{"module":"M10","lesson":"L03","topic":"2sls","type":"short","front":"<em>[Short Answer]</em><br><br>Describe the Two-Stage Least Squares (2SLS) procedure.","back":"<strong>Stage 1:</strong> Regress endogenous x on instrument z and all exogenous controls \u2192 get x\u0302 (the part of x explained by z).<br><strong>Stage 2:</strong> Regress y on x\u0302 (and controls) \u2192 \u03b2\u0302_2SLS.<br><br>x\u0302 is exogenous by construction (it's a function of z only). 2SLS uses only z-driven variation in x, removing the endogeneity bias."},{"module":"M10","lesson":"L04","topic":"weak-instruments","type":"mcq","front":"The rule of thumb for a 'weak instrument' is first-stage F-statistic:<br><br>A) F < 1<br>B) F < 10<br>C) F < 5<br>D) F < 0.1","back":"<strong>B) F < 10 (Staiger & Stock 1997 rule of thumb)</strong><br><br>Weak instruments (F<10) mean z barely moves x \u2192 \u03b2\u0302_2SLS is severely biased (toward OLS), confidence intervals are unreliable. With weak instruments, even valid instruments produce badly misleading results."},{"module":"M10","lesson":"L04","topic":"iv-vs-ols","type":"mcq","front":"IV is consistent but biased in finite samples. Compared to OLS when the instrument is valid:<br><br>A) IV is always better<br>B) IV is consistent; OLS is both biased and inconsistent \u2014 prefer IV for large n; IV can be worse than OLS for very small n<br>C) OLS is consistent and IV is biased<br>D) They are numerically identical","back":"<strong>B) IV consistent; OLS biased+inconsistent \u2014 prefer IV for large n</strong><br><br>For small n, IV finite-sample bias can be substantial (especially with weak instruments). The trade-off: IV removes inconsistency but adds finite-sample bias and larger variance."},{"module":"M10","lesson":"L05","topic":"did-estimator","type":"mcq","front":"The 2\u00d72 DiD estimator is:<br><br>A) \u03b2\u0302_DD = \u0232\u2081\u2081 \u2212 \u0232\u2080\u2080<br>B) \u03b2\u0302_DD = (\u0232\u2081\u2081 \u2212 \u0232\u2081\u2080) \u2212 (\u0232\u2080\u2081 \u2212 \u0232\u2080\u2080)<br>C) \u03b2\u0302_DD = \u0232\u2081\u2081 \u2212 \u0232\u2080\u2081<br>D) \u03b2\u0302_DD = (\u0232\u2081\u2081 + \u0232\u2080\u2080) \u2212 (\u0232\u2081\u2080 + \u0232\u2080\u2081)","back":"<strong>B) (\u0232\u2081\u2081\u2212\u0232\u2081\u2080) \u2212 (\u0232\u2080\u2081\u2212\u0232\u2080\u2080)</strong><br><br>First difference: change in treated group (removes group fixed effect). Second difference: counterfactual trend from control group. DiD = treatment effect."},{"module":"M10","lesson":"L05","topic":"parallel-trends","type":"short","front":"<em>[Short Answer]</em><br><br>What is the parallel trends assumption in DiD and why is it partially untestable?","back":"<strong>Parallel trends:</strong> in the absence of treatment, the treated group would have followed the same trend as the control group.<br><br><strong>Partially untestable:</strong> we never observe the counterfactual (treated without treatment) in the post-period. We can test pre-treatment parallel trends using multiple pre-periods, but cannot verify the assumption holds post-treatment."},{"module":"M10","lesson":"L05","topic":"card-krueger","type":"calc","front":"<em>[Calculation]</em><br><br>Card & Krueger (1992): NJ employment pre=20.44, post=21.03; PA employment pre=23.33, post=21.17. Calculate \u03b2\u0302_DD.","back":"<strong>\u03b2\u0302_DD = (21.03\u221220.44) \u2212 (21.17\u221223.33) = 0.59 \u2212 (\u22122.16) = 2.75</strong><br><br>NJ's minimum wage increase was associated with \u22482.75 more FTE employees per restaurant relative to the PA trend. Employment rose \u2014 contrary to the standard competitive prediction."},{"module":"M10","lesson":"L05","topic":"did-regression","type":"short","front":"<em>[Short Answer]</em><br><br>Write the DiD regression equation and interpret each coefficient.","back":"<strong>y\u1d62\u209c = \u03b1 + \u03b3D\u1d62\u1d57\u02b3\u1d49\u1d43\u1d57 + \u03bbD\u209c\u1d56\u1d52\u02e2\u1d57 + \u03b2(D\u1d62\u1d57\u02b3\u1d49\u1d43\u1d57 \u00d7 D\u209c\u1d56\u1d52\u02e2\u1d57) + \u03b5\u1d62\u209c</strong><br><br>\u03b1 = control group pre-period mean. \u03b3 = pre-treatment group difference. \u03bb = common time trend (control group change). \u03b2 = <strong>DiD treatment effect</strong>."},{"module":"M10","lesson":"L03","topic":"2sls-se","type":"mcq","front":"In 2SLS, if you manually run Stage 2 OLS using x\u0302, the standard errors from that regression are:<br><br>A) Correct<br>B) Too small \u2014 they ignore the sampling uncertainty from Stage 1<br>C) Too large<br>D) Exactly the same as IV SEs","back":"<strong>B) Too small \u2014 manual 2SLS underestimates SEs</strong><br><br>Stage 2 uses x\u0302 (an estimated quantity with its own sampling variance). The correct 2SLS SEs account for Stage 1 uncertainty. Always use software's built-in 2SLS/IV estimator, not manually chained OLS regressions."},{"module":"M10","lesson":"L02","topic":"card-instrument","type":"short","front":"<em>[Short Answer]</em><br><br>Card (1995) uses proximity to college as an instrument for education. Verify the two IV conditions.","back":"<strong>Relevance:</strong> Students who grew up near a college are more likely to attend college (lower cost/distance \u2192 more education). First-stage F typically > 10. \u2713<br><br><strong>Exclusion restriction:</strong> Distance to college affects wages ONLY through education, not directly. Arguable \u2014 areas near colleges may have different labour markets. This is the standard validity debate."},{"module":"M10","lesson":"L05","topic":"pre-trend-test","type":"short","front":"<em>[Short Answer]</em><br><br>How do you test the parallel trends assumption using pre-treatment data?","back":"<strong>Add pre-treatment interaction terms:</strong> include D\u1d62\u1d57\u02b3\u1d49\u1d43\u1d57 \u00d7 D\u209c\u208c\u208b\u2081, D\u1d62\u1d57\u02b3\u1d49\u1d43\u1d57 \u00d7 D\u209c\u208c\u208b\u2082, etc. to the DiD regression (with one pre-period as base).<br><br>Test joint significance of pre-period interactions (F-test). If not jointly significant: parallel trends held before treatment \u2192 credible that it would have continued. If significant: groups were already diverging \u2192 DiD estimate is suspect."},{"module":"M10","lesson":"L01","topic":"ols-plim","type":"calc","front":"<em>[Calculation]</em><br><br>True model: y = \u03b2\u2080 + \u03b2\u2081x + \u03b3q + u, where q is omitted and Cov(x,q)=0.5, Var(x)=1, \u03b3=2. The probability limit of \u03b2\u0302\u2081 (OLS) is?","back":"<strong>plim \u03b2\u0302\u2081 = \u03b2\u2081 + \u03b3\u00b7Cov(x,q)/Var(x) = \u03b2\u2081 + 2\u00d70.5/1 = \u03b2\u2081 + 1</strong><br><br>OLS overstates \u03b2\u2081 by 1. This is the OVB formula in population: plim \u03b2\u0302\u2081 = \u03b2\u2081 + bias term. IV with a valid instrument recovers \u03b2\u2081."}]
+let deck = [...ALL_CARDS];
+let idx = 0, flipped = false;
+
+(function() {
+  const modules = [...new Set(ALL_CARDS.map(c => c.module))].sort();
+  const sel = document.getElementById('module-specific');
+  modules.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m; opt.textContent = m;
+    sel.appendChild(opt);
+  });
+})();
+
+function filterCards() {
+  const mod = document.getElementById('module-filter').value;
+  const typ = document.getElementById('type-filter').value;
+  deck = ALL_CARDS.filter(c => {
+    const num = parseInt(c.module.slice(1));
+    const levelOk = mod==='ALL'||(mod==='INTRO'&&num<=12)||(mod==='INTER'&&num>=13);
+    return levelOk && (typ==='ALL'||c.type===typ);
+  });
+  idx=0; flipped=false; showCard();
+}
+
+function filterSpecific() {
+  const mod = document.getElementById('module-specific').value;
+  const typ = document.getElementById('type-filter').value;
+  deck = ALL_CARDS.filter(c => (mod==='ALL'||c.module===mod) && (typ==='ALL'||c.type===typ));
+  idx=0; flipped=false; showCard();
+}
+
+function shuffleDeck() {
+  for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];}
+  idx=0; flipped=false; showCard();
+}
+function resetDeck() { filterCards(); }
+
+function showCard() {
+  if(deck.length===0){document.getElementById('card-content').innerHTML='<em>No cards match.</em>';return;}
+  const card=deck[idx];
+  const el=document.getElementById('card');
+  document.getElementById('card-content').innerHTML=flipped?card.back:card.front;
+  el.style.background=flipped?'#e0f7fa':'white';
+  el.style.borderColor=flipped?'#00695c':'#00897b';
+  document.getElementById('flip-hint').textContent=flipped?'👆 Tap to see question':'👆 Tap to reveal answer';
+  document.getElementById('counter').textContent=`Card ${idx+1} of ${deck.length}`;
+  document.getElementById('progress-bar').style.width=`${((idx+1)/deck.length)*100}%`;
+  const num=parseInt(card.module.slice(1));
+  const level=num<=12?'Introductory':'Intermediate';
+  document.getElementById('module-badge').textContent=`${card.module} · ${card.lesson} · ${card.topic.replace(/-/g,' ')} · ${level}`;
+}
+function flipCard(){flipped=!flipped;showCard();}
+function nextCard(){idx=(idx+1)%deck.length;flipped=false;showCard();}
+function prevCard(){idx=(idx-1+deck.length)%deck.length;flipped=false;showCard();}
+showCard();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
